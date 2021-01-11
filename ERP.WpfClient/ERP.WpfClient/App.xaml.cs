@@ -1,9 +1,12 @@
 ﻿using Autofac;
 using ERP.Entities.DbContext;
 using ERP.Repository.Generic;
+using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
+using ERP.WpfClient.View.AutoLock;
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Windows;
 
 namespace ERP.WpfClient
@@ -19,6 +22,8 @@ namespace ERP.WpfClient
             base.OnStartup(e);
             MapperProfile.InitializeMappers();
             InitializeServices();
+            CheckDisability();
+            ApplicationManager.Instance.AutoDiableStorePopUp();
         }
 
         private void InitializeServices()
@@ -28,6 +33,33 @@ namespace ERP.WpfClient
             Container = builder.Build();
             InitializeDB();
         }
+
+        private void CheckDisability()
+        {
+            var todayDate = "2021-04-11";
+            DateTime dt3 = new DateTime(2021, 04, 11, 18, 30, 20);
+            var d = System.Diagnostics.Stopwatch.GetTimestamp();
+            var utc = DateTime.UtcNow;
+            var now = DateTime.Now;
+            var date = Convert.ToDateTime(todayDate);
+            var dgd = GetNow();
+            var dsdd = ApplicationManager.Instance.GetCurrentTime();
+
+        }
+
+        [DllImport("Kernel32.dll", CallingConvention = CallingConvention.Winapi)]
+        static extern void GetSystemTimePreciseAsFileTime(out long filetime);
+
+        public DateTimeOffset GetNow()
+        {
+            long fileTime;
+            GetSystemTimePreciseAsFileTime(out fileTime);
+            return DateTimeOffset.FromFileTime(fileTime);
+        }
+
+ 
+
+
 
         private void InitializeDB()
         {

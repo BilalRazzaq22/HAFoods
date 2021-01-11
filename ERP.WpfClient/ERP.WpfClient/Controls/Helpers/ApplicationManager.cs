@@ -3,6 +3,7 @@ using ERP.Common.NotifyProperty;
 using ERP.WpfClient.Messages.BusyIndicator;
 using ERP.WpfClient.Messages.Popup;
 using ERP.WpfClient.Messages.View;
+using ERP.WpfClient.View.AutoLock;
 using ERP.WpfClient.View.Popups;
 using ERP.WpfClient.ViewModel.Popup;
 using GalaSoft.MvvmLight.Messaging;
@@ -14,6 +15,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
+using System.Net.Http;
 using System.Text;
 using System.Windows;
 
@@ -159,6 +161,45 @@ namespace ERP.WpfClient.Controls.Helpers
         //    });
 
         //}
+
+
+        public void ExitApplication()
+        {
+            Application.Current.Shutdown();
+        }
+
+        public void AutoDiableStorePopUp()
+        {
+            Window window = new Window()
+            {
+                Title = "Confirmation",
+                Content = new AutoLock(this),
+                Height = 500,
+                Width = 400,
+                MinWidth = 400,
+                WindowStartupLocation = WindowStartupLocation.CenterScreen,
+                WindowStyle = WindowStyle.None,
+                AllowsTransparency = true
+            };
+            window.ShowDialog();
+        }
+
+        public DateTimeOffset? GetCurrentTime()
+        {
+            using (var client = new HttpClient())
+            {
+                try
+                {
+                    var result = client.GetAsync("https://google.com",
+                          HttpCompletionOption.ResponseHeadersRead).Result;
+                    return result.Headers.Date;
+                }
+                catch
+                {
+                    return null;
+                }
+            }
+        }
 
         /// <summary>
         /// Background worker to handle logic without freezing UI

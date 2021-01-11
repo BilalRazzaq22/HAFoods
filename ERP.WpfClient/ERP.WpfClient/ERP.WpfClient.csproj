@@ -169,6 +169,9 @@
     <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\Transaction\CurrentTransactionViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
+    <Compile Include="View\AutoLock\AutoLock.xaml.cs">
+      <DependentUpon>AutoLock.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Customers\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
@@ -233,6 +236,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Resources\Themes\Images\ImageResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\AutoLock\AutoLock.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

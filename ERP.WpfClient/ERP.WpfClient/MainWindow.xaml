@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ERP.WpfClient" xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="HAFoods" Height="780" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid Background="{StaticResource MasterBackgroundColor}">
+    <Grid x:Name="MainWindowGrid" Background="{StaticResource MasterBackgroundColor}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
