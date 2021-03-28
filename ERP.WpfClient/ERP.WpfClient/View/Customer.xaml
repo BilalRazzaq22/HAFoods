@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Customer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid Background="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="240"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="80"/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Content="First Name :" Padding="10" FontSize="16"/>
+                <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10"/>
+
+                <Label Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" Content="Last Name :" Padding="10" FontSize="16"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CustomerModel.LastName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10" VerticalContentAlignment="Center"/>
+
+                <Label Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Content="Contact No :" Padding="10" FontSize="16"/>
+                <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10"/>
+                
+                <Label Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Content="Address :" Padding="10" FontSize="16"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CustomerModel.Address,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10" VerticalContentAlignment="Center"/>
+
+                <Button Grid.Column="1" Grid.Row="2" Content="Save" Command="{Binding CustomerCommands}" CommandParameter="SaveCustomer" />
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <DataGrid ItemsSource="{Binding CustomerList}" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="LastName Name" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="Contact No" Binding="{Binding ContactNo}"/>
+                    <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

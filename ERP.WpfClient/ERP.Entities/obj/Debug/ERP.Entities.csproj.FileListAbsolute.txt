@@ -1,0 +1,15 @@
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Entities.dll.config
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Entities.dll
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Entities.pdb
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.dll
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Common.dll
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Common.pdb
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Common.dll.config
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.xml
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csprojAssemblyReference.cache
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.CoreCompileInputs.cache
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.CopyComplete
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.dll
+C:\Users\bilal\projects\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.pdb
