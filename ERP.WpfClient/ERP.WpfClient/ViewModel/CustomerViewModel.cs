@@ -1,14 +1,6 @@
 ﻿using ERP.Common.NotifyProperty;
-using ERP.Entities.DBModel;
-using ERP.Repository.CustomerRepo;
 using ERP.WpfClient.Commands;
-using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ERP.WpfClient.ViewModel
 {

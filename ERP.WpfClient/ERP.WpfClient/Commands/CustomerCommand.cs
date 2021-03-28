@@ -1,9 +1,5 @@
 ﻿using ERP.WpfClient.ViewModel;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace ERP.WpfClient.Commands
@@ -20,7 +16,7 @@ namespace ERP.WpfClient.Commands
 
         public bool CanExecute(object parameter)
         {
-            return false;
+            return true;
         }
 
         public void Execute(object parameter)

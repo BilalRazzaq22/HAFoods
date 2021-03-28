@@ -21,20 +21,21 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1">
-                <Button Uid="0" Style="{StaticResource LeftMenuButton}" Content="Customers" Click="Button_Click" />
-                <Button Uid="1" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Click="Button_Click" />
-                <Button Uid="2" Style="{StaticResource LeftMenuButton}" Content="Stock" Click="Button_Click" />
-                <Button Uid="3" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Click="Button_Click"/>
-                <Button Uid="4" Style="{StaticResource LeftMenuButton}" Content="Sale Orders" Click="Button_Click" />
-                <Button Uid="5" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Click="Button_Click"/>
-                <Button Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Click="Button_Click"/>
+                <Button Uid="0" Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" />
+                <Button Uid="1" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" />
+                <Button Uid="2" Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" />
+                <Button Uid="3" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}"/>
+                <Button Uid="4" Style="{StaticResource LeftMenuButton}" Content="Sale Orders" Command="{Binding MainViewCommand}" />
+                <Button Uid="5" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}"/>
+                <Button Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}"/>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="0" Grid.Column="1">
 
         </StackPanel>
         <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True">
-            <UserControl x:Name="MainParent"></UserControl>
+            <!--<UserControl x:Name="MainParent"></UserControl>-->
+            <Grid x:Name="MainControlsHost" />
         </DockPanel>
     </Grid>
 </Window>

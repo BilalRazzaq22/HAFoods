@@ -10,3 +10,15 @@ C:\Users\bilal\projects\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.Cor
 C:\Users\bilal\projects\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.CopyComplete
 C:\Users\bilal\projects\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.dll
 C:\Users\bilal\projects\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\ERP.Common.dll.config
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\ERP.Common.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\ERP.Common.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.xml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csprojAssemblyReference.cache
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.CoreCompileInputs.cache
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.CopyComplete
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.pdb

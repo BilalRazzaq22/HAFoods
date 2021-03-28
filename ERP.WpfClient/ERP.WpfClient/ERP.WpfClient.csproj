@@ -60,9 +60,11 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\CustomerCommand.cs" />
+    <Compile Include="Commands\MainViewCommand.cs" />
     <Compile Include="Mapper\MapperProfile.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
