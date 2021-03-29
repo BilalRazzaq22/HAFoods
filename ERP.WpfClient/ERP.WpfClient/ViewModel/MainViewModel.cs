@@ -329,7 +329,7 @@ namespace ERP.WpfClient.ViewModel
             switch (viewType)
             {
                 case ViewTypes.Customer:
-                    _viewManagerService.Select("home").Transition<Customer>(viewType);
+                    _viewManagerService.Select("home").Transition<View.Customer>(viewType);
                     break;
                 default:
                     break;

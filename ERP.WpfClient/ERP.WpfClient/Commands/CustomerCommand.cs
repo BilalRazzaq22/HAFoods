@@ -1,4 +1,5 @@
-﻿using ERP.WpfClient.ViewModel;
+﻿using ERP.WpfClient.Model;
+using ERP.WpfClient.ViewModel.Customer;
 using System;
 using System.Windows.Input;
 
@@ -21,13 +22,17 @@ namespace ERP.WpfClient.Commands
 
         public void Execute(object parameter)
         {
-            switch (parameter as string)
+            if(parameter as string == "SaveCustomer")
             {
-                case "SaveCustomer":
-                    CustomerViewModel.SaveCustomer();
-                    break;
-                default:
-                    break;
+                CustomerViewModel.SaveCustomer();
+            }
+            else if (parameter as string == "UpdateCustomer")
+            {
+                CustomerViewModel.UpdateCustomer();
+            }
+            else if(parameter != null)
+            {
+                CustomerViewModel.EditCustomer(parameter as CustomerModel);
             }
         }
     }

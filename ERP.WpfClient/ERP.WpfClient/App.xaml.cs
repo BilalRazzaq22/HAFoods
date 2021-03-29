@@ -1,4 +1,6 @@
-﻿using ERP.WpfClient.Mapper;
+﻿using Autofac;
+using ERP.Repository.Customer;
+using ERP.WpfClient.Mapper;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,10 +16,24 @@ namespace ERP.WpfClient
     /// </summary>
     public partial class App : Application
     {
+        public static IContainer Container { get; private set; }
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
             MapperProfile.InitializeMappers();
+            InitializeServices();
+        }
+
+        private void InitializeServices()
+        {
+            var builder = new ContainerBuilder();
+            builder.RegisterType<CustomerRepository>().As<ICustomerRepository>().InstancePerLifetimeScope();
+            Container = builder.Build();
+        }
+
+        public static T Resolve<T>()
+        {
+            return Container.Resolve<T>();
         }
     }
 }

@@ -72,7 +72,7 @@
                     </StackPanel>
 
                 </StackPanel>-->
-                <Button Style="{StaticResource CommonSaveButton}" Grid.Row="3" Grid.Column="4" Content="Save" Command="{Binding CustomerCommands}" CommandParameter="SaveCustomer" />
+                <Button Style="{StaticResource CommonSaveButton}" Grid.Row="3" Grid.Column="4" Content="{Binding CustomerButton}" Command="{Binding CustomerCommands}" CommandParameter="{Binding CustomerParameter}" />
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="1" >
@@ -89,7 +89,7 @@
                 </Grid>
             </StackPanel>
 
-            <DataGrid ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}" AutoGenerateColumns="False">
+            <DataGrid ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>
@@ -99,13 +99,21 @@
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <!--<Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource PopUpButtonBackgroundColor}" Width="100" Margin="5 0">
-                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CustomerEditCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button  Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
-                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
+                                                <TextBlock  Margin="0" Text="Select" />
                                             </StackPanel>
                                         </Button>
-                                    </Border>-->
+                                    </Border>
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button  Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock  Margin="0" Text="Delete" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
                                 </StackPanel>
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>

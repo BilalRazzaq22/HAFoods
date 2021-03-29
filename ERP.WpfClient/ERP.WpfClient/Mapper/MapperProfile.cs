@@ -16,7 +16,7 @@ namespace ERP.WpfClient.Mapper
         {
             var config = new MapperConfiguration(cfg =>
             {
-                cfg.CreateMap<Customer, CustomerModel>();
+                cfg.CreateMap<Customer, CustomerModel>().ReverseMap();
             });
 
             iMapper = config.CreateMapper();
