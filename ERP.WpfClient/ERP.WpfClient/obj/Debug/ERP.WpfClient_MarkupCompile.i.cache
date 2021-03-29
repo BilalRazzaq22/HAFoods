@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\
 ERP.WpfClient
 none
 false
 DEBUG;TRACE
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
-31999821758
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
+5-1342216433
 
 15632697832
-18-1191139154
-MainWindow.xaml;Resources\Themes\StaticResource.xaml;View\Customer.xaml;
+18924296327
+MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\FontSizes\FontSize.xaml;View\Customer.xaml;
 
-False
+True
 

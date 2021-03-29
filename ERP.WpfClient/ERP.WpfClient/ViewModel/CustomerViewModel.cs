@@ -1,5 +1,7 @@
 ﻿using ERP.Common.NotifyProperty;
+using ERP.Entities.DBModel;
 using ERP.WpfClient.Commands;
+using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
 
 namespace ERP.WpfClient.ViewModel

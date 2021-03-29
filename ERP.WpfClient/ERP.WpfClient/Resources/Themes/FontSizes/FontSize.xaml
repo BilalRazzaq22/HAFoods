@@ -1,0 +1,11 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    
+    
+    <FontFamily x:Key="MainTextFontFamily">Product Sans</FontFamily>
+
+
+    <system:Double x:Key="SideNavFontSize">15</system:Double>
+    <system:Double x:Key="DataGridHeaderColumnFontSize">14</system:Double>
+</ResourceDictionary>
