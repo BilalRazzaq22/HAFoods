@@ -49,15 +49,24 @@
         <Setter Property="Background" Value="{StaticResource CommonWhiteBackgroundColor}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
-        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontSize" Value="16"/>
         <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="250"/>
+        <Setter Property="Width" Value="230"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="15 0 0 0"/>
         <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
     </Style>
 
+    <Style x:Key="SimpleLabelText" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Opacity" Value="0.8"/>
+        <Setter Property="Margin" Value="10 0 0 0"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
+    </Style>
 
 
     <Style x:Key="TopMainHeadings" TargetType="{x:Type TextBlock}">
@@ -72,7 +81,38 @@
         <Setter Property="Margin" Value="5 5 0 5"/>
 
     </Style>
-    
+
+
+    <Style x:Key="CommonSaveButton" TargetType="{x:Type Button}">
+
+        <Setter Property="BorderBrush" Value="Transparent"/>
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Width" Value="100"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Background" Value="{StaticResource CommonBlueBackgroundColor}"/>
+        <Setter Property="Foreground" Value="{StaticResource CommonWhiteBackgroundColor}"/>
+        <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="border" BorderThickness="0" BorderBrush="Black" Background="{StaticResource CommonBlueBackgroundColor}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.8" />
+
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
 
     <Style x:Key="DataGridsForList" TargetType="{x:Type DataGrid}">
 

@@ -28,38 +28,37 @@
                 </Grid.RowDefinitions>
 
                 <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customer Information" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-                
+
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
-                    
-                <Label VerticalContentAlignment="Center" Content="First Name :" Padding="10" FontSize="16"/>
-                <TextBox  Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Left" Margin="10"/>
+                    <Label Style="{StaticResource SimpleLabelText}" Content="First Name:" />
+                    <TextBox  Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
-                    
-                <Label VerticalContentAlignment="Center" Content="Last Name :" Padding="10" FontSize="16"/>
-                <TextBox Text="{Binding CustomerModel.LastName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Left" Margin="10" VerticalContentAlignment="Center"/>
+
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Last Name:"/>
+                    <TextBox Text="{Binding CustomerModel.LastName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
-                    <Label VerticalContentAlignment="Center" Content="Full Name :" Padding="10" FontSize="16"/>
-                    <TextBox  Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Left" IsEnabled="False" Margin="10"/>
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Full Name:"/>
+                    <TextBox  Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" IsEnabled="False"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
-                    <Label  VerticalContentAlignment="Center" Content="Contact No :" Padding="10" FontSize="16"/>
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Contact No:"/>
                     <TextBox  Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
-                
-                <Label VerticalContentAlignment="Center" Content="Address :" Padding="10" FontSize="16"/>
-                    
-                    <TextBox Text="{Binding CustomerModel.Address,Mode=TwoWay}" Width="500" Height="50" HorizontalAlignment="Left" Margin="10" VerticalContentAlignment="Center"/>
+
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Address:"/>
+
+                    <TextBox Text="{Binding CustomerModel.Address,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="450" TextWrapping="Wrap" Height="100"/>
 
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
+                <!--<StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
                     <TextBlock Style="{StaticResource TopMainHeadings}" Text="Stats" Grid.Row="0" Grid.Column="0"/>
 
                     <StackPanel Orientation="Horizontal">
@@ -72,9 +71,8 @@
                         <TextBlock Text="450" FontSize="20" Foreground="{StaticResource CommonBlueBackgroundColor}" FontWeight="Bold" Margin="10 0 0 0" />
                     </StackPanel>
 
-                </StackPanel>
-                
-                <Button Grid.Row="3" Margin="10" Content="Save" Command="{Binding CustomerCommands}" CommandParameter="SaveCustomer" Height="40" Background="Blue" FontWeight="Bold" FontSize="20" Foreground="White" Width="150"  Grid.ColumnSpan="4" />
+                </StackPanel>-->
+                <Button Style="{StaticResource CommonSaveButton}" Grid.Row="3" Grid.Column="4" Content="Save" Command="{Binding CustomerCommands}" CommandParameter="SaveCustomer" />
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="1" >
