@@ -1,4 +1,5 @@
 ﻿using ERP.WpfClient.ViewModel;
+using ERP.WpfClient.ViewModel.Customer;
 using System.Windows.Controls;
 
 namespace ERP.WpfClient.View
@@ -10,8 +11,8 @@ namespace ERP.WpfClient.View
     {
         public Customer()
         {
-            InitializeComponent();
             this.DataContext = new CustomerViewModel();
+            InitializeComponent();
         }
     }
 }

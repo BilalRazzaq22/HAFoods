@@ -15,7 +15,7 @@ namespace ERP.WpfClient.Model
         private string _fullName;
         private string _contactNo;
         private string _address;
-        private DateTime _createdDate;
+        private DateTime? _createdDate;
         private string _createdBy;
         private DateTime? _updatedDate;
         private string _updatedBy;
@@ -57,10 +57,10 @@ namespace ERP.WpfClient.Model
             set { _address = value; RaisePropertyChanged("Address"); }
         }
 
-        public DateTime CreatedDate
+        public DateTime? CreatedDate
         {
             get { return _createdDate; }
-            set { _createdDate = value; RaisePropertyChanged("CreatedDate"); }
+            set { _createdDate = DateTime.Now; RaisePropertyChanged("CreatedDate"); }
         }
 
         public string CreatedBy
