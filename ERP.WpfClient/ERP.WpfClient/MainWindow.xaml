@@ -5,29 +5,30 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ERP.WpfClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid>
+        Title="HAFoods" Height="780" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Grid Background="{StaticResource MasterBackgroundColor}">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" Background="White">
+        <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <StackPanel Grid.Row="1">
-                <Button Uid="0" Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" />
-                <Button Uid="1" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" />
-                <Button Uid="2" Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" />
-                <Button Uid="3" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}"/>
-                <Button Uid="4" Style="{StaticResource LeftMenuButton}" Content="Sale Orders" Command="{Binding MainViewCommand}" />
-                <Button Uid="5" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}"/>
-                <Button Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}"/>
+                <RadioButton Uid="0" Style="{StaticResource LeftMenuButton}" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" />
+                <RadioButton Uid="1" Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" CommandParameter="Customer"/>
+                <RadioButton Uid="2" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" />
+                <RadioButton Uid="3" Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" />
+                <RadioButton Uid="4" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}"/>
+                <RadioButton Uid="5" Style="{StaticResource LeftMenuButton}" Content="Sale Orders" Command="{Binding MainViewCommand}" />
+                <RadioButton Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}"/>
+                <RadioButton Uid="7" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}"/>
             </StackPanel>
         </Grid>
         <StackPanel Grid.Row="0" Grid.Column="1">

@@ -1,4 +1,5 @@
-﻿using ERP.WpfClient.ViewModel;
+﻿using ERP.Common;
+using ERP.WpfClient.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,9 +25,18 @@ namespace ERP.WpfClient.Commands
             return true;
         }
 
+        //Use case for each type of view
         public void Execute(object parameter)
         {
-            MainViewModel.LoadViewAsync("Customer");
+            switch (parameter as string)
+            {
+                case "Home":
+                    break;
+
+                case "Customer":
+                    MainViewModel.LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+            }
         }
     }
 }

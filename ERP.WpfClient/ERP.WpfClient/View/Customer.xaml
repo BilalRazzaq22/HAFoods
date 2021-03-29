@@ -5,46 +5,114 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERP.WpfClient.View"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
+             d:DesignHeight="780"
+             d:DesignWidth="1024">
+    <Grid Background="{StaticResource MasterBackgroundColor}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="240"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
                     <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <Label Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" Content="First Name :" Padding="10" FontSize="16"/>
-                <TextBox Grid.Row="0" Grid.Column="0" Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10"/>
-
-                <Label Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" Content="Last Name :" Padding="10" FontSize="16"/>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding CustomerModel.LastName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10" VerticalContentAlignment="Center"/>
-
-                <Label Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" Content="Contact No :" Padding="10" FontSize="16"/>
-                <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10"/>
+                <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customer Information" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
                 
-                <Label Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" Content="Address :" Padding="10" FontSize="16"/>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding CustomerModel.Address,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Right" Margin="10" VerticalContentAlignment="Center"/>
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                    
+                <Label VerticalContentAlignment="Center" Content="First Name :" Padding="10" FontSize="16"/>
+                <TextBox  Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Left" Margin="10"/>
+                </StackPanel>
 
-                <Button Grid.Column="1" Grid.Row="2" Content="Save" Command="{Binding CustomerCommands}" CommandParameter="SaveCustomer" />
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    
+                <Label VerticalContentAlignment="Center" Content="Last Name :" Padding="10" FontSize="16"/>
+                <TextBox Text="{Binding CustomerModel.LastName,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Left" Margin="10" VerticalContentAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
+                    <Label VerticalContentAlignment="Center" Content="Full Name :" Padding="10" FontSize="16"/>
+                    <TextBox  Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Width="250" Height="50" HorizontalAlignment="Left" IsEnabled="False" Margin="10"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
+                    <Label  VerticalContentAlignment="Center" Content="Contact No :" Padding="10" FontSize="16"/>
+                    <TextBox  Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2">
+                
+                <Label VerticalContentAlignment="Center" Content="Address :" Padding="10" FontSize="16"/>
+                    
+                    <TextBox Text="{Binding CustomerModel.Address,Mode=TwoWay}" Width="500" Height="50" HorizontalAlignment="Left" Margin="10" VerticalContentAlignment="Center"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Stats" Grid.Row="0" Grid.Column="0"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Total Customers :"  FontSize="20" FontWeight="Bold"/>
+                        <TextBlock Text="500" FontSize="20" Foreground="{StaticResource CommonBlueBackgroundColor}" FontWeight="Bold" Margin="10 0 0 0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                        <TextBlock Text="Total Active Customers :" FontSize="20" FontWeight="Bold"/>
+                        <TextBlock Text="450" FontSize="20" Foreground="{StaticResource CommonBlueBackgroundColor}" FontWeight="Bold" Margin="10 0 0 0" />
+                    </StackPanel>
+
+                </StackPanel>
+                
+                <Button Grid.Row="3" Margin="10" Content="Save" Command="{Binding CustomerCommands}" CommandParameter="SaveCustomer" Height="40" Background="Blue" FontWeight="Bold" FontSize="20" Foreground="White" Width="150"  Grid.ColumnSpan="4" />
             </Grid>
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <DataGrid ItemsSource="{Binding CustomerList}" AutoGenerateColumns="False">
+        <StackPanel Grid.Row="1" >
+
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customers" Grid.Row="0" Grid.Column="0"/>
+                    
+                <TextBox Height="30" Width="200" HorizontalAlignment="Right" Margin=" 10" Grid.Column="1"/>
+                </Grid>
+            </StackPanel>
+
+            <DataGrid ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}" AutoGenerateColumns="False">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="First Name" Binding="{Binding FirstName}"/>
-                    <DataGridTextColumn Header="LastName Name" Binding="{Binding LastName}"/>
-                    <DataGridTextColumn Header="Contact No" Binding="{Binding ContactNo}"/>
-                    <DataGridTextColumn Header="Address" Binding="{Binding Address}"/>
+                    <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="Contact No" Width="*" Binding="{Binding ContactNo}"/>
+                    <DataGridTextColumn Header="Address" Width="*" Binding="{Binding Address}"/>
+                    <DataGridTemplateColumn Width="*" Header="Actions">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <!--<Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource PopUpButtonBackgroundColor}" Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CustomerEditCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>-->
+                                </StackPanel>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

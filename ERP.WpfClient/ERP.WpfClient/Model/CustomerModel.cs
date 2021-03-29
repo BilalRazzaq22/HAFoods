@@ -12,6 +12,7 @@ namespace ERP.WpfClient.Model
         private int _Id;
         private string _firstName;
         private string _lastName;
+        private string _fullName;
         private string _contactNo;
         private string _address;
         private DateTime _createdDate;
@@ -35,6 +36,13 @@ namespace ERP.WpfClient.Model
         {
             get { return _lastName; }
             set { _lastName = value; RaisePropertyChanged("LastName"); }
+        }
+
+        public string FullName
+        {
+            get { return _fullName; }
+            set { _fullName = value;  RaisePropertyChanged("FullName");
+            }
         }
 
         public string ContactNo

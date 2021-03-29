@@ -9,6 +9,7 @@ namespace ERP.Common
     public enum ViewTypes
     {
         None,
+        Home,
         Customer
     }
 }
