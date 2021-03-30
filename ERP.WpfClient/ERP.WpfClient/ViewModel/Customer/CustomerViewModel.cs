@@ -1,9 +1,11 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
 using ERP.Repository.Customer;
-using ERP.WpfClient.Commands;
+using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
+using ERP.WpfClient.View.Popups;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -28,7 +30,9 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         public CustomerViewModel()
         {
-            this.CustomerCommands = new CustomerCommand(this);
+            CustomerCommands = new RelayCommand<string>(ExecuteCustomerCommand);
+            DeleteCustomerCommand = new RelayCommand<string>(ExecuteDeleteCustomerCommand);
+            //this.CustomerCommands = new CustomerCommand(this);
             _customerRepository = App.Resolve<ICustomerRepository>();
             CustomerModel = new CustomerModel();
             CustomerList = new ObservableCollection<CustomerModel>();
@@ -39,7 +43,10 @@ namespace ERP.WpfClient.ViewModel.Customer
         #endregion
 
         #region Properties
-        public CustomerCommand CustomerCommands { get; set; }
+        public RelayCommand<string> CustomerCommands { get; set; }
+        public RelayCommand<string> DeleteCustomerCommand { get; set; }
+
+        //public CustomerCommand CustomerCommands { get; set; }
 
         public CustomerModel CustomerModel
         {
@@ -65,11 +72,39 @@ namespace ERP.WpfClient.ViewModel.Customer
             set { _customerButton = value; RaisePropertyChanged("CustomerButton"); }
         }
 
-       
-
         #endregion
 
         #region Methods
+
+        private void ExecuteCustomerCommand(object str)
+        {
+            if (str as string == "SaveCustomer")
+            {
+                SaveCustomer();
+            }
+            else if (str as string == "UpdateCustomer")
+            {
+                UpdateCustomer();
+            }
+            else if (str != null)
+            {
+                EditCustomer(str as CustomerModel);
+            }
+        }
+
+        private void ExecuteDeleteCustomerCommand(string str)
+        {
+            if(str == "DeleteCustomer")
+            {
+                ApplicationManager.Instance.ShowConfirmDialog("Message", () =>
+                {
+                    //ApplicationManager.Instance.HideDialog();
+                    //ApplicationManager.PrintOrder(OrderToRefund, refundedReceipt: true);
+
+
+                }, () => ApplicationManager.Instance.HideMessageBox(), useYesNo: true);
+            }
+        }
 
         public void SaveCustomer()
         {

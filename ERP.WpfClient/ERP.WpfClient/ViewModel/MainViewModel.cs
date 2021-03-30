@@ -1,7 +1,6 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
-using ERP.WpfClient.Commands;
-using ERP.WpfClient.View;
+using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,12 +33,13 @@ namespace ERP.WpfClient.ViewModel
         private bool _isReserveItemsEnable;
         private bool _isReleaseItemsEnable;
         private bool _isCustomerEnable;
-        public MainViewCommand MainViewCommand { get; set; }
+        //public MainViewCommand MainViewCommand { get; set; }
         #endregion
 
         public MainViewModel()
         {
-            MainViewCommand = new MainViewCommand(this);
+            MainViewCommand = new RelayCommand<string>(ExecuteMainViewCommand);
+            //MainViewCommand = new MainViewCommand(this);
             _viewManagerService = ViewManagerService.CreateInstance();
         }
 
@@ -73,6 +73,8 @@ namespace ERP.WpfClient.ViewModel
         //}
 
         #region Properties
+
+        public RelayCommand<string> MainViewCommand { get; set; }
 
         //public bool IsCustomerEnable
         //{
@@ -194,6 +196,18 @@ namespace ERP.WpfClient.ViewModel
         //        ApplicationManager.Instance.ShowDialog(string.Empty, new ViewWebOrderPopUp(new WebOrderDetailsViewModel(order, string.Empty, false, showCancelOrder: true)));
         //    }
         //}
+
+        private void ExecuteMainViewCommand(string str)
+        {
+            switch (str)
+            {
+                case "Home":
+                    break;
+                case "Customer":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+            }
+        }
 
         public void ClosePopup()
         {
