@@ -107,7 +107,7 @@
                                         </Button>
                                     </Border>
                                     <Border  Width="100" Margin="5 0">
-                                        <Button  Command="{Binding DataContext.DeleteCustomerCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="DeleteCustomer">
+                                        <Button  Command="{Binding DataContext.DeleteCustomerCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock  Margin="0" Text="Delete" />
                                             </StackPanel>

@@ -129,3 +129,5 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfCli
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.csproj.CopyComplete
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.exe
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Settings\MainMenu.g.cs
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Settings\MainMenu.baml

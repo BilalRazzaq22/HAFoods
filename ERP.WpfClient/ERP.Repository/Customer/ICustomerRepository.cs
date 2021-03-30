@@ -8,5 +8,6 @@ namespace ERP.Repository.Customer
         void SaveCustomer(Entities.DBModel.Customer customer);
         void UpdateCustomer(Entities.DBModel.Customer customer);
         Entities.DBModel.Customer GetById(int id);
+        void DeleteCustomer(int id);
     }
 }

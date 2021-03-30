@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:ERP.WpfClient.View.Popups"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid Background="AliceBlue">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />

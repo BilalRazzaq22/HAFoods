@@ -44,6 +44,7 @@ namespace ERP.Repository.Customer
             {
                 db.Customers.Remove(cust);
             }
+            db.SaveChanges();
         }
     }
 }

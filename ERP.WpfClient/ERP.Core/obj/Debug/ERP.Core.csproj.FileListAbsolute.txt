@@ -6,3 +6,4 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj.CopyComplete
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csprojAssemblyReference.cache

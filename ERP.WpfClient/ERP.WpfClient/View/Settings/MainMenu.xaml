@@ -1,0 +1,21 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Settings.MainMenu"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Settings"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <StackPanel>
+            <RadioButton Uid="0" Style="{StaticResource LeftMenuButton}" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" />
+            <RadioButton Uid="1" Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" CommandParameter="Customer"/>
+            <RadioButton Uid="2" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" />
+            <RadioButton Uid="3" Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" />
+            <RadioButton Uid="4" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}"/>
+            <RadioButton Uid="5" Style="{StaticResource LeftMenuButton}" Content="Sale Orders" Command="{Binding MainViewCommand}" />
+            <RadioButton Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}"/>
+            <RadioButton Uid="7" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

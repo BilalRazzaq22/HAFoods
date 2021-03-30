@@ -38,8 +38,121 @@
 
         </StackPanel>
         <DockPanel Grid.Column="1" Grid.Row="1" LastChildFill="True">
-            <!--<UserControl x:Name="MainParent"></UserControl>-->           
-            <Grid x:Name="MainControlsHost" />
+            <!--<UserControl x:Name="MainParent"></UserControl>-->
+            <Grid x:Name="MainControlsHost">
+                <Grid x:Name="PopupContainer" Panel.ZIndex="198" Visibility="Visible" >
+                    <Rectangle x:Name="Overlay" Visibility="Visible"  Fill="#88000000" Opacity="0.495"  />
+                    <Border Background="White" BorderThickness="0" CornerRadius="3" HorizontalAlignment="Center" VerticalAlignment="Center"  >
+                        <Grid MinWidth="400">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border CornerRadius="3" Height="60" x:Name="PopupTitleContainer">
+                                <Grid>
+                                    <TextBlock DockPanel.Dock="Top" x:Name="PopupTitle"   TextAlignment="Center" VerticalAlignment="Center" FontSize="20"
+                       HorizontalAlignment="Left"  Text="Popup Title" TextTrimming="WordEllipsis" Width="Auto"
+                       TextWrapping="NoWrap" Margin="10,0,0,0" Padding="5,0,0,0" FontWeight="Bold" />
+
+
+                                    <Button HorizontalAlignment="Right" Margin="0,0,15,0" Cursor="Hand"   x:Name="btnClose"   Width="30" Height="40" >
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid>
+                                                    <!--<Ellipse Fill="White" Stroke="{StaticResource MainTextForeground}" StrokeThickness="2"/>-->
+                                                    <!--<Image Source="{StaticResource RetailCloseIcon}" Height="30" Width="30"/>-->
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+
+
+                                    <!--<Button HorizontalAlignment="Right"   x:Name="btnClose"   Width="60" Height="60"  Style="{StaticResource FlatButton}" Background="{StaticResource BackgroundRed}"  >
+                                    <Image Source="{StaticResource CrossIconWhite}" Height="25" Width="25" />
+                                </Button>-->
+                                </Grid>
+
+                            </Border>
+
+                            <Grid Grid.Row="1" Margin="5,25,5,3" x:Name="PopupControlHost">
+                                <!--Background="{StaticResource PopUpButtonTextForegroundColor}">-->
+                                <TextBlock>Hellow</TextBlock>
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid x:Name="PopupContainer2"  Visibility="Collapsed" Panel.ZIndex="199">
+                    <Rectangle x:Name="Overlay2" Visibility="Visible"  Fill="#88000000" Opacity="0.495" />
+                    <Border  BorderThickness="0" CornerRadius="0" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <Grid MinWidth="400">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border CornerRadius="0" Height="60" Margin="0" x:Name="PopupTitleContainer2">
+                                <Grid>
+                                    <TextBlock DockPanel.Dock="Top" x:Name="PopupTitle2"   TextAlignment="Center" VerticalAlignment="Center" FontSize="20"
+                       HorizontalAlignment="Left"  Text="Popup Title" TextTrimming="WordEllipsis" Width="Auto"
+                       TextWrapping="NoWrap" Margin="10,0,0,0" Padding="5,0,0,0" FontWeight="Bold"/>
+                                    <!--<Button HorizontalAlignment="Right"  x:Name="btnClose2"  Width="60" Margin="0,0,0,0"   Style="{StaticResource FlatButton}" Background="{StaticResource BackgroundRed}" Height="60" BorderThickness="1">
+                                    <Image Source="{StaticResource CrossIconWhite}" Height="25" Width="25" />
+                                </Button>-->
+                                    <Button HorizontalAlignment="Right" Margin="0,0,15,0" Cursor="Hand"  x:Name="btnClose2"   Width="30" Height="40"  >
+                                        <Button.Template>
+                                            <ControlTemplate TargetType="Button">
+                                                <Grid>
+                                                    <!--<Ellipse Fill="White" Stroke="{StaticResource MainTextForeground}" StrokeThickness="2"/>-->
+                                                    <!--<Image Source="{StaticResource RetailCloseIcon}" Height="30" Width="30"/>-->
+                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                </Grid>
+                                            </ControlTemplate>
+                                        </Button.Template>
+                                    </Button>
+
+
+
+                                </Grid>
+                            </Border>
+
+                            <Grid Grid.Row="1" Margin="5,25,5,3" x:Name="PopupControlHost2">
+                                <TextBlock>Hellow</TextBlock>
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+
+                <Grid x:Name="MsgPopupContainer" MinWidth="400" Visibility="Collapsed" Panel.ZIndex="201" >
+                    <Rectangle x:Name="MsgOverlay" Visibility="Visible"  Fill="#88000000" Opacity="0.495" />
+                    <Border  BorderThickness="0" CornerRadius="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Border CornerRadius="0" Height="60" Margin="0" x:Name="MsgPopupTitleContainer">
+                                <StackPanel Orientation="Horizontal" >
+                                    <TextBlock DockPanel.Dock="Top" x:Name="MsgPopupTitle"   TextAlignment="Center" VerticalAlignment="Center" FontSize="20"
+                       HorizontalAlignment="Stretch" Margin="0"  FontFamily="helvetica" Text="Popup Title" TextTrimming="WordEllipsis" Width="400"
+                       TextWrapping="NoWrap" Padding="5,0,0,0"/>
+
+                                    <Button HorizontalAlignment="Right"  x:Name="MsgBtnClose"  Width="60" Margin="0,0,0,0"  Height="60" BorderThickness="0">
+                                        <!--<Image Source="{StaticResource CrossIconWhite}" Height="30" Width="30" />-->
+                                    </Button>
+                                </StackPanel>
+                            </Border>
+
+                            <Grid Grid.Row="1" Margin="5,25,5,3" x:Name="MsgPopupControlHost">
+                                <TextBlock>Hellow</TextBlock>
+                            </Grid>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Grid>
         </DockPanel>
     </Grid>
 </Window>

@@ -31,7 +31,7 @@ namespace ERP.WpfClient.ViewModel.Customer
         public CustomerViewModel()
         {
             CustomerCommands = new RelayCommand<string>(ExecuteCustomerCommand);
-            DeleteCustomerCommand = new RelayCommand<string>(ExecuteDeleteCustomerCommand);
+            DeleteCustomerCommand = new RelayCommand<object>(ExecuteDeleteCustomerCommand);
             //this.CustomerCommands = new CustomerCommand(this);
             _customerRepository = App.Resolve<ICustomerRepository>();
             CustomerModel = new CustomerModel();
@@ -44,7 +44,7 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         #region Properties
         public RelayCommand<string> CustomerCommands { get; set; }
-        public RelayCommand<string> DeleteCustomerCommand { get; set; }
+        public RelayCommand<object> DeleteCustomerCommand { get; set; }
 
         //public CustomerCommand CustomerCommands { get; set; }
 
@@ -92,16 +92,14 @@ namespace ERP.WpfClient.ViewModel.Customer
             }
         }
 
-        private void ExecuteDeleteCustomerCommand(string str)
+        private void ExecuteDeleteCustomerCommand(object obj)
         {
-            if(str == "DeleteCustomer")
+            if(obj != null)
             {
                 ApplicationManager.Instance.ShowConfirmDialog("Message", () =>
                 {
-                    //ApplicationManager.Instance.HideDialog();
-                    //ApplicationManager.PrintOrder(OrderToRefund, refundedReceipt: true);
-
-
+                    DeleteCustomer(obj as CustomerModel);
+                    ApplicationManager.Instance.HideDialog();
                 }, () => ApplicationManager.Instance.HideMessageBox(), useYesNo: true);
             }
         }
@@ -127,6 +125,12 @@ namespace ERP.WpfClient.ViewModel.Customer
         public void UpdateCustomer()
         {
             _customerRepository.UpdateCustomer(MapperProfile.iMapper.Map<Entities.DBModel.Customer>(CustomerModel));
+        }
+
+        public void DeleteCustomer(CustomerModel customerModel)
+        {
+            _customerRepository.DeleteCustomer(customerModel.Id);
+            CustomerList.Remove(customerModel);
         }
 
         private void Init()
