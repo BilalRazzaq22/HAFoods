@@ -6,10 +6,14 @@ using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
 using ERP.WpfClient.View.Popups;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.IO;
+using System.Linq;
+using System.Reflection;
 using System.Windows;
 
 namespace ERP.WpfClient.ViewModel.Customer
@@ -30,7 +34,7 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         public CustomerViewModel()
         {
-            CustomerCommands = new RelayCommand<string>(ExecuteCustomerCommand);
+            CustomerCommands = new RelayCommand<object>(ExecuteCustomerCommand);
             DeleteCustomerCommand = new RelayCommand<object>(ExecuteDeleteCustomerCommand);
             //this.CustomerCommands = new CustomerCommand(this);
             _customerRepository = App.Resolve<ICustomerRepository>();
@@ -43,7 +47,7 @@ namespace ERP.WpfClient.ViewModel.Customer
         #endregion
 
         #region Properties
-        public RelayCommand<string> CustomerCommands { get; set; }
+        public RelayCommand<object> CustomerCommands { get; set; }
         public RelayCommand<object> DeleteCustomerCommand { get; set; }
 
         //public CustomerCommand CustomerCommands { get; set; }
@@ -141,6 +145,7 @@ namespace ERP.WpfClient.ViewModel.Customer
             {
                 try
                 {
+                    ApplicationManager.Instance.ShowBusyInidicator("Loading Data... !");
                     customers = _customerRepository.Get();
                 }
                 catch (Exception ex)
@@ -155,14 +160,39 @@ namespace ERP.WpfClient.ViewModel.Customer
                 {
                     CustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(customers);
                 }));
+                ApplicationManager.Instance.HideBusyInidicator();
             };
 
             bw.RunWorkerAsync();
         }
 
+        private void LoadCustomerReport()
+        {
+            var query = (from cust in _customerRepository.Get().ToList()
+                        select new Entities.DBModel.Customer
+                        {
+                            FirstName = cust.FirstName,
+                            LastName = cust.LastName,
+                            ContactNo = cust.ContactNo,
+                            Address = cust.Address
+                        }).ToList();
+
+            if (query.Count > 0)
+            {
+                LocalReport report = new LocalReport();
+                string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+                string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\Customer\rptCustomer.rdlc";
+                report.ReportPath = fullpath;
+                report.DataSources.Add(new ReportDataSource("dsCustomer", query));
+                ApplicationManager.Instance.PrintToPrinter(report);
+            }
+        }
+
         public void OnBringIntoView()
         {
             Init();
+            LoadCustomerReport();
         }
 
         #endregion

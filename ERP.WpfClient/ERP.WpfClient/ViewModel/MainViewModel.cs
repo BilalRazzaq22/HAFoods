@@ -1,5 +1,6 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
+using ERP.WpfClient.View.Home;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -41,6 +42,7 @@ namespace ERP.WpfClient.ViewModel
             MainViewCommand = new RelayCommand<string>(ExecuteMainViewCommand);
             //MainViewCommand = new MainViewCommand(this);
             _viewManagerService = ViewManagerService.CreateInstance();
+            LoadViewAsync(ViewTypes.Home.ToString());
         }
 
         //public MainViewModel(FrameworkElement element)
@@ -202,6 +204,7 @@ namespace ERP.WpfClient.ViewModel
             switch (str)
             {
                 case "Home":
+                    LoadViewAsync(ViewTypes.Home.ToString());
                     break;
                 case "Customer":
                     LoadViewAsync(ViewTypes.Customer.ToString());
@@ -342,6 +345,9 @@ namespace ERP.WpfClient.ViewModel
 
             switch (viewType)
             {
+                case ViewTypes.Home:
+                    _viewManagerService.Select("home").Transition<Home>(viewType);
+                    break;
                 case ViewTypes.Customer:
                     _viewManagerService.Select("home").Transition<View.Customer>(viewType);
                     break;
@@ -443,7 +449,7 @@ namespace ERP.WpfClient.ViewModel
                 //}
                 //else
                 //{
-                    defaultScreen = "Customer";
+                    defaultScreen = "Home";
                 //}
 
 
@@ -487,7 +493,7 @@ namespace ERP.WpfClient.ViewModel
 
         public void OnBringIntoView()
         {
-            InitViewModel();
+            InitApp();
 
         }
 
