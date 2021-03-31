@@ -96,7 +96,7 @@ namespace ERP.WpfClient.ViewModel.Customer
         {
             if(obj != null)
             {
-                ApplicationManager.Instance.ShowConfirmDialog("Message", () =>
+                ApplicationManager.Instance.ShowConfirmDialog("Are you sure you want to Delete the customer?", () =>
                 {
                     DeleteCustomer(obj as CustomerModel);
                     ApplicationManager.Instance.HideDialog();

@@ -94,6 +94,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Converters\BooleanVisibilityConverter.cs" />
+    <Compile Include="Controls\Converters\ColorToBrushConverter.cs" />
+    <Compile Include="Controls\Converters\EnumToBooleanConverter.cs" />
+    <Compile Include="Controls\Converters\InvertBooleanConverter.cs" />
+    <Compile Include="Controls\Converters\InvertBooleanVisibilityConverter.cs" />
     <Compile Include="Controls\Helpers\ApplicationManager.cs" />
     <Compile Include="Controls\Helpers\AutoLogOffHelper.cs" />
     <Compile Include="Controls\Helpers\SingleInstance.cs" />
@@ -141,7 +146,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Resources\Themes\Converters\Converter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Resources\Themes\FontSizes\FontSize.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Themes\Images\ImageResources.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,9 +198,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controls\Converter\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\ERP.Common\ERP.Common.csproj">
       <Project>{514de237-c960-4e62-ac30-00c3c1284d78}</Project>
@@ -205,6 +216,9 @@
       <Project>{028767fe-11e0-4d1d-ab4d-3b04da05b82a}</Project>
       <Name>ERP.Repository</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Themes\Images\Icons\ConfirmationIcon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
