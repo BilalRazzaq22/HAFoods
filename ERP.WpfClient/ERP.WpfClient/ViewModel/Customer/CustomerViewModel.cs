@@ -90,15 +90,29 @@ namespace ERP.WpfClient.ViewModel.Customer
             {
                 UpdateCustomer();
             }
+            else if (str as string == "Clear")
+            {
+                Reset();
+            }
             else if (str != null)
             {
                 EditCustomer(str as CustomerModel);
             }
         }
 
+        private void Reset()
+        {
+            CustomerModel.FirstName = "";
+            CustomerModel.LastName = "";
+            CustomerModel.ContactNo = "";
+            CustomerModel.Address = "";
+            CustomerButton = "Save";
+            CustomerParameter = "SaveCustomer";
+        }
+
         private void ExecuteDeleteCustomerCommand(object obj)
         {
-            if(obj != null)
+            if (obj != null)
             {
                 ApplicationManager.Instance.ShowConfirmDialog("Are you sure you want to Delete the customer?", () =>
                 {
@@ -169,13 +183,13 @@ namespace ERP.WpfClient.ViewModel.Customer
         private void LoadCustomerReport()
         {
             var query = (from cust in _customerRepository.Get().ToList()
-                        select new Entities.DBModel.Customer
-                        {
-                            FirstName = cust.FirstName,
-                            LastName = cust.LastName,
-                            ContactNo = cust.ContactNo,
-                            Address = cust.Address
-                        }).ToList();
+                         select new Entities.DBModel.Customer
+                         {
+                             FirstName = cust.FirstName,
+                             LastName = cust.LastName,
+                             ContactNo = cust.ContactNo,
+                             Address = cust.Address
+                         }).ToList();
 
             if (query.Count > 0)
             {
@@ -192,7 +206,7 @@ namespace ERP.WpfClient.ViewModel.Customer
         public void OnBringIntoView()
         {
             Init();
-            LoadCustomerReport();
+            //LoadCustomerReport();
         }
 
         #endregion

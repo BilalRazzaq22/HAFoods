@@ -102,7 +102,7 @@
 
 
     <Style x:Key="NavCancelButtonBorder" TargetType="{x:Type Border}">
-        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Background" Value="#fa6b6b"/>
         <Setter Property="CornerRadius" Value="5"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Height" Value="40"/>
@@ -126,13 +126,13 @@
         <!--<Setter Property="Height" Value="40"/>-->
         <Setter Property="OverridesDefaultStyle" Value="True" />
         <Setter Property="Cursor" Value="Hand" />
-        <Setter Property="Background" Value="Red"/>
+        <Setter Property="Background" Value="#fa6b6b"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Margin" Value="5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="Red">
+                    <Border Name="border" BorderThickness="0" BorderBrush="Transparent" Background="#fa6b6b">
                         <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
                     </Border>
                     <ControlTemplate.Triggers>
@@ -335,7 +335,7 @@
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="GridLinesVisibility" Value="Horizontal"/>
         <Setter Property="HorizontalGridLinesBrush" Value="LightGray"/>
-        <Setter Property="Height" Value="450"/>
+        <!--<Setter Property="Height" Value="450"/>-->
         <Setter Property="Cursor" Value="Hand"/>
         <Setter Property="RowHeaderWidth" Value="0"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -367,6 +367,9 @@
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
                 <Setter Property="VerticalAlignment" Value="Center"/>
 
+
+                <Setter Property="FontSize" Value="16"/>
+
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
 
@@ -378,7 +381,7 @@
 
                     </Trigger>
                     <Trigger Property="IsMouseOver" Value="True">
-                        <Setter Property="Background" Value="Red"/>
+                        <Setter Property="Background" Value="#ccccd9"/>
                     </Trigger>
                 </Style.Triggers>
             </Style>
@@ -400,6 +403,7 @@
                 <!--<Setter Property="FontSize" Value="{StaticResource CommonBlueButtonTextFontSize}"/>-->
                 <Setter Property="Height" Value="50"/>
                 <Setter Property="Height" Value="50"/>
+
 
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
 

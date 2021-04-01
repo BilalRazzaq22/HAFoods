@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ERP.WpfClient.View"
+             xmlns:local="clr-namespace:ERP.WpfClient.View" xmlns:my="clr-namespace:ERP.WpfClient.View.Search"
              mc:Ignorable="d" 
              d:DesignHeight="780"
-             d:DesignWidth="1024">
+             d:DesignWidth="1024" Loaded="UserControl_Loaded">
     <Grid Background="{StaticResource MasterBackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -72,7 +72,12 @@
                     </StackPanel>
 
                 </StackPanel>-->
-                <Button Style="{StaticResource CommonSaveButton}" Grid.Row="3" Grid.Column="4" Content="{Binding CustomerButton}" Command="{Binding CustomerCommands}" CommandParameter="{Binding CustomerParameter}" />
+
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="2">
+                    
+                <Button Style="{StaticResource AcceptButton}" Content="{Binding CustomerButton}" Command="{Binding CustomerCommands}" CommandParameter="{Binding CustomerParameter}" />
+                    <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding CustomerCommands}" CommandParameter="Clear" />
+                </StackPanel>
             </Grid>
         </StackPanel>
         <StackPanel Grid.Row="1" >
@@ -85,11 +90,13 @@
                     </Grid.ColumnDefinitions>
                 <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customers" Grid.Row="0" Grid.Column="0"/>
                     
-                <TextBox Height="30" Width="200" HorizontalAlignment="Right" Margin=" 10" Grid.Column="1"/>
+                <!--<TextBox Height="30" Width="200" HorizontalAlignment="Right" Margin=" 10" Grid.Column="1"/>-->
+
+                    <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" />
                 </Grid>
             </StackPanel>
 
-            <DataGrid ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}">
+            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}" Height="450">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>

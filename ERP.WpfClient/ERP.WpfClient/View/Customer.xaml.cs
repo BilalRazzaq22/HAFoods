@@ -11,8 +11,13 @@ namespace ERP.WpfClient.View
     {
         public Customer()
         {
-            this.DataContext = new CustomerViewModel();
             InitializeComponent();
+            this.DataContext = new CustomerViewModel();
+        }
+
+        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            Search.Grid = grdCustomer;
         }
     }
 }
