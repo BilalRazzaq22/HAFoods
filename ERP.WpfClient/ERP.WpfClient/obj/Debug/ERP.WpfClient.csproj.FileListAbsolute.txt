@@ -48,13 +48,11 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\AutoMapper.xml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\EntityFramework.xml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.csprojAssemblyReference.cache
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\MainWindow.g.cs
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customer.g.cs
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\App.g.cs
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient_MarkupCompile.cache
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient_MarkupCompile.lref
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\App.baml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\MainWindow.baml
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customer.baml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.g.resources
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.Properties.Resources.resources
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.csproj.GenerateResource.cache
@@ -326,3 +324,5 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient_Cont
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Home\Home.baml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Search\SearchBox.g.cs
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Search\SearchBox.baml
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customers\Customer.g.cs
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customers\Customer.baml

@@ -204,6 +204,11 @@ namespace ERP.WpfClient
             }
         }
 
+        private void RadioButton_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
         //public void LoadForm(UserControl form)
         //{
         //    try

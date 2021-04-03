@@ -23,14 +23,14 @@
             <Border  Grid.Row="1"  BorderBrush="Black"  BorderThickness="0 0 0 0" >
 
                 <StackPanel Grid.Row="1">
-                    <RadioButton Uid="0" Style="{StaticResource LeftMenuButton}" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" />
+                    <RadioButton Uid="0" Style="{StaticResource LeftMenuButton}" IsChecked="True" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" />
                     <RadioButton Uid="1" Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" CommandParameter="Customer"/>
-                    <RadioButton Uid="2" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" />
-                    <RadioButton Uid="3" Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" />
-                    <RadioButton Uid="4" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}"/>
-                    <RadioButton Uid="5" Style="{StaticResource LeftMenuButton}" Content="Sale Orders" Command="{Binding MainViewCommand}" />
-                    <RadioButton Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}"/>
-                    <RadioButton Uid="7" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}"/>
+                    <RadioButton Uid="2" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" CommandParameter="Supplier" />
+                    <RadioButton Uid="3" Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" CommandParameter="Stock"/>
+                    <RadioButton Uid="4" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}" CommandParameter="Purchase Order"/>
+                    <RadioButton Uid="5" Style="{StaticResource LeftMenuButton}" Content="Sales Orders" Command="{Binding MainViewCommand}" CommandParameter="Sales Order"/>
+                    <RadioButton Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}" CommandParameter="Cash Book"/>
+                    <RadioButton Uid="7" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2"/>
                 </StackPanel>
             </Border>
         </Grid>

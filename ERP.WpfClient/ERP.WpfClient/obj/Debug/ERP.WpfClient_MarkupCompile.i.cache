@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
-11-1334698422
+1162031124
 51001242449
-37-562348145
+371997709849
 149594053445
-MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;
+MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\Customers\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;
 
 True
 

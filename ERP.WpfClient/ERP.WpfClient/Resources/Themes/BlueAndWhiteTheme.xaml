@@ -17,7 +17,26 @@
         <Setter Property="Source" Value="{StaticResource ConfirmationIcon}"/>
     </Style>
 
-<!--#region End-->
+
+    <Style x:Key="SearchTextIcon" TargetType="{x:Type Image}">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Source" Value="{StaticResource TextSearchIcon}"/>
+    </Style>
+
+
+    <Style x:Key="ClearTextIcon" TargetType="{x:Type Image}">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="30"/>
+        <Setter Property="Source" Value="{StaticResource TextClearIcon}"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Cursor" Value="Hand"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <!--#region End-->
 
 
 

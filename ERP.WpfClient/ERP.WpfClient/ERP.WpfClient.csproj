@@ -159,7 +159,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
-    <Compile Include="View\Customer.xaml.cs">
+    <Compile Include="View\Customers\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Home\Home.xaml.cs">
@@ -208,7 +208,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Customer.xaml">
+    <Page Include="View\Customers\Customer.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -269,6 +269,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Resources\Themes\Images\Icons\clear.png" />
+    <Resource Include="Resources\Themes\Images\Icons\search.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

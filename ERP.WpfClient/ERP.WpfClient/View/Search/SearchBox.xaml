@@ -15,22 +15,23 @@
             CornerRadius="8"
             Padding="6 0" >
             <StackPanel Orientation="Horizontal" >
-                <!--<Image 
+                <Image 
                     x:Name="_imgSearch" 
-                    Source="Image/search.png" 
-                    Stretch="None" />-->
+                    Style="{StaticResource SearchTextIcon}"
+                    Stretch="None" />
                 <TextBox 
                     x:Name="_txtSearch" 
                     Text="Search" 
-                    Width="160" 
+                    Width="200"
+                    Height="50"
                     BorderThickness="0"
                     VerticalContentAlignment="Center"
                     TextChanged="_txtSearch_TextChanged" MouseEnter="_txtSearch_MouseEnter" />
-                <!--<Image 
+                <Image 
                     x:Name="_imgClear" 
-                    Source="Image/clear.png" 
+                    Source="{StaticResource TextClearIcon}" 
                     Stretch="None" 
-                    MouseLeftButtonDown="_imgClear_MouseLeftButtonDown" />-->
+                    MouseLeftButtonDown="_imgClear_MouseLeftButtonDown" />
             </StackPanel>
         </Border>
     </Grid>

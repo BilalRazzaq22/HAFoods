@@ -1,9 +1,9 @@
-﻿<UserControl x:Class="ERP.WpfClient.View.Customer"
+﻿<UserControl x:Class="ERP.WpfClient.View.Customers.Customer"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ERP.WpfClient.View" xmlns:my="clr-namespace:ERP.WpfClient.View.Search"
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Customers" xmlns:my="clr-namespace:ERP.WpfClient.View.Search"
              mc:Ignorable="d" 
              d:DesignHeight="780"
              d:DesignWidth="1024" Loaded="UserControl_Loaded">
@@ -74,8 +74,8 @@
                 </StackPanel>-->
 
                 <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="2">
-                    
-                <Button Style="{StaticResource AcceptButton}" Content="{Binding CustomerButton}" Command="{Binding CustomerCommands}" CommandParameter="{Binding CustomerParameter}" />
+
+                    <Button Style="{StaticResource AcceptButton}" Content="{Binding CustomerButton}" Command="{Binding CustomerCommands}" CommandParameter="{Binding CustomerParameter}" />
                     <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding CustomerCommands}" CommandParameter="Clear" />
                 </StackPanel>
             </Grid>
@@ -88,11 +88,9 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customers" Grid.Row="0" Grid.Column="0"/>
-                    
-                <!--<TextBox Height="30" Width="200" HorizontalAlignment="Right" Margin=" 10" Grid.Column="1"/>-->
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customers" Grid.Row="0" Grid.Column="0"/>
 
-                    <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" />
+                    <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>
                 </Grid>
             </StackPanel>
 
@@ -125,8 +123,8 @@
 
 
                                 <StackPanel Orientation="Horizontal">
-                                    
-                                    
+
+
                                     <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
                                         <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
@@ -149,9 +147,9 @@
 
                                 </StackPanel>
                             </DataTemplate>
-                            
-                            
-                            
+
+
+
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
 

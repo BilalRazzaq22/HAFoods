@@ -209,6 +209,35 @@ namespace ERP.WpfClient.ViewModel
                 case "Customer":
                     LoadViewAsync(ViewTypes.Customer.ToString());
                     break;
+
+                case "Supplier":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+
+                case "Stock":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+
+                case "Purchase Order":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+
+                case "Sales Order":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+
+                case "Cash Book":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+
+                case "Cash Book 2":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
+
+
+                case "Reports":
+                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    break;
             }
         }
 
@@ -349,7 +378,7 @@ namespace ERP.WpfClient.ViewModel
                     _viewManagerService.Select("home").Transition<Home>(viewType);
                     break;
                 case ViewTypes.Customer:
-                    _viewManagerService.Select("home").Transition<View.Customer>(viewType);
+                    _viewManagerService.Select("home").Transition<View.Customers.Customer>(viewType);
                     break;
                 default:
                     break;
