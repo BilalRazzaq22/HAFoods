@@ -5,8 +5,8 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERP.WpfClient.View.Popups"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+             d:DesignHeight="213" d:DesignWidth="400">
+    <Grid Background="{StaticResource CommonWhiteBackgroundColor}">
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition />
@@ -14,17 +14,17 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <Image  Grid.Row="0"/>
+        <Image Style="{StaticResource PopUpConfirmationIcon}" Margin="0 10 0 0" Grid.Row="0"/>
 
-        <TextBlock Grid.Row="1"/>
+        <TextBlock Style="{StaticResource PopUpConfirmatoryText}" Grid.Row="1"/>
 
 
 
-        <TextBlock  Grid.Row="2" Text="{Binding Message}" 
+        <TextBlock Style="{StaticResource PopUpConfirmatoryMessage}" Grid.Row="2" Text="{Binding Message}" 
                     />
 
 
-        <Grid Grid.Row="3" >
+        <Grid Grid.Row="3" Background="{StaticResource CommonWhiteBackgroundColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
                 <ColumnDefinition Width="*"/>
@@ -32,13 +32,13 @@
 
 
             <Button Grid.Column="0"
-                            CommandParameter="Cancel" Command="{Binding ActionCommand}" >
+                            Style="{StaticResource DeclineButton}" CommandParameter="Cancel" Command="{Binding ActionCommand}" >
                 <StackPanel>
-                    <TextBlock  Text="Cancel" />
-                    <TextBlock  Text="No" />
+                    <TextBlock  Text="Cancel" Visibility="{Binding UseYesNo,Converter={StaticResource InvertBooleanVisibilityConverter}}"/>
+                    <TextBlock  Text="No" Visibility="{Binding UseYesNo,Converter={StaticResource BooleanToVisibilityConverter}}"/>
                 </StackPanel>
             </Button>
-            <Button Grid.Column="1" Content="Yes" CommandParameter="Yes" Command="{Binding ActionCommand}"  />
+            <Button Grid.Column="1" Content="Yes" CommandParameter="Yes" Command="{Binding ActionCommand}"  Style="{StaticResource AcceptButton}"/>
         </Grid>
 
     </Grid>

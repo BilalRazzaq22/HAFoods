@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\
 ERP.WpfClient
 none
 false
 DEBUG;TRACE
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
-6-419006310
-
-26-1824993896
-136-1290373640
-MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\FontSizes\FontSize.xaml;View\Customer.xaml;View\Popups\ConfirmationPopup.xaml;
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
+1162031124
+51001242449
+371997709849
+149594053445
+MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\Customers\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;
 
 True
 

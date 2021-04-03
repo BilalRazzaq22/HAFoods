@@ -6,17 +6,17 @@ namespace ERP.Repository.Customer
 {
     public class CustomerRepository : ICustomerRepository
     {
-        private readonly HAFoods_DBEntities db = new HAFoods_DBEntities();
+        //private readonly HAFoods_DBEntities DBInstance.Instance = new HAFoods_DBEntities();
        
         public List<Entities.DBModel.Customer> Get()
         {
-            return db.Customers.ToList();
+            return DBInstance.Instance.Customers.ToList();
         }
 
         public void SaveCustomer(Entities.DBModel.Customer customer)
         {
-            db.Customers.Add(customer);
-            db.SaveChanges();
+            DBInstance.Instance.Customers.Add(customer);
+            DBInstance.Instance.SaveChanges();
         }
 
         public void UpdateCustomer(Entities.DBModel.Customer customer)
@@ -29,12 +29,12 @@ namespace ERP.Repository.Customer
                 cust.ContactNo = customer.ContactNo;
                 cust.Address = customer.Address;
             }
-            db.SaveChanges();
+            DBInstance.Instance.SaveChanges();
         }
 
         public Entities.DBModel.Customer GetById(int id)
         {
-            return db.Customers.Find(id);
+            return DBInstance.Instance.Customers.Find(id);
         }
         
         public void DeleteCustomer(int id)
@@ -42,8 +42,9 @@ namespace ERP.Repository.Customer
             Entities.DBModel.Customer cust = GetById(id);
             if (cust != null)
             {
-                db.Customers.Remove(cust);
+                DBInstance.Instance.Customers.Remove(cust);
             }
+            DBInstance.Instance.SaveChanges();
         }
     }
 }

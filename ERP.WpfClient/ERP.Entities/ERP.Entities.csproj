@@ -53,6 +53,7 @@
     <Compile Include="DBModel\Customer.cs">
       <DependentUpon>HAFoodModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\DBInstance.cs" />
     <Compile Include="DBModel\HAFoodModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

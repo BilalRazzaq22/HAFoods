@@ -7,6 +7,6 @@
     <SolidColorBrush x:Key="CommonWhiteBackgroundColor" Color="#FFFFFF"/>
     <SolidColorBrush x:Key="CommonGreyForegroundTextColor" Color="#3A4953"/>
 
-
+    <SolidColorBrush x:Key="CommonGreenBackgroundColor" Color="#44B773"/>
     <SolidColorBrush x:Key="BackgroundPopUpTitleColor" Color="#E5EAED"/>
 </ResourceDictionary>
