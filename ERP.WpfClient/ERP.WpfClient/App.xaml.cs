@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using ERP.Repository.Customer;
+using ERP.Repository.Generic;
 using ERP.WpfClient.Mapper;
 using System;
 using System.Collections.Generic;
@@ -27,6 +28,7 @@ namespace ERP.WpfClient
         private void InitializeServices()
         {
             var builder = new ContainerBuilder();
+            builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
             builder.RegisterType<CustomerRepository>().As<ICustomerRepository>().InstancePerLifetimeScope();
             Container = builder.Build();
         }

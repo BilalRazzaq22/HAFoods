@@ -145,6 +145,7 @@
     <Compile Include="Messages\Popup\PopupDialogMessage.cs" />
     <Compile Include="Messages\View\ShowViewMessage.cs" />
     <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="Model\Supplier\SupplierModel.cs" />
     <Compile Include="Reports\Dataset\Customer\dsCustomer.cs">
       <DependentUpon>dsCustomer.xsd</DependentUpon>
     </Compile>
@@ -158,6 +159,7 @@
     <Compile Include="ViewModel\Data\DataViewModelBase.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
+    <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Customers\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
@@ -173,6 +175,9 @@
     </Compile>
     <Compile Include="View\Settings\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Suppliers\Supplier.xaml.cs">
+      <DependentUpon>Supplier.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -225,6 +230,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Settings\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Suppliers\Supplier.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

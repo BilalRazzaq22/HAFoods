@@ -22,6 +22,7 @@
     <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
     <Property Name="LastName" Type="nvarchar" MaxLength="50" />
     <Property Name="ContactNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="250" />
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
     <Property Name="UpdatedDate" Type="datetime" />

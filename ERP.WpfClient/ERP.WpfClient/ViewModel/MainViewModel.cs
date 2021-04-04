@@ -211,9 +211,8 @@ namespace ERP.WpfClient.ViewModel
                     break;
 
                 case "Supplier":
-                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    LoadViewAsync(ViewTypes.Supplier.ToString());
                     break;
-
                 case "Stock":
                     LoadViewAsync(ViewTypes.Customer.ToString());
                     break;
@@ -243,7 +242,7 @@ namespace ERP.WpfClient.ViewModel
 
         public void ClosePopup()
         {
-           // Messenger.Default.Send<PopupDialogMessage>(new PopupDialogMessage() { Show = false });
+            // Messenger.Default.Send<PopupDialogMessage>(new PopupDialogMessage() { Show = false });
         }
 
         //public void ShowView(ShowViewMessage msg)
@@ -380,6 +379,9 @@ namespace ERP.WpfClient.ViewModel
                 case ViewTypes.Customer:
                     _viewManagerService.Select("home").Transition<View.Customers.Customer>(viewType);
                     break;
+                case ViewTypes.Supplier:
+                    _viewManagerService.Select("home").Transition<View.Suppliers.Supplier>(viewType);
+                    break;
                 default:
                     break;
             }
@@ -421,7 +423,7 @@ namespace ERP.WpfClient.ViewModel
             //}
             //else
             //{
-                RunAsyncTask(_element, () => NavigateToView(viewName));
+            RunAsyncTask(_element, () => NavigateToView(viewName));
             //}
 
 
@@ -469,17 +471,17 @@ namespace ERP.WpfClient.ViewModel
             //}
             //else
             //{
-                //var settings = App.GetSettings();
+            //var settings = App.GetSettings();
 
-                //if (settings != null && settings.AppSettings != null)
-                //{
-                //    //  ApplicationManager.Instance.UpdateAppSettings(settings.AppSettings);
-                //    defaultScreen = "Login";
-                //}
-                //else
-                //{
-                    defaultScreen = "Home";
-                //}
+            //if (settings != null && settings.AppSettings != null)
+            //{
+            //    //  ApplicationManager.Instance.UpdateAppSettings(settings.AppSettings);
+            //    defaultScreen = "Login";
+            //}
+            //else
+            //{
+            defaultScreen = "Home";
+            //}
 
 
             //}

@@ -1,6 +1,7 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
 using ERP.Repository.Customer;
+using ERP.Repository.Generic;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
@@ -22,7 +23,7 @@ namespace ERP.WpfClient.ViewModel.Customer
     {
         #region Fields
 
-        private readonly ICustomerRepository _customerRepository;
+        private readonly IGenericRepository<Entities.DBModel.Customer> _customerRepository;
         private CustomerModel _customerModel;
         private ObservableCollection<CustomerModel> _customerList;
         private string _customerButton;
@@ -37,7 +38,7 @@ namespace ERP.WpfClient.ViewModel.Customer
             CustomerCommands = new RelayCommand<object>(ExecuteCustomerCommand);
             DeleteCustomerCommand = new RelayCommand<object>(ExecuteDeleteCustomerCommand);
             //this.CustomerCommands = new CustomerCommand(this);
-            _customerRepository = App.Resolve<ICustomerRepository>();
+            _customerRepository = App.Resolve<IGenericRepository<Entities.DBModel.Customer>>();
             CustomerModel = new CustomerModel();
             CustomerList = new ObservableCollection<CustomerModel>();
             CustomerButton = "Save";
@@ -102,10 +103,7 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         private void Reset()
         {
-            CustomerModel.FirstName = "";
-            CustomerModel.LastName = "";
-            CustomerModel.ContactNo = "";
-            CustomerModel.Address = "";
+            CustomerModel = new CustomerModel();
             CustomerButton = "Save";
             CustomerParameter = "SaveCustomer";
         }
@@ -124,9 +122,10 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         public void SaveCustomer()
         {
-            _customerRepository.SaveCustomer(MapperProfile.iMapper.Map<Entities.DBModel.Customer>(CustomerModel));
+            var model = _customerRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Customer>(CustomerModel));
+            CustomerModel.Id = model.Id;
             CustomerList.Add(CustomerModel);
-            CustomerModel = new CustomerModel();
+            Reset();
         }
 
         public void EditCustomer(CustomerModel customerModel)
@@ -136,18 +135,20 @@ namespace ERP.WpfClient.ViewModel.Customer
             CustomerModel.Id = customerModel.Id;
             CustomerModel.FirstName = customerModel.FirstName;
             CustomerModel.LastName = customerModel.LastName;
+            CustomerModel.FullName = customerModel.FirstName + " " + customerModel.LastName;
             CustomerModel.ContactNo = customerModel.ContactNo;
             CustomerModel.Address = customerModel.Address;
         }
 
         public void UpdateCustomer()
         {
-            _customerRepository.UpdateCustomer(MapperProfile.iMapper.Map<Entities.DBModel.Customer>(CustomerModel));
+            _customerRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Customer>(CustomerModel), CustomerModel.Id);
+            Reset();
         }
 
         public void DeleteCustomer(CustomerModel customerModel)
         {
-            _customerRepository.DeleteCustomer(customerModel.Id);
+            _customerRepository.Delete(customerModel.Id);
             CustomerList.Remove(customerModel);
         }
 
@@ -164,7 +165,7 @@ namespace ERP.WpfClient.ViewModel.Customer
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Post Error\nMessage: " + ex.Message, "Friday Retail");
+                    MessageBox.Show("Post Error\nMessage: " + ex.Message, "HA Foods");
                 }
             };
 

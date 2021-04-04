@@ -186,6 +186,19 @@ namespace ERP.WpfClient.Controls.Helpers
             bw.RunWorkerAsync();
         }
 
+        public void ShowDialog(string title, FrameworkElement element, bool showCloseButton = true,
+           bool useMessageBox = false)
+        {
+            Messenger.Default.Send<PopupDialogMessage>(new PopupDialogMessage()
+            {
+                Show = true,
+                Title = title,
+                ControlToDisplay = element,
+                ShowCloseButton = showCloseButton,
+                UseMessageBox = useMessageBox
+            });
+        }
+
 
         public void HideDialog(bool useSecondDialog = false, bool hideOnly = false)
         {
