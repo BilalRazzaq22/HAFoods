@@ -1,0 +1,179 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Stock.Stock"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Stock" xmlns:my="clr-namespace:ERP.WpfClient.View.Search"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+    <Grid Background="{StaticResource MasterBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource TopMainHeadings}" Text="Stock Information" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Item Name:" />
+                    <TextBox  Text="{Binding StockModel.ItemName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Urdu Name:"/>
+                    <TextBox Text="{Binding StockModel.UrduName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Category:"/>
+                    <TextBox  Text="{Binding StockModel.Category,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Quantity:"/>
+                    <TextBox  Text="{Binding StockModel.Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Buy Price:"/>
+                    <TextBox  Text="{Binding StockModel.BuyPrice,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                </StackPanel>
+                
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Sale Price:"/>
+                    <TextBox  Text="{Binding StockModel.SalePrice,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Packing:"/>
+                    <TextBox  Text="{Binding StockModel.Packing,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Remarks:"/>
+
+                    <TextBox Text="{Binding StockModel.Remarks,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="450" TextWrapping="Wrap" Height="100"/>
+
+                </StackPanel>
+
+                <!--<StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Stats" Grid.Row="0" Grid.Column="0"/>
+
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Text="Total Stocks :"  FontSize="20" FontWeight="Bold"/>
+                        <TextBlock Text="500" FontSize="20" Foreground="{StaticResource CommonBlueBackgroundColor}" FontWeight="Bold" Margin="10 0 0 0" />
+                    </StackPanel>
+
+                    <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                        <TextBlock Text="Total Active Stocks :" FontSize="20" FontWeight="Bold"/>
+                        <TextBlock Text="450" FontSize="20" Foreground="{StaticResource CommonBlueBackgroundColor}" FontWeight="Bold" Margin="10 0 0 0" />
+                    </StackPanel>
+
+                </StackPanel>-->
+
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="2">
+
+                    <Button Style="{StaticResource AcceptButton}" Content="{Binding StockButton}" Command="{Binding StockCommands}" CommandParameter="{Binding StockParameter}" />
+                    <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding StockCommands}" CommandParameter="Clear" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" >
+
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Stocks" Grid.Row="0" Grid.Column="0"/>
+
+                    <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>
+                </Grid>
+            </StackPanel>
+
+            <DataGrid x:Name="grdStock" ItemsSource="{Binding StockList}" Style="{StaticResource DataGridsForList}" Height="450">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Item Name" Width="*" Binding="{Binding ItemName}"/>
+                    <DataGridTextColumn Header="Urdu Name" Width="*" Binding="{Binding UrduName}"/>
+                    <DataGridTextColumn Header="Buy Price" Width="*" Binding="{Binding BuyPrice}"/>
+                    <DataGridTextColumn Header="Sale Price" Width="*" Binding="{Binding SalePrice}"/>
+                    <DataGridTextColumn Header="Quantity" Width="*" Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Header="Category" Width="*" Binding="{Binding Category}"/>
+                    <DataGridTextColumn Header="Packing" Width="*" Binding="{Binding Packing}"/>
+                    <DataGridTextColumn Header="Remarks" Width="*" Binding="{Binding Remarks}"/>
+                    <DataGridTemplateColumn Width="*" Header="Actions">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--<StackPanel Orientation="Horizontal">
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource AcceptButton}" Height="30" Width="100"  Command="{Binding DataContext.StockCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock  Margin="0" Text="Select" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button  Command="{Binding DataContext.DeleteStockCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock  Margin="0" Text="Delete" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+                                </StackPanel>-->
+
+
+                                <StackPanel Orientation="Horizontal">
+
+
+                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.StockCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+
+                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteStockCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+
+
+
+                                </StackPanel>
+                            </DataTemplate>
+
+
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>

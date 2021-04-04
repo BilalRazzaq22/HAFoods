@@ -14,6 +14,20 @@
     <Property Name="UpdatedDate" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
   </EntityType>
+  <EntityType Name="Stock">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrduName" Type="nvarchar" MaxLength="50" />
+    <Property Name="BuyPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="SalePrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Category" Type="nvarchar" MaxLength="50" />
+    <Property Name="Packing" Type="int" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
+  </EntityType>
   <EntityType Name="Supplier">
     <Key>
       <PropertyRef Name="Id" />
@@ -30,6 +44,7 @@
   </EntityType>
   <EntityContainer Name="HAFoods_DBModelStoreContainer">
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

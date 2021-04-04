@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using ERP.Entities.DBModel;
 using ERP.WpfClient.Model;
-using ERP.WpfClient.Model.Stock;
 using ERP.WpfClient.Model.Supplier;
 using System;
 using System.Collections.Generic;
@@ -20,7 +19,6 @@ namespace ERP.WpfClient.Mapper
             {
                 cfg.CreateMap<Customer, CustomerModel>().ReverseMap();
                 cfg.CreateMap<Supplier, SupplierModel>().ReverseMap();
-                cfg.CreateMap<Stock, StockModel>().ReverseMap();
             });
 
             iMapper = config.CreateMapper();
