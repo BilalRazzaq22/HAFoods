@@ -11,6 +11,7 @@ namespace ERP.Common
         None,
         Home,
         Customer,
-        Supplier
+        Supplier,
+        Stock
     }
 }

@@ -7,6 +7,7 @@
       <Diagram DiagramId="7b7899da33444ae396c52ba3d02cbfc1" Name="Diagram1">
         <EntityTypeShape EntityType="HAFoods_DBModel.Customer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="HAFoods_DBModel.Supplier" Width="1.5" PointX="3.375" PointY="0.75" />
+        <EntityTypeShape EntityType="HAFoods_DBModel.Stock" Width="1.5" PointX="0.75" PointY="4.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

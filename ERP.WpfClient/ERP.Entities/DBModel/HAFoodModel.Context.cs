@@ -27,5 +27,6 @@ namespace ERP.Entities.DBModel
     
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
     }
 }
