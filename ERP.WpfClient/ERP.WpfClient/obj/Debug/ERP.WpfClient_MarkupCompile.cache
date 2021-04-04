@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\
 ERP.WpfClient
 none
 false
 DEBUG;TRACE
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
-1162031124
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
+12-171460687
 51001242449
-36-1454898080
-149594053445
-MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\Customers\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;
+39-148224847
+149-593509802
+MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\Customers\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;View\Suppliers\Supplier.xaml;
 
 False
 

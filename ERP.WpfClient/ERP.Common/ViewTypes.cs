@@ -10,6 +10,7 @@ namespace ERP.Common
     {
         None,
         Home,
-        Customer
+        Customer,
+        Supplier
     }
 }

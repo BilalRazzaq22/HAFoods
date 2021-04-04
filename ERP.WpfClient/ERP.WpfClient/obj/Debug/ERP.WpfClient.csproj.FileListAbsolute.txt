@@ -68,7 +68,6 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\Resources\
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\Resources\Themes\ColorsScheme\ColorScheme.baml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\Resources\Themes\FontSizes\FontSize.baml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\MainWindow.g.cs
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customer.g.cs
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\ConfirmationPopup.g.cs
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\App.g.cs
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -118,7 +117,6 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\System.Ser
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\log4net.xml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\App.baml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\MainWindow.baml
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customer.baml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\ConfirmationPopup.baml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.g.resources
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.Properties.Resources.resources
@@ -326,3 +324,9 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Search\Search
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Search\SearchBox.baml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customers\Customer.g.cs
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customers\Customer.baml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customers\Customer.g.cs
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Search\SearchBox.g.cs
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Customers\Customer.baml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Search\SearchBox.baml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Suppliers\Supplier.g.cs
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Suppliers\Supplier.baml

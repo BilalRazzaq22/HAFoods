@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP.WpfClient.Model
+namespace ERP.WpfClient.Model.Supplier
 {
-    public class CustomerModel : ViewModelBase
+    public class SupplierModel : ViewModelBase
     {
         private int _Id;
         private string _firstName;
