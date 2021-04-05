@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
-13667526570
+14-598064309
 51001242449
-422034678545
+46-1303422310
 149-593509802
-MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\Customers\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;View\Stock\Stock.xaml;View\Suppliers\Supplier.xaml;
+MainWindow.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\Customers\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;View\Stock\Stock.xaml;View\Suppliers\Supplier.xaml;View\Transaction\CurrentTransaction.xaml;
 
 False
 

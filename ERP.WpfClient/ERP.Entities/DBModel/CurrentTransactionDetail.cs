@@ -12,20 +12,16 @@ namespace ERP.Entities.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Stock
+    public partial class CurrentTransactionDetail
     {
         public int Id { get; set; }
+        public Nullable<int> CurrentTransactionId { get; set; }
         public string ItemName { get; set; }
-        public string UrduName { get; set; }
-        public Nullable<decimal> BuyPrice { get; set; }
-        public Nullable<decimal> SalePrice { get; set; }
         public Nullable<int> Quantity { get; set; }
-        public string Category { get; set; }
-        public Nullable<int> Packing { get; set; }
-        public string Remarks { get; set; }
-        public Nullable<System.DateTime> CreatedDate { get; set; }
-        public string CreatedBy { get; set; }
-        public Nullable<System.DateTime> UpdatedDate { get; set; }
-        public string UpdatedBy { get; set; }
+        public Nullable<decimal> Price { get; set; }
+        public Nullable<decimal> Discount { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
+    
+        public virtual CurrentTransaction CurrentTransaction { get; set; }
     }
 }

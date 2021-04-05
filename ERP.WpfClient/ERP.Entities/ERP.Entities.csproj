@@ -50,6 +50,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBModel\CurrentTransaction.cs">
+      <DependentUpon>HAFoodModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DBModel\CurrentTransactionDetail.cs">
+      <DependentUpon>HAFoodModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\Customer.cs">
       <DependentUpon>HAFoodModel.tt</DependentUpon>
     </Compile>

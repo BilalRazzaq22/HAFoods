@@ -1,13 +1,6 @@
 ﻿using Autofac;
-using ERP.Repository.Customer;
 using ERP.Repository.Generic;
 using ERP.WpfClient.Mapper;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ERP.WpfClient
@@ -29,7 +22,6 @@ namespace ERP.WpfClient
         {
             var builder = new ContainerBuilder();
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
-            builder.RegisterType<CustomerRepository>().As<ICustomerRepository>().InstancePerLifetimeScope();
             Container = builder.Build();
         }
 

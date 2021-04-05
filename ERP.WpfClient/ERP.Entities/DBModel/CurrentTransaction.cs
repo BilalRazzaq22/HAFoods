@@ -12,25 +12,28 @@ namespace ERP.Entities.DBModel
     using System;
     using System.Collections.Generic;
     
-    public partial class Customer
+    public partial class CurrentTransaction
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Customer()
+        public CurrentTransaction()
         {
-            this.CurrentTransactions = new HashSet<CurrentTransaction>();
+            this.CurrentTransactionDetails = new HashSet<CurrentTransactionDetail>();
         }
     
         public int Id { get; set; }
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
-        public string ContactNo { get; set; }
-        public string Address { get; set; }
+        public Nullable<int> CustomerId { get; set; }
+        public Nullable<int> OrderNo { get; set; }
+        public Nullable<decimal> TotalPrice { get; set; }
+        public Nullable<decimal> TotalDiscount { get; set; }
+        public Nullable<decimal> GrandTotal { get; set; }
+        public Nullable<decimal> AmountPaid { get; set; }
         public Nullable<System.DateTime> CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
     
+        public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CurrentTransaction> CurrentTransactions { get; set; }
+        public virtual ICollection<CurrentTransactionDetail> CurrentTransactionDetails { get; set; }
     }
 }

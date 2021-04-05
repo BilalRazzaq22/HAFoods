@@ -1,23 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="HAFoods_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Customer">
-    <Key>
-      <PropertyRef Name="Id" />
-    </Key>
-    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-  </EntityType>
   <EntityContainer Name="HAFoods_DBEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Customers" EntityType="Self.Customer" />
     <EntitySet Name="Suppliers" EntityType="HAFoods_DBModel.Supplier" />
     <EntitySet Name="Stocks" EntityType="HAFoods_DBModel.Stock" />
+    <EntitySet Name="CurrentTransactions" EntityType="HAFoods_DBModel.CurrentTransaction" />
+    <EntitySet Name="CurrentTransactionDetails" EntityType="HAFoods_DBModel.CurrentTransactionDetail" />
+    <EntitySet Name="Customers" EntityType="HAFoods_DBModel.Customer" />
+    <AssociationSet Name="FK_CurrentTransaction_Customer" Association="HAFoods_DBModel.FK_CurrentTransaction_Customer">
+      <End Role="Customer" EntitySet="Customers" />
+      <End Role="CurrentTransaction" EntitySet="CurrentTransactions" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CurrentTransactionDetail_CurrentTransaction" Association="HAFoods_DBModel.FK_CurrentTransactionDetail_CurrentTransaction">
+      <End Role="CurrentTransaction" EntitySet="CurrentTransactions" />
+      <End Role="CurrentTransactionDetail" EntitySet="CurrentTransactionDetails" />
+    </AssociationSet>
   </EntityContainer>
   <EntityType Name="Supplier">
     <Key>
@@ -46,5 +42,79 @@
     <Property Name="Category" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Packing" Type="Int32" />
     <Property Name="Remarks" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
+  <EntityType Name="CurrentTransaction">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CustomerId" Type="Int32" />
+    <Property Name="OrderNo" Type="Int32" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalDiscount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Customer" Relationship="HAFoods_DBModel.FK_CurrentTransaction_Customer" FromRole="CurrentTransaction" ToRole="Customer" />
+    <NavigationProperty Name="CurrentTransactionDetails" Relationship="HAFoods_DBModel.FK_CurrentTransactionDetail_CurrentTransaction" FromRole="CurrentTransaction" ToRole="CurrentTransactionDetail" />
+  </EntityType>
+  <EntityType Name="CurrentTransactionDetail">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="CurrentTransactionId" Type="Int32" />
+    <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
+    <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+    <NavigationProperty Name="CurrentTransaction" Relationship="HAFoods_DBModel.FK_CurrentTransactionDetail_CurrentTransaction" FromRole="CurrentTransactionDetail" ToRole="CurrentTransaction" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="CurrentTransactions" Relationship="HAFoods_DBModel.FK_CurrentTransaction_Customer" FromRole="Customer" ToRole="CurrentTransaction" />
+  </EntityType>
+  <Association Name="FK_CurrentTransaction_Customer">
+    <End Type="HAFoods_DBModel.Customer" Role="Customer" Multiplicity="0..1" />
+    <End Type="HAFoods_DBModel.CurrentTransaction" Role="CurrentTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Customer">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CurrentTransaction">
+        <PropertyRef Name="CustomerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CurrentTransactionDetail_CurrentTransaction">
+    <End Type="HAFoods_DBModel.CurrentTransaction" Role="CurrentTransaction" Multiplicity="0..1" />
+    <End Type="HAFoods_DBModel.CurrentTransactionDetail" Role="CurrentTransactionDetail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CurrentTransaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CurrentTransactionDetail">
+        <PropertyRef Name="CurrentTransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

@@ -206,6 +206,9 @@ namespace ERP.WpfClient.ViewModel
                 case "Home":
                     LoadViewAsync(ViewTypes.Home.ToString());
                     break;
+                case "Current Transaction":
+                    LoadViewAsync(ViewTypes.CurrentTransaction.ToString());
+                    break;
                 case "Customer":
                     LoadViewAsync(ViewTypes.Customer.ToString());
                     break;
@@ -384,6 +387,9 @@ namespace ERP.WpfClient.ViewModel
                     break;
                 case ViewTypes.Stock:
                     _viewManagerService.Select("home").Transition<View.Stock.Stock>(viewType);
+                    break;
+                case ViewTypes.CurrentTransaction:
+                    _viewManagerService.Select("home").Transition<View.Transaction.CurrentTransaction>(viewType);
                     break;
                 default:
                     break;

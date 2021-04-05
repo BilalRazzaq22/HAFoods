@@ -147,6 +147,8 @@
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\Stock\StockModel.cs" />
     <Compile Include="Model\Supplier\SupplierModel.cs" />
+    <Compile Include="Model\Transaction\CurrentTransactionDetailModel.cs" />
+    <Compile Include="Model\Transaction\CurrentTransactionModel.cs" />
     <Compile Include="Reports\Dataset\Customer\dsCustomer.cs">
       <DependentUpon>dsCustomer.xsd</DependentUpon>
     </Compile>
@@ -162,6 +164,7 @@
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
+    <Compile Include="ViewModel\Transaction\CurrentTransactionViewModel.cs" />
     <Compile Include="ViewModel\ViewModelLocator.cs" />
     <Compile Include="View\Customers\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
@@ -183,6 +186,9 @@
     </Compile>
     <Compile Include="View\Suppliers\Supplier.xaml.cs">
       <DependentUpon>Supplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Transaction\CurrentTransaction.xaml.cs">
+      <DependentUpon>CurrentTransaction.xaml</DependentUpon>
     </Compile>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -243,6 +249,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Suppliers\Supplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Transaction\CurrentTransaction.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
