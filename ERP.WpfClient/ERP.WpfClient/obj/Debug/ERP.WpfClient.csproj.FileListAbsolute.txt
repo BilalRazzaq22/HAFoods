@@ -334,3 +334,9 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Stock
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Stock\Stock.baml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Transaction\CurrentTransaction.g.cs
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Transaction\CurrentTransaction.baml
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Stock\Stock.g.cs
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Suppliers\Supplier.g.cs
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Transaction\CurrentTransaction.g.cs
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Stock\Stock.baml
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Suppliers\Supplier.baml
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Transaction\CurrentTransaction.baml

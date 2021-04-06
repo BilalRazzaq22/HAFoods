@@ -160,6 +160,7 @@
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Data\DataViewModelBase.cs" />
+    <Compile Include="ViewModel\Home\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />

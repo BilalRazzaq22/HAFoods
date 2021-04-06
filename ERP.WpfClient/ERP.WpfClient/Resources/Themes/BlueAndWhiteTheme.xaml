@@ -38,7 +38,22 @@
 
     <!--#region End-->
 
+    <Style x:Key="ProductMatrixDropdown" TargetType="{x:Type ComboBox}">
 
+
+        <Setter Property="IsEditable" Value="False"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="265"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="15,0,0,0"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
+
+
+    </Style>
 
 
     <Style x:Key="PopUpConfirmatoryText" TargetType="{x:Type TextBlock}">
@@ -234,7 +249,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource CommonGreyBackgrounColor}"/>
         <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
         <Setter Property="FontSize" Value="{StaticResource SideNavFontSize}"/>
-        <Setter Property="Width" Value="150"/>
+        <Setter Property="Width" Value="170"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="5 0 5 5"/>
         <Setter Property="Template">
@@ -337,7 +352,7 @@
     <Style x:Key="DataGridsForList" TargetType="{x:Type DataGrid}">
 
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="CanUserReorderColumns" Value="False"/>
         <Setter Property="CanUserSortColumns" Value="True"/>

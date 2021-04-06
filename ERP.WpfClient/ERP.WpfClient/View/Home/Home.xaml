@@ -5,11 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERP.WpfClient.View.Home"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="780" d:DesignWidth="1024">
     <Grid Background="White">
 
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Height="105" Width="400" Text="Welcome" TextAlignment="Center" FontSize="70" Margin="197,168,203,177">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <TextBlock VerticalAlignment="Top" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" HorizontalAlignment="Center" Height="105" Width="400" Text="Welcome" TextAlignment="Center" FontSize="70"/>
 
-        </TextBlock>
+        <StackPanel Background="Red" Margin="20" Grid.Row="1" Grid.Column="0">
+            <Label Content="Total Customers" HorizontalAlignment="Center" FontSize="25"/>
+            <Label Content="{Binding TotalCustomers}" HorizontalAlignment="Center" FontSize="25"/>
+        </StackPanel>
+
+        <StackPanel Background="Red" Margin="20" Grid.Row="1" Grid.Column="1">
+            <Label Content="Total Suppliers" HorizontalAlignment="Center" FontSize="25"/>
+            <Label Content="{Binding TotalSuppliers}" HorizontalAlignment="Center" FontSize="25"/>
+        </StackPanel>
+
     </Grid>
 </UserControl>

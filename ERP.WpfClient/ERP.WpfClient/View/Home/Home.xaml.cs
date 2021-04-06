@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ERP.WpfClient.ViewModel.Home;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,7 @@ namespace ERP.WpfClient.View.Home
         public Home()
         {
             InitializeComponent();
+            DataContext = new HomeViewModel();
         }
     }
 }
