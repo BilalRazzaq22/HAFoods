@@ -1,6 +1,8 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
+using ERP.Entities.DBModel;
 using ERP.Repository.Generic;
+using ERP.Repository.Transaction;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
@@ -23,13 +25,12 @@ namespace ERP.WpfClient.ViewModel.Transaction
     {
         #region Fields
 
-        private readonly IGenericRepository<Entities.DBModel.CurrentTransaction> _currentTransactionRepository;
+        private readonly IGenericRepository<CurrentTransaction> _currentTransactionRepository;
+        private readonly IGenericRepository<CurrentTransactionDetail> _currentTransactionDetailRepository;
         private readonly IGenericRepository<Entities.DBModel.Customer> _customerRepository;
         private readonly IGenericRepository<Entities.DBModel.Stock> _stockRepository;
         private CurrentTransactionModel _currentTransactionModel;
         private ObservableCollection<CurrentTransactionModel> _currentTransactionList;
-        private string _currentTransactionButton;
-        private string _currentTransactionParameter;
         private CurrentTransactionDetailModel _currentTransactionDetailModel;
         private ObservableCollection<CurrentTransactionDetailModel> _currentTransactionDetailList;
         private CustomerModel _customerModel;
@@ -51,31 +52,17 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
         public CurrentTransactionViewModel()
         {
-            CurrentTransactionCommands = new RelayCommand<object>(ExecuteCurrentTransactionCommand);
-            DeleteCurrentTransactionCommand = new RelayCommand<object>(ExecuteDeleteCurrentTransactionCommand);
             CurrentOrderCommand = new RelayCommand<string>(ExecuteCurrentOrderCommand);
             //this.CurrentTransactionCommands = new CustomerCommand(this);
-            _currentTransactionRepository = App.Resolve<IGenericRepository<Entities.DBModel.CurrentTransaction>>();
+            _currentTransactionRepository = App.Resolve<IGenericRepository<CurrentTransaction>>();
+            _currentTransactionDetailRepository = App.Resolve<IGenericRepository<CurrentTransactionDetail>>();
             _customerRepository = App.Resolve<IGenericRepository<Entities.DBModel.Customer>>();
             _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stock>>();
-            CurrentTransactionModel = new CurrentTransactionModel();
-            CurrentTransactionDetailModel = new CurrentTransactionDetailModel();
-            CurrentTransactionDetailList = new ObservableCollection<CurrentTransactionDetailModel>();
-            CurrentTransactionList = new ObservableCollection<CurrentTransactionModel>();
-            CurrentTransactionButton = "Save";
-            CurrentTransactionParameter = "SaveCurrentTransaction";
-            CustomerModel = new CustomerModel();
-            CustomerList = new ObservableCollection<CustomerModel>();
-            StockModel = new StockModel();
-            StockList = new ObservableCollection<StockModel>();
-            PaymentList = new List<PaymentModel>();
         }
 
         #endregion
 
         #region Properties
-        public RelayCommand<object> CurrentTransactionCommands { get; set; }
-        public RelayCommand<object> DeleteCurrentTransactionCommand { get; set; }
         public RelayCommand<string> CurrentOrderCommand { get; set; }
         //public CustomerCommand CurrentTransactionCommands { get; set; }
 
@@ -175,127 +162,86 @@ namespace ERP.WpfClient.ViewModel.Transaction
             set { _paymentList = value; RaisePropertyChanged("PaymentList"); }
         }
 
-
-        public string CurrentTransactionParameter
-        {
-            get { return _currentTransactionParameter; }
-            set { _currentTransactionParameter = value; RaisePropertyChanged("CurrentTransactionParameter"); }
-        }
-
-        public string CurrentTransactionButton
-        {
-            get { return _currentTransactionButton; }
-            set { _currentTransactionButton = value; RaisePropertyChanged("CurrentTransactionButton"); }
-        }
-
         #endregion
 
         #region Methods
 
         private void ExecuteCurrentOrderCommand(string str)
         {
-            CurrentTransactionDetailModel = CurrentTransactionDetailList.Where(x => x.ItemName == StockModel.ItemName).FirstOrDefault();
+            if (str == "Add Item")
+            {
+                CurrentTransactionDetailModel = CurrentTransactionDetailList.Where(x => x.ItemName == StockModel.ItemName).FirstOrDefault();
 
-            if (CurrentTransactionDetailModel != null)
-            {
-                CurrentTransactionDetailModel.ItemName = StockModel.ItemName;
-                CurrentTransactionDetailModel.Price = StockModel.SalePrice;
-                CurrentTransactionDetailModel.Quantity = Quantity;
-                CurrentTransactionDetailModel.Discount = Discount;
-                decimal totalPrice = CurrentTransactionDetailModel.Price * Quantity;
-                CurrentTransactionDetailModel.TotalPrice = totalPrice - Discount;
-            }
-            else
-            {
-                CurrentTransactionDetailList.Add(new CurrentTransactionDetailModel()
+                if (CurrentTransactionDetailModel != null)
                 {
-                    ItemName = StockModel.ItemName,
-                    Price = StockModel.SalePrice,
-                    Quantity = Quantity,
-                    Discount = Discount,
-                    TotalPrice = (StockModel.SalePrice * Quantity) - Discount
-                });
-            }
+                    CurrentTransactionDetailModel.ItemName = StockModel.ItemName;
+                    CurrentTransactionDetailModel.Price = StockModel.SalePrice;
+                    CurrentTransactionDetailModel.Quantity = Quantity;
+                    CurrentTransactionDetailModel.Discount = Discount;
+                    decimal totalPrice = CurrentTransactionDetailModel.Price * Quantity;
+                    CurrentTransactionDetailModel.TotalPrice = totalPrice - Discount;
+                }
+                else
+                {
+                    CurrentTransactionDetailList.Add(new CurrentTransactionDetailModel()
+                    {
+                        ItemName = StockModel.ItemName,
+                        Price = StockModel.SalePrice,
+                        Quantity = Quantity,
+                        Discount = Discount,
+                        TotalPrice = (StockModel.SalePrice * Quantity) - Discount
+                    });
+                }
 
-            TotalPrice = CurrentTransactionDetailList.Sum(x => x.TotalPrice);
-            TotalDiscount = CurrentTransactionDetailList.Sum(x => x.Discount);
-            GrandTotal = TotalPrice - TotalDiscount;
-            
-        }
+                CurrentTransactionModel.TotalPrice = CurrentTransactionDetailList.Sum(x => x.TotalPrice);
+                CurrentTransactionModel.TotalDiscount = CurrentTransactionDetailList.Sum(x => x.Discount);
+                CurrentTransactionModel.GrandTotal = CurrentTransactionModel.TotalPrice - CurrentTransactionModel.TotalDiscount;
+            }
+            else if (str == "Save Order")
+            {
+                CurrentTransactionDetailRepository currentTransaction = new CurrentTransactionDetailRepository();
 
-        private void ExecuteCurrentTransactionCommand(object str)
-        {
-            if (str as string == "SaveCurrentTransaction")
-            {
-                SaveCurrentTransaction();
-            }
-            else if (str as string == "UpdateCurrentTransaction")
-            {
-                UpdateCurrentTransaction();
-            }
-            else if (str as string == "Clear")
-            {
+                CurrentTransaction transaction = new CurrentTransaction();
+
+                transaction.OrderNo = CurrentTransactionModel.OrderNo;
+                transaction.CustomerId = CustomerModel.Id;
+                transaction.TotalPrice = CurrentTransactionModel.TotalPrice;
+                transaction.TotalDiscount = CurrentTransactionModel.TotalDiscount;
+                transaction.GrandTotal = CurrentTransactionModel.GrandTotal;
+                transaction.CreatedDate = DateTime.Now;
+
+                foreach (var item in CurrentTransactionDetailList)
+                {
+                    CurrentTransactionDetail currentTransactionDetail = new CurrentTransactionDetail();
+                    currentTransactionDetail.ItemName = item.ItemName;
+                    currentTransactionDetail.Quantity = item.Quantity;
+                    currentTransactionDetail.Price = item.Price;
+                    currentTransactionDetail.Discount = item.Discount;
+                    currentTransactionDetail.TotalPrice = item.TotalPrice;
+                    transaction.CurrentTransactionDetails.Add(currentTransactionDetail);
+                }
+
+                currentTransaction.SaveDetail(transaction);
+
                 Reset();
-            }
-            else if (str != null)
-            {
-                EditStock(str as CurrentTransactionModel);
+                //CurrentTransactionModel.CustomerId = CustomerModel.Id;
+                //var result = _currentTransactionRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.CurrentTransaction>(CurrentTransactionModel));
+                //CurrentTransactionDetailModel.CurrentTransactionId = result.Id;
+                //_currentTransactionDetailRepository.Add(MapperProfile.iMapper.Map<ObservableCollection<Entities.DBModel.CurrentTransactionDetail>>(CurrentTransactionDetailList));
             }
         }
 
         private void Reset()
         {
             CurrentTransactionModel = new CurrentTransactionModel();
-            CurrentTransactionButton = "Save";
-            CurrentTransactionParameter = "SaveCurrentTransaction";
-        }
-
-        private void ExecuteDeleteCurrentTransactionCommand(object obj)
-        {
-            if (obj != null)
-            {
-                ApplicationManager.Instance.ShowConfirmDialog("Are you sure you want to Delete the delete?", () =>
-                {
-                    DeleteStock(obj as CurrentTransactionModel);
-                    ApplicationManager.Instance.HideDialog();
-                }, () => ApplicationManager.Instance.HideMessageBox(), useYesNo: true);
-            }
-        }
-
-        public void SaveCurrentTransaction()
-        {
-            var model = _currentTransactionRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.CurrentTransaction>(CurrentTransactionModel));
-            CurrentTransactionModel.Id = model.Id;
-            CurrentTransactionList.Add(CurrentTransactionModel);
-            Reset();
-        }
-
-        public void EditStock(CurrentTransactionModel currentTransactionModel)
-        {
-            CurrentTransactionButton = "Update";
-            CurrentTransactionParameter = "UpdateCurrentTransaction";
-            CurrentTransactionModel.Id = currentTransactionModel.Id;
-            //CurrentTransactionModel.ItemName = currentTransactionModel.ItemName;
-            //CurrentTransactionModel.UrduName = currentTransactionModel.UrduName;
-            //CurrentTransactionModel.BuyPrice = currentTransactionModel.BuyPrice;
-            //CurrentTransactionModel.SalePrice = currentTransactionModel.SalePrice;
-            //CurrentTransactionModel.Quantity = currentTransactionModel.Quantity;
-            //CurrentTransactionModel.Category = currentTransactionModel.Category;
-            //CurrentTransactionModel.Packing = currentTransactionModel.Packing;
-            //CurrentTransactionModel.Remarks = currentTransactionModel.Remarks;
-
-        }
-
-        public void UpdateCurrentTransaction()
-        {
-            _currentTransactionRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.CurrentTransaction>(CurrentTransactionModel), CurrentTransactionModel.Id);
-            Reset();
-        }
-
-        public void DeleteStock(CurrentTransactionModel currentTransactionModel)
-        {
-            _currentTransactionRepository.Delete(currentTransactionModel.Id);
-            CurrentTransactionList.Remove(currentTransactionModel);
+            CurrentTransactionDetailModel = new CurrentTransactionDetailModel();
+            CurrentTransactionDetailList = new ObservableCollection<CurrentTransactionDetailModel>();
+            CurrentTransactionList = new ObservableCollection<CurrentTransactionModel>();
+            CustomerModel = new CustomerModel();
+            CustomerList = new ObservableCollection<CustomerModel>();
+            StockModel = new StockModel();
+            StockList = new ObservableCollection<StockModel>();
+            PaymentList = new List<PaymentModel>();
         }
 
         private void Init()
@@ -342,13 +288,14 @@ namespace ERP.WpfClient.ViewModel.Transaction
         {
             var result = _currentTransactionRepository.Get().LastOrDefault();
             if (result != null)
-                OrderNumber = "#" + result.OrderNo;
+                CurrentTransactionModel.OrderNo = Convert.ToInt32(result.OrderNo);
             else
-                OrderNumber = "#0001";
+                CurrentTransactionModel.OrderNo = Convert.ToInt32("0001");
         }
 
         public void OnBringIntoView()
         {
+            Reset();
             Init();
         }
 

@@ -35,7 +35,7 @@
 
                     <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
                         <Label Style="{StaticResource SimpleLabelText}" Content="Order Number:"/>
-                        <Label Style="{StaticResource SimpleLabelText}" Content="{Binding OrderNumber}" FontWeight="Bold"/>
+                        <Label Style="{StaticResource SimpleLabelText}" Content="{Binding CurrentTransactionModel.OrderNo}" FontWeight="Bold"/>
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
@@ -97,7 +97,7 @@
                         <TextBox  Text="{Binding Discount,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                     </StackPanel>
 
-                    <Button Style="{StaticResource AcceptButton}" Content="+ Add to Bill"  Grid.Column="3" Grid.Row="2" Command="{Binding AddItemCommand}" CommandParameter="Add Item"/>
+                    <Button Style="{StaticResource AcceptButton}" Content="+ Add to Bill"  Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Add Item"/>
 
                 </Grid>
                 <StackPanel Grid.Row="2">
@@ -134,21 +134,21 @@
 
                         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                             <Label Content="Total Price:"/>
-                            <Label Content="{Binding TotalPrice}"/>
+                            <Label Content="{Binding CurrentTransactionModel.TotalPrice}"/>
                         </StackPanel>
-                        
+
                         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
                             <Label Content="Total Discount:"/>
-                            <Label Content="{Binding TotalDiscount}"/>
+                            <Label Content="{Binding CurrentTransactionModel.TotalDiscount}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                             <Label Content="Grand Total:"/>
-                            <Label Content="{Binding GrandTotal}"/>
+                            <Label Content="{Binding CurrentTransactionModel.GrandTotal}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
-                            <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Command="{Binding SaveOrderCommand}" CommandParameter="Save Order"/>
+                            <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Save Order"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>
