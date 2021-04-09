@@ -248,6 +248,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
             else if (str == "Search Order")
             {
+                CurrentTransactionDetailList = new ObservableCollection<CurrentTransactionDetailModel>();
                 var result = currentTransaction.GetOrder(OrderNumber);
                 if (result != null)
                 {
@@ -272,8 +273,12 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         });
                     }
                 }
-                PaymentType = MapperProfile.iMapper.Map<PaymentModel>(result.Payments.FirstOrDefault(x => x.CurrentTransactionId == result.Id));
-                CustomerModel = MapperProfile.iMapper.Map<CustomerModel>(result.Customer);
+
+                CustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
+                CustomerModel = CustomerList.FirstOrDefault();
+
+                PaymentList = MapperProfile.iMapper.Map<List<PaymentModel>>(result.Payments.Where(x => x.CurrentTransactionId == result.Id).ToList());
+                PaymentType = PaymentList.FirstOrDefault();
             }
 
             else if (str == "New Order")
@@ -296,6 +301,8 @@ namespace ERP.WpfClient.ViewModel.Transaction
             StockModel = new StockModel();
             _isPreviousOrder = false;
             OrderNumber = "Search Order";
+            Quantity = 0;
+            Discount = 0;
             GetOrderNumber();
         }
 
@@ -343,7 +350,10 @@ namespace ERP.WpfClient.ViewModel.Transaction
         {
             var result = _currentTransactionRepository.Get().LastOrDefault();
             if (result != null)
-                CurrentTransactionModel.OrderNo = result.OrderNo + 1;
+            {
+                int orderNo = Convert.ToInt32(result.OrderNo) + 1;
+                CurrentTransactionModel.OrderNo = orderNo.ToString();
+            }
             else
                 CurrentTransactionModel.OrderNo = "1000";
         }
