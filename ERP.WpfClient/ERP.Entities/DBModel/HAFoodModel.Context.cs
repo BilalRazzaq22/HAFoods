@@ -13,10 +13,10 @@ namespace ERP.Entities.DBModel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class HAFoods_DBEntities : DbContext
+    public partial class HAFoodEntities : DbContext
     {
-        public HAFoods_DBEntities()
-            : base("name=HAFoods_DBEntities")
+        public HAFoodEntities()
+            : base("name=HAFoodEntities")
         {
         }
     
@@ -25,10 +25,11 @@ namespace ERP.Entities.DBModel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Supplier> Suppliers { get; set; }
-        public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<CurrentTransaction> CurrentTransactions { get; set; }
         public virtual DbSet<CurrentTransactionDetail> CurrentTransactionDetails { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
+        public virtual DbSet<Payment> Payments { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<Supplier> Suppliers { get; set; }
     }
 }

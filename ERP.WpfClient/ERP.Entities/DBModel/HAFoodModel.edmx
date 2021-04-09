@@ -4,18 +4,17 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="HAFoods_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="HAFoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="CurrentTransaction">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CustomerId" Type="int" />
-          <Property Name="OrderNo" Type="int" />
+          <Property Name="OrderNo" Type="nvarchar" MaxLength="50" />
           <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />
           <Property Name="TotalDiscount" Type="decimal" Precision="18" Scale="0" />
           <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="0" />
-          <Property Name="AmountPaid" Type="decimal" Precision="18" Scale="0" />
           <Property Name="CreatedDate" Type="datetime" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
@@ -46,6 +45,14 @@
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
           <Property Name="UpdatedDate" Type="datetime" />
           <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+          <Property Name="CurrentTransactionId" Type="int" />
         </EntityType>
         <EntityType Name="Stock">
           <Key>
@@ -103,10 +110,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="HAFoods_DBModelStoreContainer">
+        <Association Name="FK_Payment_CurrentTransaction">
+          <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurrentTransaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="CurrentTransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HAFoodsModelStoreContainer">
           <EntitySet Name="CurrentTransaction" EntityType="Self.CurrentTransaction" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="CurrentTransactionDetail" EntityType="Self.CurrentTransactionDetail" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_CurrentTransaction_Customer" Association="Self.FK_CurrentTransaction_Customer">
@@ -117,27 +137,48 @@
             <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
             <End Role="CurrentTransactionDetail" EntitySet="CurrentTransactionDetail" />
           </AssociationSet>
+          <AssociationSet Name="FK_Payment_CurrentTransaction" Association="Self.FK_Payment_CurrentTransaction">
+            <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
+            <End Role="Payment" EntitySet="Payment" />
+          </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="HAFoods_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityContainer Name="HAFoods_DBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Suppliers" EntityType="HAFoods_DBModel.Supplier" />
-          <EntitySet Name="Stocks" EntityType="HAFoods_DBModel.Stock" />
-          <EntitySet Name="CurrentTransactions" EntityType="HAFoods_DBModel.CurrentTransaction" />
-          <EntitySet Name="CurrentTransactionDetails" EntityType="HAFoods_DBModel.CurrentTransactionDetail" />
-          <EntitySet Name="Customers" EntityType="HAFoods_DBModel.Customer" />
-          <AssociationSet Name="FK_CurrentTransaction_Customer" Association="HAFoods_DBModel.FK_CurrentTransaction_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="CurrentTransaction" EntitySet="CurrentTransactions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_CurrentTransactionDetail_CurrentTransaction" Association="HAFoods_DBModel.FK_CurrentTransactionDetail_CurrentTransaction">
-            <End Role="CurrentTransaction" EntitySet="CurrentTransactions" />
-            <End Role="CurrentTransactionDetail" EntitySet="CurrentTransactionDetails" />
-          </AssociationSet>
-        </EntityContainer>
-        <EntityType Name="Supplier">
+      <Schema Namespace="HAFoodsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CurrentTransaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CustomerId" Type="Int32" />
+          <Property Name="OrderNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalDiscount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Customer" Relationship="Self.FK_CurrentTransaction_Customer" FromRole="CurrentTransaction" ToRole="Customer" />
+          <NavigationProperty Name="CurrentTransactionDetails" Relationship="Self.FK_CurrentTransactionDetail_CurrentTransaction" FromRole="CurrentTransaction" ToRole="CurrentTransactionDetail" />
+          <NavigationProperty Name="Payments" Relationship="Self.FK_Payment_CurrentTransaction" FromRole="CurrentTransaction" ToRole="Payment" />
+        </EntityType>
+        <EntityType Name="CurrentTransactionDetail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CurrentTransactionId" Type="Int32" />
+          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="CurrentTransaction" Relationship="Self.FK_CurrentTransactionDetail_CurrentTransaction" FromRole="CurrentTransactionDetail" ToRole="CurrentTransaction" />
+        </EntityType>
+        <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -150,6 +191,16 @@
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="CurrentTransactions" Relationship="Self.FK_CurrentTransaction_Customer" FromRole="Customer" ToRole="CurrentTransaction" />
+        </EntityType>
+        <EntityType Name="Payment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaymentType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CurrentTransactionId" Type="Int32" />
+          <NavigationProperty Name="CurrentTransaction" Relationship="Self.FK_Payment_CurrentTransaction" FromRole="Payment" ToRole="CurrentTransaction" />
         </EntityType>
         <EntityType Name="Stock">
           <Key>
@@ -169,38 +220,7 @@
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
         </EntityType>
-        <EntityType Name="CurrentTransaction">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CustomerId" Type="Int32" />
-          <Property Name="OrderNo" Type="Int32" />
-          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="TotalDiscount" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="GrandTotal" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="AmountPaid" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
-          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
-          <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Customer" Relationship="HAFoods_DBModel.FK_CurrentTransaction_Customer" FromRole="CurrentTransaction" ToRole="Customer" />
-          <NavigationProperty Name="CurrentTransactionDetails" Relationship="HAFoods_DBModel.FK_CurrentTransactionDetail_CurrentTransaction" FromRole="CurrentTransaction" ToRole="CurrentTransactionDetail" />
-        </EntityType>
-        <EntityType Name="CurrentTransactionDetail">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CurrentTransactionId" Type="Int32" />
-          <Property Name="ItemName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Quantity" Type="Int32" />
-          <Property Name="Price" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Discount" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="TotalPrice" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="CurrentTransaction" Relationship="HAFoods_DBModel.FK_CurrentTransactionDetail_CurrentTransaction" FromRole="CurrentTransactionDetail" ToRole="CurrentTransaction" />
-        </EntityType>
-        <EntityType Name="Customer">
+        <EntityType Name="Supplier">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -213,11 +233,10 @@
           <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
           <Property Name="UpdatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="CurrentTransactions" Relationship="HAFoods_DBModel.FK_CurrentTransaction_Customer" FromRole="Customer" ToRole="CurrentTransaction" />
         </EntityType>
         <Association Name="FK_CurrentTransaction_Customer">
-          <End Type="HAFoods_DBModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="HAFoods_DBModel.CurrentTransaction" Role="CurrentTransaction" Multiplicity="*" />
+          <End Role="Customer" Type="Self.Customer" Multiplicity="0..1" />
+          <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Customer">
               <PropertyRef Name="Id" />
@@ -228,8 +247,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_CurrentTransactionDetail_CurrentTransaction">
-          <End Type="HAFoods_DBModel.CurrentTransaction" Role="CurrentTransaction" Multiplicity="0..1" />
-          <End Type="HAFoods_DBModel.CurrentTransactionDetail" Role="CurrentTransactionDetail" Multiplicity="*" />
+          <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="0..1" />
+          <End Role="CurrentTransactionDetail" Type="Self.CurrentTransactionDetail" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="CurrentTransaction">
               <PropertyRef Name="Id" />
@@ -239,92 +258,132 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Payment_CurrentTransaction">
+          <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="0..1" />
+          <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CurrentTransaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Payment">
+              <PropertyRef Name="CurrentTransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HAFoodEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CurrentTransactions" EntityType="Self.CurrentTransaction" />
+          <EntitySet Name="CurrentTransactionDetails" EntityType="Self.CurrentTransactionDetail" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Payments" EntityType="Self.Payment" />
+          <EntitySet Name="Stocks" EntityType="Self.Stock" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <AssociationSet Name="FK_CurrentTransaction_Customer" Association="Self.FK_CurrentTransaction_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="CurrentTransaction" EntitySet="CurrentTransactions" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrentTransactionDetail_CurrentTransaction" Association="Self.FK_CurrentTransactionDetail_CurrentTransaction">
+            <End Role="CurrentTransaction" EntitySet="CurrentTransactions" />
+            <End Role="CurrentTransactionDetail" EntitySet="CurrentTransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Payment_CurrentTransaction" Association="Self.FK_Payment_CurrentTransaction">
+            <End Role="CurrentTransaction" EntitySet="CurrentTransactions" />
+            <End Role="Payment" EntitySet="Payments" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="HAFoods_DBModelStoreContainer" CdmEntityContainer="HAFoods_DBEntities">
-          <EntitySetMapping Name="Suppliers">
-            <EntityTypeMapping TypeName="HAFoods_DBModel.Supplier">
-              <MappingFragment StoreEntitySet="Supplier">
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Stocks">
-            <EntityTypeMapping TypeName="HAFoods_DBModel.Stock">
-              <MappingFragment StoreEntitySet="Stock">
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
-                <ScalarProperty Name="Packing" ColumnName="Packing" />
-                <ScalarProperty Name="Category" ColumnName="Category" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
-                <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
-                <ScalarProperty Name="UrduName" ColumnName="UrduName" />
-                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-                <ScalarProperty Name="Id" ColumnName="Id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="HAFoodsModelStoreContainer" CdmEntityContainer="HAFoodEntities">
           <EntitySetMapping Name="CurrentTransactions">
-            <EntityTypeMapping TypeName="HAFoods_DBModel.CurrentTransaction">
+            <EntityTypeMapping TypeName="HAFoodsModel.CurrentTransaction">
               <MappingFragment StoreEntitySet="CurrentTransaction">
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="AmountPaid" ColumnName="AmountPaid" />
-                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
-                <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
-                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CustomerId" ColumnName="CustomerId" />
+                <ScalarProperty Name="OrderNo" ColumnName="OrderNo" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+                <ScalarProperty Name="TotalDiscount" ColumnName="TotalDiscount" />
+                <ScalarProperty Name="GrandTotal" ColumnName="GrandTotal" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CurrentTransactionDetails">
-            <EntityTypeMapping TypeName="HAFoods_DBModel.CurrentTransactionDetail">
+            <EntityTypeMapping TypeName="HAFoodsModel.CurrentTransactionDetail">
               <MappingFragment StoreEntitySet="CurrentTransactionDetail">
-                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
-                <ScalarProperty Name="Discount" ColumnName="Discount" />
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
-                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
-                <ScalarProperty Name="CurrentTransactionId" ColumnName="CurrentTransactionId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="CurrentTransactionId" ColumnName="CurrentTransactionId" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Customers">
-            <EntityTypeMapping TypeName="HAFoods_DBModel.Customer">
+            <EntityTypeMapping TypeName="HAFoodsModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
-                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
-                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="Address" ColumnName="Address" />
-                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
-                <ScalarProperty Name="LastName" ColumnName="LastName" />
-                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          </EntityContainerMapping>
+          <EntitySetMapping Name="Payments">
+            <EntityTypeMapping TypeName="HAFoodsModel.Payment">
+              <MappingFragment StoreEntitySet="Payment">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="CurrentTransactionId" ColumnName="CurrentTransactionId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Stocks">
+            <EntityTypeMapping TypeName="HAFoodsModel.Stock">
+              <MappingFragment StoreEntitySet="Stock">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="ItemName" ColumnName="ItemName" />
+                <ScalarProperty Name="UrduName" ColumnName="UrduName" />
+                <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+                <ScalarProperty Name="SalePrice" ColumnName="SalePrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Packing" ColumnName="Packing" />
+                <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="HAFoodsModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

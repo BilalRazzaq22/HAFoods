@@ -4,14 +4,16 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7b7899da33444ae396c52ba3d02cbfc1" Name="Diagram1">
-        <EntityTypeShape EntityType="HAFoods_DBModel.Supplier" Width="1.5" PointX="3.375" PointY="0.75" />
-        <EntityTypeShape EntityType="HAFoods_DBModel.Stock" Width="1.5" PointX="0.75" PointY="4.75" />
-        <EntityTypeShape EntityType="HAFoods_DBModel.CurrentTransaction" Width="1.5" PointX="5.625" PointY="5" />
-        <EntityTypeShape EntityType="HAFoods_DBModel.CurrentTransactionDetail" Width="1.5" PointX="7.875" PointY="5.5" />
-        <EntityTypeShape EntityType="HAFoods_DBModel.Customer" Width="1.5" PointX="3.375" PointY="5.25" />
-        <AssociationConnector Association="HAFoods_DBModel.FK_CurrentTransaction_Customer" />
-        <AssociationConnector Association="HAFoods_DBModel.FK_CurrentTransactionDetail_CurrentTransaction" />
+      <Diagram DiagramId="313a55be03c14ad0af8fbe4995d71f64" Name="Diagram1">
+        <EntityTypeShape EntityType="HAFoodsModel.CurrentTransaction" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAFoodsModel.CurrentTransactionDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAFoodsModel.Customer" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAFoodsModel.Payment" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAFoodsModel.Stock" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HAFoodsModel.Supplier" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransaction_Customer" ManuallyRouted="false" />
+        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransactionDetail_CurrentTransaction" ManuallyRouted="false" />
+        <AssociationConnector Association="HAFoodsModel.FK_Payment_CurrentTransaction" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

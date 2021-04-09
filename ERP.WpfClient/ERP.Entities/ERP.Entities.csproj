@@ -75,6 +75,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HAFoodModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="DBModel\Payment.cs">
+      <DependentUpon>HAFoodModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="DBModel\Stock.cs">
       <DependentUpon>HAFoodModel.tt</DependentUpon>
     </Compile>
@@ -84,29 +87,15 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.Config" />
     <EntityDeploy Include="DBModel\HAFoodModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>HAFoodModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
     <None Include="DBModel\HAFoodModel.edmx.diagram">
       <DependentUpon>HAFoodModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="DBModel\HAFoodModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>HAFoodModel.Context.cs</LastGenOutput>
-      <DependentUpon>HAFoodModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="DBModel\HAFoodModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HAFoodModel.edmx</DependentUpon>
-      <LastGenOutput>HAFoodModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -116,6 +105,18 @@
       <Project>{514de237-c960-4e62-ac30-00c3c1284d78}</Project>
       <Name>ERP.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBModel\HAFoodModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HAFoodModel.edmx</DependentUpon>
+      <LastGenOutput>HAFoodModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="DBModel\HAFoodModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>HAFoodModel.edmx</DependentUpon>
+      <LastGenOutput>HAFoodModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

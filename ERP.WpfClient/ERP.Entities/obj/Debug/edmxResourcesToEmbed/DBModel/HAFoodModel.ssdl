@@ -1,16 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="HAFoods_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema Namespace="HAFoodsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
   <EntityType Name="CurrentTransaction">
     <Key>
       <PropertyRef Name="Id" />
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
-    <Property Name="OrderNo" Type="int" />
+    <Property Name="OrderNo" Type="nvarchar" MaxLength="50" />
     <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />
     <Property Name="TotalDiscount" Type="decimal" Precision="18" Scale="0" />
     <Property Name="GrandTotal" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="AmountPaid" Type="decimal" Precision="18" Scale="0" />
     <Property Name="CreatedDate" Type="datetime" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
     <Property Name="UpdatedDate" Type="datetime" />
@@ -41,6 +40,14 @@
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
     <Property Name="UpdatedDate" Type="datetime" />
     <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Payment">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
+    <Property Name="CurrentTransactionId" Type="int" />
   </EntityType>
   <EntityType Name="Stock">
     <Key>
@@ -98,10 +105,23 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="HAFoods_DBModelStoreContainer">
+  <Association Name="FK_Payment_CurrentTransaction">
+    <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="0..1" />
+    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CurrentTransaction">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Payment">
+        <PropertyRef Name="CurrentTransactionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HAFoodsModelStoreContainer">
     <EntitySet Name="CurrentTransaction" EntityType="Self.CurrentTransaction" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="CurrentTransactionDetail" EntityType="Self.CurrentTransactionDetail" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Payment" EntityType="Self.Payment" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Stock" EntityType="Self.Stock" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CurrentTransaction_Customer" Association="Self.FK_CurrentTransaction_Customer">
@@ -111,6 +131,10 @@
     <AssociationSet Name="FK_CurrentTransactionDetail_CurrentTransaction" Association="Self.FK_CurrentTransactionDetail_CurrentTransaction">
       <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
       <End Role="CurrentTransactionDetail" EntitySet="CurrentTransactionDetail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payment_CurrentTransaction" Association="Self.FK_Payment_CurrentTransaction">
+      <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
+      <End Role="Payment" EntitySet="Payment" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

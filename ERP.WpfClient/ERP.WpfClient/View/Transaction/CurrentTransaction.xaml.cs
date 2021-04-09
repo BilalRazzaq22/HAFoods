@@ -21,10 +21,38 @@ namespace ERP.WpfClient.View.Transaction
     /// </summary>
     public partial class CurrentTransaction : UserControl
     {
+        public CurrentTransactionViewModel Model { get; set; }
         public CurrentTransaction()
         {
             InitializeComponent();
-            this.DataContext = new CurrentTransactionViewModel();
+            Model = new CurrentTransactionViewModel();
+            this.DataContext = Model;
+        }
+
+        private void _txtSearch_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(_txtSearch.Text=="Search Order")
+            {
+                _txtSearch.Text = "";
+            }
+        }
+
+        private void _txtSearch_MouseLeave(object sender, MouseEventArgs e)
+        {
+            if (_txtSearch.Text == "")
+            {
+                _txtSearch.Text = "Search Order";
+            }
+        }
+
+        private void _imgClear_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            _txtSearch.Text = "Search Order";
+        }
+
+        private void _txtSearch_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Model.OrderNumber = _txtSearch.Text;
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ERP.Entities.DBModel;
 using ERP.WpfClient.Model;
+using ERP.WpfClient.Model.Payment;
 using ERP.WpfClient.Model.Stock;
 using ERP.WpfClient.Model.Supplier;
 using ERP.WpfClient.Model.Transaction;
@@ -24,6 +25,7 @@ namespace ERP.WpfClient.Mapper
                 cfg.CreateMap<Stock, StockModel>().ReverseMap();
                 cfg.CreateMap<CurrentTransaction, CurrentTransactionModel>().ReverseMap();
                 cfg.CreateMap<CurrentTransactionDetail, CurrentTransactionDetailModel>().ReverseMap();
+                cfg.CreateMap<Payment, PaymentModel>().ReverseMap();
             });
 
             iMapper = config.CreateMapper();

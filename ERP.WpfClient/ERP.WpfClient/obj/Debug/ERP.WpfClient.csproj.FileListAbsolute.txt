@@ -346,3 +346,9 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Paymen
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Reports\CustomerReportPopup.g.cs
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Payments\PaymentPopup.baml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Reports\CustomerReportPopup.baml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Payments\PaymentPopup.g.cs
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Reports\CustomerReportPopup.g.cs
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Reports\AllReports.g.cs
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Payments\PaymentPopup.baml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Popups\Reports\CustomerReportPopup.baml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\View\Reports\AllReports.baml

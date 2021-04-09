@@ -13,10 +13,17 @@ namespace ERP.Repository.Transaction
         {
             try
             {
-                var retailOrderTable = DBInstance.Instance.Set<CurrentTransaction>();
-                var retailOrderItemsTable = DBInstance.Instance.Set<CurrentTransactionDetail>();
+                CurrentTransaction transaction = null;
+                var currentOrder = DBInstance.Instance.Set<CurrentTransaction>();
+                var currentOrderDetails = DBInstance.Instance.Set<CurrentTransactionDetail>();
+                var currentPayment = DBInstance.Instance.Set<Payment>();
+                var order = currentOrder.Include("CurrentTransactionDetails").Include("Payments").Where(x => x.Id == currentTransaction.Id).FirstOrDefault();
 
-                var result = retailOrderTable.Add(currentTransaction);
+                if (order != null)
+                    DBInstance.Instance.Entry(order).CurrentValues.SetValues(currentTransaction);
+                else
+                    transaction = currentOrder.Add(currentTransaction);
+
                 DBInstance.Instance.SaveChanges();
 
 
@@ -38,28 +45,53 @@ namespace ERP.Repository.Transaction
                 foreach (var item in currentTransaction.CurrentTransactionDetails.Distinct())
                 {
                     //item.RetailOrder = null;
+                    //if (transaction != null)
+                    //else
+                    //    item.CurrentTransactionId = currentTransaction.Id;
 
-                    item.CurrentTransactionId = result.Id;
-
-                    var dbItem = retailOrderItemsTable.Where(x => x.Id == item.Id).FirstOrDefault();
+                    var dbItem = currentOrderDetails.Where(x => x.Id == item.Id).FirstOrDefault();
 
                     if (dbItem != null)
                     {
+                        item.CurrentTransactionId = currentTransaction.Id;
                         DBInstance.Instance.Entry(dbItem).CurrentValues.SetValues(item);
                     }
                     else
                     {
-                        currentTransaction.CurrentTransactionDetails.Add(item);
+                        item.CurrentTransactionId = currentTransaction.Id;
+                        order.CurrentTransactionDetails.Add(item);
+                    }
+                }
+
+                foreach (var item in currentTransaction.Payments.Distinct())
+                {
+                    var dbItem = currentPayment.Where(x => x.Id == item.Id).FirstOrDefault();
+
+                    if (dbItem != null)
+                    {
+                        item.CurrentTransactionId = currentTransaction.Id;
+                        DBInstance.Instance.Entry(dbItem).CurrentValues.SetValues(item);
+                    }
+                    else
+                    {
+                        item.CurrentTransactionId = currentTransaction.Id;
+                        order.Payments.Add(item);
                     }
                 }
                 DBInstance.Instance.SaveChanges();
             }
             catch (Exception)
             {
-
                 throw;
             }
 
+        }
+
+        public CurrentTransaction GetOrder(string Orderno)
+        {
+            var retailOrderTable = DBInstance.Instance.Set<CurrentTransaction>();
+            var order = retailOrderTable.Include("CurrentTransactionDetails").Include("Payments").Where(x => x.OrderNo == Orderno).FirstOrDefault();
+            return order;
         }
     }
 }

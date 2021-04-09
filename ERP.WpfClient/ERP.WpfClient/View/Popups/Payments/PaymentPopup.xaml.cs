@@ -29,7 +29,7 @@ namespace ERP.WpfClient.View.Popups.Payments
         public PaymentPopup(CurrentTransactionViewModel currentTransactionViewModel)
         {
             InitializeComponent();
-            DataContext = currentTransactionViewModel;
+            this.DataContext = currentTransactionViewModel;
         }
     }
 }
