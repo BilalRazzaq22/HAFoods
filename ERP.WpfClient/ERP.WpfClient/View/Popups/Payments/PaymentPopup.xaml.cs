@@ -1,4 +1,4 @@
-﻿using ERP.WpfClient.ViewModel.Stock;
+﻿using ERP.WpfClient.ViewModel.Transaction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,22 +14,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ERP.WpfClient.View.Stock
+namespace ERP.WpfClient.View.Popups.Payments
 {
     /// <summary>
-    /// Interaction logic for Stock.xaml
+    /// Interaction logic for PaymentPopup.xaml
     /// </summary>
-    public partial class Stock : UserControl
+    public partial class PaymentPopup : UserControl
     {
-        public Stock()
+        public PaymentPopup()
         {
             InitializeComponent();
-            DataContext = new StockViewModel();
         }
 
-        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        public PaymentPopup(CurrentTransactionViewModel currentTransactionViewModel)
         {
-            Search.Grid = grdStock;
+            InitializeComponent();
+            DataContext = currentTransactionViewModel;
         }
     }
 }

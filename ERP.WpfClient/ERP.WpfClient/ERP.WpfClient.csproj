@@ -164,6 +164,7 @@
     <Compile Include="ViewModel\Home\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
+    <Compile Include="ViewModel\Reports\AllReportsViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\Transaction\CurrentTransactionViewModel.cs" />
@@ -176,6 +177,15 @@
     </Compile>
     <Compile Include="View\Popups\ConfirmationPopup.xaml.cs">
       <DependentUpon>ConfirmationPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Payments\PaymentPopup.xaml.cs">
+      <DependentUpon>PaymentPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Reports\CustomerReportPopup.xaml.cs">
+      <DependentUpon>CustomerReportPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Reports\AllReports.xaml.cs">
+      <DependentUpon>AllReports.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Search\SearchBox.xaml.cs">
       <DependentUpon>SearchBox.xaml</DependentUpon>
@@ -235,6 +245,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Popups\ConfirmationPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Payments\PaymentPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\CustomerReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Reports\AllReports.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

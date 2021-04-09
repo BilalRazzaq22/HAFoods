@@ -13,6 +13,7 @@ namespace ERP.Common
         Customer,
         Supplier,
         Stock,
-        CurrentTransaction
+        CurrentTransaction,
+        AllReports
     }
 }

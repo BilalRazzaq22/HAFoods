@@ -9,6 +9,7 @@ using ERP.WpfClient.Model;
 using ERP.WpfClient.Model.Payment;
 using ERP.WpfClient.Model.Stock;
 using ERP.WpfClient.Model.Transaction;
+using ERP.WpfClient.View.Popups.Payments;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
@@ -200,7 +201,6 @@ namespace ERP.WpfClient.ViewModel.Transaction
             else if (str == "Save Order")
             {
                 CurrentTransactionDetailRepository currentTransaction = new CurrentTransactionDetailRepository();
-
                 CurrentTransaction transaction = new CurrentTransaction();
 
                 transaction.OrderNo = CurrentTransactionModel.OrderNo;
@@ -223,7 +223,14 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
                 currentTransaction.SaveDetail(transaction);
 
+
+                ApplicationManager.Instance.ShowDialog("Order Saved!", new PaymentPopup(this));
+
+
                 Reset();
+
+
+
                 //CurrentTransactionModel.CustomerId = CustomerModel.Id;
                 //var result = _currentTransactionRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.CurrentTransaction>(CurrentTransactionModel));
                 //CurrentTransactionDetailModel.CurrentTransactionId = result.Id;

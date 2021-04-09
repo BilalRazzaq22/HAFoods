@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Reports.AllReports"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Reports"
+             mc:Ignorable="d" 
+             d:DesignHeight="780" d:DesignWidth="1024">
+    <Grid  Background="{StaticResource MasterBackgroundColor}">
+        <Grid.RowDefinitions>
+            <!--<RowDefinition Height="300"/>-->
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <TextBlock Style="{StaticResource TopMainHeadings}" Text="All Available Reports" Grid.Row="0" Grid.Column="0"/>
+
+        <Grid Grid.Row="1" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="auto"/>
+                <RowDefinition  Height="auto"/>
+            </Grid.RowDefinitions>
+
+            <!--<Border  Style="{StaticResource DashboardContentBorder}">-->
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Customer Report" TextAlignment="Center"/>
+            </Button>
+            <!--</Border>-->
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Supplier Report" TextAlignment="Center"/>
+            </Button>
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Daily Transaction Report" TextAlignment="Center"/>
+            </Button>
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Items Report" TextAlignment="Center"/>
+            </Button>
+
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Debit Report" TextAlignment="Center"/>
+            </Button>
+
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Debit Report" TextAlignment="Center"/>
+            </Button>
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="1" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Debit Report" TextAlignment="Center"/>
+            </Button>
+            <Button Style="{StaticResource ReportsButton}" Grid.Row="1" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Credit Report" TextAlignment="Center"/>
+            </Button>
+
+        </Grid>
+        
+    </Grid>
+</UserControl>

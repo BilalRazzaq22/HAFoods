@@ -31,6 +31,7 @@
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Sales Orders" Command="{Binding MainViewCommand}" CommandParameter="Sales Order"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}" CommandParameter="Cash Book"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="All Reports" Command="{Binding MainViewCommand}" CommandParameter="All Reports"/>
                 </StackPanel>
             </Border>
         </Grid>

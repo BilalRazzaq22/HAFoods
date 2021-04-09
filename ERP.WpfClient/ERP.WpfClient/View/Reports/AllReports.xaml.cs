@@ -1,4 +1,4 @@
-﻿using ERP.WpfClient.ViewModel.Stock;
+﻿using ERP.WpfClient.ViewModel.Reports;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,22 +14,17 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ERP.WpfClient.View.Stock
+namespace ERP.WpfClient.View.Reports
 {
     /// <summary>
-    /// Interaction logic for Stock.xaml
+    /// Interaction logic for AllReports.xaml
     /// </summary>
-    public partial class Stock : UserControl
+    public partial class AllReports : UserControl
     {
-        public Stock()
+        public AllReports()
         {
             InitializeComponent();
-            DataContext = new StockViewModel();
-        }
-
-        private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-            Search.Grid = grdStock;
+            DataContext = new AllReportsViewModel();
         }
     }
 }

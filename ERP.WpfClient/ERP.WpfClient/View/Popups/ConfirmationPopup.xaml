@@ -15,15 +15,9 @@
         </Grid.RowDefinitions>
 
         <Image Style="{StaticResource PopUpConfirmationIcon}" Margin="0 10 0 0" Grid.Row="0"/>
-
         <TextBlock Style="{StaticResource PopUpConfirmatoryText}" Grid.Row="1"/>
-
-
-
         <TextBlock Style="{StaticResource PopUpConfirmatoryMessage}" Grid.Row="2" Text="{Binding Message}" 
                     />
-
-
         <Grid Grid.Row="3" Background="{StaticResource CommonWhiteBackgroundColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
