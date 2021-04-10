@@ -14,12 +14,19 @@ namespace ERP.Entities.DBModel
     
     public partial class Stock
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Stock()
+        {
+            this.CurrentTransactionDetails = new HashSet<CurrentTransactionDetail>();
+        }
+    
         public int Id { get; set; }
         public string ItemName { get; set; }
         public string UrduName { get; set; }
         public Nullable<decimal> BuyPrice { get; set; }
         public Nullable<decimal> SalePrice { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public Nullable<int> CurrentQuantity { get; set; }
+        public Nullable<int> NewQuantity { get; set; }
         public string Category { get; set; }
         public Nullable<int> Packing { get; set; }
         public string Remarks { get; set; }
@@ -27,5 +34,8 @@ namespace ERP.Entities.DBModel
         public string CreatedBy { get; set; }
         public Nullable<System.DateTime> UpdatedDate { get; set; }
         public string UpdatedBy { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CurrentTransactionDetail> CurrentTransactionDetails { get; set; }
     }
 }

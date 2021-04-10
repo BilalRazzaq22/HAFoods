@@ -7,8 +7,10 @@ namespace ERP.WpfClient.Model.Transaction
     {
         private int _id;
         private int _currentTransactionId;
+        private int? _stockId;
         private string _itemName;
-        private int? _quantity;
+        private int? _newQuantity;
+        private int? _previousQuantity;
         private decimal? _price;
         private decimal? _discount;
         private decimal? _totalPrice;
@@ -29,16 +31,28 @@ namespace ERP.WpfClient.Model.Transaction
             set { _currentTransactionId = value; RaisePropertyChanged("CurrentTransactionId"); }
         }
 
+        public int? StockId
+        {
+            get { return _stockId; }
+            set { _stockId = value; RaisePropertyChanged("StockId"); }
+        }
+
         public string ItemName
         {
             get { return _itemName; }
             set { _itemName = value; RaisePropertyChanged("ItemName"); }
         }
 
-        public int? Quantity
+        public int? NewQuantity
         {
-            get { return _quantity; }
-            set { _quantity = value; RaisePropertyChanged("Quantity"); }
+            get { return _newQuantity; }
+            set { _newQuantity = value; RaisePropertyChanged("NewQuantity"); }
+        }
+
+        public int? PreviousQuantity
+        {
+            get { return _previousQuantity; }
+            set { _previousQuantity = value; RaisePropertyChanged("PreviousQuantity"); }
         }
 
         public decimal? Price

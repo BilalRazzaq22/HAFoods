@@ -154,15 +154,15 @@
                     </Border>
                 </Grid>
             </Grid>
-            <Grid>
+            <wpfx:BusyIndicator Name="BusyBar" IsBusy="{Binding ApplicationManager.IsBusy}"/>
+            <!--<Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <wpfx:BusyIndicator Grid.Row="2" Name="BusyBar" IsBusy="{Binding ApplicationManager.IsBusy}"/>
-            </Grid>
+            </Grid>-->
         </Grid>
     </Grid>
 </Window>

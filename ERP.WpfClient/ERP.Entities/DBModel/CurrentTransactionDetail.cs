@@ -16,12 +16,19 @@ namespace ERP.Entities.DBModel
     {
         public int Id { get; set; }
         public Nullable<int> CurrentTransactionId { get; set; }
+        public Nullable<int> StockId { get; set; }
         public string ItemName { get; set; }
-        public Nullable<int> Quantity { get; set; }
+        public Nullable<int> PreviousQuantity { get; set; }
+        public Nullable<int> NewQuantity { get; set; }
         public Nullable<decimal> Price { get; set; }
         public Nullable<decimal> Discount { get; set; }
         public Nullable<decimal> TotalPrice { get; set; }
+        public Nullable<System.DateTime> CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public Nullable<System.DateTime> UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
     
         public virtual CurrentTransaction CurrentTransaction { get; set; }
+        public virtual Stock Stock { get; set; }
     }
 }

@@ -137,7 +137,7 @@
                                 </DataGridTemplateColumn.CellTemplate>
                             </DataGridTemplateColumn>-->
                             <DataGridTextColumn Header="Item Name" Width="*" Binding="{Binding ItemName}"/>
-                            <DataGridTextColumn Header="Qunatity" Width="*" Binding="{Binding Quantity}"/>
+                            <DataGridTextColumn Header="Qunatity" Width="*" Binding="{Binding NewQuantity}"/>
                             <DataGridTextColumn Header="Price" Width="*" Binding="{Binding Price}"/>
                             <DataGridTextColumn Header="Discount" Width="*" Binding="{Binding Discount}"/>
                             <DataGridTextColumn Header="Total Price" Width="*" Binding="{Binding TotalPrice}"/>

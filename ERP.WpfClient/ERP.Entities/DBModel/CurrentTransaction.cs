@@ -18,11 +18,11 @@ namespace ERP.Entities.DBModel
         public CurrentTransaction()
         {
             this.CurrentTransactionDetails = new HashSet<CurrentTransactionDetail>();
-            this.Payments = new HashSet<Payment>();
         }
     
         public int Id { get; set; }
         public Nullable<int> CustomerId { get; set; }
+        public Nullable<int> PaymentId { get; set; }
         public string OrderNo { get; set; }
         public Nullable<decimal> TotalPrice { get; set; }
         public Nullable<decimal> TotalDiscount { get; set; }
@@ -33,9 +33,8 @@ namespace ERP.Entities.DBModel
         public string UpdatedBy { get; set; }
     
         public virtual Customer Customer { get; set; }
+        public virtual Payment Payment { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CurrentTransactionDetail> CurrentTransactionDetails { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Payment> Payments { get; set; }
     }
 }

@@ -5,15 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="313a55be03c14ad0af8fbe4995d71f64" Name="Diagram1">
-        <EntityTypeShape EntityType="HAFoodsModel.CurrentTransaction" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="HAFoodsModel.CurrentTransactionDetail" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HAFoodsModel.Customer" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="HAFoodsModel.Payment" Width="1.5" PointX="5.25" PointY="4.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="HAFoodsModel.Stock" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="HAFoodsModel.Supplier" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransaction_Customer" ManuallyRouted="false" />
-        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransactionDetail_CurrentTransaction" ManuallyRouted="false" />
-        <AssociationConnector Association="HAFoodsModel.FK_Payment_CurrentTransaction" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="HAFoodsModel.CurrentTransaction" Width="1.5" PointX="3" PointY="1" />
+        <EntityTypeShape EntityType="HAFoodsModel.Customer" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="HAFoodsModel.Payment" Width="1.5" PointX="0.75" PointY="2.125" />
+        <EntityTypeShape EntityType="HAFoodsModel.Supplier" Width="1.5" PointX="4.75" PointY="5.75" />
+        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransaction_Customer" />
+        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransaction_Payment" />
+        <EntityTypeShape EntityType="HAFoodsModel.Stock" Width="1.5" PointX="7.375" PointY="9" />
+        <EntityTypeShape EntityType="HAFoodsModel.CurrentTransactionDetail" Width="1.5" PointX="9.625" PointY="5" />
+        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransactionDetail_CurrentTransaction" />
+        <AssociationConnector Association="HAFoodsModel.FK_CurrentTransactionDetail_Stock" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

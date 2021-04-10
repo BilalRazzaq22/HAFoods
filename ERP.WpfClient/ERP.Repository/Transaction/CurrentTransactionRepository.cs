@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ERP.Repository.Transaction
 {
-    public class CurrentTransactionDetailRepository
+    public class CurrentTransactionRepository : ICurrentTransactionRepository
     {
         public void SaveDetail(CurrentTransaction currentTransaction)
         {
@@ -17,7 +17,7 @@ namespace ERP.Repository.Transaction
                 var currentOrder = DBInstance.Instance.Set<CurrentTransaction>();
                 var currentOrderDetails = DBInstance.Instance.Set<CurrentTransactionDetail>();
                 var currentPayment = DBInstance.Instance.Set<Payment>();
-                var order = currentOrder.Include("CurrentTransactionDetails").Include("Payments").Where(x => x.Id == currentTransaction.Id).FirstOrDefault();
+                var order = currentOrder.Include("CurrentTransactionDetails").Where(x => x.Id == currentTransaction.Id).FirstOrDefault();
 
                 if (order != null)
                     DBInstance.Instance.Entry(order).CurrentValues.SetValues(currentTransaction);
@@ -63,34 +63,18 @@ namespace ERP.Repository.Transaction
                     }
                 }
 
-                foreach (var item in currentTransaction.Payments.Distinct())
-                {
-                    var dbItem = currentPayment.Where(x => x.Id == item.Id).FirstOrDefault();
-
-                    if (dbItem != null)
-                    {
-                        item.CurrentTransactionId = currentTransaction.Id;
-                        DBInstance.Instance.Entry(dbItem).CurrentValues.SetValues(item);
-                    }
-                    else
-                    {
-                        item.CurrentTransactionId = currentTransaction.Id;
-                        order.Payments.Add(item);
-                    }
-                }
                 DBInstance.Instance.SaveChanges();
             }
             catch (Exception)
             {
                 throw;
             }
-
         }
 
         public CurrentTransaction GetOrder(string Orderno)
         {
             var retailOrderTable = DBInstance.Instance.Set<CurrentTransaction>();
-            var order = retailOrderTable.Include("CurrentTransactionDetails").Include("Payments").Where(x => x.OrderNo == Orderno).FirstOrDefault();
+            var order = retailOrderTable.Include("CurrentTransactionDetails").Where(x => x.OrderNo == Orderno).FirstOrDefault();
             return order;
         }
     }

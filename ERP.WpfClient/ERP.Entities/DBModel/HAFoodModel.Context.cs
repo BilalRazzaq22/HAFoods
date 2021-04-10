@@ -26,10 +26,10 @@ namespace ERP.Entities.DBModel
         }
     
         public virtual DbSet<CurrentTransaction> CurrentTransactions { get; set; }
-        public virtual DbSet<CurrentTransactionDetail> CurrentTransactionDetails { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Payment> Payments { get; set; }
-        public virtual DbSet<Stock> Stocks { get; set; }
         public virtual DbSet<Supplier> Suppliers { get; set; }
+        public virtual DbSet<Stock> Stocks { get; set; }
+        public virtual DbSet<CurrentTransactionDetail> CurrentTransactionDetails { get; set; }
     }
 }

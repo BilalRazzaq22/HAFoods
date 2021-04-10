@@ -119,6 +119,7 @@ namespace ERP.WpfClient.ViewModel.Stock
 
         public void SaveStock()
         {
+            StockModel.CurrentQuantity = StockModel.NewQuantity;
             var model = _stockRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Stock>(StockModel));
             StockModel.Id = model.Id;
             StockList.Add(StockModel);
@@ -134,7 +135,8 @@ namespace ERP.WpfClient.ViewModel.Stock
             StockModel.UrduName = stockModel.UrduName;
             StockModel.BuyPrice = stockModel.BuyPrice;
             StockModel.SalePrice = stockModel.SalePrice;
-            StockModel.Quantity = stockModel.Quantity;
+            StockModel.CurrentQuantity = stockModel.CurrentQuantity;
+            StockModel.NewQuantity = stockModel.NewQuantity;
             StockModel.Category = stockModel.Category;
             StockModel.Packing = stockModel.Packing;
             StockModel.Remarks = stockModel.Remarks;
@@ -143,6 +145,7 @@ namespace ERP.WpfClient.ViewModel.Stock
 
         public void UpdateStock()
         {
+            StockModel.CurrentQuantity = StockModel.NewQuantity;
             _stockRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Stock>(StockModel), StockModel.Id);
             Reset();
         }

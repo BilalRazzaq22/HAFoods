@@ -43,7 +43,7 @@ namespace ERP.Repository.Generic
             //DBInstance.Instance.Entry(t).State = EntityState.Modified;
         }
 
-        public T GetById(int id)
+        public T GetById(int? id)
         {
             return table.Find(id);
         }

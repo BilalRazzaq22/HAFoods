@@ -14,10 +14,16 @@ namespace ERP.Entities.DBModel
     
     public partial class Payment
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Payment()
+        {
+            this.CurrentTransactions = new HashSet<CurrentTransaction>();
+        }
+    
         public int Id { get; set; }
         public string PaymentType { get; set; }
-        public Nullable<int> CurrentTransactionId { get; set; }
     
-        public virtual CurrentTransaction CurrentTransaction { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CurrentTransaction> CurrentTransactions { get; set; }
     }
 }

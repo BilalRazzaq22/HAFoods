@@ -40,7 +40,6 @@ namespace ERP.WpfClient.ViewModel.Customer
             CustomerList = new ObservableCollection<CustomerModel>();
             CustomerButton = "Save";
             CustomerParameter = "SaveCustomer";
-            LoadCustomerReport();
         }
 
         #endregion

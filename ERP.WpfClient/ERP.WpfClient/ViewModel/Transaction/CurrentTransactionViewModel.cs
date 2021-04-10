@@ -12,12 +12,9 @@ using ERP.WpfClient.Model.Transaction;
 using ERP.WpfClient.View.Popups.Payments;
 using GalaSoft.MvvmLight.Command;
 using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 
 namespace ERP.WpfClient.ViewModel.Transaction
@@ -30,6 +27,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private readonly IGenericRepository<CurrentTransactionDetail> _currentTransactionDetailRepository;
         private readonly IGenericRepository<Entities.DBModel.Customer> _customerRepository;
         private readonly IGenericRepository<Entities.DBModel.Stock> _stockRepository;
+        private readonly IGenericRepository<Payment> _paymentRepository;
         private CurrentTransactionModel _currentTransactionModel;
         private ObservableCollection<CurrentTransactionModel> _currentTransactionList;
         private CurrentTransactionDetailModel _currentTransactionDetailModel;
@@ -38,7 +36,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private ObservableCollection<CustomerModel> _customerList;
         private StockModel _stockModel;
         private ObservableCollection<StockModel> _stockList;
-        private List<PaymentModel> _paymentList;
+        private ObservableCollection<PaymentModel> _paymentList;
         private PaymentModel _paymentType;
         private string _orderNumber;
         private int _quantity;
@@ -48,6 +46,8 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private decimal? _grandTotal;
         private bool _isPreviousOrder = false;
         private int _currentTransactionId;
+        CurrentTransactionRepository currentTransaction = new CurrentTransactionRepository();
+
         #endregion
 
         #region Ctor
@@ -55,21 +55,19 @@ namespace ERP.WpfClient.ViewModel.Transaction
         public CurrentTransactionViewModel()
         {
             CurrentOrderCommand = new RelayCommand<string>(ExecuteCurrentOrderCommand);
-            //this.CurrentTransactionCommands = new CustomerCommand(this);
             _currentTransactionRepository = App.Resolve<IGenericRepository<CurrentTransaction>>();
             _currentTransactionDetailRepository = App.Resolve<IGenericRepository<CurrentTransactionDetail>>();
             _customerRepository = App.Resolve<IGenericRepository<Entities.DBModel.Customer>>();
             _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stock>>();
+            _paymentRepository = App.Resolve<IGenericRepository<Payment>>();
             StockList = new ObservableCollection<StockModel>();
             CustomerList = new ObservableCollection<CustomerModel>();
-            PaymentList = new List<PaymentModel>();
         }
 
         #endregion
 
         #region Properties
         public RelayCommand<string> CurrentOrderCommand { get; set; }
-        //public CustomerCommand CurrentTransactionCommands { get; set; }
 
         public decimal? GrandTotal
         {
@@ -161,7 +159,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
             set { _paymentType = value; RaisePropertyChanged("PaymentType"); }
         }
 
-        public List<PaymentModel> PaymentList
+        public ObservableCollection<PaymentModel> PaymentList
         {
             get { return _paymentList; }
             set { _paymentList = value; RaisePropertyChanged("PaymentList"); }
@@ -173,7 +171,6 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
         private void ExecuteCurrentOrderCommand(string str)
         {
-            CurrentTransactionDetailRepository currentTransaction = new CurrentTransactionDetailRepository();
 
             if (str == "Add Item")
             {
@@ -183,7 +180,11 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 {
                     CurrentTransactionDetailModel.ItemName = StockModel.ItemName;
                     CurrentTransactionDetailModel.Price = StockModel.SalePrice;
-                    CurrentTransactionDetailModel.Quantity = Quantity;
+                    if (!_isPreviousOrder)
+                    {
+                        CurrentTransactionDetailModel.PreviousQuantity = Quantity;
+                    }
+                    CurrentTransactionDetailModel.NewQuantity = Quantity;
                     CurrentTransactionDetailModel.Discount = Discount;
                     decimal? totalPrice = CurrentTransactionDetailModel.Price * Quantity;
                     CurrentTransactionDetailModel.TotalPrice = totalPrice - Discount;
@@ -192,58 +193,96 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 {
                     CurrentTransactionDetailList.Add(new CurrentTransactionDetailModel()
                     {
+                        StockId = StockModel.Id,
                         ItemName = StockModel.ItemName,
                         Price = StockModel.SalePrice,
-                        Quantity = Quantity,
+                        PreviousQuantity = Quantity,
+                        NewQuantity = Quantity,
                         Discount = Discount,
                         TotalPrice = (StockModel.SalePrice * Quantity) - Discount
                     });
                 }
 
-                decimal? price = CurrentTransactionDetailList.Sum(x => x.Price * x.Quantity);
+                decimal? price = CurrentTransactionDetailList.Sum(x => x.Price * x.NewQuantity);
 
                 CurrentTransactionModel.TotalPrice = price;
                 CurrentTransactionModel.TotalDiscount = CurrentTransactionDetailList.Sum(x => x.Discount);
                 CurrentTransactionModel.GrandTotal = CurrentTransactionModel.TotalPrice - CurrentTransactionModel.TotalDiscount;
                 GrandTotal = CurrentTransactionModel.GrandTotal;
+
             }
             else if (str == "Save Order")
             {
-                CurrentTransaction transaction = new CurrentTransaction();
-
-                if (_isPreviousOrder)
-                    transaction.Id = _currentTransactionId;
-                transaction.OrderNo = CurrentTransactionModel.OrderNo;
-                transaction.CustomerId = CustomerModel.Id;
-                transaction.TotalPrice = CurrentTransactionModel.TotalPrice;
-                transaction.TotalDiscount = CurrentTransactionModel.TotalDiscount;
-                transaction.GrandTotal = CurrentTransactionModel.GrandTotal;
-                transaction.CreatedDate = DateTime.Now;
-
-                foreach (var item in CurrentTransactionDetailList)
+                var bw = new BackgroundWorker();
+                bw.DoWork += (sender, args) =>
                 {
-                    CurrentTransactionDetail currentTransactionDetail = new CurrentTransactionDetail();
-                    if (_isPreviousOrder)
-                        currentTransactionDetail.Id = item.Id;
-                    currentTransactionDetail.ItemName = item.ItemName;
-                    currentTransactionDetail.Quantity = item.Quantity;
-                    currentTransactionDetail.Price = item.Price;
-                    currentTransactionDetail.Discount = item.Discount;
-                    currentTransactionDetail.TotalPrice = item.TotalPrice;
-                    transaction.CurrentTransactionDetails.Add(currentTransactionDetail);
-                }
+                    try
+                    {
+                        ApplicationManager.Instance.ShowBusyInidicator("Saving Order ... !");
 
-                Payment payment = new Payment();
-                if (_isPreviousOrder)
-                    payment.Id = PaymentType.Id;
-                payment.PaymentType = PaymentType.PaymentType;
-                transaction.Payments.Add(payment);
+                        CurrentTransaction transaction = new CurrentTransaction();
 
-                currentTransaction.SaveDetail(transaction);
+                        if (_isPreviousOrder)
+                        {
+                            transaction.Id = _currentTransactionId;
+                            transaction.UpdatedDate = DateTime.Now;
+                        }
+                        else
+                        {
+                            transaction.CreatedDate = DateTime.Now;
+                        }
+                        transaction.OrderNo = CurrentTransactionModel.OrderNo;
+                        transaction.CustomerId = CustomerModel.Id;
+                        transaction.PaymentId = PaymentType.Id;
+                        transaction.TotalPrice = CurrentTransactionModel.TotalPrice;
+                        transaction.TotalDiscount = CurrentTransactionModel.TotalDiscount;
+                        transaction.GrandTotal = CurrentTransactionModel.GrandTotal;
+                        transaction.CreatedDate = DateTime.Now;
 
-                ApplicationManager.Instance.ShowDialog("Order Saved!", new PaymentPopup(this));
+                        foreach (var item in CurrentTransactionDetailList)
+                        {
+                            CurrentTransactionDetail currentTransactionDetail = new CurrentTransactionDetail();
+                            if (_isPreviousOrder)
+                            {
+                                currentTransactionDetail.Id = item.Id;
+                                currentTransactionDetail.UpdatedDate = DateTime.Now;
+                            }
+                            else
+                            {
+                                currentTransactionDetail.CreatedDate = DateTime.Now;
+                            }
+                            currentTransactionDetail.StockId = item.StockId;
+                            currentTransactionDetail.ItemName = item.ItemName;
+                            if (!_isPreviousOrder)
+                                currentTransactionDetail.PreviousQuantity = item.PreviousQuantity;
+                            currentTransactionDetail.NewQuantity = item.NewQuantity;
+                            currentTransactionDetail.Price = item.Price;
+                            currentTransactionDetail.Discount = item.Discount;
+                            currentTransactionDetail.TotalPrice = item.TotalPrice;
+                            transaction.CurrentTransactionDetails.Add(currentTransactionDetail);
+                        }
 
-                Reset();
+                        currentTransaction.SaveDetail(transaction);
+
+                        CalculateStock(CurrentTransactionDetailList);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Post Error\nMessage: " + ex.Message, "HA Foods");
+                    }
+                };
+
+                bw.RunWorkerCompleted += async (sender, args) =>
+                {
+                    ApplicationManager.Instance.HideBusyInidicator();
+
+                    ApplicationManager.Instance.ShowDialog("Order Saved!", new PaymentPopup(this));
+                    Reset();
+                };
+
+                bw.RunWorkerAsync();
+
             }
 
             else if (str == "Search Order")
@@ -254,7 +293,6 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 {
                     _isPreviousOrder = true;
                     _currentTransactionId = result.Id;
-
                     CurrentTransactionModel.OrderNo = result.OrderNo;
                     CurrentTransactionModel.TotalPrice = result.TotalPrice;
                     CurrentTransactionModel.TotalDiscount = result.TotalPrice;
@@ -265,20 +303,19 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         CurrentTransactionDetailList.Add(new CurrentTransactionDetailModel()
                         {
                             Id = item.Id,
+                            StockId = item.StockId,
                             ItemName = item.ItemName,
                             Price = item.Price,
-                            Quantity = item.Quantity,
+                            PreviousQuantity = item.PreviousQuantity,
+                            NewQuantity = item.NewQuantity,
                             Discount = item.Discount,
-                            TotalPrice = (item.Price * item.Quantity) - item.Discount
+                            TotalPrice = (item.Price * item.NewQuantity) - item.Discount
                         });
                     }
                 }
 
-                CustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
-                CustomerModel = CustomerList.FirstOrDefault();
-
-                PaymentList = MapperProfile.iMapper.Map<List<PaymentModel>>(result.Payments.Where(x => x.CurrentTransactionId == result.Id).ToList());
-                PaymentType = PaymentList.FirstOrDefault();
+                CustomerModel = CustomerList.FirstOrDefault(x => x.Id == result.CustomerId);
+                PaymentType = PaymentList.FirstOrDefault(x => x.Id == result.PaymentId);
             }
 
             else if (str == "New Order")
@@ -293,12 +330,10 @@ namespace ERP.WpfClient.ViewModel.Transaction
             CurrentTransactionDetailModel = new CurrentTransactionDetailModel();
             CurrentTransactionDetailList = new ObservableCollection<CurrentTransactionDetailModel>();
             CurrentTransactionList = new ObservableCollection<CurrentTransactionModel>();
-            //StockList = new ObservableCollection<StockModel>();
-            //CustomerList = new ObservableCollection<CustomerModel>();
-            //PaymentList = new List<PaymentModel>();
             CurrentTransactionModel = new CurrentTransactionModel();
-            CustomerModel = new CustomerModel();
-            StockModel = new StockModel();
+            GetPaymentType();
+            GetCustomer();
+            GetItems();
             _isPreviousOrder = false;
             OrderNumber = "Search Order";
             Quantity = 0;
@@ -309,13 +344,15 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private void Init()
         {
             var bw = new BackgroundWorker();
-            List<Entities.DBModel.CurrentTransaction> currentTransaction = null;
             bw.DoWork += (sender, args) =>
             {
                 try
                 {
                     ApplicationManager.Instance.ShowBusyInidicator("Loading Data... !");
-                    currentTransaction = _currentTransactionRepository.Get();
+
+                    LoadCollections();
+                    Reset();
+                    GetOrderNumber();
                 }
                 catch (Exception ex)
                 {
@@ -325,25 +362,16 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
             bw.RunWorkerCompleted += async (sender, args) =>
             {
-                await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
-                {
-                    CurrentTransactionList = MapperProfile.iMapper.Map<ObservableCollection<CurrentTransactionModel>>(currentTransaction);
-                }));
                 ApplicationManager.Instance.HideBusyInidicator();
             };
 
             bw.RunWorkerAsync();
-
-            CustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
-            StockList = MapperProfile.iMapper.Map<ObservableCollection<StockModel>>(_stockRepository.Get());
-            GetPaymentType();
-            GetOrderNumber();
         }
 
         private void GetPaymentType()
         {
-            PaymentList.Add(new PaymentModel { PaymentType = "Cash" });
-            PaymentList.Add(new PaymentModel { PaymentType = "Credit" });
+
+            PaymentType = PaymentList.FirstOrDefault();
         }
 
         private void GetOrderNumber()
@@ -358,9 +386,41 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 CurrentTransactionModel.OrderNo = "1000";
         }
 
+        private void GetCustomer()
+        {
+            CustomerModel = CustomerList.FirstOrDefault();
+        }
+
+        private void GetItems()
+        {
+            StockModel = StockList.FirstOrDefault();
+        }
+
+        private void LoadCollections()
+        {
+            CustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
+            StockList = MapperProfile.iMapper.Map<ObservableCollection<StockModel>>(_stockRepository.Get());
+            PaymentList = MapperProfile.iMapper.Map<ObservableCollection<PaymentModel>>(_paymentRepository.Get());
+        }
+
+        private void CalculateStock(ObservableCollection<CurrentTransactionDetailModel> currentTransactionDetailModel)
+        {
+            foreach (var item in currentTransactionDetailModel)
+            {
+                Entities.DBModel.Stock stock = _stockRepository.GetById(item.StockId);
+                if (stock != null)
+                {
+                    if (_isPreviousOrder)
+                        stock.NewQuantity = (item.PreviousQuantity + stock.NewQuantity) - item.NewQuantity;
+                    else
+                        stock.NewQuantity = stock.NewQuantity - item.NewQuantity;
+                }
+            }
+            DBInstance.Instance.SaveChanges();
+        }
+
         public void OnBringIntoView()
         {
-            Reset();
             Init();
         }
 

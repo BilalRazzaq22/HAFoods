@@ -48,7 +48,7 @@
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Quantity:"/>
-                    <TextBox  Text="{Binding StockModel.Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                    <TextBox  Text="{Binding StockModel.NewQuantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
@@ -116,7 +116,7 @@
                     <DataGridTextColumn Header="Urdu Name" Width="*" Binding="{Binding UrduName}"/>
                     <DataGridTextColumn Header="Buy Price" Width="*" Binding="{Binding BuyPrice}"/>
                     <DataGridTextColumn Header="Sale Price" Width="*" Binding="{Binding SalePrice}"/>
-                    <DataGridTextColumn Header="Quantity" Width="*" Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Header="Quantity" Width="*" Binding="{Binding NewQuantity}"/>
                     <DataGridTextColumn Header="Category" Width="*" Binding="{Binding Category}"/>
                     <DataGridTextColumn Header="Packing" Width="*" Binding="{Binding Packing}"/>
                     <DataGridTextColumn Header="Remarks" Width="*" Binding="{Binding Remarks}"/>

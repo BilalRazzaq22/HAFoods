@@ -6,6 +6,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CustomerId" Type="int" />
+    <Property Name="PaymentId" Type="int" />
     <Property Name="OrderNo" Type="nvarchar" MaxLength="50" />
     <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />
     <Property Name="TotalDiscount" Type="decimal" Precision="18" Scale="0" />
@@ -21,11 +22,17 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="CurrentTransactionId" Type="int" />
+    <Property Name="StockId" Type="int" />
     <Property Name="ItemName" Type="nvarchar" MaxLength="50" />
-    <Property Name="Quantity" Type="int" />
+    <Property Name="PreviousQuantity" Type="int" />
+    <Property Name="NewQuantity" Type="int" />
     <Property Name="Price" Type="decimal" Precision="18" Scale="0" />
     <Property Name="Discount" Type="decimal" Precision="18" Scale="0" />
     <Property Name="TotalPrice" Type="decimal" Precision="18" Scale="0" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="Customer">
     <Key>
@@ -47,7 +54,6 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="PaymentType" Type="nvarchar" MaxLength="50" />
-    <Property Name="CurrentTransactionId" Type="int" />
   </EntityType>
   <EntityType Name="Stock">
     <Key>
@@ -58,7 +64,8 @@
     <Property Name="UrduName" Type="nvarchar" MaxLength="50" />
     <Property Name="BuyPrice" Type="decimal" Precision="18" Scale="0" />
     <Property Name="SalePrice" Type="decimal" Precision="18" Scale="0" />
-    <Property Name="Quantity" Type="int" />
+    <Property Name="CurrentQuantity" Type="int" />
+    <Property Name="NewQuantity" Type="int" />
     <Property Name="Category" Type="nvarchar" MaxLength="50" />
     <Property Name="Packing" Type="int" />
     <Property Name="Remarks" Type="nvarchar" MaxLength="250" />
@@ -93,6 +100,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_CurrentTransaction_Payment">
+    <End Role="Payment" Type="Self.Payment" Multiplicity="0..1" />
+    <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Payment">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CurrentTransaction">
+        <PropertyRef Name="PaymentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_CurrentTransactionDetail_CurrentTransaction">
     <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="0..1" />
     <End Role="CurrentTransactionDetail" Type="Self.CurrentTransactionDetail" Multiplicity="*" />
@@ -105,15 +124,15 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_Payment_CurrentTransaction">
-    <End Role="CurrentTransaction" Type="Self.CurrentTransaction" Multiplicity="0..1" />
-    <End Role="Payment" Type="Self.Payment" Multiplicity="*" />
+  <Association Name="FK_CurrentTransactionDetail_Stock">
+    <End Role="Stock" Type="Self.Stock" Multiplicity="0..1" />
+    <End Role="CurrentTransactionDetail" Type="Self.CurrentTransactionDetail" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="CurrentTransaction">
+      <Principal Role="Stock">
         <PropertyRef Name="Id" />
       </Principal>
-      <Dependent Role="Payment">
-        <PropertyRef Name="CurrentTransactionId" />
+      <Dependent Role="CurrentTransactionDetail">
+        <PropertyRef Name="StockId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -128,13 +147,17 @@
       <End Role="Customer" EntitySet="Customer" />
       <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
     </AssociationSet>
+    <AssociationSet Name="FK_CurrentTransaction_Payment" Association="Self.FK_CurrentTransaction_Payment">
+      <End Role="Payment" EntitySet="Payment" />
+      <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
+    </AssociationSet>
     <AssociationSet Name="FK_CurrentTransactionDetail_CurrentTransaction" Association="Self.FK_CurrentTransactionDetail_CurrentTransaction">
       <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
       <End Role="CurrentTransactionDetail" EntitySet="CurrentTransactionDetail" />
     </AssociationSet>
-    <AssociationSet Name="FK_Payment_CurrentTransaction" Association="Self.FK_Payment_CurrentTransaction">
-      <End Role="CurrentTransaction" EntitySet="CurrentTransaction" />
-      <End Role="Payment" EntitySet="Payment" />
+    <AssociationSet Name="FK_CurrentTransactionDetail_Stock" Association="Self.FK_CurrentTransactionDetail_Stock">
+      <End Role="Stock" EntitySet="Stock" />
+      <End Role="CurrentTransactionDetail" EntitySet="CurrentTransactionDetail" />
     </AssociationSet>
   </EntityContainer>
 </Schema>
