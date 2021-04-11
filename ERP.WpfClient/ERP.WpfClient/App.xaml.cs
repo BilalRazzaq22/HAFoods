@@ -33,23 +33,31 @@ namespace ERP.WpfClient
         {
             CheckReset();
 
-            if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood")))
+            try
             {
-                Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood"));
+                if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood")))
+                {
+                    Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood"));
+                }
+
+                var spFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood");
+                if (!File.Exists(Path.Combine(spFolderPath, "HAFoodDB.mdf")))
+                {
+                    Console.WriteLine("{0} Initializing DB", DateTime.Now);
+
+                    string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+                    HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
+                    HaFoodDbContext.Init();
+
+                    var filePathSetting = Path.Combine(spFolderPath, "Settings.dat");
+
+                    Console.WriteLine("{0} DB Initialized", DateTime.Now);
+                }
             }
-
-            var spFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood");
-            if (!File.Exists(Path.Combine(spFolderPath, "HAFoodDB.mdf")))
+            catch (Exception ex)
             {
-                Console.WriteLine("{0} Initializing DB", DateTime.Now);
 
-                string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
-                HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
-                HaFoodDbContext.Init();
-
-                var filePathSetting = Path.Combine(spFolderPath, "Settings.dat");
-
-                Console.WriteLine("{0} DB Initialized", DateTime.Now);
+                throw;
             }
         }
 
