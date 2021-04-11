@@ -5,12 +5,13 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERP.WpfClient.View.Stock" xmlns:my="clr-namespace:ERP.WpfClient.View.Search"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
+             d:DesignHeight="780"
+             d:DesignWidth="1024" Loaded="UserControl_Loaded">
     <Grid Background="{StaticResource MasterBackgroundColor}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="300"/>
+            <!--<RowDefinition Height="300"/>-->
             <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="0">
             <Grid>
@@ -47,7 +48,7 @@
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Quantity:"/>
-                    <TextBox  Text="{Binding StockModel.Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                    <TextBox  Text="{Binding StockModel.NewQuantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
@@ -115,7 +116,7 @@
                     <DataGridTextColumn Header="Urdu Name" Width="*" Binding="{Binding UrduName}"/>
                     <DataGridTextColumn Header="Buy Price" Width="*" Binding="{Binding BuyPrice}"/>
                     <DataGridTextColumn Header="Sale Price" Width="*" Binding="{Binding SalePrice}"/>
-                    <DataGridTextColumn Header="Quantity" Width="*" Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Header="Quantity" Width="*" Binding="{Binding NewQuantity}"/>
                     <DataGridTextColumn Header="Category" Width="*" Binding="{Binding Category}"/>
                     <DataGridTextColumn Header="Packing" Width="*" Binding="{Binding Packing}"/>
                     <DataGridTextColumn Header="Remarks" Width="*" Binding="{Binding Remarks}"/>
@@ -142,28 +143,20 @@
 
 
                                 <StackPanel Orientation="Horizontal">
-
-
-                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
+                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="auto" Margin="3 0">
                                         <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.StockCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
                                             </StackPanel>
                                         </Button>
                                     </Border>
-
-
-                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="100" Margin="5 0">
+                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="auto" Margin="3 0">
                                         <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteStockCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />
                                             </StackPanel>
                                         </Button>
                                     </Border>
-
-
-
-
                                 </StackPanel>
                             </DataTemplate>
 

@@ -21,16 +21,17 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Border  Grid.Row="1"  BorderBrush="Black"  BorderThickness="0 0 0 0" >
-
                 <StackPanel Grid.Row="1">
-                    <RadioButton Uid="0" Style="{StaticResource LeftMenuButton}" IsChecked="True" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" />
-                    <RadioButton Uid="1" Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" CommandParameter="Customer"/>
-                    <RadioButton Uid="2" Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" CommandParameter="Supplier" />
-                    <RadioButton Uid="3" Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" CommandParameter="Stock"/>
-                    <RadioButton Uid="4" Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}" CommandParameter="Purchase Order"/>
-                    <RadioButton Uid="5" Style="{StaticResource LeftMenuButton}" Content="Sales Orders" Command="{Binding MainViewCommand}" CommandParameter="Sales Order"/>
-                    <RadioButton Uid="6" Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}" CommandParameter="Cash Book"/>
-                    <RadioButton Uid="7" Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" IsChecked="True" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" />
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Current Transaction" Command="{Binding MainViewCommand}" CommandParameter="Current Transaction"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" CommandParameter="Customer"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" CommandParameter="Supplier" />
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" CommandParameter="Stock"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}" CommandParameter="Purchase Order"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Sales Orders" Command="{Binding MainViewCommand}" CommandParameter="Sales Order"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}" CommandParameter="Cash Book"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="All Reports" Command="{Binding MainViewCommand}" CommandParameter="All Reports"/>
                 </StackPanel>
             </Border>
         </Grid>
@@ -153,15 +154,15 @@
                     </Border>
                 </Grid>
             </Grid>
-            <Grid>
+            <wpfx:BusyIndicator Name="BusyBar" IsBusy="{Binding ApplicationManager.IsBusy}"/>
+            <!--<Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <wpfx:BusyIndicator Grid.Row="2" Name="BusyBar" IsBusy="{Binding ApplicationManager.IsBusy}"/>
-            </Grid>
+            </Grid>-->
         </Grid>
     </Grid>
 </Window>

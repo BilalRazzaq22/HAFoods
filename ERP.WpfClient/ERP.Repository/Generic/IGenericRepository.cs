@@ -11,7 +11,7 @@ namespace ERP.Repository.Generic
         List<T> Get();
         T Add(T t);
         void Update(T t, int id);
-        T GetById(int id);
+        T GetById(int? id);
         void Delete(int id);
         void Save();
     }

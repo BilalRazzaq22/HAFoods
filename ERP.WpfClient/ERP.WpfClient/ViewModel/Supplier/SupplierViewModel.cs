@@ -22,7 +22,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
     {
         #region Fields
 
-        private readonly IGenericRepository<Entities.DBModel.Supplier> _supplierRepository;
+        private readonly IGenericRepository<Entities.DBModel.Suppliers.Supplier> _supplierRepository;
         private SupplierModel _supplierModel;
         private ObservableCollection<SupplierModel> _supplierList;
         private string _supplierButton;
@@ -37,7 +37,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
             SupplierCommands = new RelayCommand<object>(ExecuteSupplierCommand);
             DeleteSupplierCommand = new RelayCommand<object>(ExecuteDeleteSupplierCommand);
             //this.SupplierCommands = new CustomerCommand(this);
-            _supplierRepository = App.Resolve<IGenericRepository<Entities.DBModel.Supplier>>();
+            _supplierRepository = App.Resolve<IGenericRepository<Entities.DBModel.Suppliers.Supplier>>();
             SupplierModel = new SupplierModel();
             SupplierList = new ObservableCollection<SupplierModel>();
             SupplierButton = "Save";
@@ -121,7 +121,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
 
         public void SaveSupplier()
         {
-            var model = _supplierRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Supplier>(SupplierModel));
+            var model = _supplierRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Suppliers.Supplier>(SupplierModel));
             SupplierModel.Id = model.Id;
             SupplierList.Add(SupplierModel);
             Reset();
@@ -141,7 +141,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
 
         public void UpdateSupplier()
         {
-            _supplierRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Supplier>(SupplierModel), SupplierModel.Id);
+            _supplierRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Suppliers.Supplier>(SupplierModel), SupplierModel.Id);
             Reset();
         }
 
@@ -154,7 +154,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
         private void Init()
         {
             var bw = new BackgroundWorker();
-            List<Entities.DBModel.Supplier> suppliers = null;
+            List<Entities.DBModel.Suppliers.Supplier> suppliers = null;
             bw.DoWork += (sender, args) =>
             {
                 try
@@ -183,7 +183,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
         private void LoadCustomerReport()
         {
             var query = (from supp in _supplierRepository.Get().ToList()
-                         select new Entities.DBModel.Supplier
+                         select new Entities.DBModel.Suppliers.Supplier
                          {
                              FirstName = supp.FirstName,
                              LastName = supp.LastName,

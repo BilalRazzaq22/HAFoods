@@ -40,9 +40,97 @@
 
 
 
+    <Style x:Key="ReportsButton" TargetType="{x:Type Button}">
+
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Background" Value="{StaticResource CommonBlueBackgroundColor}"/>
+        <Setter Property="Margin" Value="10"/>
+        <!--<Setter Property="BorderBrush" Value="{StaticResource PopUpButtonTextForegroundColor}"/>
+        <Setter Property="BorderThickness" Value="3"/>-->
+        <!--<Setter Property="Margin" Value="10"/>-->
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="Height" Value="100"/>
+        <Setter Property="Width" Value="200"/>
+        <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
+        <Setter Property="Foreground" Value="{StaticResource CommonWhiteBackgroundColor}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Name="border" BorderThickness="5" BorderBrush="{StaticResource CommonGreyBackgrounColor}" Background="{StaticResource CommonBlueBackgroundColor}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Opacity" Value="0.8" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+    <Style x:Key="DashboardContentBorder" TargetType="Border">
+
+        <Setter Property="BorderBrush" Value="{StaticResource CommonGreyBackgrounColor}"/>
+        <Setter Property="Background" Value="{StaticResource CommonBlueBackgroundColor}"/>
+        <Setter Property="BorderThickness" Value="5"/>
+        <Setter Property="CornerRadius" Value="15"/>
+        <Setter Property="Margin" Value="20"/>
+        <Setter Property="Height" Value="110"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource CommonBlueBackgroundColor}"/>
+                <Setter Property="Background" Value="{StaticResource CommonGreyBackgrounColor}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="DashboardParentText" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource CommonGreyBackgrounColor}"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="Helvetica"/>
+        <Setter Property="FontSize" Value="72"/>
+        <Setter Property="Height" Value="110"/>
+        <Setter Property="Width" Value="auto"/>
+    </Style>
+
+    <Style x:Key="DashboardContentLabel" TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource CommonWhiteBackgroundColor}"/>
+        <Setter Property="FontWeight" Value="Bold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="25"/>
+    </Style>
+
+    <Style x:Key="DashboardContentLabelValue" TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource CommonWhiteBackgroundColor}"/>
+        <Setter Property="FontWeight" Value="DemiBold"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="FontSize" Value="30"/>
+    </Style>
+
+    <Style x:Key="ProductMatrixDropdown" TargetType="{x:Type ComboBox}">
+        <Setter Property="IsEditable" Value="False"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="265"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="15,0,0,0"/>
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
+    </Style>
+
 
     <Style x:Key="PopUpConfirmatoryText" TargetType="{x:Type TextBlock}">
-
         <Setter Property="FontSize" Value="20"/>
         <Setter Property="Foreground" Value="{StaticResource CommonBlueBackgroundColor}"/>
         <Setter Property="VerticalAlignment" Value="Top"/>
@@ -234,7 +322,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource CommonGreyBackgrounColor}"/>
         <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
         <Setter Property="FontSize" Value="{StaticResource SideNavFontSize}"/>
-        <Setter Property="Width" Value="150"/>
+        <Setter Property="Width" Value="170"/>
         <Setter Property="Height" Value="50"/>
         <Setter Property="Margin" Value="5 0 5 5"/>
         <Setter Property="Template">
@@ -337,7 +425,7 @@
     <Style x:Key="DataGridsForList" TargetType="{x:Type DataGrid}">
 
         <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
-        <Setter Property="HorizontalScrollBarVisibility" Value="Disabled"/>
+        <Setter Property="HorizontalScrollBarVisibility" Value="Auto"/>
         <Setter Property="Margin" Value="10"/>
         <Setter Property="CanUserReorderColumns" Value="False"/>
         <Setter Property="CanUserSortColumns" Value="True"/>

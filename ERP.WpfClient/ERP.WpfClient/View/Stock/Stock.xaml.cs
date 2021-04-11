@@ -24,7 +24,7 @@ namespace ERP.WpfClient.View.Stock
         public Stock()
         {
             InitializeComponent();
-            this.DataContext = new StockViewModel();
+            DataContext = new StockViewModel();
         }
 
         private void UserControl_Loaded(object sender, System.Windows.RoutedEventArgs e)

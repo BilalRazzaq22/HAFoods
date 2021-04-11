@@ -9,9 +9,9 @@ namespace ERP.Entities.DBModel
     public class DBInstance
     {
         private static readonly object dbLock = new object();
-        private static HAFoods_DBEntities _instance;
+        private static HAFoodEntities _instance;
 
-        public static HAFoods_DBEntities Instance
+        public static HAFoodEntities Instance
         {
             get
             {
@@ -20,7 +20,7 @@ namespace ERP.Entities.DBModel
                     lock (dbLock)
                     {
                         if (_instance == null)
-                            _instance = new HAFoods_DBEntities();
+                            _instance = new HAFoodEntities();
                     }
                 }
                 return _instance;

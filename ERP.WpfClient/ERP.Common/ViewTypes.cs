@@ -12,6 +12,8 @@ namespace ERP.Common
         Home,
         Customer,
         Supplier,
-        Stock
+        Stock,
+        CurrentTransaction,
+        AllReports
     }
 }

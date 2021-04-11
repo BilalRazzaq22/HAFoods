@@ -1,4 +1,5 @@
-﻿using ERP.Entities.DBModel;
+﻿using ERP.Entities.DbContext;
+using ERP.Entities.DBModel;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -10,10 +11,13 @@ namespace ERP.Repository.Generic
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
+        protected HAFoodDbContext _context;
+
         DbSet<T> table;
-        public GenericRepository()
+        public GenericRepository(HAFoodDbContext context)
         {
-            table = DBInstance.Instance.Set<T>();
+            _context = context;
+            table = _context.Set<T>();
         }
 
         public List<T> Get()
@@ -32,18 +36,16 @@ namespace ERP.Repository.Generic
         {
             if (t != null)
             {
-                T exist = DBInstance.Instance.Set<T>().Find(id);
+                T exist = table.Find(id);
                 if (exist != null)
                 {
-                    DBInstance.Instance.Entry(exist).CurrentValues.SetValues(t);
+                    _context.Entry(exist).CurrentValues.SetValues(t);
                     Save();
                 }
             }
-            //table.Attach(t);
-            //DBInstance.Instance.Entry(t).State = EntityState.Modified;
         }
 
-        public T GetById(int id)
+        public T GetById(int? id)
         {
             return table.Find(id);
         }
@@ -57,7 +59,7 @@ namespace ERP.Repository.Generic
 
         public void Save()
         {
-            DBInstance.Instance.SaveChanges();
+            _context.SaveChanges();
         }
     }
 }

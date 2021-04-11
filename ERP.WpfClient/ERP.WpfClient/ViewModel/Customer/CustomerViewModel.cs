@@ -1,18 +1,16 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
-using ERP.Repository.Customer;
+using ERP.Entities.DbContext;
 using ERP.Repository.Generic;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
-using ERP.WpfClient.View.Popups;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
-using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -23,7 +21,7 @@ namespace ERP.WpfClient.ViewModel.Customer
     {
         #region Fields
 
-        private readonly IGenericRepository<Entities.DBModel.Customer> _customerRepository;
+        private readonly IGenericRepository<Entities.DBModel.Customers.Customer> _customerRepository;
         private CustomerModel _customerModel;
         private ObservableCollection<CustomerModel> _customerList;
         private string _customerButton;
@@ -38,7 +36,7 @@ namespace ERP.WpfClient.ViewModel.Customer
             CustomerCommands = new RelayCommand<object>(ExecuteCustomerCommand);
             DeleteCustomerCommand = new RelayCommand<object>(ExecuteDeleteCustomerCommand);
             //this.CustomerCommands = new CustomerCommand(this);
-            _customerRepository = App.Resolve<IGenericRepository<Entities.DBModel.Customer>>();
+            _customerRepository = new GenericRepository<Entities.DBModel.Customers.Customer>(new HAFoodDbContext());
             CustomerModel = new CustomerModel();
             CustomerList = new ObservableCollection<CustomerModel>();
             CustomerButton = "Save";
@@ -122,7 +120,7 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         public void SaveCustomer()
         {
-            var model = _customerRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Customer>(CustomerModel));
+            var model = _customerRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Customers.Customer>(CustomerModel));
             CustomerModel.Id = model.Id;
             CustomerList.Add(CustomerModel);
             Reset();
@@ -142,7 +140,7 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         public void UpdateCustomer()
         {
-            _customerRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Customer>(CustomerModel), CustomerModel.Id);
+            _customerRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Customers.Customer>(CustomerModel), CustomerModel.Id);
             Reset();
         }
 
@@ -155,7 +153,7 @@ namespace ERP.WpfClient.ViewModel.Customer
         private void Init()
         {
             var bw = new BackgroundWorker();
-            List<Entities.DBModel.Customer> customers = null;
+            List<Entities.DBModel.Customers.Customer> customers = null;
             bw.DoWork += (sender, args) =>
             {
                 try
@@ -184,7 +182,7 @@ namespace ERP.WpfClient.ViewModel.Customer
         private void LoadCustomerReport()
         {
             var query = (from cust in _customerRepository.Get().ToList()
-                         select new Entities.DBModel.Customer
+                         select new Entities.DBModel.Customers.Customer
                          {
                              FirstName = cust.FirstName,
                              LastName = cust.LastName,

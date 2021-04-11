@@ -5,11 +5,64 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERP.WpfClient.View.Home"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
-    <Grid Background="White">
+             d:DesignHeight="780" d:DesignWidth="1024">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+            <RowDefinition Height="150"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+            <ColumnDefinition Width="300"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Welcome" Style="{StaticResource DashboardParentText}"/>
+        
+        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource DashboardContentBorder}">
+            <StackPanel>
+                <Label Content="Total Orders" Style="{StaticResource DashboardContentLabel}"/>
+                <Label Content="{Binding TotalCustomers}" Style="{StaticResource DashboardContentLabelValue}"/>
+            </StackPanel>
+        </Border>
 
-        <TextBlock VerticalAlignment="Center" HorizontalAlignment="Center" Height="105" Width="400" Text="Welcome" TextAlignment="Center" FontSize="70" Margin="197,168,203,177">
 
-        </TextBlock>
+        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource DashboardContentBorder}" >
+            <StackPanel>
+                <Label Content="Total Sales" Style="{StaticResource DashboardContentLabel}"/>
+                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource DashboardContentBorder}" >
+            <StackPanel>
+                <Label Content="Total Debit" Style="{StaticResource DashboardContentLabel}"/>
+                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource DashboardContentBorder}" >
+            <StackPanel>
+                <Label Content="Total Credit" Style="{StaticResource DashboardContentLabel}"/>
+                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource DashboardContentBorder}">
+            <StackPanel>
+                <Label Content="Total Customers" Style="{StaticResource DashboardContentLabel}"/>
+                <Label Content="{Binding TotalCustomers}" Style="{StaticResource DashboardContentLabelValue}"/>
+            </StackPanel>
+        </Border>
+
+        <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource DashboardContentBorder}" >
+            <StackPanel>
+                <Label Content="Total Suppliers" Style="{StaticResource DashboardContentLabel}"/>
+                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
+            </StackPanel>
+        </Border>
+
     </Grid>
 </UserControl>

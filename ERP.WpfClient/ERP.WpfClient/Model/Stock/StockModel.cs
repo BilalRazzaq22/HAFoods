@@ -14,7 +14,8 @@ namespace ERP.WpfClient.Model.Stock
         private string _urduName;
         private decimal _buyPrice;
         private decimal _salePrice;
-        private int _quantity;
+        private int _currentQuantity;
+        private int _newQuantity;
         private string _category;
         private int _packing;
         private string _remarks;
@@ -49,10 +50,16 @@ namespace ERP.WpfClient.Model.Stock
             set { _salePrice = value; RaisePropertyChanged("SalePrice"); }
         }
 
-        public int Quantity
+        public int CurrentQuantity
         {
-            get { return _quantity; }
-            set { _quantity = value; RaisePropertyChanged("Quantity"); }
+            get { return _currentQuantity; }
+            set { _currentQuantity = value; RaisePropertyChanged("CurrentQuantity"); }
+        }
+
+        public int NewQuantity
+        {
+            get { return _newQuantity; }
+            set { _newQuantity = value; RaisePropertyChanged("NewQuantity"); }
         }
 
         public string Category
