@@ -50,51 +50,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBModel\CurrentTransaction.cs">
-      <DependentUpon>HAFoodModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\CurrentTransactionDetail.cs">
-      <DependentUpon>HAFoodModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Customer.cs">
-      <DependentUpon>HAFoodModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\DBInstance.cs" />
-    <Compile Include="DBModel\HAFoodModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HAFoodModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\HAFoodModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HAFoodModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\HAFoodModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>HAFoodModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Payment.cs">
-      <DependentUpon>HAFoodModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Stock.cs">
-      <DependentUpon>HAFoodModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="DBModel\Supplier.cs">
-      <DependentUpon>HAFoodModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="DbContext\HAFoodDbContext.cs" />
+    <Compile Include="DBModel\Customers\Customer.cs" />
+    <Compile Include="DBModel\Payments\Payment.cs" />
+    <Compile Include="DBModel\Stocks\Stock.cs" />
+    <Compile Include="DBModel\Suppliers\Supplier.cs" />
+    <Compile Include="DBModel\Transactions\CurrentTransaction.cs" />
+    <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
-    <EntityDeploy Include="DBModel\HAFoodModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>HAFoodModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="DBModel\HAFoodModel.edmx.diagram">
-      <DependentUpon>HAFoodModel.edmx</DependentUpon>
-    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
@@ -106,17 +72,6 @@
       <Name>ERP.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="DBModel\HAFoodModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HAFoodModel.edmx</DependentUpon>
-      <LastGenOutput>HAFoodModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="DBModel\HAFoodModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>HAFoodModel.edmx</DependentUpon>
-      <LastGenOutput>HAFoodModel.cs</LastGenOutput>
-    </Content>
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

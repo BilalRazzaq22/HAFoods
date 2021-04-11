@@ -1,30 +1,37 @@
-﻿using ERP.Entities.DBModel;
+﻿using ERP.Entities.DbContext;
+using ERP.Entities.DBModel.Transactions;
+using ERP.Repository.Generic;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ERP.Repository.Transaction
 {
-    public class CurrentTransactionRepository : ICurrentTransactionRepository
+    public class CurrentTransactionRepository : GenericRepository<CurrentTransaction>, ICurrentTransactionRepository
     {
+        private IGenericRepository<CurrentTransaction> _currentTransactionRepository;
+        private HAFoodDbContext __context;
+        public CurrentTransactionRepository(HAFoodDbContext _context) : base (_context)
+        {
+            __context = _context;
+            _currentTransactionRepository = new GenericRepository<CurrentTransaction>(_context);
+        }
+
         public void SaveDetail(CurrentTransaction currentTransaction)
         {
             try
             {
                 CurrentTransaction transaction = null;
-                var currentOrder = DBInstance.Instance.Set<CurrentTransaction>();
-                var currentOrderDetails = DBInstance.Instance.Set<CurrentTransactionDetail>();
-                var currentPayment = DBInstance.Instance.Set<Payment>();
+                var currentOrder = _context.Set<CurrentTransaction>();
+                var currentOrderDetails = _context.Set<CurrentTransactionDetail>();
+                var currentPayment = _context.Set<Entities.DBModel.Payments.Payment>();
                 var order = currentOrder.Include("CurrentTransactionDetails").Where(x => x.Id == currentTransaction.Id).FirstOrDefault();
 
                 if (order != null)
-                    DBInstance.Instance.Entry(order).CurrentValues.SetValues(currentTransaction);
+                    _context.Entry(order).CurrentValues.SetValues(currentTransaction);
                 else
                     transaction = currentOrder.Add(currentTransaction);
 
-                DBInstance.Instance.SaveChanges();
+                _context.SaveChanges();
 
 
 
@@ -32,13 +39,13 @@ namespace ERP.Repository.Transaction
 
                 //dbOrder.currentTransactionDetail.Where(f => !feeIds.Contains(f.id))
                 //    .ToList()
-                //    .ForEach(i => DBInstance.Instance.Entry(i).State = EntityState.Deleted);
+                //    .ForEach(i => _context.Entry(i).State = EntityState.Deleted);
 
                 //var paymentIds = retailTransaction.retailTransactionTaxes.Select(s => s.id).ToList();
 
                 //dbOrder.retailTransactionTaxes.Where(f => !paymentIds.Contains(f.id))
                 //    .ToList()
-                //    .ForEach(i => DBInstance.Instance.Entry(i).State = EntityState.Deleted);
+                //    .ForEach(i => _context.Entry(i).State = EntityState.Deleted);
 
 
                 // add retail transaction items
@@ -54,7 +61,7 @@ namespace ERP.Repository.Transaction
                     if (dbItem != null)
                     {
                         item.CurrentTransactionId = currentTransaction.Id;
-                        DBInstance.Instance.Entry(dbItem).CurrentValues.SetValues(item);
+                        _context.Entry(dbItem).CurrentValues.SetValues(item);
                     }
                     else
                     {
@@ -63,7 +70,7 @@ namespace ERP.Repository.Transaction
                     }
                 }
 
-                DBInstance.Instance.SaveChanges();
+                _context.SaveChanges();
             }
             catch (Exception)
             {
@@ -73,7 +80,7 @@ namespace ERP.Repository.Transaction
 
         public CurrentTransaction GetOrder(string Orderno)
         {
-            var retailOrderTable = DBInstance.Instance.Set<CurrentTransaction>();
+            var retailOrderTable = _context.Set<CurrentTransaction>();
             var order = retailOrderTable.Include("CurrentTransactionDetails").Where(x => x.OrderNo == Orderno).FirstOrDefault();
             return order;
         }

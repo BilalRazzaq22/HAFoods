@@ -1,6 +1,8 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
+using ERP.Entities.DbContext;
 using ERP.Entities.DBModel;
+using ERP.Entities.DBModel.Transactions;
 using ERP.Repository.Generic;
 using ERP.Repository.Transaction;
 using ERP.WpfClient.Controls.Helpers;
@@ -23,11 +25,11 @@ namespace ERP.WpfClient.ViewModel.Transaction
     {
         #region Fields
 
-        private readonly IGenericRepository<CurrentTransaction> _currentTransactionRepository;
+        private readonly CurrentTransactionRepository _currentTransactionRepository;
         private readonly IGenericRepository<CurrentTransactionDetail> _currentTransactionDetailRepository;
-        private readonly IGenericRepository<Entities.DBModel.Customer> _customerRepository;
-        private readonly IGenericRepository<Entities.DBModel.Stock> _stockRepository;
-        private readonly IGenericRepository<Payment> _paymentRepository;
+        private readonly IGenericRepository<Entities.DBModel.Customers.Customer> _customerRepository;
+        private readonly IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
+        private readonly IGenericRepository<Entities.DBModel.Payments.Payment> _paymentRepository;
         private CurrentTransactionModel _currentTransactionModel;
         private ObservableCollection<CurrentTransactionModel> _currentTransactionList;
         private CurrentTransactionDetailModel _currentTransactionDetailModel;
@@ -46,7 +48,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private decimal? _grandTotal;
         private bool _isPreviousOrder = false;
         private int _currentTransactionId;
-        CurrentTransactionRepository currentTransaction = new CurrentTransactionRepository();
+        //CurrentTransactionRepository currentTransaction = new CurrentTransactionRepository();
 
         #endregion
 
@@ -55,11 +57,11 @@ namespace ERP.WpfClient.ViewModel.Transaction
         public CurrentTransactionViewModel()
         {
             CurrentOrderCommand = new RelayCommand<string>(ExecuteCurrentOrderCommand);
-            _currentTransactionRepository = App.Resolve<IGenericRepository<CurrentTransaction>>();
+            _currentTransactionRepository = new CurrentTransactionRepository(new HAFoodDbContext());
             _currentTransactionDetailRepository = App.Resolve<IGenericRepository<CurrentTransactionDetail>>();
-            _customerRepository = App.Resolve<IGenericRepository<Entities.DBModel.Customer>>();
-            _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stock>>();
-            _paymentRepository = App.Resolve<IGenericRepository<Payment>>();
+            _customerRepository = App.Resolve<IGenericRepository<Entities.DBModel.Customers.Customer>>();
+            _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stocks.Stock>>();
+            _paymentRepository = App.Resolve<IGenericRepository<Entities.DBModel.Payments.Payment>>();
             StockList = new ObservableCollection<StockModel>();
             CustomerList = new ObservableCollection<CustomerModel>();
         }
@@ -262,7 +264,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                             transaction.CurrentTransactionDetails.Add(currentTransactionDetail);
                         }
 
-                        currentTransaction.SaveDetail(transaction);
+                        _currentTransactionRepository.SaveDetail(transaction);
 
                         CalculateStock(CurrentTransactionDetailList);
 
@@ -288,7 +290,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
             else if (str == "Search Order")
             {
                 CurrentTransactionDetailList = new ObservableCollection<CurrentTransactionDetailModel>();
-                var result = currentTransaction.GetOrder(OrderNumber);
+                var result = _currentTransactionRepository.GetOrder(OrderNumber);
                 if (result != null)
                 {
                     _isPreviousOrder = true;
@@ -407,7 +409,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
         {
             foreach (var item in currentTransactionDetailModel)
             {
-                Entities.DBModel.Stock stock = _stockRepository.GetById(item.StockId);
+                Entities.DBModel.Stocks.Stock stock = _stockRepository.GetById(item.StockId);
                 if (stock != null)
                 {
                     if (_isPreviousOrder)
@@ -416,7 +418,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         stock.NewQuantity = stock.NewQuantity - item.NewQuantity;
                 }
             }
-            DBInstance.Instance.SaveChanges();
+            _stockRepository.Save();
         }
 
         public void OnBringIntoView()

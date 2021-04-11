@@ -20,7 +20,7 @@ namespace ERP.WpfClient.ViewModel.Stock
     {
         #region Fields
 
-        private readonly IGenericRepository<Entities.DBModel.Stock> _stockRepository;
+        private readonly IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
         private StockModel _stockModel;
         private ObservableCollection<StockModel> _stockList;
         private string _stockButton;
@@ -35,7 +35,7 @@ namespace ERP.WpfClient.ViewModel.Stock
             StockCommands = new RelayCommand<object>(ExecuteStockCommand);
             DeleteStockCommand = new RelayCommand<object>(ExecuteDeleteStockCommand);
             //this.StockCommands = new CustomerCommand(this);
-            _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stock>>();
+            _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stocks.Stock>>();
             StockModel = new StockModel();
             StockList = new ObservableCollection<StockModel>();
             StockButton = "Save";
@@ -120,7 +120,7 @@ namespace ERP.WpfClient.ViewModel.Stock
         public void SaveStock()
         {
             StockModel.CurrentQuantity = StockModel.NewQuantity;
-            var model = _stockRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Stock>(StockModel));
+            var model = _stockRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel));
             StockModel.Id = model.Id;
             StockList.Add(StockModel);
             Reset();
@@ -146,7 +146,7 @@ namespace ERP.WpfClient.ViewModel.Stock
         public void UpdateStock()
         {
             StockModel.CurrentQuantity = StockModel.NewQuantity;
-            _stockRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Stock>(StockModel), StockModel.Id);
+            _stockRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel), StockModel.Id);
             Reset();
         }
 
@@ -159,7 +159,7 @@ namespace ERP.WpfClient.ViewModel.Stock
         private void Init()
         {
             var bw = new BackgroundWorker();
-            List<Entities.DBModel.Stock> stock = null;
+            List<Entities.DBModel.Stocks.Stock> stock = null;
             bw.DoWork += (sender, args) =>
             {
                 try
