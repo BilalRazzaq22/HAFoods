@@ -12,8 +12,14 @@ namespace ERP.Repository.Generic
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
         protected HAFoodDbContext _context;
-
         DbSet<T> table;
+
+        public GenericRepository()
+        {
+            _context = new HAFoodDbContext();
+            table = _context.Set<T>();
+        }
+
         public GenericRepository(HAFoodDbContext context)
         {
             _context = context;
