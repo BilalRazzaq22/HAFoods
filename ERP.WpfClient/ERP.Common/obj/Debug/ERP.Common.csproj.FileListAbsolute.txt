@@ -33,3 +33,4 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.Cor
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.CopyComplete
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.dll
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csprojAssemblyReference.cache

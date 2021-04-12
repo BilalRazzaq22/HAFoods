@@ -2,7 +2,6 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.pdb
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\log4net.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\log4net.xml
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csprojAssemblyReference.cache
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj.CoreCompileInputs.cache
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj.CopyComplete
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.dll
