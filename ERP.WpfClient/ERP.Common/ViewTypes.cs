@@ -14,6 +14,9 @@ namespace ERP.Common
         Supplier,
         Stock,
         CurrentTransaction,
+        CashBook1,
+        CashBook2,
         AllReports
+
     }
 }
