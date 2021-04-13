@@ -58,6 +58,11 @@
     <Compile Include="DBModel\Suppliers\Supplier.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransaction.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
+    <Compile Include="Migrations\202104131200013_init.cs" />
+    <Compile Include="Migrations\202104131200013_init.Designer.cs">
+      <DependentUpon>202104131200013_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -73,6 +78,10 @@
       <Name>ERP.Common</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104131200013_init.resx">
+      <DependentUpon>202104131200013_init.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
