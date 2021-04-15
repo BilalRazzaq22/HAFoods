@@ -8,6 +8,20 @@ namespace ERP.Entities.Migrations
         public override void Up()
         {
             CreateTable(
+                "dbo.CashBookOnes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Type = c.String(),
+                        SupplierId = c.Int(),
+                        CustomerId = c.Int(),
+                        Amount = c.Decimal(precision: 18, scale: 2),
+                        PaymentId = c.Int(),
+                        Description = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.CurrentTransactionDetails",
                 c => new
                     {
@@ -15,8 +29,7 @@ namespace ERP.Entities.Migrations
                         CurrentTransactionId = c.Int(),
                         StockId = c.Int(),
                         ItemName = c.String(),
-                        PreviousQuantity = c.Int(),
-                        NewQuantity = c.Int(),
+                        Quantity = c.Int(),
                         Price = c.Decimal(precision: 18, scale: 2),
                         Discount = c.Decimal(precision: 18, scale: 2),
                         TotalPrice = c.Decimal(precision: 18, scale: 2),
@@ -87,8 +100,7 @@ namespace ERP.Entities.Migrations
                         UrduName = c.String(),
                         BuyPrice = c.Decimal(precision: 18, scale: 2),
                         SalePrice = c.Decimal(precision: 18, scale: 2),
-                        CurrentQuantity = c.Int(),
-                        NewQuantity = c.Int(),
+                        Quantity = c.Int(),
                         Category = c.String(),
                         Packing = c.Int(),
                         Remarks = c.String(),
@@ -133,6 +145,7 @@ namespace ERP.Entities.Migrations
             DropTable("dbo.Customers");
             DropTable("dbo.CurrentTransactions");
             DropTable("dbo.CurrentTransactionDetails");
+            DropTable("dbo.CashBookOnes");
         }
     }
 }

@@ -52,15 +52,16 @@
   <ItemGroup>
     <Compile Include="DbContext\HAFoodDbContext.cs" />
     <Compile Include="DBModel\AppSettings\AppSetting.cs" />
+    <Compile Include="DBModel\CashBook\CashBookOne.cs" />
     <Compile Include="DBModel\Customers\Customer.cs" />
     <Compile Include="DBModel\Payments\Payment.cs" />
     <Compile Include="DBModel\Stocks\Stock.cs" />
     <Compile Include="DBModel\Suppliers\Supplier.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransaction.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
-    <Compile Include="Migrations\202104131200013_init.cs" />
-    <Compile Include="Migrations\202104131200013_init.Designer.cs">
-      <DependentUpon>202104131200013_init.cs</DependentUpon>
+    <Compile Include="Migrations\202104150514290_init.cs" />
+    <Compile Include="Migrations\202104150514290_init.Designer.cs">
+      <DependentUpon>202104150514290_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -79,8 +80,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104131200013_init.resx">
-      <DependentUpon>202104131200013_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104150514290_init.resx">
+      <DependentUpon>202104150514290_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

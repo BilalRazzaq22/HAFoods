@@ -1,5 +1,6 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
+using ERP.Entities.DbContext;
 using ERP.Repository.Generic;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
@@ -25,6 +26,9 @@ namespace ERP.WpfClient.ViewModel.Stock
         private ObservableCollection<StockModel> _stockList;
         private string _stockButton;
         private string _stockParameter;
+        private string _previousQuantity;
+        private string _newQuantity;
+        private string _isUpdateStock;
 
         #endregion
 
@@ -35,7 +39,7 @@ namespace ERP.WpfClient.ViewModel.Stock
             StockCommands = new RelayCommand<object>(ExecuteStockCommand);
             DeleteStockCommand = new RelayCommand<object>(ExecuteDeleteStockCommand);
             //this.StockCommands = new CustomerCommand(this);
-            _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stocks.Stock>>();
+            _stockRepository = new GenericRepository<Entities.DBModel.Stocks.Stock>(new HAFoodDbContext());
             StockModel = new StockModel();
             StockList = new ObservableCollection<StockModel>();
             StockButton = "Save";
@@ -74,6 +78,32 @@ namespace ERP.WpfClient.ViewModel.Stock
             set { _stockButton = value; RaisePropertyChanged("StockButton"); }
         }
 
+        public string PreviousQuantity
+        {
+            get { return _previousQuantity; }
+            set { _previousQuantity = value; RaisePropertyChanged("PreviousQuantity"); }
+        }
+
+        public string NewQuantity
+        {
+            get { return _newQuantity; }
+            set { _newQuantity = value; RaisePropertyChanged("NewQuantity"); }
+        }
+
+        public string IsUpdateStock
+        {
+            get { return _isUpdateStock; }
+            set { _isUpdateStock = value; RaisePropertyChanged("IsUpdateStock"); }
+        }
+
+        private string _isEnabled;
+
+        public string IsEnabled
+        {
+            get { return _isEnabled; }
+            set { _isEnabled = value; RaisePropertyChanged("IsEnabled"); }
+        }
+
         #endregion
 
         #region Methods
@@ -103,6 +133,9 @@ namespace ERP.WpfClient.ViewModel.Stock
             StockModel = new StockModel();
             StockButton = "Save";
             StockParameter = "SaveStock";
+            IsUpdateStock = Visibility.Collapsed.ToString();
+            PreviousQuantity = "Quantity:";
+            IsEnabled = "True";
         }
 
         private void ExecuteDeleteStockCommand(object obj)
@@ -119,7 +152,7 @@ namespace ERP.WpfClient.ViewModel.Stock
 
         public void SaveStock()
         {
-            StockModel.CurrentQuantity = StockModel.NewQuantity;
+            //StockModel.CurrentQuantity = StockModel.NewQuantity;
             var model = _stockRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel));
             StockModel.Id = model.Id;
             StockList.Add(StockModel);
@@ -128,6 +161,10 @@ namespace ERP.WpfClient.ViewModel.Stock
 
         public void EditStock(StockModel stockModel)
         {
+            IsUpdateStock = Visibility.Visible.ToString();
+            PreviousQuantity = "Previous Quantity:";
+            NewQuantity = "New Quantity:";
+            IsEnabled = "False";
             StockButton = "Update";
             StockParameter = "UpdateStock";
             StockModel.Id = stockModel.Id;
@@ -135,17 +172,16 @@ namespace ERP.WpfClient.ViewModel.Stock
             StockModel.UrduName = stockModel.UrduName;
             StockModel.BuyPrice = stockModel.BuyPrice;
             StockModel.SalePrice = stockModel.SalePrice;
-            StockModel.CurrentQuantity = stockModel.CurrentQuantity;
-            StockModel.NewQuantity = stockModel.NewQuantity;
+            StockModel.Quantity = stockModel.Quantity;
+            StockModel.NewQuantity = 0;
             StockModel.Category = stockModel.Category;
             StockModel.Packing = stockModel.Packing;
             StockModel.Remarks = stockModel.Remarks;
-
         }
 
         public void UpdateStock()
         {
-            StockModel.CurrentQuantity = StockModel.NewQuantity;
+            StockModel.Quantity = StockModel.NewQuantity + StockModel.Quantity;
             _stockRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel), StockModel.Id);
             Reset();
         }
@@ -188,6 +224,7 @@ namespace ERP.WpfClient.ViewModel.Stock
         public void OnBringIntoView()
         {
             Init();
+            Reset();
         }
 
         #endregion

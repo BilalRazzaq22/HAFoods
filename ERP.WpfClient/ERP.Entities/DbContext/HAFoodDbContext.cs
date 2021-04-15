@@ -1,4 +1,4 @@
-﻿using ERP.Entities.DBModel;
+﻿using ERP.Entities.DBModel.CashBook;
 using ERP.Entities.DBModel.Customers;
 using ERP.Entities.DBModel.Payments;
 using ERP.Entities.DBModel.Stocks;
@@ -29,5 +29,6 @@ namespace ERP.Entities.DbContext
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
+        public DbSet<CashBookOne> CashBookOnes { get; set; }
     }
 }
