@@ -42,7 +42,7 @@ namespace ERP.WpfClient.ViewModel
             MainViewCommand = new RelayCommand<string>(ExecuteMainViewCommand);
             //MainViewCommand = new MainViewCommand(this);
             _viewManagerService = ViewManagerService.CreateInstance();
-            LoadViewAsync(ViewTypes.Home.ToString());
+            LoadViewAsync(ViewTypes.CurrentTransaction.ToString());
         }
 
         //public MainViewModel(FrameworkElement element)
@@ -497,7 +497,7 @@ namespace ERP.WpfClient.ViewModel
             //}
             //else
             //{
-            defaultScreen = "Home";
+            defaultScreen = "CurrentTransaction";
             //}
 
 

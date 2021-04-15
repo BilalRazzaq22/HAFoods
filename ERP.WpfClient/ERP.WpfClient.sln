@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Common", "ERP.Common\ER
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERP.Core", "ERP.Core\ERP.Core.csproj", "{092F6DA9-7E58-4671-B8FD-CA1B1CC36F34}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "HAFoodSetup", "HAFoodSetup\HAFoodSetup.vdproj", "{ABDD32F1-AF34-4048-B711-34B41516886E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,9 @@ Global
 		{092F6DA9-7E58-4671-B8FD-CA1B1CC36F34}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{092F6DA9-7E58-4671-B8FD-CA1B1CC36F34}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{092F6DA9-7E58-4671-B8FD-CA1B1CC36F34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ABDD32F1-AF34-4048-B711-34B41516886E}.Debug|Any CPU.ActiveCfg = Debug
+		{ABDD32F1-AF34-4048-B711-34B41516886E}.Debug|Any CPU.Build.0 = Debug
+		{ABDD32F1-AF34-4048-B711-34B41516886E}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
