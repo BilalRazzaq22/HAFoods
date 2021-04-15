@@ -182,14 +182,15 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 {
                     CurrentTransactionDetailModel.ItemName = StockModel.ItemName;
                     CurrentTransactionDetailModel.Price = StockModel.SalePrice;
-                    if (!_isPreviousOrder)
-                    {
-                        CurrentTransactionDetailModel.PreviousQuantity = Quantity;
-                    }
-                    CurrentTransactionDetailModel.NewQuantity = Quantity;
+                    //if (_isPreviousOrder)
+                    //{
+                    CurrentTransactionDetailModel.NewQuantity = CurrentTransactionDetailModel.NewQuantity + Quantity;
+                    //}
+                    CurrentTransactionDetailModel.Quantity = Quantity;
+                    CurrentTransactionDetailModel.NewDiscount = CurrentTransactionDetailModel.NewDiscount + Discount;
                     CurrentTransactionDetailModel.Discount = Discount;
-                    decimal? totalPrice = CurrentTransactionDetailModel.Price * Quantity;
-                    CurrentTransactionDetailModel.TotalPrice = totalPrice - Discount;
+                    decimal? totalPrice = CurrentTransactionDetailModel.Price * CurrentTransactionDetailModel.NewQuantity;
+                    CurrentTransactionDetailModel.TotalPrice = totalPrice - CurrentTransactionDetailModel.NewDiscount;
                 }
                 else
                 {
@@ -198,9 +199,10 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         StockId = StockModel.Id,
                         ItemName = StockModel.ItemName,
                         Price = StockModel.SalePrice,
-                        PreviousQuantity = Quantity,
+                        Quantity = Quantity,
                         NewQuantity = Quantity,
                         Discount = Discount,
+                        NewDiscount = Discount,
                         TotalPrice = (StockModel.SalePrice * Quantity) - Discount
                     });
                 }
@@ -208,7 +210,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 decimal? price = CurrentTransactionDetailList.Sum(x => x.Price * x.NewQuantity);
 
                 CurrentTransactionModel.TotalPrice = price;
-                CurrentTransactionModel.TotalDiscount = CurrentTransactionDetailList.Sum(x => x.Discount);
+                CurrentTransactionModel.TotalDiscount = CurrentTransactionDetailList.Sum(x => x.NewDiscount);
                 CurrentTransactionModel.GrandTotal = CurrentTransactionModel.TotalPrice - CurrentTransactionModel.TotalDiscount;
                 GrandTotal = CurrentTransactionModel.GrandTotal;
 
@@ -255,9 +257,9 @@ namespace ERP.WpfClient.ViewModel.Transaction
                             }
                             currentTransactionDetail.StockId = item.StockId;
                             currentTransactionDetail.ItemName = item.ItemName;
-                            if (!_isPreviousOrder)
-                                currentTransactionDetail.PreviousQuantity = item.PreviousQuantity;
-                            currentTransactionDetail.NewQuantity = item.NewQuantity;
+                            //if (!_isPreviousOrder)
+                            //    currentTransactionDetail.PreviousQuantity = item.PreviousQuantity;
+                            currentTransactionDetail.Quantity = item.NewQuantity;
                             currentTransactionDetail.Price = item.Price;
                             currentTransactionDetail.Discount = item.Discount;
                             currentTransactionDetail.TotalPrice = item.TotalPrice;
@@ -308,16 +310,16 @@ namespace ERP.WpfClient.ViewModel.Transaction
                             StockId = item.StockId,
                             ItemName = item.ItemName,
                             Price = item.Price,
-                            PreviousQuantity = item.PreviousQuantity,
-                            NewQuantity = item.NewQuantity,
+                            //PreviousQuantity = item.PreviousQuantity,
+                            NewQuantity = item.Quantity,
                             Discount = item.Discount,
-                            TotalPrice = (item.Price * item.NewQuantity) - item.Discount
+                            TotalPrice = (item.Price * item.Quantity) - item.Discount
                         });
                     }
+                    CustomerModel = CustomerList.FirstOrDefault(x => x.Id == result.CustomerId);
+                    PaymentType = PaymentList.FirstOrDefault(x => x.Id == result.PaymentId);
                 }
 
-                CustomerModel = CustomerList.FirstOrDefault(x => x.Id == result.CustomerId);
-                PaymentType = PaymentList.FirstOrDefault(x => x.Id == result.PaymentId);
             }
 
             else if (str == "New Order")
@@ -412,10 +414,10 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 Entities.DBModel.Stocks.Stock stock = _stockRepository.GetById(item.StockId);
                 if (stock != null)
                 {
-                    if (_isPreviousOrder)
-                        stock.NewQuantity = (item.PreviousQuantity + stock.NewQuantity) - item.NewQuantity;
-                    else
-                        stock.NewQuantity = stock.NewQuantity - item.NewQuantity;
+                    //if (_isPreviousOrder)
+                    //    stock.NewQuantity = (item.PreviousQuantity + stock.NewQuantity) - item.NewQuantity;
+                    //else
+                    stock.Quantity = stock.Quantity - item.Quantity;
                 }
             }
             _stockRepository.Save();

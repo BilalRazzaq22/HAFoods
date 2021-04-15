@@ -13,8 +13,7 @@ namespace ERP.Entities.DBModel.Transactions
         public int? CurrentTransactionId { get; set; }
         public int? StockId { get; set; }
         public string ItemName { get; set; }
-        public int? PreviousQuantity { get; set; }
-        public int? NewQuantity { get; set; }
+        public int? Quantity { get; set; }
         public decimal? Price { get; set; }
         public decimal? Discount { get; set; }
         public decimal? TotalPrice { get; set; }

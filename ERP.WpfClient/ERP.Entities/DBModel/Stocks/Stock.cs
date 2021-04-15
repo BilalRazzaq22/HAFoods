@@ -19,8 +19,7 @@ namespace ERP.Entities.DBModel.Stocks
         public string UrduName { get; set; }
         public decimal? BuyPrice { get; set; }
         public decimal? SalePrice { get; set; }
-        public int? CurrentQuantity { get; set; }
-        public int? NewQuantity { get; set; }
+        public int? Quantity { get; set; }
         public string Category { get; set; }
         public int? Packing { get; set; }
         public string Remarks { get; set; }

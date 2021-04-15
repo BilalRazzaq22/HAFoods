@@ -59,21 +59,9 @@
     <Compile Include="DBModel\Suppliers\Supplier.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransaction.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
-    <Compile Include="Migrations\202104131259095_init.cs" />
-    <Compile Include="Migrations\202104131259095_init.Designer.cs">
-      <DependentUpon>202104131259095_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104131301145_tbl.cs" />
-    <Compile Include="Migrations\202104131301145_tbl.Designer.cs">
-      <DependentUpon>202104131301145_tbl.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104131302283_tbl-cash.cs" />
-    <Compile Include="Migrations\202104131302283_tbl-cash.Designer.cs">
-      <DependentUpon>202104131302283_tbl-cash.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202104140523057_rmv-tbl.cs" />
-    <Compile Include="Migrations\202104140523057_rmv-tbl.Designer.cs">
-      <DependentUpon>202104140523057_rmv-tbl.cs</DependentUpon>
+    <Compile Include="Migrations\202104150514290_init.cs" />
+    <Compile Include="Migrations\202104150514290_init.Designer.cs">
+      <DependentUpon>202104150514290_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -92,17 +80,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104131259095_init.resx">
-      <DependentUpon>202104131259095_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104131301145_tbl.resx">
-      <DependentUpon>202104131301145_tbl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104131302283_tbl-cash.resx">
-      <DependentUpon>202104131302283_tbl-cash.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202104140523057_rmv-tbl.resx">
-      <DependentUpon>202104140523057_rmv-tbl.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104150514290_init.resx">
+      <DependentUpon>202104150514290_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

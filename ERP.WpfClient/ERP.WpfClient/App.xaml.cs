@@ -31,7 +31,7 @@ namespace ERP.WpfClient
 
         private void InitializeDB()
         {
-            CheckReset();
+            //CheckReset();
 
             try
             {
