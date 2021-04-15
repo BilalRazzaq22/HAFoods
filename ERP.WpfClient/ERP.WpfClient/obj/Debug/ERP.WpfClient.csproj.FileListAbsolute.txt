@@ -30,9 +30,6 @@ C:\Users\bilal\projects\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.cspr
 C:\Users\bilal\projects\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.csproj.CopyComplete
 C:\Users\bilal\projects\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.exe
 C:\Users\bilal\projects\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.pdb
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Xceed.Wpf.Toolkit.dll
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -197,6 +194,9 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.cspr
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.csproj.CopyComplete
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.exe
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\EntityFramework.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x86\msvcr120.dll
@@ -207,7 +207,6 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ERP.WpfCli
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Autofac.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\AutoMapper.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\CommonServiceLocator.dll
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\EntityFramework.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ERP.Common.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ERP.Core.dll
@@ -227,8 +226,10 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\System.Sec
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\System.ServiceProcess.ServiceController.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\System.Windows.Interactivity.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Xceed.Wpf.AvalonDock.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Aero.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Xceed.Wpf.AvalonDock.Themes.Metro.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Xceed.Wpf.AvalonDock.Themes.VS2010.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Xceed.Wpf.Toolkit.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\log4net.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\EnvDTE.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
@@ -270,6 +271,7 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\pt\Microso
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ru\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\zh-CHS\Microsoft.ReportViewer.Common.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\zh-CHT\Microsoft.ReportViewer.Common.resources.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\de\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\es\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\fr\Microsoft.ReportViewer.DataVisualization.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\it\Microsoft.ReportViewer.DataVisualization.resources.dll
@@ -293,12 +295,10 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\de\Microso
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\es\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\fr\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\it\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ja\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ko\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\pt\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll

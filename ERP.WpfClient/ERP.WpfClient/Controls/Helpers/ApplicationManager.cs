@@ -30,6 +30,7 @@ namespace ERP.WpfClient.Controls.Helpers
         private bool _isBusy;
         private static List<Stream> m_streams;
         private static int m_currentPageIndex = 0;
+
         public Stack<ViewTypes> NavigationHistory { get; set; }
         #endregion
 
@@ -89,6 +90,11 @@ namespace ERP.WpfClient.Controls.Helpers
         #endregion
 
         #region Methods
+
+        public string Path()
+        {
+            return System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().GetName().CodeBase) + "\\Database";
+        }
 
         /// <summary>
         /// Creates the Login History of the Users
