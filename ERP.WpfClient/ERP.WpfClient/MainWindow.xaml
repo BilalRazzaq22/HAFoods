@@ -3,10 +3,10 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ERP.WpfClient" xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:local="clr-namespace:ERP.WpfClient" xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="HAFoods" Height="780" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid Background="{StaticResource MasterBackgroundColor}">
+        Title="HAFoods" Height="780" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Resources/Images/mainLogo.ico">
+    <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
             <ColumnDefinition Width="*"/>
@@ -17,30 +17,59 @@
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.RowSpan="2" Grid.Column="0" >
             <Grid.RowDefinitions>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Image Source="Resources/Images/HighEnd@4x.png" Width="120"/>
+            </StackPanel>
             <Border  Grid.Row="1"  BorderBrush="Black"  BorderThickness="0 0 0 0" >
                 <StackPanel Grid.Row="1">
-                    <RadioButton Style="{StaticResource LeftMenuButton}" IsChecked="True" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" IsEnabled="False"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" IsChecked="True" Content="Home" Command="{Binding MainViewCommand}" CommandParameter="Home" Visibility="Hidden"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Current Transaction" Command="{Binding MainViewCommand}" CommandParameter="Current Transaction"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Customers" Command="{Binding MainViewCommand}" CommandParameter="Customer"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Suppliers" Command="{Binding MainViewCommand}" CommandParameter="Supplier" />
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Stock" Command="{Binding MainViewCommand}" CommandParameter="Stock"/>
-                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}" CommandParameter="Purchase Order" IsEnabled="False"/>
-                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Sales Orders" Command="{Binding MainViewCommand}" CommandParameter="Sales Order" IsEnabled="False"/>
-                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 1" IsEnabled="False"/>
-                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2" IsEnabled="False"/>
-                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="All Reports" Command="{Binding MainViewCommand}" CommandParameter="All Reports" IsEnabled="False"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Purchase Orders" Command="{Binding MainViewCommand}" CommandParameter="Purchase Order" Visibility="Collapsed"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Sales Orders" Command="{Binding MainViewCommand}" CommandParameter="Sales Order" Visibility="Collapsed"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 1" Visibility="Collapsed"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2" Visibility="Collapsed"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="All Reports" Command="{Binding MainViewCommand}" CommandParameter="All Reports" Visibility="Collapsed"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="User" Command="{Binding MainViewCommand}" CommandParameter="User"/>
                 </StackPanel>
             </Border>
         </Grid>
         <StackPanel Grid.Row="0" Grid.Column="1">
+            <Grid>
+                <!--<TextBlock Text="H.A Enterprises" Margin="10" HorizontalAlignment="Left" FontSize="20"/>-->
 
+                <Grid Height="50" VerticalAlignment="Top" Background="White">
+                    <Grid.Effect>
+                        <DropShadowEffect BlurRadius="1" ShadowDepth="1" Color="#FFACACAC"/>
+                    </Grid.Effect>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                        <TextBlock x:Name="txtLoginUser" VerticalAlignment="Center" FontSize="16" HorizontalAlignment="Center" Margin="10 0 5 0"/>
+                        <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10 0 5 0">
+                            <Border BorderThickness="1" BorderBrush="Black">
+                                <StackPanel Width="150" Background="White">
+                                    <!--<Button Content="Settings"/>
+                                <Button Content="Account"/>
+                                <Button Content="Help"/>
+                                <Separator/>-->
+                                    <Button x:Name="logout" Content="Logout" Click="logout_Click"/>
+                                </StackPanel>
+                            </Border>
+                        </materialDesign:PopupBox>
+                    </StackPanel>
+                    <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="22" Text="H.A Enterprises"></TextBlock>
+                </Grid>
 
+                <!--<Image Grid.Column="2" Source="Resources/Images/userlogin.png" Width="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
+                <TextBlock Grid.Column="3" x:Name="txtLoginUser" HorizontalAlignment="Right" FontSize="18" VerticalAlignment="Center" Margin="30 0"/>-->
+            </Grid>
         </StackPanel>
         <Grid Grid.Column="1" Grid.Row="1">
-            <Grid x:Name="MainControlsHost">
+            <Grid x:Name="MainControlsHost" Background="White">
                 <Grid x:Name="PopupContainer" Panel.ZIndex="198" Visibility="Visible" >
                     <Rectangle x:Name="Overlay" Visibility="Visible"  Fill="#88000000" Opacity="0.495"  />
                     <Border Background="White" BorderThickness="0" CornerRadius="3" HorizontalAlignment="Center" VerticalAlignment="Center"  >

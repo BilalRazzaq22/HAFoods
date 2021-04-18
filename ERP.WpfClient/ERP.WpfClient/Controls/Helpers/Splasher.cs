@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
 
-namespace PrizeBondChecker.WpfClient.Controls.Helpers
+namespace ERP.WpfClient.Controls.Helpers
 {
     public static class Splasher
     {

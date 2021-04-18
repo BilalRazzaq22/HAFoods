@@ -6,7 +6,6 @@ using ERP.WpfClient.Messages.View;
 using ERP.WpfClient.View.Popups;
 using ERP.WpfClient.ViewModel.Popup;
 using GalaSoft.MvvmLight.Messaging;
-using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -192,6 +191,18 @@ namespace ERP.WpfClient.Controls.Helpers
             bw.RunWorkerAsync();
         }
 
+        public void ShowMessageBox(string message, string okButtonText = "OKAY")
+        {
+            Messenger.Default.Send<PopupDialogMessage>(new PopupDialogMessage()
+            {
+                Show = true,
+                Title = "",
+                ControlToDisplay = new MessageBoxPopup(message, okButtonText),
+                ShowCloseButton = false,
+                UseMessageBox = true,
+            });
+        }
+
         public void ShowDialog(string title, FrameworkElement element, bool showCloseButton = true,
            bool useMessageBox = false)
         {
@@ -324,84 +335,84 @@ namespace ERP.WpfClient.Controls.Helpers
         //    , false, "");
         //}
 
-        internal void PrintToPrinter(LocalReport report)
-        {
-             Export(report);
-        }
+        //internal void PrintToPrinter(LocalReport report)
+        //{
+        //     Export(report);
+        //}
 
-        public static void Export(LocalReport report, bool print = true)
-        {
-            string deviceInfo =
-             @"<DeviceInfo>
-                <OutputFormat>EMF</OutputFormat>
-                <MarginTop>0in</MarginTop>
-                <MarginLeft>0.1in</MarginLeft>
-                <MarginRight>0.1in</MarginRight>
-                <MarginBottom>0in</MarginBottom>
-            </DeviceInfo>";
-            Warning[] warnings;
-            m_streams = new List<Stream>();
-            report.Render("Image", deviceInfo, CreateStream, out warnings);
-            foreach (Stream stream in m_streams)
-                stream.Position = 0;
+        //public static void Export(LocalReport report, bool print = true)
+        //{
+        //    string deviceInfo =
+        //     @"<DeviceInfo>
+        //        <OutputFormat>EMF</OutputFormat>
+        //        <MarginTop>0in</MarginTop>
+        //        <MarginLeft>0.1in</MarginLeft>
+        //        <MarginRight>0.1in</MarginRight>
+        //        <MarginBottom>0in</MarginBottom>
+        //    </DeviceInfo>";
+        //    Warning[] warnings;
+        //    m_streams = new List<Stream>();
+        //    report.Render("Image", deviceInfo, CreateStream, out warnings);
+        //    foreach (Stream stream in m_streams)
+        //        stream.Position = 0;
 
-            if (print)
-            {
-                Print();
-            }
-        }
+        //    if (print)
+        //    {
+        //        Print();
+        //    }
+        //}
 
-        public static void Print()
-        {
-            if (m_streams == null || m_streams.Count == 0)
-                throw new Exception("Error: no stream to print.");
-            using (PrintDocument printDoc = new PrintDocument())
-            {
-                PrintController printController = new StandardPrintController();
-                printDoc.PrintController = printController;
-                if (!printDoc.PrinterSettings.IsValid)
-                {
-                    throw new Exception("Error: cannot find the default printer.");
-                }
-                else
-                {
-                    printDoc.PrintPage += new PrintPageEventHandler(PrintPage);
-                    m_currentPageIndex = 0;
-                    printDoc.Print();
-                }
-            }
-        }
+        //public static void Print()
+        //{
+        //    if (m_streams == null || m_streams.Count == 0)
+        //        throw new Exception("Error: no stream to print.");
+        //    using (PrintDocument printDoc = new PrintDocument())
+        //    {
+        //        PrintController printController = new StandardPrintController();
+        //        printDoc.PrintController = printController;
+        //        if (!printDoc.PrinterSettings.IsValid)
+        //        {
+        //            throw new Exception("Error: cannot find the default printer.");
+        //        }
+        //        else
+        //        {
+        //            printDoc.PrintPage += new PrintPageEventHandler(PrintPage);
+        //            m_currentPageIndex = 0;
+        //            printDoc.Print();
+        //        }
+        //    }
+        //}
 
-        public static Stream CreateStream(string name, string fileNameExtension, Encoding encoding, string mimeType, bool willSeek)
-        {
-            Stream stream = new MemoryStream();
-            m_streams.Add(stream);
-            return stream;
-        }
+        //public static Stream CreateStream(string name, string fileNameExtension, Encoding encoding, string mimeType, bool willSeek)
+        //{
+        //    Stream stream = new MemoryStream();
+        //    m_streams.Add(stream);
+        //    return stream;
+        //}
 
-        public static void PrintPage(object sender, PrintPageEventArgs ev)
-        {
-            Metafile pageImage = new
-               Metafile(m_streams[m_currentPageIndex]);
+        //public static void PrintPage(object sender, PrintPageEventArgs ev)
+        //{
+        //    Metafile pageImage = new
+        //       Metafile(m_streams[m_currentPageIndex]);
 
-            // Adjust rectangular area with printer margins.
-            Rectangle adjustedRect = new Rectangle(
-                ev.PageBounds.Left - (int)ev.PageSettings.HardMarginX,
-                ev.PageBounds.Top - (int)ev.PageSettings.HardMarginY,
-                ev.PageBounds.Width,
-                ev.PageBounds.Height);
+        //    // Adjust rectangular area with printer margins.
+        //    Rectangle adjustedRect = new Rectangle(
+        //        ev.PageBounds.Left - (int)ev.PageSettings.HardMarginX,
+        //        ev.PageBounds.Top - (int)ev.PageSettings.HardMarginY,
+        //        ev.PageBounds.Width,
+        //        ev.PageBounds.Height);
 
-            // Draw a white background for the report
-            ev.Graphics.FillRectangle(System.Drawing.Brushes.White,
-                                      adjustedRect);
+        //    // Draw a white background for the report
+        //    ev.Graphics.FillRectangle(System.Drawing.Brushes.White,
+        //                              adjustedRect);
 
-            // Draw the report content
-            ev.Graphics.DrawImage(pageImage, adjustedRect);
+        //    // Draw the report content
+        //    ev.Graphics.DrawImage(pageImage, adjustedRect);
 
-            // Prepare for the next page. Make sure we haven't hit the end.
-            m_currentPageIndex++;
-            ev.HasMorePages = (m_currentPageIndex < m_streams.Count);
-        }
+        //    // Prepare for the next page. Make sure we haven't hit the end.
+        //    m_currentPageIndex++;
+        //    ev.HasMorePages = (m_currentPageIndex < m_streams.Count);
+        //}
     }
 
 

@@ -42,7 +42,7 @@ namespace ERP.WpfClient.ViewModel
             MainViewCommand = new RelayCommand<string>(ExecuteMainViewCommand);
             //MainViewCommand = new MainViewCommand(this);
             _viewManagerService = ViewManagerService.CreateInstance();
-            LoadViewAsync(ViewTypes.CurrentTransaction.ToString());
+            InitApp();
         }
 
         //public MainViewModel(FrameworkElement element)
@@ -239,6 +239,10 @@ namespace ERP.WpfClient.ViewModel
                 case "All Reports":
                     LoadViewAsync(ViewTypes.AllReports.ToString());
                     break;
+
+                case "User":
+                    LoadViewAsync(ViewTypes.User.ToString());
+                    break;
             }
         }
 
@@ -375,6 +379,9 @@ namespace ERP.WpfClient.ViewModel
 
             switch (viewType)
             {
+                //case ViewTypes.UserLogin:
+                //    _viewManagerService.Select().Transition<View.Users.UserLogin>(viewType);
+                //    break;
                 case ViewTypes.Home:
                     _viewManagerService.Select("home").Transition<View.Home.Home>(viewType);
                     break;
@@ -398,6 +405,9 @@ namespace ERP.WpfClient.ViewModel
                     break;
                 case ViewTypes.AllReports:
                     _viewManagerService.Select("home").Transition<View.Reports.AllReports>(viewType);
+                    break;
+                case ViewTypes.User:
+                    _viewManagerService.Select("home").Transition<View.Users.User>(viewType);
                     break;
                 default:
                     break;

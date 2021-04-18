@@ -1,7 +1,9 @@
 ﻿using ERP.Common;
+using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.LoadControls;
 using ERP.WpfClient.Messages.BusyIndicator;
 using ERP.WpfClient.Messages.Popup;
+using ERP.WpfClient.Messages.User;
 using ERP.WpfClient.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
 using System;
@@ -22,11 +24,12 @@ namespace ERP.WpfClient
         public MainWindow()
         {
             InitializeComponent();
-            this.DataContext = new MainViewModel();
             _viewManagerService.Add(MainControlsHost, null, "home");
+            this.DataContext = new MainViewModel();
             //loadcontrol = new LoadControl();
             Messenger.Default.Register<PopupDialogMessage>(this, ShowPopupDialog);
             Messenger.Default.Register<BusyIndicatorMessage>(this, BusyIndicator);
+            Messenger.Default.Register<UserLoginMessage>(this, UserLogin);
         }
 
         private void ShowPopupDialog(PopupDialogMessage message)
@@ -204,10 +207,32 @@ namespace ERP.WpfClient
             }
         }
 
+        private void UserLogin(UserLoginMessage userLoginMessage)
+        {
+            txtLoginUser.Text = userLoginMessage.Username;
+        }
+
         private void RadioButton_Loaded(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void logout_Click(object sender, RoutedEventArgs e)
+        {
+            //Application.Current.Shutdown();
+            //Application.Current.Exit += Current_Exit;
+
+            ApplicationManager.Instance.ShowConfirmDialog("Are you sure you want to close the application?", () =>
+            {
+                Environment.Exit(0);
+                ApplicationManager.Instance.HideDialog();
+            }, () => ApplicationManager.Instance.HideMessageBox(), useYesNo: true);
+        }
+
+        //private void Current_Exit(object sender, ExitEventArgs e)
+        //{
+        //    e.
+        //}
 
         //public void LoadForm(UserControl form)
         //{

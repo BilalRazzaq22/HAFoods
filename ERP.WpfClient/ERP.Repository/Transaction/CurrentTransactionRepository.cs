@@ -16,7 +16,7 @@ namespace ERP.Repository.Transaction
             _currentTransactionRepository = new GenericRepository<CurrentTransaction>(_context);
         }
 
-        public void SaveDetail(CurrentTransaction currentTransaction)
+        public CurrentTransaction SaveDetail(CurrentTransaction currentTransaction)
         {
             try
             {
@@ -71,6 +71,7 @@ namespace ERP.Repository.Transaction
                 }
 
                 _context.SaveChanges();
+                return currentTransaction;
             }
             catch (Exception)
             {

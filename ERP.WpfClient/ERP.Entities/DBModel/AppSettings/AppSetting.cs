@@ -9,6 +9,7 @@ namespace ERP.Entities.DBModel.AppSettings
     public class AppSetting
     {
         public int Id { get; set; }
-        public bool IsFirstTime { get; set; }
+        public string AppVersion { get; set; }
+        public bool IsDBCreated { get; set; }
     }
 }

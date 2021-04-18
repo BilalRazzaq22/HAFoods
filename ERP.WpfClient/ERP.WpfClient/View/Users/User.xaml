@@ -1,0 +1,144 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Users.User"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Users" xmlns:my="clr-namespace:ERP.WpfClient.View.Search"
+             mc:Ignorable="d" 
+            d:DesignHeight="780"
+             d:DesignWidth="1024">
+    <Grid Background="{StaticResource MasterBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="1.5*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource TopMainHeadings}" Text="User Information" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Username:" />
+                    <TextBox  Text="{Binding UserModel.Username,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Email:"/>
+                    <TextBox Text="{Binding UserModel.Email,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Password:"/>
+                    <TextBox  Text="{Binding UserModel.Password,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="User Group:" />
+                    <!--<TextBox  Text="{Binding UserModel.FirstName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>-->
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding UserGroupList}" SelectedItem="{Binding UserGroupModel}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=GroupName}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="2">
+
+                    <Button Style="{StaticResource AcceptButton}" Content="{Binding UserButton}" Command="{Binding UserCommands}" CommandParameter="{Binding UserParameter}" />
+                    <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding UserCommands}" CommandParameter="Clear" />
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" >
+
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Users" Grid.Row="0" Grid.Column="0"/>
+                    <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>
+                </Grid>
+            </StackPanel>
+
+            <DataGrid x:Name="grdUser" ItemsSource="{Binding UserList}" Style="{StaticResource DataGridsForList}" Height="450">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Username" Width="*" Binding="{Binding Username}"/>
+                    <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Email}"/>
+                    <DataGridTextColumn Header="User Group" Width="*" Binding="{Binding UserGroup}"/>
+                    <DataGridTemplateColumn Width="*" Header="Actions">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <!--<StackPanel Orientation="Horizontal">
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource AcceptButton}" Height="30" Width="100"  Command="{Binding DataContext.UserCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock  Margin="0" Text="Select" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button  Command="{Binding DataContext.DeleteUserCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock  Margin="0" Text="Delete" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+                                </StackPanel>-->
+
+
+                                <StackPanel Orientation="Horizontal">
+
+
+                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.UserCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+
+                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteUserCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+
+
+
+                                </StackPanel>
+                            </DataTemplate>
+
+
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </Grid>
+</UserControl>
