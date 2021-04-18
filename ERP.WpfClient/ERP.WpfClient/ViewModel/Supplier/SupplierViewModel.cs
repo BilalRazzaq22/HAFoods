@@ -5,7 +5,6 @@ using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model.Supplier;
 using GalaSoft.MvvmLight.Command;
-using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -193,13 +192,13 @@ namespace ERP.WpfClient.ViewModel.Supplier
 
             if (query.Count > 0)
             {
-                LocalReport report = new LocalReport();
-                string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+                //LocalReport report = new LocalReport();
+                //string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-                string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\Customer\rptCustomer.rdlc";
-                report.ReportPath = fullpath;
-                report.DataSources.Add(new ReportDataSource("dsCustomer", query));
-                ApplicationManager.Instance.PrintToPrinter(report);
+                //string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\Customer\rptCustomer.rdlc";
+                //report.ReportPath = fullpath;
+                //report.DataSources.Add(new ReportDataSource("dsCustomer", query));
+                //ApplicationManager.Instance.PrintToPrinter(report);
             }
         }
 

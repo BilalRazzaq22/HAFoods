@@ -1,10 +1,13 @@
 ﻿using Autofac;
 using ERP.Entities.DbContext;
+using ERP.Entities.DBModel.AppSettings;
 using ERP.Repository.Generic;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
+using ERP.WpfClient.View.Users;
 using System;
 using System.IO;
+using System.Linq;
 using System.Windows;
 
 namespace ERP.WpfClient
@@ -16,6 +19,7 @@ namespace ERP.WpfClient
     {
         public static IContainer Container { get; private set; }
         private bool IsCreateSetup = false;
+        private IGenericRepository<AppSetting> _appSettingRepository;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -30,25 +34,55 @@ namespace ERP.WpfClient
             var builder = new ContainerBuilder();
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
             Container = builder.Build();
+            _appSettingRepository = Resolve<IGenericRepository<AppSetting>>();
             InitializeDB();
+
         }
 
         private void InitializeDB()
         {
-            if (IsCreateSetup)
-                CheckReset();
-
             try
             {
+                //AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault(x => x.IsDBCreated == true);
 
-                string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
-                HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
-                HaFoodDbContext.Init();
+                //if (appSetting == null)
+                //{
+                var spFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood");
+                if (!File.Exists(Path.Combine(spFolderPath, "HAFoodDB.mdf")))
+                {
+                    CheckReset();
+                    string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+                    HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
+                    HaFoodDbContext.Init();
+                }
+                else
+                {
+                    AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault(x => x.IsDBCreated == false);
+                    if (appSetting == null)
+                    {
+                        AppSetting app = new AppSetting();
+                        app.AppVersion = "1.0.0.0";
+                        app.IsDBCreated = true;
+                        _appSettingRepository.Add(app);
+                    }
+                    else
+                    {
+                        appSetting.IsDBCreated = true;
+                        _appSettingRepository.Update(appSetting, appSetting.Id);
+                    }
+                }
+
+                //    _appSettingRepository.Update(new AppSetting() { IsDBCreated = true }, 1);
+                //}
+
+
                 //var spFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood");
                 //if (!File.Exists(Path.Combine(spFolderPath, "HAFoodDB.mdf")))
                 //{
                 //    Console.WriteLine("{0} Initializing DB", DateTime.Now);
-
+                //    string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+                //    HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
+                //    HaFoodDbContext.Init();
 
                 //    var filePathSetting = Path.Combine(spFolderPath, "Settings.dat");
 
@@ -58,7 +92,18 @@ namespace ERP.WpfClient
             catch (Exception ex)
             {
 
-                throw;
+                //if (ex.HResult == -2146233079)
+                //{
+                //    CheckReset();
+                //    //string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+                //    HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
+                //    HaFoodDbContext.Init();
+
+                //    //AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault(x => x.IsDBCreated == false);
+
+                //    //appSetting.IsDBCreated = true;
+                //    //_appSettingRepository.Update(appSetting, appSetting.Id);
+                //}
             }
         }
 

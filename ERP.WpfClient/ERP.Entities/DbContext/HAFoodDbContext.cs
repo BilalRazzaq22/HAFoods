@@ -1,9 +1,11 @@
-﻿using ERP.Entities.DBModel.CashBook;
+﻿using ERP.Entities.DBModel.AppSettings;
+using ERP.Entities.DBModel.CashBook;
 using ERP.Entities.DBModel.Customers;
 using ERP.Entities.DBModel.Payments;
 using ERP.Entities.DBModel.Stocks;
 using ERP.Entities.DBModel.Suppliers;
 using ERP.Entities.DBModel.Transactions;
+using ERP.Entities.DBModel.Users;
 using System;
 using System.Data.Entity;
 
@@ -30,5 +32,8 @@ namespace ERP.Entities.DbContext
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<CashBookOne> CashBookOnes { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<AppSetting> AppSettings { get; set; }
+        //public DbSet<UserGroup> UserGroups { get; set; }
     }
 }

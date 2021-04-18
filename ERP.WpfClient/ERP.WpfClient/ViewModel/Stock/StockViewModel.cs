@@ -21,7 +21,7 @@ namespace ERP.WpfClient.ViewModel.Stock
     {
         #region Fields
 
-        private readonly IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
+        private IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
         private StockModel _stockModel;
         private ObservableCollection<StockModel> _stockList;
         private string _stockButton;
@@ -201,6 +201,7 @@ namespace ERP.WpfClient.ViewModel.Stock
                 try
                 {
                     ApplicationManager.Instance.ShowBusyInidicator("Loading Data... !");
+                    _stockRepository = new GenericRepository<Entities.DBModel.Stocks.Stock>(new HAFoodDbContext());
                     stock = _stockRepository.Get();
                 }
                 catch (Exception ex)

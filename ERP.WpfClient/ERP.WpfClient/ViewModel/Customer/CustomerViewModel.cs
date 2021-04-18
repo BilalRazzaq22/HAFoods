@@ -6,11 +6,13 @@ using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
 using GalaSoft.MvvmLight.Command;
-using Microsoft.Reporting.WinForms;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -192,13 +194,36 @@ namespace ERP.WpfClient.ViewModel.Customer
 
             if (query.Count > 0)
             {
-                LocalReport report = new LocalReport();
                 string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
                 string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\Customer\rptCustomer.rdlc";
-                report.ReportPath = fullpath;
-                report.DataSources.Add(new ReportDataSource("dsCustomer", query));
-                ApplicationManager.Instance.PrintToPrinter(report);
+
+                string deviceInfo = "";
+                string[] streamIds;
+                Warning[] warnings;
+
+                string mimeType = string.Empty;
+                string encoding = string.Empty;
+                string extension = string.Empty;
+
+                ReportViewer reportViewer = new ReportViewer();
+                reportViewer.ProcessingMode = ProcessingMode.Local;
+                reportViewer.LocalReport.ReportPath = fullpath;
+                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsCustomer", query));
+                var bytes = reportViewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
+                string fileName = @"D:\data.pdf";
+                File.WriteAllBytes(fileName, bytes);
+                Process.Start(fileName);
+                //LocalReport report = new LocalReport();
+                //ApplicationManager.Instance.PrintToPrinter(report);
+
+
+                //ReportViewer reportViewer = new ReportViewer();
+                //string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+                //string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\Customer\rptCustomer.rdlc";
+                //reportViewer.LocalReport.ReportPath = fullpath;
+                //reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsCustomer", query));
+                //reportViewer.RefreshReport();
             }
         }
 

@@ -1,5 +1,8 @@
 namespace ERP.Entities.Migrations
 {
+    using ERP.Entities.DBModel.AppSettings;
+    using ERP.Entities.DBModel.Payments;
+    using ERP.Entities.DBModel.Users;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +29,13 @@ namespace ERP.Entities.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            context.AppSettings.AddOrUpdate(p => p.AppVersion, new AppSetting { AppVersion = "1.0.0.0" });
+
+            context.Users.AddOrUpdate(p => p.Username, new User { Username = "admin", Email = "admin@hafoods.com", Password = "admin123", UserGroup = "Admin" });
+
+            context.Payments.AddOrUpdate(p => p.PaymentType,
+                new Payment { PaymentType = "Cash" },
+                new Payment { PaymentType = "Credit" });
         }
     }
 }

@@ -16,7 +16,8 @@ namespace ERP.Common
         CurrentTransaction,
         CashBook1,
         CashBook2,
-        AllReports
+        AllReports,
+        User
 
     }
 }

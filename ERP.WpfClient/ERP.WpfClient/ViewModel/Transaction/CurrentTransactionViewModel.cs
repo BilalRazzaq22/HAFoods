@@ -13,10 +13,14 @@ using ERP.WpfClient.Model.Stock;
 using ERP.WpfClient.Model.Transaction;
 using ERP.WpfClient.View.Popups.Payments;
 using GalaSoft.MvvmLight.Command;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 
 namespace ERP.WpfClient.ViewModel.Transaction
@@ -28,7 +32,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private readonly CurrentTransactionRepository _currentTransactionRepository;
         private readonly IGenericRepository<CurrentTransactionDetail> _currentTransactionDetailRepository;
         private readonly IGenericRepository<Entities.DBModel.Customers.Customer> _customerRepository;
-        private readonly IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
+        private IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
         private readonly IGenericRepository<Entities.DBModel.Payments.Payment> _paymentRepository;
         private CurrentTransactionModel _currentTransactionModel;
         private ObservableCollection<CurrentTransactionModel> _currentTransactionList;
@@ -60,7 +64,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
             _currentTransactionRepository = new CurrentTransactionRepository(new HAFoodDbContext());
             _currentTransactionDetailRepository = App.Resolve<IGenericRepository<CurrentTransactionDetail>>();
             _customerRepository = App.Resolve<IGenericRepository<Entities.DBModel.Customers.Customer>>();
-            _stockRepository = App.Resolve<IGenericRepository<Entities.DBModel.Stocks.Stock>>();
+            _stockRepository = new GenericRepository<Entities.DBModel.Stocks.Stock>(new HAFoodDbContext());
             _paymentRepository = App.Resolve<IGenericRepository<Entities.DBModel.Payments.Payment>>();
             StockList = new ObservableCollection<StockModel>();
             CustomerList = new ObservableCollection<CustomerModel>();
@@ -176,6 +180,12 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
             if (str == "Add Item")
             {
+                if (Quantity == 0)
+                {
+                    ApplicationManager.Instance.ShowMessageBox("Please add Quantity");
+                    return;
+                }
+
                 CurrentTransactionDetailModel = CurrentTransactionDetailList.Where(x => x.ItemName == StockModel.ItemName).FirstOrDefault();
 
                 if (CurrentTransactionDetailModel != null)
@@ -266,9 +276,10 @@ namespace ERP.WpfClient.ViewModel.Transaction
                             transaction.CurrentTransactionDetails.Add(currentTransactionDetail);
                         }
 
-                        _currentTransactionRepository.SaveDetail(transaction);
+                        CurrentTransaction t = _currentTransactionRepository.SaveDetail(transaction);
 
                         CalculateStock(CurrentTransactionDetailList);
+                        LoadReport(t);
 
                     }
                     catch (Exception ex)
@@ -299,8 +310,8 @@ namespace ERP.WpfClient.ViewModel.Transaction
                     _currentTransactionId = result.Id;
                     CurrentTransactionModel.OrderNo = result.OrderNo;
                     CurrentTransactionModel.TotalPrice = result.TotalPrice;
-                    CurrentTransactionModel.TotalDiscount = result.TotalPrice;
-                    CurrentTransactionModel.GrandTotal = result.TotalPrice;
+                    CurrentTransactionModel.TotalDiscount = result.TotalDiscount;
+                    CurrentTransactionModel.GrandTotal = result.GrandTotal;
 
                     foreach (var item in result.CurrentTransactionDetails)
                     {
@@ -312,7 +323,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                             Price = item.Price,
                             //PreviousQuantity = item.PreviousQuantity,
                             NewQuantity = item.Quantity,
-                            Discount = item.Discount,
+                            NewDiscount = item.Discount,
                             TotalPrice = (item.Price * item.Quantity) - item.Discount
                         });
                     }
@@ -326,6 +337,10 @@ namespace ERP.WpfClient.ViewModel.Transaction
             {
                 Reset();
                 ApplicationManager.Instance.HideDialog();
+            }
+            else if(str == "Clear")
+            {
+                Init();
             }
         }
 
@@ -355,8 +370,6 @@ namespace ERP.WpfClient.ViewModel.Transaction
                     ApplicationManager.Instance.ShowBusyInidicator("Loading Data... !");
 
                     LoadCollections();
-                    Reset();
-                    GetOrderNumber();
                 }
                 catch (Exception ex)
                 {
@@ -366,10 +379,12 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
             bw.RunWorkerCompleted += async (sender, args) =>
             {
+                Reset();
                 ApplicationManager.Instance.HideBusyInidicator();
             };
 
             bw.RunWorkerAsync();
+
         }
 
         private void GetPaymentType()
@@ -409,6 +424,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
         private void CalculateStock(ObservableCollection<CurrentTransactionDetailModel> currentTransactionDetailModel)
         {
+            _stockRepository = new GenericRepository<Entities.DBModel.Stocks.Stock>(new HAFoodDbContext());
             foreach (var item in currentTransactionDetailModel)
             {
                 Entities.DBModel.Stocks.Stock stock = _stockRepository.GetById(item.StockId);
@@ -418,9 +434,60 @@ namespace ERP.WpfClient.ViewModel.Transaction
                     //    stock.NewQuantity = (item.PreviousQuantity + stock.NewQuantity) - item.NewQuantity;
                     //else
                     stock.Quantity = stock.Quantity - item.Quantity;
+                    _stockRepository.Update(stock, stock.Id);
                 }
             }
-            _stockRepository.Save();
+        }
+
+        private void LoadReport(CurrentTransaction t)
+        {
+            var query = (from c in _currentTransactionRepository.Get().Where(x => x.Id == t.Id)
+                        join cd in _currentTransactionDetailRepository.Get() on c.Id equals cd.CurrentTransactionId
+                        join p in _paymentRepository.Get() on c.PaymentId equals p.Id
+                        select new
+                        {
+                            ItemName = cd.ItemName,
+                            Quantity = cd.Quantity,
+                            Price = cd.Price,
+                            Discount = cd.Discount,
+                            TotalPrice =cd.TotalPrice,
+                            OrderNo = c.OrderNo,
+                            GrandTotalPrice = c.TotalPrice,
+                            GrandTotalDiscount = c.TotalDiscount,
+                            GrandTotal = c.GrandTotal,
+                            PaymentType = p.PaymentType,
+                            CreatedDate = c.CreatedDate
+                        }).ToList();
+            if (query.Count > 0)
+            {
+                string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+                string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\CurrentTransaction\rptCurrentTransaction.rdlc";
+
+                string deviceInfo =
+                 @"<DeviceInfo>
+                        <OutputFormat>EMF</OutputFormat>
+                        <MarginTop>0in</MarginTop>
+                        <MarginLeft>0.1in</MarginLeft>
+                        <MarginRight>0.1in</MarginRight>
+                        <MarginBottom>0in</MarginBottom>
+                    </DeviceInfo>";
+                string[] streamIds;
+                Warning[] warnings;
+
+                string mimeType = string.Empty;
+                string encoding = string.Empty;
+                string extension = string.Empty;
+
+                ReportViewer reportViewer = new ReportViewer();
+                reportViewer.ProcessingMode = ProcessingMode.Local;
+                reportViewer.LocalReport.ReportPath = fullpath;
+                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsCurrentTransaction", query));
+                var bytes = reportViewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
+                string fileName = @"D:\CurrentTransaction.pdf";
+                File.WriteAllBytes(fileName, bytes);
+                Process.Start(fileName);
+            }
         }
 
         public void OnBringIntoView()
