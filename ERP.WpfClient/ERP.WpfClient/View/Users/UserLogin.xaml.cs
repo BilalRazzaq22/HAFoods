@@ -1,4 +1,5 @@
 ﻿using ERP.Common;
+using ERP.Entities.DBModel.AppSettings;
 using ERP.Repository.Generic;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Messages.User;
@@ -31,16 +32,32 @@ namespace ERP.WpfClient.View.Users
         public string Username { get; set; }
         public string Password { get; set; }
         private IGenericRepository<Entities.DBModel.Users.User> _userRepository;
+        private IGenericRepository<AppSetting> _appSettingRepository;
         Timer t = new Timer();
         public UserLogin()
         {
             InitializeComponent();
+            _appSettingRepository = App.Resolve<IGenericRepository<AppSetting>>();
             _userRepository = App.Resolve<IGenericRepository<Entities.DBModel.Users.User>>();
             BusyBar.IsBusy = false;
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
+            t.Interval = 2000;
+            t.Start();
+
+            AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault();
+            if (appSetting != null)
+            {
+                if (appSetting.AppEndDate == DateTime.Now)
+                {
+                    lblValidate.Text = "Application Expired ! Contact your administrator.";
+                    lblValidate.Visibility = Visibility.Visible;
+                    return;
+                }
+            }
+
             var bw = new BackgroundWorker();
             bw.DoWork += (s, args) =>
             {
@@ -50,9 +67,7 @@ namespace ERP.WpfClient.View.Users
                     //{
                     //BusyBar.IsBusy = true;
                     this.Dispatcher.Invoke(new Action(() => { BusyBar.IsBusy = true; }));
-
-                    t.Interval = 2000;
-                    t.Start();
+                   
                     if (Username == "admin@superadmin.com" && Password == "superadmin123")
                     {
                         this.Dispatcher.Invoke(new Action(() =>
@@ -86,6 +101,7 @@ namespace ERP.WpfClient.View.Users
                         {
                             this.Dispatcher.BeginInvoke(new Action(() =>
                             {
+                                lblValidate.Text = "Invalid Username or Password";
                                 lblValidate.Visibility = Visibility.Visible;
                             }));
                             t.Elapsed += T_Elapsed;

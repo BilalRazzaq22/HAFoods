@@ -13,7 +13,7 @@ namespace ERP.Entities.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "202104180915430_init"; }
+            get { return "202104181121503_init"; }
         }
         
         string IMigrationMetadata.Source

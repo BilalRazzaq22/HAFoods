@@ -31,7 +31,7 @@
         </StackPanel>
 
         <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center">
-            <TextBlock x:Name="lblValidate" Text="Invalid Username or Password" Foreground="Red" FontSize="16" Visibility="Collapsed"/>
+            <TextBlock x:Name="lblValidate" Foreground="Red" FontSize="16" Visibility="Collapsed"/>
         </StackPanel>
 
         <wpfx:BusyIndicator Grid.Row="2" Name="BusyBar">
