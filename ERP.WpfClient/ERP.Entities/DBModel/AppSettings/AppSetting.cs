@@ -11,5 +11,7 @@ namespace ERP.Entities.DBModel.AppSettings
         public int Id { get; set; }
         public string AppVersion { get; set; }
         public bool IsDBCreated { get; set; }
+        public DateTime? AppStartDate { get; set; }
+        public DateTime? AppEndDate { get; set; }
     }
 }

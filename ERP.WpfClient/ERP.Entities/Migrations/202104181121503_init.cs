@@ -14,6 +14,8 @@ namespace ERP.Entities.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         AppVersion = c.String(),
                         IsDBCreated = c.Boolean(nullable: false),
+                        AppStartDate = c.DateTime(),
+                        AppEndDate = c.DateTime(),
                     })
                 .PrimaryKey(t => t.Id);
             

@@ -1,10 +1,11 @@
 ﻿using Autofac;
 using ERP.Entities.DbContext;
 using ERP.Entities.DBModel.AppSettings;
+using ERP.Entities.DBModel.Payments;
+using ERP.Entities.DBModel.Users;
 using ERP.Repository.Generic;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
-using ERP.WpfClient.View.Users;
 using System;
 using System.IO;
 using System.Linq;
@@ -20,6 +21,8 @@ namespace ERP.WpfClient
         public static IContainer Container { get; private set; }
         private bool IsCreateSetup = false;
         private IGenericRepository<AppSetting> _appSettingRepository;
+        private IGenericRepository<User> _userRepository;
+        private IGenericRepository<Payment> _paymentRepository;
 
         protected override void OnStartup(StartupEventArgs e)
         {
@@ -35,6 +38,8 @@ namespace ERP.WpfClient
             builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
             Container = builder.Build();
             _appSettingRepository = Resolve<IGenericRepository<AppSetting>>();
+            _userRepository = Resolve<IGenericRepository<User>>();
+            _paymentRepository = Resolve<IGenericRepository<Payment>>();
             InitializeDB();
 
         }
@@ -54,22 +59,38 @@ namespace ERP.WpfClient
                     string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
                     HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
                     HaFoodDbContext.Init();
-                }
-                else
-                {
-                    AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault(x => x.IsDBCreated == false);
+
+                    AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault();
                     if (appSetting == null)
                     {
-                        AppSetting app = new AppSetting();
-                        app.AppVersion = "1.0.0.0";
-                        app.IsDBCreated = true;
-                        _appSettingRepository.Add(app);
+                        appSetting = new AppSetting
+                        {
+                            AppVersion = "1.0.0.0",
+                            IsDBCreated = true,
+                            AppStartDate = DateTime.Now,
+                            AppEndDate = DateTime.Now.AddDays(15)
+                        };
+                        _appSettingRepository.Add(appSetting);
                     }
-                    else
+
+                    User user = new User
                     {
-                        appSetting.IsDBCreated = true;
-                        _appSettingRepository.Update(appSetting, appSetting.Id);
-                    }
+                        Username = "admin",
+                        Email = "admin@hafoods.com",
+                        Password = "admin123",
+                        UserGroup = "Admin"
+                    };
+                    _userRepository.Add(user);
+
+                    Payment payment = new Payment();
+                    payment.PaymentType = "Cash";
+
+                    _paymentRepository.Add(payment);
+
+                    payment = new Payment();
+                    payment.PaymentType = "Credit";
+
+                    _paymentRepository.Add(payment);
                 }
 
                 //    _appSettingRepository.Update(new AppSetting() { IsDBCreated = true }, 1);
@@ -152,7 +173,6 @@ namespace ERP.WpfClient
                 File.Copy(filename, dest, true);
             }
         }
-
 
         public static T Resolve<T>()
         {

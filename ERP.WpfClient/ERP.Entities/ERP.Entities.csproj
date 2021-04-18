@@ -61,9 +61,9 @@
     <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
     <Compile Include="DBModel\Users\User.cs" />
     <Compile Include="DBModel\Users\UserGroup.cs" />
-    <Compile Include="Migrations\202104180915430_init.cs" />
-    <Compile Include="Migrations\202104180915430_init.Designer.cs">
-      <DependentUpon>202104180915430_init.cs</DependentUpon>
+    <Compile Include="Migrations\202104181121503_init.cs" />
+    <Compile Include="Migrations\202104181121503_init.Designer.cs">
+      <DependentUpon>202104181121503_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -82,8 +82,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104180915430_init.resx">
-      <DependentUpon>202104180915430_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202104181121503_init.resx">
+      <DependentUpon>202104181121503_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
