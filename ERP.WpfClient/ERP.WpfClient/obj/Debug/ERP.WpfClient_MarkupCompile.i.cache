@@ -11,10 +11,10 @@ false
 DEBUG;TRACE
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml
 23-219660348
-51001242449
+7770016159
 67464344049
 150523657203
 MainWindow.xaml;Reports\Customer\rptCustomer.xaml;Resources\Themes\BlueAndWhiteTheme.xaml;Resources\Themes\ColorsScheme\ColorScheme.xaml;Resources\Themes\Converters\Converter.xaml;Resources\Themes\FontSizes\FontSize.xaml;Resources\Themes\Images\ImageResources.xaml;View\CashBooks\CashBook1.xaml;View\CashBooks\CashBook2.xaml;View\Customers\Customer.xaml;View\Home\Home.xaml;View\Popups\ConfirmationPopup.xaml;View\Popups\MessageBoxPopup.xaml;View\Popups\Payments\PaymentPopup.xaml;View\Popups\Reports\CustomerReportPopup.xaml;View\Reports\AllReports.xaml;View\Search\SearchBox.xaml;View\Settings\MainMenu.xaml;View\Stock\Stock.xaml;View\Suppliers\Supplier.xaml;View\Transaction\CurrentTransaction.xaml;View\Users\User.xaml;View\Users\UserLogin.xaml;
 
-True
+False
 

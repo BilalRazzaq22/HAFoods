@@ -194,11 +194,12 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.cspr
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.csproj.CopyComplete
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.exe
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\obj\Debug\ERP.WpfClient.pdb
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x64\msvcr120.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x64\SqlServerSpatial140.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x86\msvcr120.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\SqlServerTypes\x86\SqlServerSpatial140.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Database\HAFoodDB.mdf
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Database\HAFoodDB_log.ldf
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ERP.WpfClient.exe.config
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ERP.WpfClient.exe
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\ERP.WpfClient.pdb
@@ -217,6 +218,7 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\GalaSoft.M
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\MaterialDesignColors.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\MaterialDesignThemes.Wpf.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\Microsoft.SqlServer.Types.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\System.Diagnostics.EventLog.dll
