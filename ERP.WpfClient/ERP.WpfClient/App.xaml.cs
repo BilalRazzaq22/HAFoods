@@ -9,6 +9,7 @@ using ERP.WpfClient.Mapper;
 using System;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows;
 
 namespace ERP.WpfClient
@@ -41,7 +42,6 @@ namespace ERP.WpfClient
             _userRepository = Resolve<IGenericRepository<User>>();
             _paymentRepository = Resolve<IGenericRepository<Payment>>();
             InitializeDB();
-
         }
 
         private void InitializeDB()
@@ -52,6 +52,11 @@ namespace ERP.WpfClient
 
                 //if (appSetting == null)
                 //{
+                if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood")))
+                {
+                    Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood"));
+                }
+
                 var spFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood");
                 if (!File.Exists(Path.Combine(spFolderPath, "HAFoodDB.mdf")))
                 {
@@ -155,15 +160,23 @@ namespace ERP.WpfClient
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.Message);
             }
         }
 
         static void readfiles()
         {
             var spFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood");
-            string path = ApplicationManager.Instance.Path();
-            string[] filePaths = Directory.GetFiles("C:\\Users\\bilal\\projects\\HAFoods\\ERP.WpfClient\\ERP.WpfClient\\bin\\Debug\\Database");
+
+            //string path = ApplicationManager.Instance.Path();
+
+            string path = @"C:\Program Files (x86)\HAFoods Setup\HA Foods\Database";
+
+            //string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);HAFoods Setup\HA Foods
+
+            //string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Database";
+
+            string[] filePaths = Directory.GetFiles(path);
             foreach (var filename in filePaths)
             {
                 string file = Path.GetFileName(filename).ToString();
