@@ -228,12 +228,12 @@ namespace ERP.WpfClient.ViewModel
                     LoadViewAsync(ViewTypes.Customer.ToString());
                     break;
                      
-                case "Cash Book 1":
-                    LoadViewAsync(ViewTypes.CashBook1.ToString());
+                case "Cash Book One":
+                    LoadViewAsync(ViewTypes.CashBookOne.ToString());
                     break;
 
                 case "Cash Book 2":
-                    LoadViewAsync(ViewTypes.CashBook2.ToString());
+                    LoadViewAsync(ViewTypes.CashBookTwo.ToString());
                     break;
 
                 case "All Reports":
@@ -397,10 +397,10 @@ namespace ERP.WpfClient.ViewModel
                 case ViewTypes.CurrentTransaction:
                     _viewManagerService.Select("home").Transition<View.Transaction.CurrentTransaction>(viewType);
                     break;
-                case ViewTypes.CashBook1:
+                case ViewTypes.CashBookOne:
                     _viewManagerService.Select("home").Transition<View.CashBooks.CashBook1>(viewType);
                     break;
-                case ViewTypes.CashBook2:
+                case ViewTypes.CashBookTwo:
                     _viewManagerService.Select("home").Transition<View.CashBooks.CashBook2>(viewType);
                     break;
                 case ViewTypes.AllReports:

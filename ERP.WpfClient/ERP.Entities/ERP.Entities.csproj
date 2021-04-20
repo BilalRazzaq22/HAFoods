@@ -66,6 +66,10 @@
     <Compile Include="Migrations\202104271820097_First-Migratin.Designer.cs">
       <DependentUpon>202104271820097_First-Migratin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104201006356_upd-tbl.cs" />
+    <Compile Include="Migrations\202104201006356_upd-tbl.Designer.cs">
+      <DependentUpon>202104201006356_upd-tbl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -85,6 +89,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104271820097_First-Migratin.resx">
       <DependentUpon>202104271820097_First-Migratin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104201006356_upd-tbl.resx">
+      <DependentUpon>202104201006356_upd-tbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

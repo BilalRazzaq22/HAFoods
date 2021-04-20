@@ -163,6 +163,8 @@
     <Compile Include="Messages\Popup\PopupDialogMessage.cs" />
     <Compile Include="Messages\User\UserLoginMessage.cs" />
     <Compile Include="Messages\View\ShowViewMessage.cs" />
+    <Compile Include="Model\CashBooks\CashBookOneModel.cs" />
+    <Compile Include="Model\CashBooks\CashBookTypeModel.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\Customer\CustomerOrderModel.cs" />
     <Compile Include="Model\Payment\PaymentModel.cs" />
@@ -199,7 +201,7 @@
       <DependentUpon>dsItemList.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="ViewModel\CashBooks\CashBook1ViewModel.cs" />
+    <Compile Include="ViewModel\CashBooks\CashBookOneViewModel.cs" />
     <Compile Include="ViewModel\CashBooks\CashBook2ViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Data\DataViewModelBase.cs" />

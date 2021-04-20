@@ -9,9 +9,10 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Common.
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.xml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csprojAssemblyReference.cache
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.Migrations.init.resources
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.GenerateResource.cache
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.CoreCompileInputs.cache
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.CopyComplete
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.pdb
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.Migrations.FirstMigratin.resources
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.GenerateResource.cache
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.Migrations.updtbl.resources
