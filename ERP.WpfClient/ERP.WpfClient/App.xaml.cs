@@ -60,10 +60,17 @@ namespace ERP.WpfClient
                 var spFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood");
                 if (!File.Exists(Path.Combine(spFolderPath, "HAFoodDB.mdf")))
                 {
-                    CheckReset();
-                    string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
-                    HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
-                    HaFoodDbContext.Init();
+                    try
+                    {
+                        CheckReset();
+                        string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+                        HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
+                        HaFoodDbContext.Init();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("App.xaml.cs " + ex.Message);
+                    }
 
                     AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault();
                     if (appSetting == null)

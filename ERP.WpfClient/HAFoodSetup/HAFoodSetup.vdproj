@@ -333,6 +333,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_52E09E9C5B9844BCA8C5C2144803DAAB"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_52F34CCEEEA65B57DE31781F6F4552C8"
         "OwnerKey" = "8:_6793ADA31F8D18643716EB00C241ED8F"
         "MsmSig" = "8:_UNDEFINED"
@@ -503,12 +509,6 @@
         {
         "MsmKey" = "8:_7AC83D8401A6F740B6E993188D89B26B"
         "OwnerKey" = "8:_FC4E5B0041FF0F223FC8D1C52CCF664A"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_7CFBAFA28FD243199A73346C8ABFCD02"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -891,6 +891,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C64D2EDA66474F3185F434DAC03DFB40"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C773B4680522071B751A2D0995200B83"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
         "MsmSig" = "8:_UNDEFINED"
@@ -1037,12 +1043,6 @@
         {
         "MsmKey" = "8:_EECB33D088DE782B721EA2A563B38176"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F3C2B8628C884FE7A6C99F05A627D4A3"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2025,10 +2025,10 @@
                     "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
                     "ProductCode" = "8:.NETFramework,Version=v4.7.2"
                     }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.15.0"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.13.2"
                     {
-                    "Name" = "8:SQL Server 2019 Express LocalDB"
-                    "ProductCode" = "8:Microsoft.SqlServer.SqlLocalDB.15.0"
+                    "Name" = "8:SQL Server 2016 Express LocalDB"
+                    "ProductCode" = "8:Microsoft.SqlServer.SqlLocalDB.13.2"
                     }
                 }
             }
@@ -2055,6 +2055,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -3407,6 +3415,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_52E09E9C5B9844BCA8C5C2144803DAAB"
+            {
+            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB.mdf"
+            "TargetName" = "8:HAFoodDB.mdf"
+            "Tag" = "8:"
+            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_52F34CCEEEA65B57DE31781F6F4552C8"
             {
             "AssemblyRegister" = "3:1"
@@ -4211,26 +4239,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7CFBAFA28FD243199A73346C8ABFCD02"
-            {
-            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB_log.ldf"
-            "TargetName" = "8:HAFoodDB_log.ldf"
-            "Tag" = "8:"
-            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_82A2DD05C58C63C5399499F96EA2BD4C"
@@ -5876,6 +5884,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C64D2EDA66474F3185F434DAC03DFB40"
+            {
+            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB_log.ldf"
+            "TargetName" = "8:HAFoodDB_log.ldf"
+            "Tag" = "8:"
+            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C773B4680522071B751A2D0995200B83"
             {
             "AssemblyRegister" = "3:1"
@@ -6556,26 +6584,6 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F3C2B8628C884FE7A6C99F05A627D4A3"
-            {
-            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB.mdf"
-            "TargetName" = "8:HAFoodDB.mdf"
-            "Tag" = "8:"
-            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F67789A87473817009B077B50E571156"

@@ -61,11 +61,6 @@
     <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
     <Compile Include="DBModel\Users\User.cs" />
     <Compile Include="DBModel\Users\UserGroup.cs" />
-    <Compile Include="Migrations\202104181121503_init.cs" />
-    <Compile Include="Migrations\202104181121503_init.Designer.cs">
-      <DependentUpon>202104181121503_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -80,11 +75,6 @@
       <Project>{514de237-c960-4e62-ac30-00c3c1284d78}</Project>
       <Name>ERP.Common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\202104181121503_init.resx">
-      <DependentUpon>202104181121503_init.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
