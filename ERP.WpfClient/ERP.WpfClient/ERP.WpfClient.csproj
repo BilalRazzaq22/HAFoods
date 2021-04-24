@@ -408,8 +408,8 @@
     <Resource Include="Resources\Themes\Images\Icons\clear.png" />
     <Resource Include="Resources\Themes\Images\Icons\search.png" />
     <Resource Include="Resources\Images\HighEnd%404x.png" />
-    <Resource Include="Resources\Images\mainLogo.ico" />
     <Resource Include="Resources\Images\userlogin.png" />
+    <Resource Include="Resources\Images\mainlogo.ico" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

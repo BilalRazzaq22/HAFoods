@@ -22,7 +22,9 @@ namespace ERP.Entities.DbContext
         }
         public void Init()
         {
-            this.Database.Initialize(true);
+            //this.Database.Initialize(true);
+            this.Database.Delete();
+            this.Database.CreateIfNotExists();
         }
 
         public DbSet<CurrentTransaction> CurrentTransactions { get; set; }
