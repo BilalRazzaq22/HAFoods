@@ -231,12 +231,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_310E1AD17EB74D3BB1B18C1F34373E70"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_369D82B068B12FBE597441749E4D9A6C"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
         "MsmSig" = "8:_UNDEFINED"
@@ -329,6 +323,12 @@
         {
         "MsmKey" = "8:_508449D33DE7148834ADD5ABF4C624CF"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_52E09E9C5B9844BCA8C5C2144803DAAB"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -507,12 +507,6 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_7CFBAFA28FD243199A73346C8ABFCD02"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_82A2DD05C58C63C5399499F96EA2BD4C"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
         "MsmSig" = "8:_UNDEFINED"
@@ -653,6 +647,12 @@
         {
         "MsmKey" = "8:_971EE991004C324DACC2D29561B98336"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_97BAD2C6D8404737888CBEAF3BDAAF56"
+        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -891,6 +891,12 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_C64D2EDA66474F3185F434DAC03DFB40"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_C773B4680522071B751A2D0995200B83"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
         "MsmSig" = "8:_UNDEFINED"
@@ -1037,12 +1043,6 @@
         {
         "MsmKey" = "8:_EECB33D088DE782B721EA2A563B38176"
         "OwnerKey" = "8:_39A40AF34B3341FFB328E00B864C123D"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_F3C2B8628C884FE7A6C99F05A627D4A3"
-        "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
@@ -2020,15 +2020,15 @@
             "ComponentsUrl" = "8:"
                 "Items"
                 {
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.5.2"
                     {
-                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
-                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    "Name" = "8:Microsoft .NET Framework 4.5.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.5.2"
                     }
-                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.15.0"
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:Microsoft.SqlServer.SqlLocalDB.13.2"
                     {
-                    "Name" = "8:SQL Server 2019 Express LocalDB"
-                    "ProductCode" = "8:Microsoft.SqlServer.SqlLocalDB.15.0"
+                    "Name" = "8:SQL Server 2016 Express LocalDB"
+                    "ProductCode" = "8:Microsoft.SqlServer.SqlLocalDB.13.2"
                     }
                 }
             }
@@ -2055,6 +2055,14 @@
             "PrerequisitesLocation" = "2:1"
             "Url" = "8:"
             "ComponentsUrl" = "8:"
+                "Items"
+                {
+                    "{EDC2488A-8267-493A-A98E-7D9C3B36CDF3}:.NETFramework,Version=v4.7.2"
+                    {
+                    "Name" = "8:Microsoft .NET Framework 4.7.2 (x86 and x64)"
+                    "ProductCode" = "8:.NETFramework,Version=v4.7.2"
+                    }
+                }
             }
         }
     }
@@ -2922,26 +2930,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_310E1AD17EB74D3BB1B18C1F34373E70"
-            {
-            "SourcePath" = "8:..\\ERP.WpfClient\\Resources\\Images\\mainLogo.ico"
-            "TargetName" = "8:mainLogo.ico"
-            "Tag" = "8:"
-            "Folder" = "8:_975CA449F9AD4C029B31DA65693A3E72"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_369D82B068B12FBE597441749E4D9A6C"
             {
             "AssemblyRegister" = "3:1"
@@ -3405,6 +3393,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_52E09E9C5B9844BCA8C5C2144803DAAB"
+            {
+            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB.mdf"
+            "TargetName" = "8:HAFoodDB.mdf"
+            "Tag" = "8:"
+            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_52F34CCEEEA65B57DE31781F6F4552C8"
@@ -4213,26 +4221,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7CFBAFA28FD243199A73346C8ABFCD02"
-            {
-            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB_log.ldf"
-            "TargetName" = "8:HAFoodDB_log.ldf"
-            "Tag" = "8:"
-            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_82A2DD05C58C63C5399499F96EA2BD4C"
             {
             "AssemblyRegister" = "3:1"
@@ -4851,6 +4839,26 @@
             "Register" = "3:1"
             "Exclude" = "11:FALSE"
             "IsDependency" = "11:TRUE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_97BAD2C6D8404737888CBEAF3BDAAF56"
+            {
+            "SourcePath" = "8:..\\ERP.WpfClient\\Resources\\Images\\mainlogo.ico"
+            "TargetName" = "8:mainlogo.ico"
+            "Tag" = "8:"
+            "Folder" = "8:_975CA449F9AD4C029B31DA65693A3E72"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_9A2F606F2C6E83CA6FC37CF5D8B7C3B3"
@@ -5876,6 +5884,26 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C64D2EDA66474F3185F434DAC03DFB40"
+            {
+            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB_log.ldf"
+            "TargetName" = "8:HAFoodDB_log.ldf"
+            "Tag" = "8:"
+            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_C773B4680522071B751A2D0995200B83"
             {
             "AssemblyRegister" = "3:1"
@@ -6558,26 +6586,6 @@
             "IsDependency" = "11:TRUE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F3C2B8628C884FE7A6C99F05A627D4A3"
-            {
-            "SourcePath" = "8:..\\..\\..\\HAFood DB Backup\\HAFoodDB.mdf"
-            "TargetName" = "8:HAFoodDB.mdf"
-            "Tag" = "8:"
-            "Folder" = "8:_4CA7BC2B10454FB19155419960F0F7B6"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{9F6F8455-1EF1-4B85-886A-4223BCC8E7F7}:_F67789A87473817009B077B50E571156"
             {
             "AssemblyRegister" = "3:1"
@@ -6905,7 +6913,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:HA Foods"
         "ProductCode" = "8:{E8B56EDF-4941-4563-9542-CDF3D8D28025}"
-        "PackageCode" = "8:{8135535F-91DC-4D6C-BA80-581CE4256E10}"
+        "PackageCode" = "8:{1365C270-BF1F-4AC7-9F0A-B0FF0ED8971D}"
         "UpgradeCode" = "8:{6726F50E-AAD5-44E0-B3AC-0637E58EA999}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -6922,7 +6930,7 @@
         "Keywords" = "8:"
         "ARPCOMMENTS" = "8:"
         "ARPURLINFOABOUT" = "8:"
-        "ARPPRODUCTICON" = "8:_310E1AD17EB74D3BB1B18C1F34373E70"
+        "ARPPRODUCTICON" = "8:_97BAD2C6D8404737888CBEAF3BDAAF56"
         "ARPIconIndex" = "3:0"
         "SearchPath" = "8:"
         "UseSystemSearchPath" = "11:TRUE"
@@ -7025,23 +7033,9 @@
         }
         "Shortcut"
         {
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_1D0A402CA95E474A89F3246247ACBC4E"
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_7826562C3F354FCF9D8BC4024869438F"
             {
-            "Name" = "8:HAFoods"
-            "Arguments" = "8:"
-            "Description" = "8:"
-            "ShowCmd" = "3:1"
-            "IconIndex" = "3:0"
-            "Transitive" = "11:FALSE"
-            "Target" = "8:_39A40AF34B3341FFB328E00B864C123D"
-            "Folder" = "8:_972412311D5548B29474E6D89981F75B"
-            "WorkingFolder" = "8:_E69ED9241F694D85958BFB2D8F1B06FB"
-            "Icon" = "8:_310E1AD17EB74D3BB1B18C1F34373E70"
-            "Feature" = "8:"
-            }
-            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_BD79F9384D8A454DB810D3DB5139D2BD"
-            {
-            "Name" = "8:HAFoods"
+            "Name" = "8:HA Foods"
             "Arguments" = "8:"
             "Description" = "8:"
             "ShowCmd" = "3:1"
@@ -7050,7 +7044,21 @@
             "Target" = "8:_39A40AF34B3341FFB328E00B864C123D"
             "Folder" = "8:_ACE257E93F3842A48DFBE746B340110D"
             "WorkingFolder" = "8:_E69ED9241F694D85958BFB2D8F1B06FB"
-            "Icon" = "8:_310E1AD17EB74D3BB1B18C1F34373E70"
+            "Icon" = "8:_97BAD2C6D8404737888CBEAF3BDAAF56"
+            "Feature" = "8:"
+            }
+            "{970C0BB2-C7D0-45D7-ABFA-7EC378858BC0}:_D4362DFE7A774587A69BC284E45C0A87"
+            {
+            "Name" = "8:HA Foods"
+            "Arguments" = "8:"
+            "Description" = "8:"
+            "ShowCmd" = "3:1"
+            "IconIndex" = "3:0"
+            "Transitive" = "11:FALSE"
+            "Target" = "8:_39A40AF34B3341FFB328E00B864C123D"
+            "Folder" = "8:_972412311D5548B29474E6D89981F75B"
+            "WorkingFolder" = "8:_E69ED9241F694D85958BFB2D8F1B06FB"
+            "Icon" = "8:_97BAD2C6D8404737888CBEAF3BDAAF56"
             "Feature" = "8:"
             }
         }

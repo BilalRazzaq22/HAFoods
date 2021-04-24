@@ -44,47 +44,33 @@ namespace ERP.WpfClient.View.Users
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
-            t.Interval = 2000;
-            t.Start();
-
-            AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault();
-            if (appSetting != null)
+            try
             {
-                if (appSetting.AppEndDate == DateTime.Now)
+                t.Interval = 2000;
+                t.Start();
+
+                AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault();
+                if (appSetting != null)
                 {
-                    lblValidate.Text = "Application Expired ! Contact your administrator.";
-                    lblValidate.Visibility = Visibility.Visible;
-                    return;
+                    if (appSetting.AppEndDate == DateTime.Now)
+                    {
+                        lblValidate.Text = "Application Expired ! Contact your administrator.";
+                        lblValidate.Visibility = Visibility.Visible;
+                        return;
+                    }
                 }
-            }
 
-            var bw = new BackgroundWorker();
-            bw.DoWork += (s, args) =>
-            {
-                try
+                var bw = new BackgroundWorker();
+                bw.DoWork += (s, args) =>
                 {
+                    try
+                    {
                     //this.Dispatcher.BeginInvoke(new Action(() =>
                     //{
                     //BusyBar.IsBusy = true;
                     this.Dispatcher.Invoke(new Action(() => { BusyBar.IsBusy = true; }));
-                   
-                    if (Username == "admin@superadmin.com" && Password == "superadmin123")
-                    {
-                        this.Dispatcher.Invoke(new Action(() =>
-                        {
-                            MainWindow mainWindow = new MainWindow();
-                            mainWindow.Show();
-                            Messenger.Default.Send<UserLoginMessage>(new UserLoginMessage()
-                            {
-                                Username = Username
-                            });
-                            this.Close();
-                        }));
-                    }
-                    else
-                    {
-                        Entities.DBModel.Users.User user = _userRepository.Get().FirstOrDefault(x => (x.Username == Username || x.Email == Username) && x.Password == Password);
-                        if (user != null)
+
+                        if (Username == "admin@superadmin.com" && Password == "superadmin123")
                         {
                             this.Dispatcher.Invoke(new Action(() =>
                             {
@@ -99,28 +85,49 @@ namespace ERP.WpfClient.View.Users
                         }
                         else
                         {
-                            this.Dispatcher.BeginInvoke(new Action(() =>
+                            Entities.DBModel.Users.User user = _userRepository.Get().FirstOrDefault(x => (x.Username == Username || x.Email == Username) && x.Password == Password);
+                            if (user != null)
                             {
-                                lblValidate.Text = "Invalid Username or Password";
-                                lblValidate.Visibility = Visibility.Visible;
-                            }));
-                            t.Elapsed += T_Elapsed;
+                                this.Dispatcher.Invoke(new Action(() =>
+                                {
+                                    MainWindow mainWindow = new MainWindow();
+                                    mainWindow.Show();
+                                    Messenger.Default.Send<UserLoginMessage>(new UserLoginMessage()
+                                    {
+                                        Username = Username
+                                    });
+                                    this.Close();
+                                }));
+                            }
+                            else
+                            {
+                                this.Dispatcher.BeginInvoke(new Action(() =>
+                                {
+                                    lblValidate.Text = "Invalid Username or Password";
+                                    lblValidate.Visibility = Visibility.Visible;
+                                }));
+                                t.Elapsed += T_Elapsed;
+                            }
                         }
-                    }
                     //}));
                 }
-                catch (Exception ex)
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error\nMessage: " + ex.Message, "HA Foods");
+                    }
+                };
+
+                bw.RunWorkerCompleted += async (s, args) =>
                 {
-                    MessageBox.Show("Error\nMessage: " + ex.Message, "HA Foods");
-                }
-            };
+                    this.Dispatcher.Invoke(new Action(() => { BusyBar.IsBusy = false; }));
+                };
 
-            bw.RunWorkerCompleted += async (s, args) =>
+                bw.RunWorkerAsync();
+            }
+            catch (Exception ex)
             {
-                this.Dispatcher.Invoke(new Action(() => { BusyBar.IsBusy = false; }));
-            };
-
-            bw.RunWorkerAsync();
+                MessageBox.Show("UserLogin.xaml.cs " + ex.Message);
+            }
         }
 
         private void T_Elapsed(object sender, ElapsedEventArgs e)
