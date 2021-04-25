@@ -19,9 +19,10 @@ namespace ERP.Entities.DBModel.Transactions
         public int? CustomerId { get; set; }
         public int? PaymentId { get; set; }
         public string OrderNo { get; set; }
-        public decimal? TotalPrice { get; set; }
-        public decimal? TotalDiscount { get; set; }
-        public decimal? GrandTotal { get; set; }
+        public decimal TotalPrice { get; set; }
+        public decimal TotalDiscount { get; set; }
+        public decimal GrandTotal { get; set; }
+        public decimal? AmountPaid { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }

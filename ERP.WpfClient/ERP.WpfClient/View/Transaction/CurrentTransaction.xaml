@@ -150,29 +150,51 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*"/>
                             <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="*"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition Height="*"/>
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
-                            <Label Content="Total Price:" Style="{StaticResource SimpleLabelText}"/>
-                            <Label Content="{Binding CurrentTransactionModel.TotalPrice}" Style="{StaticResource SimpleLabelText}"/>
+                            <Label Content="Price:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <TextBox  Text="{Binding StockModel.SalePrice,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-                            <Label Content="Total Discount:" Style="{StaticResource SimpleLabelText}"/>
-                            <Label Content="{Binding CurrentTransactionModel.TotalDiscount}" Style="{StaticResource SimpleLabelText}"/>
+                            <Label Content="Avail Quantity:" Style="{StaticResource SimpleLabelText}" Width="120" VerticalContentAlignment="Bottom"/>
+                            <TextBox  Text="{Binding StockModel.Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
-                            <Label Content="Grand Total:" Style="{StaticResource SimpleLabelText}"/>
-                            <Label Content="{Binding CurrentTransactionModel.GrandTotal}" Style="{StaticResource SimpleLabelText}"/>
+                            <Label Content="Packing:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <TextBox  Text="{Binding StockModel.Packing,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                        </StackPanel>
+                        
+                        <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Total Price:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <Label Content="{Binding CurrentTransactionModel.TotalPrice}" Style="{StaticResource SimpleLabelText}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Total Discount:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <Label Content="{Binding CurrentTransactionModel.TotalDiscount}" Style="{StaticResource SimpleLabelText}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Grand Total:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <Label Content="{Binding CurrentTransactionModel.GrandTotal}" Style="{StaticResource SimpleLabelText}"/>
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Amount Paid:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <TextBox  Text="{Binding CurrentTransactionModel.AmountPaid,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
                             <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Save Order"/>
                         </StackPanel>
                     </Grid>

@@ -36,6 +36,7 @@ namespace ERP.Entities.DbContext
         public DbSet<CashBookOne> CashBookOnes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<AppSetting> AppSettings { get; set; }
+        public DbSet<CustomerOrder> CustomerOrders { get; set; }
         //public DbSet<UserGroup> UserGroups { get; set; }
     }
 }

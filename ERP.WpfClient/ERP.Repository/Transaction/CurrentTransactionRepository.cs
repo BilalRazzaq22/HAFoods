@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace ERP.Repository.Transaction
 {
-    public class CurrentTransactionRepository : GenericRepository<CurrentTransaction>, ICurrentTransactionRepository
+    public class CurrentTransactionRepository : GenericRepository<CurrentTransaction>
     {
         private IGenericRepository<CurrentTransaction> _currentTransactionRepository;
         private HAFoodDbContext __context;
@@ -16,7 +16,7 @@ namespace ERP.Repository.Transaction
             _currentTransactionRepository = new GenericRepository<CurrentTransaction>(_context);
         }
 
-        public CurrentTransaction SaveDetail(CurrentTransaction currentTransaction)
+        public CurrentTransaction SaveCustomerOrder(CurrentTransaction currentTransaction)
         {
             try
             {
