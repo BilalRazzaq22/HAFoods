@@ -6,13 +6,16 @@ using ERP.WpfClient.Messages.View;
 using ERP.WpfClient.View.Popups;
 using ERP.WpfClient.ViewModel.Popup;
 using GalaSoft.MvvmLight.Messaging;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Drawing.Printing;
 using System.IO;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 
@@ -300,6 +303,39 @@ namespace ERP.WpfClient.Controls.Helpers
             IsBusy = true;
             ExecuteOnMainThread(() => Messenger.Default.Send(busyMessage));
         }
+
+        public void PrintReport(object query, string reportName, string dataset, string file)
+        {
+            string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+
+            string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\CurrentTransaction\" + reportName + ".rdlc";
+            //string fullpath = path + @"\Reports\" + reportName + ".rdlc";
+
+            string deviceInfo =
+             @"<DeviceInfo>
+                        <OutputFormat>EMF</OutputFormat>
+                        <MarginTop>0in</MarginTop>
+                        <MarginLeft>0.1in</MarginLeft>
+                        <MarginRight>0.1in</MarginRight>
+                        <MarginBottom>0in</MarginBottom>
+                    </DeviceInfo>";
+            string[] streamIds;
+            Warning[] warnings;
+
+            string mimeType = string.Empty;
+            string encoding = string.Empty;
+            string extension = string.Empty;
+
+            ReportViewer reportViewer = new ReportViewer();
+            reportViewer.ProcessingMode = ProcessingMode.Local;
+            reportViewer.LocalReport.ReportPath = fullpath;
+            reportViewer.LocalReport.DataSources.Add(new ReportDataSource(dataset, query));
+            var bytes = reportViewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
+            string fileName = @"D:\"+ file + ".pdf";
+            File.WriteAllBytes(fileName, bytes);
+            Process.Start(fileName);
+        }
+
         //public bool IsUserLoggedIn()
         //{
         //    return User != null;

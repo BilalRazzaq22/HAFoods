@@ -8,9 +8,10 @@ namespace ERP.WpfClient.Model.Transaction
         private int _id;
         private int _customerId;
         private string _orderNo;
-        private decimal? _totalPrice;
-        private decimal? _totalDiscount;
-        private decimal? _grandTotal;
+        private decimal _totalPrice;
+        private decimal _totalDiscount;
+        private decimal _grandTotal;
+        private decimal _amountPaid;
         private DateTime? _createdDate;
         private string _createdBy;
         private DateTime? _updatedDate;
@@ -34,22 +35,28 @@ namespace ERP.WpfClient.Model.Transaction
             set { _orderNo = value; RaisePropertyChanged("OrderNo"); }
         }
 
-        public decimal? TotalPrice
+        public decimal TotalPrice
         {
             get { return _totalPrice; }
             set { _totalPrice = value; RaisePropertyChanged("TotalPrice"); }
         }
 
-        public decimal? TotalDiscount
+        public decimal TotalDiscount
         {
             get { return _totalDiscount; }
             set { _totalDiscount = value; RaisePropertyChanged("TotalDiscount"); }
         }
 
-        public decimal? GrandTotal
+        public decimal GrandTotal
         {
             get { return _grandTotal; }
             set { _grandTotal = value; RaisePropertyChanged("GrandTotal"); }
+        }
+
+        public decimal AmountPaid
+        {
+            get { return _amountPaid; }
+            set { _amountPaid = value; RaisePropertyChanged("AmountPaid"); }
         }
 
         public DateTime? CreatedDate

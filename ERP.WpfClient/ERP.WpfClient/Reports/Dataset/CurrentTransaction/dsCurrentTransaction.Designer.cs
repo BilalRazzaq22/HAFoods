@@ -295,11 +295,19 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             private global::System.Data.DataColumn columnGrandTotalDiscount;
             
-            private global::System.Data.DataColumn columnGrandTotal;
-            
             private global::System.Data.DataColumn columnPaymentType;
             
             private global::System.Data.DataColumn columnCreatedDate;
+            
+            private global::System.Data.DataColumn columnTotalAmount;
+            
+            private global::System.Data.DataColumn columnAmountPaid;
+            
+            private global::System.Data.DataColumn columnRemainingAmount;
+            
+            private global::System.Data.DataColumn columnGrandTotal;
+            
+            private global::System.Data.DataColumn columnTotalCustomerOrders;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -400,14 +408,6 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn GrandTotalColumn {
-                get {
-                    return this.columnGrandTotal;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public global::System.Data.DataColumn PaymentTypeColumn {
                 get {
                     return this.columnPaymentType;
@@ -419,6 +419,46 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             public global::System.Data.DataColumn CreatedDateColumn {
                 get {
                     return this.columnCreatedDate;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TotalAmountColumn {
+                get {
+                    return this.columnTotalAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AmountPaidColumn {
+                get {
+                    return this.columnAmountPaid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RemainingAmountColumn {
+                get {
+                    return this.columnRemainingAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GrandTotalColumn {
+                get {
+                    return this.columnGrandTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TotalCustomerOrdersColumn {
+                get {
+                    return this.columnTotalCustomerOrders;
                 }
             }
             
@@ -459,7 +499,7 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionRow AdddsCurrentTransactionRow(string ItemName, string Quantity, string Price, string Discount, string TotalPrice, string OrderNo, string GrandTotalPrice, string GrandTotalDiscount, string GrandTotal, string PaymentType, string CreatedDate) {
+            public dsCurrentTransactionRow AdddsCurrentTransactionRow(string ItemName, string Quantity, string Price, string Discount, string TotalPrice, string OrderNo, string GrandTotalPrice, string GrandTotalDiscount, string PaymentType, string CreatedDate, string TotalAmount, string AmountPaid, string RemainingAmount, string GrandTotal, string TotalCustomerOrders) {
                 dsCurrentTransactionRow rowdsCurrentTransactionRow = ((dsCurrentTransactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemName,
@@ -470,9 +510,13 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                         OrderNo,
                         GrandTotalPrice,
                         GrandTotalDiscount,
-                        GrandTotal,
                         PaymentType,
-                        CreatedDate};
+                        CreatedDate,
+                        TotalAmount,
+                        AmountPaid,
+                        RemainingAmount,
+                        GrandTotal,
+                        TotalCustomerOrders};
                 rowdsCurrentTransactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsCurrentTransactionRow);
                 return rowdsCurrentTransactionRow;
@@ -503,9 +547,13 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                 this.columnOrderNo = base.Columns["OrderNo"];
                 this.columnGrandTotalPrice = base.Columns["GrandTotalPrice"];
                 this.columnGrandTotalDiscount = base.Columns["GrandTotalDiscount"];
-                this.columnGrandTotal = base.Columns["GrandTotal"];
                 this.columnPaymentType = base.Columns["PaymentType"];
                 this.columnCreatedDate = base.Columns["CreatedDate"];
+                this.columnTotalAmount = base.Columns["TotalAmount"];
+                this.columnAmountPaid = base.Columns["AmountPaid"];
+                this.columnRemainingAmount = base.Columns["RemainingAmount"];
+                this.columnGrandTotal = base.Columns["GrandTotal"];
+                this.columnTotalCustomerOrders = base.Columns["TotalCustomerOrders"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -527,12 +575,20 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                 base.Columns.Add(this.columnGrandTotalPrice);
                 this.columnGrandTotalDiscount = new global::System.Data.DataColumn("GrandTotalDiscount", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrandTotalDiscount);
-                this.columnGrandTotal = new global::System.Data.DataColumn("GrandTotal", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnGrandTotal);
                 this.columnPaymentType = new global::System.Data.DataColumn("PaymentType", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPaymentType);
                 this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCreatedDate);
+                this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalAmount);
+                this.columnAmountPaid = new global::System.Data.DataColumn("AmountPaid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmountPaid);
+                this.columnRemainingAmount = new global::System.Data.DataColumn("RemainingAmount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemainingAmount);
+                this.columnGrandTotal = new global::System.Data.DataColumn("GrandTotal", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrandTotal);
+                this.columnTotalCustomerOrders = new global::System.Data.DataColumn("TotalCustomerOrders", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalCustomerOrders);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsCurrentTransaction");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsCurrentTransaction");
             }
@@ -807,22 +863,6 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string GrandTotal {
-                get {
-                    try {
-                        return ((string)(this[this.tabledsCurrentTransaction.GrandTotalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotal\' in table \'dsCurrentTransaction\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledsCurrentTransaction.GrandTotalColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public string PaymentType {
                 get {
                     try {
@@ -850,6 +890,88 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                 }
                 set {
                     this[this.tabledsCurrentTransaction.CreatedDateColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TotalAmount {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.TotalAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmount\' in table \'dsCurrentTransaction\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.TotalAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AmountPaid {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.AmountPaidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AmountPaid\' in table \'dsCurrentTransaction\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.AmountPaidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string RemainingAmount {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.RemainingAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RemainingAmount\' in table \'dsCurrentTransaction\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.RemainingAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string GrandTotal {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.GrandTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotal\' in table \'dsCurrentTransaction\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.GrandTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TotalCustomerOrders {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.TotalCustomerOrdersColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalCustomerOrders\' in table \'dsCurrentTransaction\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.TotalCustomerOrdersColumn] = value;
                 }
             }
             
@@ -951,18 +1073,6 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsGrandTotalNull() {
-                return this.IsNull(this.tabledsCurrentTransaction.GrandTotalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetGrandTotalNull() {
-                this[this.tabledsCurrentTransaction.GrandTotalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsPaymentTypeNull() {
                 return this.IsNull(this.tabledsCurrentTransaction.PaymentTypeColumn);
             }
@@ -983,6 +1093,66 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCreatedDateNull() {
                 this[this.tabledsCurrentTransaction.CreatedDateColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotalAmountNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.TotalAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotalAmountNull() {
+                this[this.tabledsCurrentTransaction.TotalAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAmountPaidNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.AmountPaidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAmountPaidNull() {
+                this[this.tabledsCurrentTransaction.AmountPaidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRemainingAmountNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.RemainingAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRemainingAmountNull() {
+                this[this.tabledsCurrentTransaction.RemainingAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGrandTotalNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.GrandTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGrandTotalNull() {
+                this[this.tabledsCurrentTransaction.GrandTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotalCustomerOrdersNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.TotalCustomerOrdersColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotalCustomerOrdersNull() {
+                this[this.tabledsCurrentTransaction.TotalCustomerOrdersColumn] = global::System.Convert.DBNull;
             }
         }
         

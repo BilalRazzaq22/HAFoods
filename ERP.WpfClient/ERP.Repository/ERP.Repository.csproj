@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Customer\CustomerOrderRepository.cs" />
     <Compile Include="Generic\GenericRepository.cs" />
     <Compile Include="Generic\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -12,7 +12,7 @@ namespace ERP.Entities.DBModel.CashBook
         public string Type { get; set; }
         public int? SupplierId { get; set; }
         public int? CustomerId { get; set; }
-        public decimal? Amount { get; set; }
+        public decimal Amount { get; set; }
         public int? PaymentId { get; set; }
         public string Description { get; set; }
     }

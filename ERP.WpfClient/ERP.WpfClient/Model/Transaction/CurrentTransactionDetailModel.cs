@@ -9,12 +9,12 @@ namespace ERP.WpfClient.Model.Transaction
         private int _currentTransactionId;
         private int? _stockId;
         private string _itemName;
-        private int? _newQuantity;
-        private int? _quantity;
-        private decimal? _price;
-        private decimal? _discount;
-        private decimal? _newDiscount;
-        private decimal? _totalPrice;
+        private int _newQuantity;
+        private int _quantity;
+        private decimal _price;
+        private decimal _discount;
+        private decimal _newDiscount;
+        private decimal _totalPrice;
         private DateTime? _createdDate;
         private string _createdBy;
         private DateTime? _updatedDate;
@@ -44,37 +44,37 @@ namespace ERP.WpfClient.Model.Transaction
             set { _itemName = value; RaisePropertyChanged("ItemName"); }
         }
 
-        public int? NewQuantity
+        public int NewQuantity
         {
             get { return _newQuantity; }
             set { _newQuantity = value; RaisePropertyChanged("NewQuantity"); }
         }
 
-        public int? Quantity
+        public int Quantity
         {
             get { return _quantity; }
             set { _quantity = value; RaisePropertyChanged("Quantity"); }
         }
 
-        public decimal? Price
+        public decimal Price
         {
             get { return _price; }
             set { _price = value; RaisePropertyChanged("Price"); }
         }
 
-        public decimal? Discount
+        public decimal Discount
         {
             get { return _discount; }
             set { _discount = value; RaisePropertyChanged("Discount"); }
         }
 
-        public decimal? NewDiscount
+        public decimal NewDiscount
         {
             get { return _newDiscount; }
             set { _newDiscount = value; RaisePropertyChanged("NewDiscount"); }
         }
 
-        public decimal? TotalPrice
+        public decimal TotalPrice
         {
             get { return _totalPrice; }
             set { _totalPrice = value; RaisePropertyChanged("TotalPrice"); }

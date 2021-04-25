@@ -164,6 +164,7 @@
     <Compile Include="Messages\User\UserLoginMessage.cs" />
     <Compile Include="Messages\View\ShowViewMessage.cs" />
     <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="Model\Customer\CustomerOrderModel.cs" />
     <Compile Include="Model\Payment\PaymentModel.cs" />
     <Compile Include="Model\Stock\StockModel.cs" />
     <Compile Include="Model\Supplier\SupplierModel.cs" />

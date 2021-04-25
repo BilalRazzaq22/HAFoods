@@ -43,3 +43,5 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entitie
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.CopyComplete
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.Migrations.init.resources
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.GenerateResource.cache
