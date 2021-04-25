@@ -1,4 +1,29 @@
 ﻿
+<<<<<<< HEAD
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\MainWindow.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Customer\rptCustomer.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\Resources\Themes\Converters\Converter.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\CashBooks\CashBook1.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\CashBooks\CashBook2.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Customers\Customer.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Home\Home.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Popups\ConfirmationPopup.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Popups\MessageBoxPopup.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Popups\Reports\Customer\CustomerReportPopup.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Reports\AllReports.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Search\SearchBox.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Settings\MainMenu.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Stock\Stock.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Suppliers\Supplier.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Transaction\CurrentTransaction.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Users\User.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Users\UserLogin.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Popups\Reports\DailySale\DailySaleReportPopup.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Popups\Reports\Item\ItemReportPopup.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Popups\Reports\Ledger\LedgerReportPopup.xaml;;
+FE:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Popups\Reports\Supplier\SupplierReportPopup.xaml;;
+=======
 FC:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\App.xaml;;
 FC:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\MainWindow.xaml;;
 FC:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Customer\rptCustomer.xaml;;
@@ -19,4 +44,5 @@ FC:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Suppliers\Supp
 FC:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Transaction\CurrentTransaction.xaml;;
 FC:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Users\User.xaml;;
 FC:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\View\Users\UserLogin.xaml;;
+>>>>>>> main
 

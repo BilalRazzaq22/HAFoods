@@ -1,0 +1,95 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Popups.Reports.Ledger.LedgerReportPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Popups.Reports.Ledger"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid Background="{StaticResource CommonWhiteBackgroundColor}" Height="300" Width="500" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            
+            <StackPanel Orientation="Horizontal">
+                
+                <StackPanel Orientation="Vertical">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="From Date:" />
+                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="To Date:" />
+                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
+                </StackPanel>
+            </StackPanel>
+            
+            
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+
+                <Label Style="{StaticResource SimpleLabelText}" Content="Type:"/>
+                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+
+                </ComboBox>
+            </StackPanel>
+
+
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+
+                <Label Style="{StaticResource SimpleLabelText}" Content="Name:"/>
+                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+
+                </ComboBox>
+            </StackPanel>
+
+
+            <CheckBox  Margin="15,10,0,0"  VerticalContentAlignment="Center">
+                <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Cash Only" />
+            </CheckBox>
+
+
+
+        </StackPanel>
+
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <Grid Grid.Row="1" Background="{StaticResource CommonWhiteBackgroundColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource DeclineButton}" Content="Cancel" CommandParameter="Cancel" Command="{Binding ReportActionCommand}" />
+            <Button Grid.Column="1"  Style="{StaticResource AcceptButton}" Content="Proceed" CommandParameter="Proceed" Command="{Binding ReportActionCommand}" />
+        </Grid>
+
+    </Grid>
+</UserControl>
+

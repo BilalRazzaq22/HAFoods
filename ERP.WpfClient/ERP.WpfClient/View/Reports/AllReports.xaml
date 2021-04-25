@@ -30,22 +30,22 @@
             </Grid.RowDefinitions>
 
             <!--<Border  Style="{StaticResource DashboardContentBorder}">-->
-            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="CustomerReport" Grid.Row="0" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Customer Report" TextAlignment="Center"/>
             </Button>
             <!--</Border>-->
-            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="SupplierReport" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Supplier Report" TextAlignment="Center"/>
             </Button>
-            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="DailySaleReport" Grid.Row="0" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Daily Transaction Report" TextAlignment="Center"/>
             </Button>
-            <Button Style="{StaticResource ReportsButton}" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="ItemReport" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Items Report" TextAlignment="Center"/>
             </Button>
 
-            <Button Style="{StaticResource ReportsButton}" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
-                <TextBlock TextWrapping="Wrap" Text="Debit Report" TextAlignment="Center"/>
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="LedgerReport" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Ledger Report" TextAlignment="Center"/>
             </Button>
 
             <Button Style="{StaticResource ReportsButton}" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">

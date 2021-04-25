@@ -224,8 +224,20 @@
     <Compile Include="View\Popups\Payments\PaymentPopup.xaml.cs">
       <DependentUpon>PaymentPopup.xaml</DependentUpon>
     </Compile>
-    <Compile Include="View\Popups\Reports\CustomerReportPopup.xaml.cs">
+    <Compile Include="View\Popups\Reports\Customer\CustomerReportPopup.xaml.cs">
       <DependentUpon>CustomerReportPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Reports\DailySale\DailySaleReportPopup.xaml.cs">
+      <DependentUpon>DailySaleReportPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Reports\Item\ItemReportPopup.xaml.cs">
+      <DependentUpon>ItemReportPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Reports\Ledger\LedgerReportPopup.xaml.cs">
+      <DependentUpon>LedgerReportPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Reports\Supplier\SupplierReportPopup.xaml.cs">
+      <DependentUpon>SupplierReportPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\AllReports.xaml.cs">
       <DependentUpon>AllReports.xaml</DependentUpon>
@@ -317,7 +329,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="View\Popups\Reports\CustomerReportPopup.xaml">
+    <Page Include="View\Popups\Reports\Customer\CustomerReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\DailySale\DailySaleReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\Item\ItemReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\Ledger\LedgerReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\Supplier\SupplierReportPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

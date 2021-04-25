@@ -1,0 +1,64 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Popups.Reports.Item.ItemReportPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Popups.Reports.Item"
+             mc:Ignorable="d" 
+             d:DesignHeight="280" d:DesignWidth="400">
+    <Grid Background="{StaticResource CommonWhiteBackgroundColor}" Height="280" Width="400" >
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+
+            <RadioButton Margin="20,15,0,0" GroupName="customers" VerticalContentAlignment="Center">
+                <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Alert Quantity" />
+            </RadioButton>
+
+            <RadioButton Margin="20,10,0,0" GroupName="customers" VerticalContentAlignment="Center">
+                <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="All Categories" />
+            </RadioButton>
+
+            <StackPanel>
+                <RadioButton Margin="20,10,0,10" GroupName="customers" VerticalContentAlignment="Center">
+                    <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Selective Category" />
+                </RadioButton>
+
+                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding CustomerModel}">
+                    <ComboBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=FirstName}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ComboBox.ItemTemplate>
+                </ComboBox>
+            </StackPanel>
+
+            <CheckBox  Margin="15,10,0,0"  VerticalContentAlignment="Center">
+                <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Without Item Price" />
+            </CheckBox>
+        </StackPanel>
+
+
+
+
+
+
+
+        <Grid Grid.Row="1" Background="{StaticResource CommonWhiteBackgroundColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource DeclineButton}" Content="Cancel" CommandParameter="Cancel" Command="{Binding ReportActionCommand}" />
+            <Button Grid.Column="1"  Style="{StaticResource AcceptButton}" Content="Proceed" CommandParameter="Proceed" Command="{Binding ReportActionCommand}" />
+        </Grid>
+
+    </Grid>
+</UserControl>
+
