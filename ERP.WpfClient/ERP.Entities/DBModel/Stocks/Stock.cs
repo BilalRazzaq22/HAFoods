@@ -17,8 +17,8 @@ namespace ERP.Entities.DBModel.Stocks
         public int Id { get; set; }
         public string ItemName { get; set; }
         public string UrduName { get; set; }
-        public decimal? BuyPrice { get; set; }
-        public decimal? SalePrice { get; set; }
+        public decimal BuyPrice { get; set; }
+        public decimal SalePrice { get; set; }
         public int? Quantity { get; set; }
         public string Category { get; set; }
         public int? Packing { get; set; }

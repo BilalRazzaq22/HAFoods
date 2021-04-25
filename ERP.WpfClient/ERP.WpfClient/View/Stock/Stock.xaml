@@ -46,14 +46,9 @@
                     <TextBox  Text="{Binding StockModel.Category,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2" IsEnabled="{Binding IsEnabled}">
-                    <Label Style="{StaticResource SimpleLabelText}" Content="{Binding PreviousQuantity}"/>
-                    <TextBox  Text="{Binding StockModel.Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
-                </StackPanel>
-
-                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="3" Visibility="{Binding IsUpdateStock}">
-                    <Label Style="{StaticResource SimpleLabelText}" Content="{Binding NewQuantity}"/>
-                    <TextBox  Text="{Binding StockModel.NewQuantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Packing:"/>
+                    <TextBox  Text="{Binding StockModel.Packing,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
@@ -66,17 +61,19 @@
                     <TextBox  Text="{Binding StockModel.SalePrice,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3">
-                    <Label Style="{StaticResource SimpleLabelText}" Content="Packing:"/>
-                    <TextBox  Text="{Binding StockModel.Packing,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2" IsEnabled="{Binding IsEnabled}">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="{Binding PreviousQuantity}"/>
+                    <TextBox  Text="{Binding StockModel.Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="3" Visibility="{Binding IsUpdateStock}">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="{Binding NewQuantity}"/>
+                    <TextBox  Text="{Binding StockModel.NewQuantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
-
                     <Label Style="{StaticResource SimpleLabelText}" Content="Remarks:"/>
-
                     <TextBox Text="{Binding StockModel.Remarks,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="450" TextWrapping="Wrap" Height="100"/>
-
                 </StackPanel>
 
                 <!--<StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
