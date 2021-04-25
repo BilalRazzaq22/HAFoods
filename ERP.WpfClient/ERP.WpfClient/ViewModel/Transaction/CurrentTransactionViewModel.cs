@@ -153,7 +153,8 @@ namespace ERP.WpfClient.ViewModel.Transaction
             set
             {
                 _customerModel = value;
-                GetCustomerAmount(_customerModel.Id);
+                if (_customerModel != null)
+                    GetCustomerAmount(_customerModel.Id);
                 RaisePropertyChanged("CustomerModel");
             }
         }
@@ -493,16 +494,14 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
         private void GetCustomerAmount(int customerId)
         {
+            CustomerOrderModel = new CustomerOrderModel();
             CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == customerId);
             if (customerOrder != null)
             {
-                CustomerOrderModel = new CustomerOrderModel
-                {
-                    CustomerId = customerOrder.CustomerId,
-                    AmountPaid = customerOrder.AmountPaid,
-                    RemainingAmount = customerOrder.RemainingAmount,
-                    TotalAmount = customerOrder.TotalAmount
-                };
+                CustomerOrderModel.CustomerId = customerOrder.CustomerId;
+                CustomerOrderModel.AmountPaid = customerOrder.AmountPaid;
+                CustomerOrderModel.RemainingAmount = customerOrder.RemainingAmount;
+                CustomerOrderModel.TotalAmount = customerOrder.TotalAmount;
             }
         }
 
@@ -533,7 +532,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 if (_isPreviousOrder)
                     customerOrder.TotalAmount = NewItemPrice + customerOrder.TotalAmount;
                 else
-                    customerOrder.TotalAmount = CurrentTransactionModel.GrandTotal + customerOrder.TotalAmount;
+                    customerOrder.TotalAmount = (CurrentTransactionModel.TotalPrice - CurrentTransactionModel.TotalDiscount) + customerOrder.TotalAmount;
 
                 GrandTotal = customerOrder.TotalAmount;
                 AmountPaid = customerOrder.AmountPaid;
@@ -564,38 +563,12 @@ namespace ERP.WpfClient.ViewModel.Transaction
                              AmountPaid = co.AmountPaid,
                              RemainingAmount = co.RemainingAmount,
                              PaymentType = p.PaymentType,
-                             TotalCustomerOrders = _customerOrderRepository.Get().Where(x => x.CustomerId == t.CustomerId).ToList(),
+                             TotalCustomerOrders = _currentTransactionRepository.Get().Count(x => x.CustomerId == t.CustomerId),
                              CreatedDate = c.CreatedDate
                          }).ToList();
             if (query.Count > 0)
             {
-                string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-
-                string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\CurrentTransaction\rptCurrentTransaction.rdlc";
-
-                string deviceInfo =
-                 @"<DeviceInfo>
-                        <OutputFormat>EMF</OutputFormat>
-                        <MarginTop>0in</MarginTop>
-                        <MarginLeft>0.1in</MarginLeft>
-                        <MarginRight>0.1in</MarginRight>
-                        <MarginBottom>0in</MarginBottom>
-                    </DeviceInfo>";
-                string[] streamIds;
-                Warning[] warnings;
-
-                string mimeType = string.Empty;
-                string encoding = string.Empty;
-                string extension = string.Empty;
-
-                ReportViewer reportViewer = new ReportViewer();
-                reportViewer.ProcessingMode = ProcessingMode.Local;
-                reportViewer.LocalReport.ReportPath = fullpath;
-                reportViewer.LocalReport.DataSources.Add(new ReportDataSource("dsCurrentTransaction", query));
-                var bytes = reportViewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
-                string fileName = @"D:\CurrentTransaction.pdf";
-                File.WriteAllBytes(fileName, bytes);
-                Process.Start(fileName);
+                ApplicationManager.Instance.PrintReport(query, "rptCurrentTransaction", "dsCurrentTransaction", "CustomerBill");
             }
         }
 
