@@ -1,4 +1,4 @@
-﻿using ERP.WpfClient.ViewModel.Reports;
+﻿using ERP.WpfClient.ViewModel.Popup.Report;
 using System;
 using System.Collections.Generic;
 using System.Linq;

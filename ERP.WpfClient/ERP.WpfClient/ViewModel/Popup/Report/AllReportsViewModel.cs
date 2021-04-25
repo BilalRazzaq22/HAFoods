@@ -2,7 +2,6 @@
 using ERP.Common.NotifyProperty;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.View.Popups.Reports;
-using ERP.WpfClient.View.Popups.Reports.Customer;
 using ERP.WpfClient.View.Popups.Reports.DailySale;
 using ERP.WpfClient.View.Popups.Reports.Item;
 using ERP.WpfClient.View.Popups.Reports.Ledger;
@@ -14,7 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ERP.WpfClient.ViewModel.Reports
+namespace ERP.WpfClient.ViewModel.Popup.Report
 {
     public class AllReportsViewModel : ViewModelBase, INotifyOnBringIntoView
     {
@@ -86,7 +85,7 @@ namespace ERP.WpfClient.ViewModel.Reports
         }
         public void OnBringIntoView()
         {
-           // throw new NotImplementedException();
+            // throw new NotImplementedException();
         }
         #endregion
 
