@@ -1,12 +1,3 @@
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.dll
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.pdb
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\log4net.dll
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\log4net.xml
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csprojAssemblyReference.cache
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj.CoreCompileInputs.cache
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj.CopyComplete
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.dll
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.pdb
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.pdb
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\log4net.dll
@@ -16,3 +7,12 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.pdb
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csprojAssemblyReference.cache
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.dll
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\ERP.Core.pdb
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\log4net.dll
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\bin\Debug\log4net.xml
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csprojAssemblyReference.cache
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj.CoreCompileInputs.cache
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.csproj.CopyComplete
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.dll
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Core\obj\Debug\ERP.Core.pdb

@@ -14,24 +14,22 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ERP.WpfClient.View.Popups.Reports
+namespace ERP.WpfClient.View.Popups.Reports.DailySale
 {
     /// <summary>
-    /// Interaction logic for CustomerReportPopup.xaml
+    /// Interaction logic for DailySaleReportPopup.xaml
     /// </summary>
-    public partial class CustomerReportPopup : UserControl
+    public partial class DailySaleReportPopup : UserControl
     {
-        public CustomerReportPopup()
+        public DailySaleReportPopup()
         {
             InitializeComponent();
         }
 
-        public CustomerReportPopup(AllReportsViewModel allReportsViewModel)
+        public DailySaleReportPopup(AllReportsViewModel allReportsViewModel)
         {
             InitializeComponent();
             DataContext = allReportsViewModel;
         }
-
-
     }
 }
