@@ -308,7 +308,7 @@ namespace ERP.WpfClient.Controls.Helpers
         {
             string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-            string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + @"\Reports\CurrentTransaction\" + reportName + ".rdlc";
+            string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + reportName + ".rdlc";
             //string fullpath = path + @"\Reports\" + reportName + ".rdlc";
 
             string deviceInfo =

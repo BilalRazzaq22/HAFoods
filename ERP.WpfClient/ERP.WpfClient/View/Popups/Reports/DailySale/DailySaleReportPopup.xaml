@@ -19,12 +19,12 @@
 
                 <StackPanel Orientation="Vertical">
                     <Label Style="{StaticResource SimpleLabelText}" Content="From Date:" />
-                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
+                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}" SelectedDate="{Binding FromDate}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical">
                     <Label Style="{StaticResource SimpleLabelText}" Content="To Date:" />
-                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
+                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}" SelectedDate="{Binding ToDate}"/>
                 </StackPanel>
             </StackPanel>
 
@@ -35,18 +35,18 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <CheckBox  Margin="15,10,0,0" Grid.Column="0" VerticalContentAlignment="Center">
+                    <CheckBox  Margin="15,10,0,0" Grid.Column="0" VerticalContentAlignment="Center" IsChecked="{Binding IsCustomerSelected}">
                         <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Customer" />
                     </CheckBox>
-                    <CheckBox  Margin="15,10,15,0" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Center">
+                    <CheckBox  Margin="15,10,15,0" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Center" IsChecked="{Binding IsCreditSelected}">
                         <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Credit Only" />
                     </CheckBox>
                 </Grid>
-                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding CustomerModel}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                                <TextBlock Text="{Binding Path=FirstName,Mode=TwoWay}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
@@ -63,18 +63,18 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <CheckBox  Margin="15,10,0,0" Grid.Column="0" VerticalContentAlignment="Center">
+                    <CheckBox  Margin="15,10,0,0" Grid.Column="0" VerticalContentAlignment="Center" IsChecked="{Binding IsItemSelected}">
                         <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Item" />
                     </CheckBox>
-                    <CheckBox  Margin="15,10,15,0" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Center">
+                    <!--<CheckBox  Margin="15,10,15,0" Grid.Column="1" HorizontalAlignment="Right" VerticalContentAlignment="Center">
                         <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Deleted" />
-                    </CheckBox>
+                    </CheckBox>-->
                 </Grid>
-                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding StockList}" SelectedItem="{Binding StockModel}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                                <TextBlock Text="{Binding Path=ItemName,Mode=TwoWay}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>
