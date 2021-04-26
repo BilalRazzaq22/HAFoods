@@ -188,6 +188,14 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCustomer.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Dataset\DailySale\dsDailySale.cs">
+      <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\DailySale\dsDailySale.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewModel\CashBooks\CashBook1ViewModel.cs" />
     <Compile Include="ViewModel\CashBooks\CashBook2ViewModel.cs" />
@@ -402,6 +410,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\CurrentTransaction\rptCurrentTransaction.rdlc" />
     <EmbeddedResource Include="Reports\Customer\rptCustomer.rdlc" />
+    <EmbeddedResource Include="Reports\DailySale\rptDailySale.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -429,6 +438,17 @@
     <None Include="Reports\Dataset\Customer\dsCustomer.xss">
       <DependentUpon>dsCustomer.xsd</DependentUpon>
     </None>
+    <None Include="Reports\Dataset\DailySale\dsDailySale.xsc">
+      <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\DailySale\dsDailySale.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDailySale.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\DailySale\dsDailySale.xss">
+      <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -439,6 +459,7 @@
     <Resource Include="Resources\Images\HighEnd%404x.png" />
     <Resource Include="Resources\Images\userlogin.png" />
     <Resource Include="Resources\Images\mainlogo.ico" />
+    <Resource Include="Resources\Images\logo-marco-F-01.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

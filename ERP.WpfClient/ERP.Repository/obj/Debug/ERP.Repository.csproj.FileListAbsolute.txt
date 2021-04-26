@@ -47,6 +47,7 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\bin\Debug\ERP.Entit
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\bin\Debug\ERP.Entities.dll.config
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\bin\Debug\EntityFramework.xml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.csprojAssemblyReference.cache
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.csproj.CoreCompileInputs.cache
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.csproj.CopyComplete
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.dll
