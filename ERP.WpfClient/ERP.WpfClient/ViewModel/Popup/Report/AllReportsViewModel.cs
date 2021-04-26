@@ -2,6 +2,7 @@
 using ERP.Common.NotifyProperty;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.View.Popups.Reports;
+using ERP.WpfClient.View.Popups.Reports.Customer;
 using ERP.WpfClient.View.Popups.Reports.DailySale;
 using ERP.WpfClient.View.Popups.Reports.Item;
 using ERP.WpfClient.View.Popups.Reports.Ledger;
