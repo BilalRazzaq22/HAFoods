@@ -22,7 +22,7 @@
                 <ColumnDefinition Width="auto"/>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
-                
+
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
                 <RowDefinition Height="auto"/>
@@ -59,6 +59,6 @@
             </Button>
 
         </Grid>
-        
+
     </Grid>
 </UserControl>

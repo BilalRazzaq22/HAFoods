@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.Row="0">
-            
+
             <StackPanel Orientation="Horizontal">
-                
+
                 <StackPanel Orientation="Vertical">
                     <Label Style="{StaticResource SimpleLabelText}" Content="From Date:" />
                     <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
@@ -27,8 +27,8 @@
                     <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
                 </StackPanel>
             </StackPanel>
-            
-            
+
+
             <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
 
                 <Label Style="{StaticResource SimpleLabelText}" Content="Type:"/>
@@ -69,18 +69,18 @@
 
         </StackPanel>
 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
+
+
+
+
+
+
+
+
+
+
+
         <Grid Grid.Row="1" Background="{StaticResource CommonWhiteBackgroundColor}">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>

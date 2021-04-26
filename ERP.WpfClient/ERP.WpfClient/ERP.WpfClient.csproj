@@ -196,7 +196,7 @@
     <Compile Include="ViewModel\Home\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
-    <Compile Include="ViewModel\Reports\AllReportsViewModel.cs" />
+    <Compile Include="ViewModel\Popup\Report\AllReportsViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\Transaction\CurrentTransactionViewModel.cs" />
@@ -326,6 +326,26 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Popups\Payments\PaymentPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\Customer\CustomerReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\DailySale\DailySaleReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\Item\ItemReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\Ledger\LedgerReportPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Reports\Supplier\SupplierReportPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
