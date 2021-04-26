@@ -1,0 +1,10 @@
+
+ERP.WpfClient/.vs/ERP.WpfClient/v16/.suo
+ERP.WpfClient/.vs/ERP.WpfClient/v16/.suo
+*.dll
+*.pdb
+*.cache
+ERP.WpfClient/ERP.WpfClient/obj/Debug/MainWindow.g.i.cs
+ERP.WpfClient/ERP.WpfClient/obj/Debug/GeneratedInternalTypeHelper.g.cs
+*.lref
+ERP.WpfClient/ERP.WpfClient/obj/Debug/ERP.WpfClient.g.resources
