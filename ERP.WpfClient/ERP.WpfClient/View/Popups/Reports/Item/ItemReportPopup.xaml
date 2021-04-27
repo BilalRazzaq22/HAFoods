@@ -15,24 +15,24 @@
 
         <StackPanel Grid.Row="0">
 
-            <RadioButton Margin="20,15,0,0" GroupName="customers" VerticalContentAlignment="Center">
+            <RadioButton Margin="20,15,0,0" GroupName="customers" VerticalContentAlignment="Center" IsChecked="{Binding IsAlertQuantitySelected}">
                 <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Alert Quantity" />
             </RadioButton>
 
-            <RadioButton Margin="20,10,0,0" GroupName="customers" VerticalContentAlignment="Center">
+            <RadioButton Margin="20,10,0,0" GroupName="customers" VerticalContentAlignment="Center" IsChecked="{Binding IsAllCategorySelected}">
                 <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="All Categories" />
             </RadioButton>
 
             <StackPanel>
-                <RadioButton Margin="20,10,0,10" GroupName="customers" VerticalContentAlignment="Center">
+                <RadioButton Margin="20,10,0,10" GroupName="customers" VerticalContentAlignment="Center" IsChecked="{Binding IsCategorySelected}">
                     <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Selective Category" />
                 </RadioButton>
 
-                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding CustomerModel}">
+                <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding StockList}" SelectedItem="{Binding StockModel}">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
                             <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="{Binding Path=FirstName}"/>
+                                <TextBlock Text="{Binding Path=Category}"/>
                             </StackPanel>
                         </DataTemplate>
                     </ComboBox.ItemTemplate>

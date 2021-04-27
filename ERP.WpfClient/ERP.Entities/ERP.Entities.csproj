@@ -87,5 +87,12 @@
       <DependentUpon>202104240957485_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="DatabaseScripts\SP_GetCustomerReport.sql" />
+    <Content Include="DatabaseScripts\SP_GetDailySalesReport.sql" />
+    <Content Include="DatabaseScripts\SP_GetItemList.sql" />
+    <Content Include="DatabaseScripts\SP_GetLedgerReport.sql" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
