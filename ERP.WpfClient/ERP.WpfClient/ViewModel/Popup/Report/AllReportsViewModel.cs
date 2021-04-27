@@ -50,6 +50,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
         private ObservableCollection<StockModel> _stockList;
         private string _reportName;
         private bool _isCreditSelected;
+        private bool _isAlertQuantitySelected;
+        private bool _isAllCategorySelected;
+        private bool _isCategorySelected;
+        private bool _isAllCustomerSelected;
 
         #endregion
 
@@ -80,6 +84,12 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
         {
             get { return _isCustomerSelected; }
             set { _isCustomerSelected = value; RaisePropertyChanged("IsCustomerSelected"); }
+        }
+
+        public bool IsAllCustomerSelected
+        {
+            get { return _isAllCustomerSelected; }
+            set { _isAllCustomerSelected = value; RaisePropertyChanged("IsAllCustomerSelected"); }
         }
 
         public bool IsItemSelected
@@ -136,6 +146,26 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             set { _isCreditSelected = value; RaisePropertyChanged("IsCreditSelected"); }
         }
 
+        public bool IsAlertQuantitySelected
+        {
+            get { return _isAlertQuantitySelected; }
+            set { _isAlertQuantitySelected = value; RaisePropertyChanged("IsAlertQuantitySelected"); }
+        }
+
+
+        public bool IsAllCategorySelected
+        {
+            get { return _isAllCategorySelected; }
+            set { _isAllCategorySelected = value; RaisePropertyChanged("IsAllCategorySelected"); }
+        }
+
+
+        public bool IsCategorySelected
+        {
+            get { return _isCategorySelected; }
+            set { _isCategorySelected = value; RaisePropertyChanged("IsCategorySelected"); }
+        }
+
         #endregion
 
         #region Methods
@@ -149,11 +179,18 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
                     {
                         GenerateDailySaleReport();
                     }
-                    if(ReportName == "LedgerReport")
+                    if (ReportName == "LedgerReport")
                     {
                         GenerateLedgerReport();
                     }
-                    ApplicationManager.Instance.HideDialog();
+                    if (ReportName == "ItemReport")
+                    {
+                        GenerateItemListReport();
+                    }
+                    if (ReportName == "CustomerReport")
+                    {
+                        GenerateCustomerReport();
+                    }
                     break;
 
                 case "Cancel":
@@ -162,9 +199,6 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
 
             }
         }
-
-
-
 
         private void ExecuteReportsCommand(string command)
         {
@@ -303,6 +337,58 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             if (dt.Rows.Count > 0)
             {
                 ApplicationManager.Instance.PrintReport(dt, @"/Reports/DailySale/rptDailySale", "dsDailySale", "DailySale");
+            }
+        }
+
+        private void GenerateItemListReport()
+        {
+            DataTable dt = new DataTable();
+            string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetItemList]", con))
+                {
+                    if (IsAlertQuantitySelected)
+                        cmd.Parameters.AddWithValue("@CustomerId", 50);
+                    if (IsAllCategorySelected)
+                        cmd.Parameters.AddWithValue("@Category", null);
+                    if (IsCategorySelected)
+                        cmd.Parameters.AddWithValue("@Category", StockModel.Category);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                }
+            }
+            if (dt.Rows.Count > 0)
+            {
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptItemList", "dsItemList", "ItemList");
+            }
+        }
+
+        private void GenerateCustomerReport()
+        {
+            DataTable dt = new DataTable();
+            string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCustomerReport]", con))
+                {
+                    if (IsCustomerSelected)
+                        cmd.Parameters.AddWithValue("@CustomerId", CustomerModel.Id);
+                    if (IsAllCustomerSelected)
+                        cmd.Parameters.AddWithValue("@CustomerId", null);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                }
+            }
+            if (dt.Rows.Count > 0)
+            {
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/Customer/rptCustomer", "dsCustomer", "Customer");
             }
         }
 

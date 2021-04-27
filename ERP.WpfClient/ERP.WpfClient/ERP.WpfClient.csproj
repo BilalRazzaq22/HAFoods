@@ -172,9 +172,6 @@
     <Compile Include="Model\Transaction\CurrentTransactionModel.cs" />
     <Compile Include="Model\User\UserGroupModel.cs" />
     <Compile Include="Model\User\UserModel.cs" />
-    <Compile Include="Reports\Customer\rptCustomer.xaml.cs">
-      <DependentUpon>rptCustomer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Reports\Dataset\CurrentTransaction\dsCurrentTransaction.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -195,6 +192,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\Stock\dsItemList.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsItemList.xsd</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <Compile Include="ViewModel\CashBooks\CashBook1ViewModel.cs" />
@@ -285,10 +287,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Reports\Customer\rptCustomer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Resources\Themes\BlueAndWhiteTheme.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -411,6 +409,7 @@
     <EmbeddedResource Include="Reports\CurrentTransaction\rptCurrentTransaction.rdlc" />
     <EmbeddedResource Include="Reports\Customer\rptCustomer.rdlc" />
     <EmbeddedResource Include="Reports\DailySale\rptDailySale.rdlc" />
+    <EmbeddedResource Include="Reports\rptItemList.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -448,6 +447,17 @@
     </None>
     <None Include="Reports\Dataset\DailySale\dsDailySale.xss">
       <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\Stock\dsItemList.xsc">
+      <DependentUpon>dsItemList.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\Stock\dsItemList.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsItemList.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\Stock\dsItemList.xss">
+      <DependentUpon>dsItemList.xsd</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
