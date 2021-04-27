@@ -51,3 +51,4 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repos
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.csproj.CopyComplete
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.pdb
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Repository\obj\Debug\ERP.Repository.csprojAssemblyReference.cache
