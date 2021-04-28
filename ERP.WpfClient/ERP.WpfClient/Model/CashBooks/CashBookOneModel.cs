@@ -16,6 +16,7 @@ namespace ERP.WpfClient.Model.CashBooks
         private decimal? _amount;
         private int? _paymentId;
         private string _description;
+        private DateTime _cashBookOneDate;
         private DateTime? _createdDate;
         private string _createdBy;
         private DateTime? _updatedDate;
@@ -63,6 +64,12 @@ namespace ERP.WpfClient.Model.CashBooks
             set { _description = value; RaisePropertyChanged("Description"); }
         }
 
+        public DateTime CashBookOneDate
+        {
+            get { return _cashBookOneDate; }
+            set { _cashBookOneDate = value; RaisePropertyChanged("CashBookOneDate"); }
+        }
+        
         public DateTime? CreatedDate
         {
             get { return _createdDate; }

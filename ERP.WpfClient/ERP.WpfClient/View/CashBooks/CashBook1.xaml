@@ -31,7 +31,7 @@
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Dated:" />
-                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" SelectedDate="{Binding CashBookOneModel.CreatedDate}"/>
+                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" SelectedDate="{Binding CashBookOneModel.CashBookOneDate,Mode=TwoWay}"/>
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
@@ -138,9 +138,9 @@
                 </Grid>
             </StackPanel>
 
-            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}" Height="450">
+            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CashBookOneList}" Style="{StaticResource DataGridsForList}" Height="450">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="Date" Width="*" Binding="{Binding CreatedDate}"/>
+                    <DataGridTextColumn Header="Date" Width="*" Binding="{Binding CashBookOneDate}"/>
                     <DataGridTextColumn Header="Type" Width="*" Binding="{Binding Type}"/>
                     <DataGridTextColumn Header="Amount" Width="*" Binding="{Binding Amount}"/>
                     <DataGridTextColumn Header="Description" Width="*" Binding="{Binding Description}"/>

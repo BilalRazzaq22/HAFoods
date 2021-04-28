@@ -24,7 +24,7 @@ namespace ERP.WpfClient.View.CashBooks
         public CashBook2()
         {
             InitializeComponent();
-            DataContext = new CashBook2ViewModel();
+            DataContext = new CashBookTwoViewModel();
         }
     }
 }

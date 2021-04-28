@@ -141,7 +141,8 @@ namespace ERP.WpfClient.ViewModel.CashBooks
             set
             {
                 _cashBookType = value;
-                GetType(_cashBookType);
+                if (_cashBookType != null)
+                    GetType(_cashBookType);
                 RaisePropertyChanged("CashBookType");
             }
         }
@@ -203,6 +204,7 @@ namespace ERP.WpfClient.ViewModel.CashBooks
             GetCashBookType();
             IsCustomer = Visibility.Collapsed.ToString();
             IsSupplier = Visibility.Collapsed.ToString();
+            CashBookOneModel.CashBookOneDate = DateTime.Now;
         }
 
         private void ExecuteDeleteCashBookOneCommand(object obj)
@@ -219,6 +221,10 @@ namespace ERP.WpfClient.ViewModel.CashBooks
 
         public void SaveCashBookOne()
         {
+            CashBookOneModel.Type = CashBookType.Type;
+            CashBookOneModel.CustomerId = CustomerModel.Id;
+            CashBookOneModel.SupplierId = SupplierModel.Id;
+            CashBookOneModel.PaymentId = PaymentType.Id;
             var model = _cashBookOneRepository.Add(MapperProfile.iMapper.Map<CashBookOne>(CashBookOneModel));
             CashBookOneModel.Id = model.Id;
             CashBookOneList.Add(CashBookOneModel);
@@ -240,10 +246,15 @@ namespace ERP.WpfClient.ViewModel.CashBooks
             CustomerModel = CustomerList.FirstOrDefault(x => x.Id == cashBookOneModel.CustomerId);
             SupplierModel = SupplierList.FirstOrDefault(x => x.Id == cashBookOneModel.SupplierId);
             PaymentType = PaymentList.FirstOrDefault(x => x.Id == cashBookOneModel.PaymentId);
+            CashBookType = CashBookTypeList.FirstOrDefault(x => x.Type == cashBookOneModel.Type);
         }
 
         public void UpdateCashBookOne()
         {
+            CashBookOneModel.Type = CashBookType.Type;
+            CashBookOneModel.CustomerId = CustomerModel.Id;
+            CashBookOneModel.SupplierId = SupplierModel.Id;
+            CashBookOneModel.PaymentId = PaymentType.Id;
             _cashBookOneRepository.Update(MapperProfile.iMapper.Map<CashBookOne>(CashBookOneModel), CashBookOneModel.Id);
             Reset();
         }
@@ -277,6 +288,7 @@ namespace ERP.WpfClient.ViewModel.CashBooks
                 await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     CashBookOneList = MapperProfile.iMapper.Map<ObservableCollection<CashBookOneModel>>(cashBookOnes);
+                    InitializeCashBookTypeList();
                 }));
                 Reset();
                 ApplicationManager.Instance.HideBusyInidicator();
@@ -290,7 +302,6 @@ namespace ERP.WpfClient.ViewModel.CashBooks
             CustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
             SupplierList = MapperProfile.iMapper.Map<ObservableCollection<SupplierModel>>(_supplierRepository.Get());
             PaymentList = MapperProfile.iMapper.Map<ObservableCollection<PaymentModel>>(_paymentRepository.Get());
-            InitializeCashBookTypeList();
         }
 
         private void InitializeCashBookTypeList()
@@ -329,12 +340,14 @@ namespace ERP.WpfClient.ViewModel.CashBooks
                 if (cashBookType.Type == "Customer")
                 {
                     GetCustomer();
+                    SupplierModel = new SupplierModel();
                     IsCustomer = Visibility.Visible.ToString();
                     IsSupplier = Visibility.Collapsed.ToString();
                 }
                 if (cashBookType.Type == "Supplier")
                 {
                     GetSupplier();
+                    CustomerModel = new CustomerModel();
                     IsSupplier = Visibility.Visible.ToString();
                     IsCustomer = Visibility.Collapsed.ToString();
                 }

@@ -95,6 +95,7 @@
     <Compile Include="Messages\User\UserLoginMessage.cs" />
     <Compile Include="Messages\View\ShowViewMessage.cs" />
     <Compile Include="Model\CashBooks\CashBookOneModel.cs" />
+    <Compile Include="Model\CashBooks\CashBookTwoModel.cs" />
     <Compile Include="Model\CashBooks\CashBookTypeModel.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\Customer\CustomerOrderModel.cs" />
@@ -132,7 +133,7 @@
       <DependentUpon>dsItemList.xsd</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CashBooks\CashBookOneViewModel.cs" />
-    <Compile Include="ViewModel\CashBooks\CashBook2ViewModel.cs" />
+    <Compile Include="ViewModel\CashBooks\CashBookTwoViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Data\DataViewModelBase.cs" />
     <Compile Include="ViewModel\Home\HomeViewModel.cs" />
