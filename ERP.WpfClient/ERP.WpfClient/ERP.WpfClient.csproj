@@ -471,6 +471,10 @@
     <Resource Include="Resources\Images\mainlogo.ico" />
     <Resource Include="Resources\Images\logo-marco-F-01.png" />
     <Resource Include="Resources\Images\fulllogo.png" />
+    <Content Include="DatabaseScripts\SP_GetCustomerReport.sql" />
+    <Content Include="DatabaseScripts\SP_GetDailySalesReport.sql" />
+    <Content Include="DatabaseScripts\SP_GetItemList.sql" />
+    <Content Include="DatabaseScripts\SP_GetLedgerReport.sql" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

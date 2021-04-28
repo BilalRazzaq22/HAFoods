@@ -7,6 +7,7 @@ using ERP.Repository.Generic;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using System;
+using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -63,10 +64,11 @@ namespace ERP.WpfClient
                     try
                     {
                         //CheckReset();
-                        string path = @"C:\Program Files (x86)\HAFoods Setup\HA Foods\Database";
+                        string path = @"C:\Users\bilal\projects\HAFood DB Backup";
                         string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + path + @"\HAFoodDB.mdf; Integrated Security = True;";
                         HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
                         HaFoodDbContext.Init();
+                        RunSP();
                     }
                     catch (Exception ex)
                     {
@@ -193,6 +195,58 @@ namespace ERP.WpfClient
                 //Do your job with "file"  
                 //string str = file.ToString().Replace(spFolderPath,path);
                 File.Copy(filename, dest, true);
+            }
+        }
+
+        private void ExecuteSQLStmt(string sql)
+        {
+            string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+
+            //if (conn.State == ConnectionState.Open)
+            //    conn.Close();
+            SqlConnection con = new SqlConnection(constr);
+            con.Open();
+            //ConnectionString = "Integrated Security=SSPI;" +
+            //"Initial Catalog=mydb;" +
+            //"Data Source=localhost;";
+            //conn.ConnectionString = ConnectionString;
+            //conn.Open();
+            SqlCommand cmd = new SqlCommand(sql, con);
+            try
+            {
+                cmd.ExecuteNonQuery();
+            }
+            catch (SqlException ae)
+            {
+                //MessageBox.Show(ae.Message.ToString());
+            }
+        }
+
+        private void RunSP()
+        {
+            string[] filePaths;
+            string startupPath = Environment.CurrentDirectory;
+            if (Directory.Exists(System.IO.Path.Combine(startupPath, @"DatabaseScripts")))
+            {
+                filePaths = Directory.GetFiles(System.IO.Path.Combine(startupPath, @"DatabaseScripts"));
+            }
+
+            string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10);
+            filePaths = Directory.GetFiles(System.IO.Path.Combine(fullpath, @"DatabaseScripts"));
+            if (filePaths != null)
+            {
+                if (filePaths.Length > 0)
+                {
+                    foreach (string p in filePaths)
+                    {
+                        //Console.WriteLine(p);
+                        //p.Replace("FridayRetailDb", databaseName);
+                        string qp = File.ReadAllText(p);//.Replace("FridayRetailDb", databaseName);
+                        //migrationBuilder.Sql(qp);
+                        ExecuteSQLStmt(qp);
+                    }
+                }
             }
         }
 

@@ -8,6 +8,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("databasescripts/sp_getcustomerreport.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("databasescripts/sp_getdailysalesreport.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("databasescripts/sp_getitemlist.sql")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("databasescripts/sp_getledgerreport.sql")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/readme.htm")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/x64/msvcr120.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("sqlservertypes/x64/sqlserverspatial140.dll")]

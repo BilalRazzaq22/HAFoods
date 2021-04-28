@@ -7,13 +7,13 @@ namespace ERP.Entities.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class init : IMigrationMetadata
+    public sealed partial class FirstMigratin : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(FirstMigratin));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104240957485_init"; }
+            get { return "202104271820097_First-Migratin"; }
         }
         
         string IMigrationMetadata.Source
