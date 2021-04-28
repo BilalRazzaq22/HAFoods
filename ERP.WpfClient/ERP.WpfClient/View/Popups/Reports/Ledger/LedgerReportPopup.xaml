@@ -17,12 +17,12 @@
 
             <StackPanel Orientation="Horizontal">
 
-                <StackPanel Orientation="Vertical">
+                <StackPanel>
                     <Label Style="{StaticResource SimpleLabelText}" Content="From Date:" />
                     <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical">
+                <StackPanel>
                     <Label Style="{StaticResource SimpleLabelText}" Content="To Date:" />
                     <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}"/>
                 </StackPanel>

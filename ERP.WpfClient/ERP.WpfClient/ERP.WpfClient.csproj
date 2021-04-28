@@ -137,6 +137,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
     <Compile Include="ViewModel\Popup\Report\AllReportsViewModel.cs" />
+    <Compile Include="ViewModel\PurchaseOrders\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\Transaction\CurrentTransactionViewModel.cs" />
@@ -178,6 +179,9 @@
     </Compile>
     <Compile Include="View\Popups\Reports\Supplier\SupplierReportPopup.xaml.cs">
       <DependentUpon>SupplierReportPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PurchaseOrders\PurchaseOrder.xaml.cs">
+      <DependentUpon>PurchaseOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\AllReports.xaml.cs">
       <DependentUpon>AllReports.xaml</DependentUpon>
@@ -284,6 +288,10 @@
     <Page Include="View\Popups\Reports\Supplier\SupplierReportPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
+    </Page>
+    <Page Include="View\PurchaseOrders\PurchaseOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Reports\AllReports.xaml">
       <SubType>Designer</SubType>
