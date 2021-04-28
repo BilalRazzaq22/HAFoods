@@ -15,13 +15,52 @@
       }
     },
     "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj": {
+      "version": "1.0.0",
       "restore": {
         "projectUniqueName": "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj",
         "projectName": "ERP.Core",
-        "projectPath": "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj"
+        "projectPath": "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj",
+        "packagesPath": "C:\\Users\\Sarmad Mirza\\.nuget\\packages\\",
+        "outputPath": "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "skipContentFileWrite": true,
+        "configFilePaths": [
+          "C:\\Users\\Sarmad Mirza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net472"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net472": {
+            "projectReferences": {}
+          }
+        }
       },
       "frameworks": {
-        "net472": {}
+        "net472": {
+          "dependencies": {
+            "log4net": {
+              "target": "Package",
+              "version": "[2.0.12, )"
+            }
+          }
+        }
+      },
+      "runtimes": {
+        "win": {
+          "#import": []
+        },
+        "win-x64": {
+          "#import": []
+        },
+        "win-x86": {
+          "#import": []
+        }
       }
     },
     "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Entities\\ERP.Entities.csproj": {

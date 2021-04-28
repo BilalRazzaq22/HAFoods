@@ -16,6 +16,7 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.dll
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.SqlServer.dll
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.xml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csprojAssemblyReference.cache
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.CoreCompileInputs.cache
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.csproj.CopyComplete
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Common\obj\Debug\ERP.Common.dll

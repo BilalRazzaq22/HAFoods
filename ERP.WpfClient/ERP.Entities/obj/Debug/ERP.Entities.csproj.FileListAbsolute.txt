@@ -26,8 +26,6 @@ E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\bin\Debug\ERP.Common.dll.conf
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.xml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\bin\Debug\EntityFramework.SqlServer.xml
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csprojAssemblyReference.cache
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.Migrations.FirstMigratin.resources
-E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.GenerateResource.cache
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.CoreCompileInputs.cache
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.CopyComplete
 E:\Projects\ERP\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.dll
