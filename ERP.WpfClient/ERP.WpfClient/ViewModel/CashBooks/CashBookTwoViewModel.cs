@@ -48,8 +48,10 @@ namespace ERP.WpfClient.ViewModel.CashBooks
         private ObservableCollection<CashBookTypeModel> _crediterTypeList;
         private CashBookTypeModel _debiterType;
         private CashBookTypeModel _crediterType;
-        private string _isCustomer;
-        private string _isSupplier;
+        private string _isDebiterCustomer;
+        private string _isDebiterSupplier;
+        private string _isCrediterCustomer;
+        private string _isCrediterSupplier;
 
         #endregion
 
@@ -66,7 +68,9 @@ namespace ERP.WpfClient.ViewModel.CashBooks
             CashBookTwoModel = new CashBookTwoModel();
             CashBookTwoList = new ObservableCollection<CashBookTwoModel>();
             DebiterCustomerList = new ObservableCollection<CustomerModel>();
+            CrediterCustomerList = new ObservableCollection<CustomerModel>();
             DebiterSupplierList = new ObservableCollection<SupplierModel>();
+            CrediterSupplierList = new ObservableCollection<SupplierModel>();
             PaymentList = new ObservableCollection<PaymentModel>();
             DebiterTypeList = new ObservableCollection<CashBookTypeModel>();
             CashBookTwoButton = "Save";
@@ -201,16 +205,28 @@ namespace ERP.WpfClient.ViewModel.CashBooks
             set { _crediterTypeList = value; RaisePropertyChanged("CrediterTypeList"); }
         }
 
-        public string IsCustomer
+        public string IsDebiterCustomer
         {
-            get { return _isCustomer; }
-            set { _isCustomer = value; RaisePropertyChanged("IsCustomer"); }
+            get { return _isDebiterCustomer; }
+            set { _isDebiterCustomer = value; RaisePropertyChanged("IsDebiterCustomer"); }
         }
 
-        public string IsSupplier
+        public string IsDebiterSupplier
         {
-            get { return _isSupplier; }
-            set { _isSupplier = value; RaisePropertyChanged("IsSupplier"); }
+            get { return _isDebiterSupplier; }
+            set { _isDebiterSupplier = value; RaisePropertyChanged("IsDebiterSupplier"); }
+        }
+
+        public string IsCrediterCustomer
+        {
+            get { return _isCrediterCustomer; }
+            set { _isCrediterCustomer = value; RaisePropertyChanged("IsCrediterCustomer"); }
+        }
+
+        public string IsCrediterSupplier
+        {
+            get { return _isCrediterSupplier; }
+            set { _isCrediterSupplier = value; RaisePropertyChanged("IsCrediterSupplier"); }
         }
 
         #endregion
@@ -241,9 +257,12 @@ namespace ERP.WpfClient.ViewModel.CashBooks
         {
             CashBookTwoModel = new CashBookTwoModel();
             DebiterCustomer = new CustomerModel();
+            CrediterCustomer = new CustomerModel();
             DebiterSupplier = new SupplierModel();
+            CrediterSupplier = new SupplierModel();
             PaymentType = new PaymentModel();
             DebiterType = new CashBookTypeModel();
+            CrediterType = new CashBookTypeModel();
             CashBookTwoButton = "Save";
             CashBookTwoParameter = "SaveCashBookTwo";
             GetPaymentType();
@@ -252,8 +271,11 @@ namespace ERP.WpfClient.ViewModel.CashBooks
             GetCrediterCustomer();
             GetCrediterSupplier();
             GetDebiterType();
-            IsCustomer = Visibility.Collapsed.ToString();
-            IsSupplier = Visibility.Collapsed.ToString();
+            GetCrediterType();
+            IsDebiterCustomer = Visibility.Visible.ToString();
+            IsDebiterSupplier = Visibility.Collapsed.ToString();
+            IsCrediterCustomer = Visibility.Visible.ToString();
+            IsCrediterSupplier = Visibility.Collapsed.ToString();
             CashBookTwoModel.CashBookTwoDate = DateTime.Now;
         }
 
@@ -349,7 +371,8 @@ namespace ERP.WpfClient.ViewModel.CashBooks
                 await Application.Current.Dispatcher.BeginInvoke(new Action(() =>
                 {
                     CashBookTwoList = MapperProfile.iMapper.Map<ObservableCollection<CashBookTwoModel>>(cashBookOnes);
-                    InitializeCashBookTypeList();
+                    InitializeDebiterTypeList();
+                    InitializeCrediterTypeList();
                 }));
                 Reset();
                 ApplicationManager.Instance.HideBusyInidicator();
@@ -361,17 +384,28 @@ namespace ERP.WpfClient.ViewModel.CashBooks
         private void InitializeCollection()
         {
             DebiterCustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
+            CrediterCustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
             DebiterSupplierList = MapperProfile.iMapper.Map<ObservableCollection<SupplierModel>>(_supplierRepository.Get());
+            CrediterSupplierList = MapperProfile.iMapper.Map<ObservableCollection<SupplierModel>>(_supplierRepository.Get());
             PaymentList = MapperProfile.iMapper.Map<ObservableCollection<PaymentModel>>(_paymentRepository.Get());
         }
 
-        private void InitializeCashBookTypeList()
+        private void InitializeDebiterTypeList()
         {
             DebiterTypeList = new ObservableCollection<CashBookTypeModel>();
 
             DebiterTypeList.Add(new CashBookTypeModel() { Type = "Select Type" });
             DebiterTypeList.Add(new CashBookTypeModel() { Type = "Customer" });
             DebiterTypeList.Add(new CashBookTypeModel() { Type = "Supplier" });
+        }
+
+        private void InitializeCrediterTypeList()
+        {
+            CrediterTypeList = new ObservableCollection<CashBookTypeModel>();
+
+            CrediterTypeList.Add(new CashBookTypeModel() { Type = "Select Type" });
+            CrediterTypeList.Add(new CashBookTypeModel() { Type = "Customer" });
+            CrediterTypeList.Add(new CashBookTypeModel() { Type = "Supplier" });
         }
 
         private void GetDebiterCustomer()
@@ -417,15 +451,15 @@ namespace ERP.WpfClient.ViewModel.CashBooks
                 {
                     GetDebiterCustomer();
                     DebiterSupplier = new SupplierModel();
-                    IsCustomer = Visibility.Visible.ToString();
-                    IsSupplier = Visibility.Collapsed.ToString();
+                    IsDebiterCustomer = Visibility.Visible.ToString();
+                    IsDebiterSupplier = Visibility.Collapsed.ToString();
                 }
                 if (cashBookType.Type == "Supplier")
                 {
                     GetDebiterSupplier();
                     DebiterCustomer = new CustomerModel();
-                    IsSupplier = Visibility.Visible.ToString();
-                    IsCustomer = Visibility.Collapsed.ToString();
+                    IsDebiterSupplier = Visibility.Visible.ToString();
+                    IsDebiterCustomer = Visibility.Collapsed.ToString();
                 }
             }
         }
@@ -438,15 +472,15 @@ namespace ERP.WpfClient.ViewModel.CashBooks
                 {
                     GetCrediterCustomer();
                     CrediterSupplier = new SupplierModel();
-                    IsCustomer = Visibility.Visible.ToString();
-                    IsSupplier = Visibility.Collapsed.ToString();
+                    IsCrediterCustomer = Visibility.Visible.ToString();
+                    IsCrediterSupplier = Visibility.Collapsed.ToString();
                 }
                 if (cashBookType.Type == "Supplier")
                 {
                     GetCrediterSupplier();
                     CrediterCustomer = new CustomerModel();
-                    IsSupplier = Visibility.Visible.ToString();
-                    IsCustomer = Visibility.Collapsed.ToString();
+                    IsCrediterSupplier = Visibility.Visible.ToString();
+                    IsCrediterCustomer = Visibility.Collapsed.ToString();
                 }
             }
         }

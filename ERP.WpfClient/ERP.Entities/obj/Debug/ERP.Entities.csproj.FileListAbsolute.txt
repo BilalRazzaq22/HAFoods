@@ -15,3 +15,4 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entitie
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.pdb
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.Migrations.FirstMigration.resources
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.csproj.GenerateResource.cache
+C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.Entities\obj\Debug\ERP.Entities.Migrations.newtbladded.resources
