@@ -37,6 +37,7 @@ namespace ERP.WpfClient.Mapper
                 cfg.CreateMap<Payment, PaymentModel>().ReverseMap();
                 cfg.CreateMap<User, UserModel>().ReverseMap();
                 cfg.CreateMap<CashBookOne, CashBookOneModel>().ReverseMap();
+                cfg.CreateMap<CashBookTwo, CashBookTwoModel>().ReverseMap();
             });
 
             iMapper = config.CreateMapper();

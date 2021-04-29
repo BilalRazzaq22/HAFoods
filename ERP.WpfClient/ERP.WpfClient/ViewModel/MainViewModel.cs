@@ -228,7 +228,7 @@ namespace ERP.WpfClient.ViewModel
                     LoadViewAsync(ViewTypes.Customer.ToString());
                     break;
                      
-                case "Cash Book One":
+                case "Cash Book":
                     LoadViewAsync(ViewTypes.CashBookOne.ToString());
                     break;
 

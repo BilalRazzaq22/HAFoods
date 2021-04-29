@@ -67,6 +67,10 @@
     <Compile Include="Migrations\202104281240265_First-Migration.Designer.cs">
       <DependentUpon>202104281240265_First-Migration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104291254492_new-tbl-added.cs" />
+    <Compile Include="Migrations\202104291254492_new-tbl-added.Designer.cs">
+      <DependentUpon>202104291254492_new-tbl-added.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -86,6 +90,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202104281240265_First-Migration.resx">
       <DependentUpon>202104281240265_First-Migration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104291254492_new-tbl-added.resx">
+      <DependentUpon>202104291254492_new-tbl-added.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
