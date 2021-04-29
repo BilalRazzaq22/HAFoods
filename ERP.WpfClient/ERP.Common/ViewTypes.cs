@@ -16,7 +16,7 @@ namespace ERP.Common
         CurrentTransaction,
         CashBookOne,
         CashBookTwo,
-        AllReports,
+        Reports,
         PurchaseOrder,
         User
 
