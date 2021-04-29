@@ -64,7 +64,7 @@ namespace ERP.WpfClient
                     try
                     {
                         //CheckReset();
-                        string path = @"C:\Users\bilal\projects\HAFood DB Backup";
+                        string path = @"E:\Projects\ERP\HAFoods DB Backup";
                         string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + path + @"\HAFoodDB.mdf; Integrated Security = True;";
                         HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
                         HaFoodDbContext.Init();

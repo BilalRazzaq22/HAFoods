@@ -17,6 +17,7 @@ namespace ERP.Common
         CashBookOne,
         CashBookTwo,
         AllReports,
+        PurchaseOrder,
         User
 
     }

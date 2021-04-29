@@ -221,7 +221,7 @@ namespace ERP.WpfClient.ViewModel
                     break;
 
                 case "Purchase Order":
-                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    LoadViewAsync(ViewTypes.PurchaseOrder.ToString());
                     break;
 
                 case "Sales Order":
@@ -239,7 +239,6 @@ namespace ERP.WpfClient.ViewModel
                 case "All Reports":
                     LoadViewAsync(ViewTypes.AllReports.ToString());
                     break;
-
                 case "User":
                     LoadViewAsync(ViewTypes.User.ToString());
                     break;
@@ -406,6 +405,9 @@ namespace ERP.WpfClient.ViewModel
                 case ViewTypes.AllReports:
                     _viewManagerService.Select("home").Transition<View.Reports.AllReports>(viewType);
                     break;
+                case ViewTypes.PurchaseOrder:
+                    _viewManagerService.Select("home").Transition<View.PurchaseOrders.PurchaseOrder>(viewType);
+                    break;
                 case ViewTypes.User:
                     _viewManagerService.Select("home").Transition<View.Users.User>(viewType);
                     break;
@@ -418,12 +420,9 @@ namespace ERP.WpfClient.ViewModel
         {
             //if (!ApplicationManager.Instance.CurrentUser.IsAdmin)
             //{
-
             //    var navKey = new NavigateKey(ViewTypes.ManagerLogin, null);
             //    navKey.ExecuteAction = executeAction;
-
             //    _viewManagerService.Select().Transition<AuthenticateAdmin>(navKey, null);
-
             //    return false;
             //}
             //else
