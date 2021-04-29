@@ -98,20 +98,20 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Sarmad Mirza\\.nuget\\packages\\": {}
+    "C:\\Users\\bilal\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj",
+      "projectUniqueName": "C:\\Users\\bilal\\projects\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj",
       "projectName": "ERP.Core",
-      "projectPath": "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj",
-      "packagesPath": "C:\\Users\\Sarmad Mirza\\.nuget\\packages\\",
-      "outputPath": "E:\\Projects\\ERP\\HAFoods\\ERP.WpfClient\\ERP.Core\\obj\\",
+      "projectPath": "C:\\Users\\bilal\\projects\\HAFoods\\ERP.WpfClient\\ERP.Core\\ERP.Core.csproj",
+      "packagesPath": "C:\\Users\\bilal\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\bilal\\projects\\HAFoods\\ERP.WpfClient\\ERP.Core\\obj\\",
       "projectStyle": "PackageReference",
       "skipContentFileWrite": true,
       "configFilePaths": [
-        "C:\\Users\\Sarmad Mirza\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\bilal\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
