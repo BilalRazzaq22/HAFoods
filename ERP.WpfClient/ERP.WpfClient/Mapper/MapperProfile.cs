@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using ERP.Entities.DBModel;
+using ERP.Entities.DBModel.CashBook;
 using ERP.Entities.DBModel.Customers;
 using ERP.Entities.DBModel.Payments;
 using ERP.Entities.DBModel.Stocks;
@@ -7,6 +8,7 @@ using ERP.Entities.DBModel.Suppliers;
 using ERP.Entities.DBModel.Transactions;
 using ERP.Entities.DBModel.Users;
 using ERP.WpfClient.Model;
+using ERP.WpfClient.Model.CashBooks;
 using ERP.WpfClient.Model.Payment;
 using ERP.WpfClient.Model.Stock;
 using ERP.WpfClient.Model.Supplier;
@@ -34,6 +36,8 @@ namespace ERP.WpfClient.Mapper
                 cfg.CreateMap<CurrentTransactionDetail, CurrentTransactionDetailModel>().ReverseMap();
                 cfg.CreateMap<Payment, PaymentModel>().ReverseMap();
                 cfg.CreateMap<User, UserModel>().ReverseMap();
+                cfg.CreateMap<CashBookOne, CashBookOneModel>().ReverseMap();
+                cfg.CreateMap<CashBookTwo, CashBookTwoModel>().ReverseMap();
             });
 
             iMapper = config.CreateMapper();

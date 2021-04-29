@@ -29,17 +29,17 @@
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock Style="{StaticResource TopMainHeadings}" Text="Cash Book 2 Information" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                <TextBlock Style="{StaticResource TopMainHeadings}" Text="Cash Book Two Information" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
 
                 <Label Style="{StaticResource SimpleLabelText}" Content="Debiter Party" FontWeight="Bold" Grid.Column="0" Grid.Row="1"/>
 
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Type:" />
-                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding DebiterTypeList}" SelectedItem="{Binding DebiterType}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                                    <TextBlock Text="{Binding Path=Type,Mode=TwoWay}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -47,13 +47,27 @@
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" Visibility="{Binding IsDebiterCustomer}">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Name:"/>
-                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding DebiterCustomerList}" SelectedItem="{Binding DebiterCustomer}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                                    <TextBlock Text="{Binding Path=FirstName,Mode=TwoWay}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1" Visibility="{Binding IsDebiterSupplier}">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Name:"/>
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding DebiterSupplierList}" SelectedItem="{Binding DebiterSupplier}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=FirstName,Mode=TwoWay}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -63,13 +77,13 @@
 
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Description of Amount:"/>
-                    <TextBox  Text="{Binding CustomerModel.FullName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                    <TextBox  Text="{Binding CashBookTwoModel.DebiterDescription,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
                 </StackPanel>
 
 
                 <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="3">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Amount:"/>
-                    <TextBox  Text="{Binding CustomerModel.FullName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                    <TextBox  Text="{Binding CashBookTwoModel.DebiterAmount,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
 
@@ -79,11 +93,24 @@
 
                 <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="0">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Type:" />
-                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding CrediterTypeList}" SelectedItem="{Binding CrediterType}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                                    <TextBlock Text="{Binding Path=Type,Mode=TwoWay}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ComboBox.ItemTemplate>
+                    </ComboBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" Visibility="{Binding IsCrediterCustomer}">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Name:"/>
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding CrediterCustomerList}" SelectedItem="{Binding CrediterCustomer}">
+                        <ComboBox.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Path=FirstName,Mode=TwoWay}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -91,14 +118,13 @@
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Column="1" Grid.Row="4">
-
-                    <Label Style="{StaticResource SimpleLabelText}" Content="Name:" />
-                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
+                <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="1" Visibility="{Binding IsCrediterSupplier}">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Name:"/>
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding CrediterSupplierList}" SelectedItem="{Binding CrediterSupplier}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">
-                                    <TextBlock Text="{Binding Path=PaymentType,Mode=TwoWay}"/>
+                                    <TextBlock Text="{Binding Path=FirstName,Mode=TwoWay}"/>
                                 </StackPanel>
                             </DataTemplate>
                         </ComboBox.ItemTemplate>
@@ -107,16 +133,14 @@
                 </StackPanel>
 
                 <StackPanel Orientation="Vertical" Grid.Column="2" Grid.Row="4">
-
                     <Label Style="{StaticResource SimpleLabelText}" Content="Description of Amount:"/>
-                    <TextBox  Text="{Binding CustomerModel.ContactNo,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
-
+                    <TextBox  Text="{Binding CashBookTwoModel.CrediterDescription,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
 
                 <StackPanel Orientation="Vertical" Grid.Row="4" Grid.Column="3">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Dated:" />
-                    <DatePicker Style="{StaticResource SimpleFormDatePicker}"/>
+                    <DatePicker Style="{StaticResource SimpleFormDatePicker}" SelectedDate="{Binding CashBookTwoModel.CashBookTwoDate}"/>
                 </StackPanel>
                 <!--<StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
                     <TextBlock Style="{StaticResource TopMainHeadings}" Text="Stats" Grid.Row="0" Grid.Column="0"/>
@@ -135,8 +159,8 @@
 
                 <StackPanel Grid.Row="5" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="2">
 
-                    <Button Style="{StaticResource AcceptButton}" Content="{Binding CustomerButton}" Command="{Binding CustomerCommands}" CommandParameter="{Binding CustomerParameter}" />
-                    <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding CustomerCommands}" CommandParameter="Clear" />
+                    <Button Style="{StaticResource AcceptButton}" Content="{Binding CashBookTwoButton}" Command="{Binding CashBookTwoCommands}" CommandParameter="{Binding CashBookTwoParameter}" />
+                    <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding CashBookTwoCommands}" CommandParameter="Clear" />
                 </StackPanel>
             </Grid>
         </StackPanel>
@@ -148,18 +172,20 @@
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customers" Grid.Row="0" Grid.Column="0"/>
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Cash Book Two" Grid.Row="0" Grid.Column="0"/>
 
                     <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>
                 </Grid>
             </StackPanel>
 
-            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}" Height="auto">
+            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CashBookTwoList}" Style="{StaticResource DataGridsForList}" Height="auto">
                 <DataGrid.Columns>
-                    <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
-                    <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>
-                    <DataGridTextColumn Header="Contact No" Width="*" Binding="{Binding ContactNo}"/>
-                    <DataGridTextColumn Header="Address" Width="*" Binding="{Binding Address}"/>
+                    <DataGridTextColumn Header="Debiter Type" Width="*" Binding="{Binding DebiterType}"/>
+                    <DataGridTextColumn Header="Debiter Amount" Width="*" Binding="{Binding DebiterAmount}"/>
+                    <DataGridTextColumn Header="Debiter Description" Width="*" Binding="{Binding DebiterDescription}"/>
+                    <DataGridTextColumn Header="Crediter Type" Width="*" Binding="{Binding CrediterType}"/>
+                    <DataGridTextColumn Header="Crediter Description" Width="*" Binding="{Binding CrediterDescription}"/>
+                    <DataGridTextColumn Header="CashBookTwoDate" Width="*" Binding="{Binding CashBookTwoDate}"/>
                     <DataGridTemplateColumn Width="*" Header="Actions">
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
@@ -186,7 +212,7 @@
 
 
                                     <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
-                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CashBookTwoCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
                                             </StackPanel>
@@ -195,7 +221,7 @@
 
 
                                     <Border Style="{StaticResource NavCancelButtonBorder}"  Width="100" Margin="5 0">
-                                        <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteCustomerCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                        <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteCashBookTwoCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />
                                             </StackPanel>

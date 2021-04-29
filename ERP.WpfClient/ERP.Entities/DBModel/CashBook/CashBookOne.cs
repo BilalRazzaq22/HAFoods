@@ -15,5 +15,10 @@ namespace ERP.Entities.DBModel.CashBook
         public decimal Amount { get; set; }
         public int? PaymentId { get; set; }
         public string Description { get; set; }
+        public DateTime CashBookOneDate { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
     }
 }
