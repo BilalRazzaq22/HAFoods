@@ -238,7 +238,6 @@ C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\GalaSoft.M
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\GalaSoft.MvvmLight.Platform.pdb
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\MaterialDesignColors.pdb
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\MaterialDesignThemes.Wpf.pdb
-C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\log4net.xml
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\cs-CZ\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\de\Xceed.Wpf.AvalonDock.resources.dll
 C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\bin\Debug\es\Xceed.Wpf.AvalonDock.resources.dll

@@ -406,7 +406,7 @@ namespace ERP.WpfClient.ViewModel
                     _viewManagerService.Select("home").Transition<View.Reports.AllReports>(viewType);
                     break;
                 case ViewTypes.PurchaseOrder:
-                    _viewManagerService.Select("home").Transition<View.PurchaseOrders.PurchaseOrder>(viewType);
+                    //_viewManagerService.Select("home").Transition<View.PurchaseOrders.PurchaseOrder>(viewType);
                     break;
                 case ViewTypes.User:
                     _viewManagerService.Select("home").Transition<View.Users.User>(viewType);
