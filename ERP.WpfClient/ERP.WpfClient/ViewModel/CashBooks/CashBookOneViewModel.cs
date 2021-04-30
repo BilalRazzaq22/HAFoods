@@ -221,14 +221,31 @@ namespace ERP.WpfClient.ViewModel.CashBooks
 
         public void SaveCashBookOne()
         {
-            CashBookOneModel.Type = CashBookType.Type;
-            CashBookOneModel.CustomerId = CustomerModel.Id;
-            CashBookOneModel.SupplierId = SupplierModel.Id;
-            CashBookOneModel.PaymentId = PaymentType.Id;
-            var model = _cashBookOneRepository.Add(MapperProfile.iMapper.Map<CashBookOne>(CashBookOneModel));
-            CashBookOneModel.Id = model.Id;
-            CashBookOneList.Add(CashBookOneModel);
-            Reset();
+            if (CashBookType.Type == "Select Type")
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please Select any Type");
+                return;
+            }
+            else
+            {
+                if (CashBookType.Type == "Customer")
+                {
+                    CashBookOneModel.CustomerId = CustomerModel.Id;
+                    CashBookOneModel.SupplierId = null;
+                }
+                else if (CashBookType.Type == "Supplier")
+                {
+                    CashBookOneModel.CustomerId = null;
+                    CashBookOneModel.SupplierId = SupplierModel.Id;
+                }
+
+                CashBookOneModel.Type = CashBookType.Type;
+                CashBookOneModel.PaymentId = PaymentType.Id;
+                var model = _cashBookOneRepository.Add(MapperProfile.iMapper.Map<CashBookOne>(CashBookOneModel));
+                CashBookOneModel.Id = model.Id;
+                CashBookOneList.Add(CashBookOneModel);
+                Reset();
+            }
         }
 
         public void EditCashBookOne(CashBookOneModel cashBookOneModel)
@@ -337,6 +354,14 @@ namespace ERP.WpfClient.ViewModel.CashBooks
         {
             if (cashBookType.Type != null)
             {
+                if (cashBookType.Type == "Select Type")
+                {
+                    //GetCustomer();
+                    SupplierModel = new SupplierModel();
+                    CustomerModel = new CustomerModel();
+                    IsCustomer = Visibility.Collapsed.ToString();
+                    IsSupplier = Visibility.Collapsed.ToString();
+                }
                 if (cashBookType.Type == "Customer")
                 {
                     GetCustomer();

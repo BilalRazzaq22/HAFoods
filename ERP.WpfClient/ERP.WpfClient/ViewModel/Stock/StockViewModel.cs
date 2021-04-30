@@ -152,11 +152,19 @@ namespace ERP.WpfClient.ViewModel.Stock
 
         public void SaveStock()
         {
-            //StockModel.CurrentQuantity = StockModel.NewQuantity;
-            var model = _stockRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel));
-            StockModel.Id = model.Id;
-            StockList.Add(StockModel);
-            Reset();
+            if (!String.IsNullOrEmpty(StockModel.ItemName))
+            {
+                //StockModel.CurrentQuantity = StockModel.NewQuantity;
+                var model = _stockRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel));
+                StockModel.Id = model.Id;
+                StockList.Add(StockModel);
+                Reset();
+            }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please add Item Name");
+                return;
+            }
         }
 
         public void EditStock(StockModel stockModel)
@@ -181,9 +189,17 @@ namespace ERP.WpfClient.ViewModel.Stock
 
         public void UpdateStock()
         {
-            StockModel.Quantity = StockModel.NewQuantity + StockModel.Quantity;
-            _stockRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel), StockModel.Id);
-            Reset();
+            if (!String.IsNullOrEmpty(StockModel.ItemName))
+            {
+                StockModel.Quantity = StockModel.NewQuantity + StockModel.Quantity;
+                _stockRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Stocks.Stock>(StockModel), StockModel.Id);
+                Reset();
+            }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please add Item Name");
+                return;
+            }
         }
 
         public void DeleteStock(StockModel stockModel)

@@ -122,10 +122,18 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         public void SaveCustomer()
         {
-            var model = _customerRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Customers.Customer>(CustomerModel));
-            CustomerModel.Id = model.Id;
-            CustomerList.Add(CustomerModel);
-            Reset();
+            if (!String.IsNullOrEmpty(CustomerModel.FirstName))
+            {
+                var model = _customerRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Customers.Customer>(CustomerModel));
+                CustomerModel.Id = model.Id;
+                CustomerList.Add(CustomerModel);
+                Reset();
+            }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please add First Name");
+                return;
+            }
         }
 
         public void EditCustomer(CustomerModel customerModel)
@@ -142,8 +150,16 @@ namespace ERP.WpfClient.ViewModel.Customer
 
         public void UpdateCustomer()
         {
-            _customerRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Customers.Customer>(CustomerModel), CustomerModel.Id);
-            Reset();
+            if (!String.IsNullOrEmpty(CustomerModel.FirstName))
+            {
+                _customerRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Customers.Customer>(CustomerModel), CustomerModel.Id);
+                Reset();
+            }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please add First Name");
+                return;
+            }
         }
 
         public void DeleteCustomer(CustomerModel customerModel)
