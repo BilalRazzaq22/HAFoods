@@ -120,10 +120,18 @@ namespace ERP.WpfClient.ViewModel.Supplier
 
         public void SaveSupplier()
         {
-            var model = _supplierRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Suppliers.Supplier>(SupplierModel));
-            SupplierModel.Id = model.Id;
-            SupplierList.Add(SupplierModel);
-            Reset();
+            if (!String.IsNullOrEmpty(SupplierModel.FirstName))
+            {
+                var model = _supplierRepository.Add(MapperProfile.iMapper.Map<Entities.DBModel.Suppliers.Supplier>(SupplierModel));
+                SupplierModel.Id = model.Id;
+                SupplierList.Add(SupplierModel);
+                Reset();
+            }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please add First Name");
+                return;
+            }
         }
 
         public void EditSupplier(SupplierModel supplierModel)
@@ -140,8 +148,16 @@ namespace ERP.WpfClient.ViewModel.Supplier
 
         public void UpdateSupplier()
         {
-            _supplierRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Suppliers.Supplier>(SupplierModel), SupplierModel.Id);
-            Reset();
+            if (!String.IsNullOrEmpty(SupplierModel.FirstName))
+            {
+                _supplierRepository.Update(MapperProfile.iMapper.Map<Entities.DBModel.Suppliers.Supplier>(SupplierModel), SupplierModel.Id);
+                Reset();
+            }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please add First Name");
+                return;
+            }
         }
 
         public void DeleteSupplier(SupplierModel supplierModel)

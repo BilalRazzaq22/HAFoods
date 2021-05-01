@@ -293,12 +293,47 @@ namespace ERP.WpfClient.ViewModel.CashBooks
 
         public void SaveCashBookTwo()
         {
+            if (DebiterType.Type == "Select Type")
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please Select Debitor Type");
+                return;
+            }
+            else if (CrediterType.Type == "Select Type")
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please Select Creditor Type");
+                return;
+            }
+
+
             CashBookTwoModel.DebiterType = DebiterType.Type;
             CashBookTwoModel.CrediterType = CrediterType.Type;
-            CashBookTwoModel.CrediterCustomerId = CrediterCustomer.Id;
-            CashBookTwoModel.CrediterSupplierId = CrediterSupplier.Id;
-            CashBookTwoModel.DebiterCustomerId = DebiterCustomer.Id;
-            CashBookTwoModel.DebiterSupplierId = DebiterSupplier.Id;
+
+            if (DebiterType.Type == "Supplier")
+            {
+                CashBookTwoModel.DebiterCustomerId = null;
+                CashBookTwoModel.DebiterSupplierId = DebiterSupplier.Id;
+            }
+            else if (DebiterType.Type == "Customer")
+            {
+                CashBookTwoModel.DebiterCustomerId = DebiterCustomer.Id;
+                CashBookTwoModel.DebiterSupplierId = null;
+            }
+
+            if (CrediterType.Type == "Supplier")
+            {
+
+                CashBookTwoModel.CrediterCustomerId = null;
+                CashBookTwoModel.CrediterSupplierId = CrediterSupplier.Id;
+            }
+            else if (CrediterType.Type == "Customer")
+            {
+
+                CashBookTwoModel.CrediterCustomerId = CrediterCustomer.Id;
+                CashBookTwoModel.CrediterSupplierId = null;
+            }
+
+
+     
             var model = _cashBookTwoRepository.Add(MapperProfile.iMapper.Map<CashBookTwo>(CashBookTwoModel));
             CashBookTwoModel.Id = model.Id;
             CashBookTwoList.Add(CashBookTwoModel);
