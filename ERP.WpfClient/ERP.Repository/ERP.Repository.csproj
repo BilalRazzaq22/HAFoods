@@ -52,6 +52,7 @@
     <Compile Include="Generic\GenericRepository.cs" />
     <Compile Include="Generic\IGenericRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PurchaseOrders\PurchaseOrderRepository.cs" />
     <Compile Include="Stock\StockRepository.cs" />
     <Compile Include="Transaction\CurrentTransactionRepository.cs" />
     <Compile Include="Transaction\ICurrentTransactionRepository.cs" />

@@ -120,8 +120,8 @@
                         <TextBox  Text="{Binding Discount,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                     </StackPanel>
 
-                    <Button Style="{StaticResource AcceptButton}" Content=" + Add to Bill " Width="auto"  Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Add Item"/>
-                    <Button Style="{StaticResource AcceptButton}" Content=" Clear " Width="auto"  Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Clear" HorizontalAlignment="Left" Margin="110 10"/>
+                    <Button Style="{StaticResource AcceptButton}" Content="+ Add to Bill"  Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Add Item"/>
+                    <Button Style="{StaticResource AcceptButton}" Content="Clear"  Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Clear" HorizontalAlignment="Left" Margin="135 10"/>
                     <!--<Button Style="{StaticResource AcceptButton}" Content="Get"  Grid.Column="3" Grid.Row="1" Command="{Binding CurrentOrderCommand}" CommandParameter="Get Order"/>-->
 
                 </Grid>

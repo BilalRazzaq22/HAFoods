@@ -568,7 +568,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                          }).ToList();
             if (query.Count > 0)
             {
-                ApplicationManager.Instance.PrintReport(query, @"/Reports/CurrentTransaction/rptCurrentTransaction", "dsCurrentTransaction", "CustomerBill");
+                ApplicationManager.Instance.PrintReport(query, @"/Reports/rptCurrentTransaction", "dsCurrentTransaction", "CustomerBill");
             }
         }
 

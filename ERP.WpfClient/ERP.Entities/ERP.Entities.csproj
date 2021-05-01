@@ -53,10 +53,11 @@
     <Compile Include="DbContext\HAFoodDbContext.cs" />
     <Compile Include="DBModel\AppSettings\AppSetting.cs" />
     <Compile Include="DBModel\CashBook\CashBookOne.cs" />
-    <Compile Include="DBModel\CashBook\CashBookTwo.cs" />
     <Compile Include="DBModel\Customers\Customer.cs" />
     <Compile Include="DBModel\Customers\CustomerOrder.cs" />
     <Compile Include="DBModel\Payments\Payment.cs" />
+    <Compile Include="DBModel\PurchaseOrders\PurchaseOrder.cs" />
+    <Compile Include="DBModel\PurchaseOrders\PurchaseOrderItem.cs" />
     <Compile Include="DBModel\Stocks\Stock.cs" />
     <Compile Include="DBModel\Suppliers\Supplier.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransaction.cs" />

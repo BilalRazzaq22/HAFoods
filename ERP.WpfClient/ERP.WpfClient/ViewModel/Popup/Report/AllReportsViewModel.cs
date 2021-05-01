@@ -307,7 +307,7 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             }
             if (dt.Rows.Count > 0)
             {
-                ApplicationManager.Instance.PrintReport(dt, @"/Reports/DailySale/rptDailySale", "dsDailySale", "DailySale");
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptDailySale", "dsDailySale", "DailySale");
             }
         }
 
@@ -336,7 +336,7 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             }
             if (dt.Rows.Count > 0)
             {
-                ApplicationManager.Instance.PrintReport(dt, @"/Reports/DailySale/rptDailySale", "dsDailySale", "DailySale");
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptDailySale", "dsDailySale", "DailySale");
             }
         }
 
@@ -388,7 +388,7 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             }
             if (dt.Rows.Count > 0)
             {
-                ApplicationManager.Instance.PrintReport(dt, @"/Reports/Customer/rptCustomer", "dsCustomer", "Customer");
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCustomer", "dsCustomer", "Customer");
             }
         }
 

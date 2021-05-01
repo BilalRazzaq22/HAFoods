@@ -1,4 +1,5 @@
-﻿using ERP.WpfClient.ViewModel.Transaction;
+﻿using ERP.WpfClient.ViewModel.PurchaseOrders;
+using ERP.WpfClient.ViewModel.Transaction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,6 +31,12 @@ namespace ERP.WpfClient.View.Popups.Payments
         {
             InitializeComponent();
             this.DataContext = currentTransactionViewModel;
+        }
+        
+        public PaymentPopup(PurchaseOrderViewModel purchaseOrderViewModel)
+        {
+            InitializeComponent();
+            this.DataContext = purchaseOrderViewModel;
         }
     }
 }
