@@ -14,9 +14,10 @@ namespace ERP.Common
         Supplier,
         Stock,
         CurrentTransaction,
-        CashBookOne,
-        CashBookTwo,
+        CashBook1,
+        CashBook2,
         AllReports,
+        PurchaseOrder,
         User
 
     }

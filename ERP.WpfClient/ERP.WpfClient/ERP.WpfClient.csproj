@@ -94,12 +94,11 @@
     <Compile Include="Messages\Popup\PopupDialogMessage.cs" />
     <Compile Include="Messages\User\UserLoginMessage.cs" />
     <Compile Include="Messages\View\ShowViewMessage.cs" />
-    <Compile Include="Model\CashBooks\CashBookOneModel.cs" />
-    <Compile Include="Model\CashBooks\CashBookTwoModel.cs" />
-    <Compile Include="Model\CashBooks\CashBookTypeModel.cs" />
     <Compile Include="Model\CustomerModel.cs" />
     <Compile Include="Model\Customer\CustomerOrderModel.cs" />
     <Compile Include="Model\Payment\PaymentModel.cs" />
+    <Compile Include="Model\PurchaseOrder\PurchaseOrderItemModel.cs" />
+    <Compile Include="Model\PurchaseOrder\PurchaseOrderModel.cs" />
     <Compile Include="Model\Stock\StockModel.cs" />
     <Compile Include="Model\Supplier\SupplierModel.cs" />
     <Compile Include="Model\Transaction\CurrentTransactionDetailModel.cs" />
@@ -127,19 +126,25 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDailySale.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Dataset\Stock\dsItemList.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsItemList.xsd</DependentUpon>
     </Compile>
-    <Compile Include="ViewModel\CashBooks\CashBookOneViewModel.cs" />
-    <Compile Include="ViewModel\CashBooks\CashBookTwoViewModel.cs" />
+    <Compile Include="ViewModel\CashBooks\CashBook1ViewModel.cs" />
+    <Compile Include="ViewModel\CashBooks\CashBook2ViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Data\DataViewModelBase.cs" />
     <Compile Include="ViewModel\Home\HomeViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
     <Compile Include="ViewModel\Popup\Report\AllReportsViewModel.cs" />
+    <Compile Include="ViewModel\PurchaseOrders\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\Transaction\CurrentTransactionViewModel.cs" />
@@ -181,6 +186,9 @@
     </Compile>
     <Compile Include="View\Popups\Reports\Supplier\SupplierReportPopup.xaml.cs">
       <DependentUpon>SupplierReportPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\PurchaseOrders\PurchaseOrder.xaml.cs">
+      <DependentUpon>PurchaseOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Reports\AllReports.xaml.cs">
       <DependentUpon>AllReports.xaml</DependentUpon>
@@ -288,6 +296,10 @@
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
     </Page>
+    <Page Include="View\PurchaseOrders\PurchaseOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Reports\AllReports.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -339,10 +351,11 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\CurrentTransaction\rptCurrentTransaction.rdlc" />
-    <EmbeddedResource Include="Reports\Customer\rptCustomer.rdlc" />
-    <EmbeddedResource Include="Reports\DailySale\rptDailySale.rdlc" />
+    <EmbeddedResource Include="Reports\rptCurrentTransaction.rdlc" />
+    <EmbeddedResource Include="Reports\rptCustomer.rdlc" />
+    <EmbeddedResource Include="Reports\rptDailySale.rdlc" />
     <EmbeddedResource Include="Reports\rptItemList.rdlc" />
+    <EmbeddedResource Include="Reports\rptPurchaseOrder.rdlc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -380,6 +393,17 @@
     <None Include="Reports\Dataset\DailySale\dsDailySale.xss">
       <DependentUpon>dsDailySale.xsd</DependentUpon>
     </None>
+    <None Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.xsc">
+      <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPurchaseOrder.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.xss">
+      <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
+    </None>
     <None Include="Reports\Dataset\Stock\dsItemList.xsc">
       <DependentUpon>dsItemList.xsd</DependentUpon>
     </None>
@@ -396,6 +420,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseScripts\SP_GetPurchaseOrderLedgerReport.sql" />
     <Resource Include="Resources\Themes\Images\Icons\clear.png" />
     <Resource Include="Resources\Themes\Images\Icons\search.png" />
     <Resource Include="Resources\Images\HighEnd%404x.png" />
@@ -403,6 +428,8 @@
     <Resource Include="Resources\Images\mainlogo.ico" />
     <Resource Include="Resources\Images\logo-marco-F-01.png" />
     <Resource Include="Resources\Images\fulllogo.png" />
+    <Content Include="DatabaseScripts\SP_GetCurrentPurchaseOrder.sql" />
+    <Content Include="DatabaseScripts\SP_GetCurrentTransactionLedgerReport.sql" />
     <Content Include="DatabaseScripts\SP_GetCustomerReport.sql" />
     <Content Include="DatabaseScripts\SP_GetDailySalesReport.sql" />
     <Content Include="DatabaseScripts\SP_GetItemList.sql" />

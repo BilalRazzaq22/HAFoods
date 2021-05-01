@@ -2,6 +2,7 @@
 using ERP.Entities.DBModel.CashBook;
 using ERP.Entities.DBModel.Customers;
 using ERP.Entities.DBModel.Payments;
+using ERP.Entities.DBModel.PurchaseOrders;
 using ERP.Entities.DBModel.Stocks;
 using ERP.Entities.DBModel.Suppliers;
 using ERP.Entities.DBModel.Transactions;
@@ -33,11 +34,12 @@ namespace ERP.Entities.DbContext
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<Supplier> Suppliers { get; set; }
-        public DbSet<CashBookTwo> CashBookTwos { get; set; }
         public DbSet<CashBookOne> CashBookOnes { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<AppSetting> AppSettings { get; set; }
         public DbSet<CustomerOrder> CustomerOrders { get; set; }
+        public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
+        public DbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
         //public DbSet<UserGroup> UserGroups { get; set; }
     }
 }
