@@ -9,7 +9,9 @@ using ERP.Repository.Transaction;
 using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.Mapper;
 using ERP.WpfClient.Model;
+using ERP.WpfClient.Model.CashBooks;
 using ERP.WpfClient.Model.Stock;
+using ERP.WpfClient.Model.Supplier;
 using ERP.WpfClient.View.Popups.Reports;
 using ERP.WpfClient.View.Popups.Reports.Customer;
 using ERP.WpfClient.View.Popups.Reports.DailySale;
@@ -40,6 +42,7 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
         private IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
         private readonly IGenericRepository<Payment> _paymentRepository;
         private readonly CustomerOrderRepository _customerOrderRepository;
+        private readonly IGenericRepository<Entities.DBModel.Suppliers.Supplier> _supplierRepository;
         private bool _isCustomerSelected;
         private bool _isItemSelected;
         private DateTime _fromDate;
@@ -54,6 +57,12 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
         private bool _isAllCategorySelected;
         private bool _isCategorySelected;
         private bool _isAllCustomerSelected;
+        private ObservableCollection<CashBookTypeModel> _cashBookTypeList;
+        private CashBookTypeModel _cashBookType;
+        private ObservableCollection<SupplierModel> _supplierList;
+        private SupplierModel _supplierModel;
+        private string _isCustomer;
+        private string _isSupplier;
 
         #endregion
 
@@ -68,6 +77,7 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             _stockRepository = new GenericRepository<Entities.DBModel.Stocks.Stock>(new HAFoodDbContext());
             _paymentRepository = App.Resolve<IGenericRepository<Payment>>();
             _customerOrderRepository = new CustomerOrderRepository(new HAFoodDbContext());
+            _supplierRepository = App.Resolve<IGenericRepository<Entities.DBModel.Suppliers.Supplier>>();
             CustomerList = new ObservableCollection<CustomerModel>();
             CustomerModel = new CustomerModel();
             StockList = new ObservableCollection<StockModel>();
@@ -152,18 +162,58 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             set { _isAlertQuantitySelected = value; RaisePropertyChanged("IsAlertQuantitySelected"); }
         }
 
-
         public bool IsAllCategorySelected
         {
             get { return _isAllCategorySelected; }
             set { _isAllCategorySelected = value; RaisePropertyChanged("IsAllCategorySelected"); }
         }
 
-
         public bool IsCategorySelected
         {
             get { return _isCategorySelected; }
             set { _isCategorySelected = value; RaisePropertyChanged("IsCategorySelected"); }
+        }
+
+        public CashBookTypeModel CashBookType
+        {
+            get { return _cashBookType; }
+            set
+            {
+                _cashBookType = value;
+                if (_cashBookType != null)
+                    GetType(_cashBookType);
+                RaisePropertyChanged("CashBookType");
+            }
+        }
+
+        public SupplierModel SupplierModel
+        {
+            get { return _supplierModel; }
+            set { _supplierModel = value; RaisePropertyChanged("SupplierModel"); }
+        }
+
+        public ObservableCollection<SupplierModel> SupplierList
+        {
+            get { return _supplierList; }
+            set { _supplierList = value; RaisePropertyChanged("SupplierList"); }
+        }
+
+        public ObservableCollection<CashBookTypeModel> CashBookTypeList
+        {
+            get { return _cashBookTypeList; }
+            set { _cashBookTypeList = value; RaisePropertyChanged("CashBookTypeList"); }
+        }
+
+        public string IsCustomer
+        {
+            get { return _isCustomer; }
+            set { _isCustomer = value; RaisePropertyChanged("IsCustomer"); }
+        }
+
+        public string IsSupplier
+        {
+            get { return _isSupplier; }
+            set { _isSupplier = value; RaisePropertyChanged("IsSupplier"); }
         }
 
         #endregion
@@ -238,6 +288,8 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             ToDate = DateTime.Now;
             GetCustomer();
             GetItems();
+            GetCashBookType();
+            GetSupplier();
         }
 
         private void GetCustomer()
@@ -250,11 +302,62 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             StockModel = StockList.FirstOrDefault();
         }
 
+        private void GetSupplier()
+        {
+            SupplierModel = SupplierList.FirstOrDefault();
+        }
+
         private void LoadCollections()
         {
             CustomerList = MapperProfile.iMapper.Map<ObservableCollection<CustomerModel>>(_customerRepository.Get());
             StockList = MapperProfile.iMapper.Map<ObservableCollection<StockModel>>(_stockRepository.Get());
+            SupplierList = MapperProfile.iMapper.Map<ObservableCollection<SupplierModel>>(_supplierRepository.Get());
+            InitializeCashBookTypeList();
         }
+
+        private void InitializeCashBookTypeList()
+        {
+            CashBookTypeList = new ObservableCollection<CashBookTypeModel>();
+
+            CashBookTypeList.Add(new CashBookTypeModel() { Type = "Select Type" });
+            CashBookTypeList.Add(new CashBookTypeModel() { Type = "Customer" });
+            CashBookTypeList.Add(new CashBookTypeModel() { Type = "Supplier" });
+        }
+
+        private void GetCashBookType()
+        {
+            CashBookType = CashBookTypeList.FirstOrDefault();
+        }
+
+        private void GetType(CashBookTypeModel cashBookType)
+        {
+            if (cashBookType.Type != null)
+            {
+                if (cashBookType.Type == "Select Type")
+                {
+                    //GetCustomer();
+                    SupplierModel = new SupplierModel();
+                    CustomerModel = new CustomerModel();
+                    IsCustomer = Visibility.Collapsed.ToString();
+                    IsSupplier = Visibility.Collapsed.ToString();
+                }
+                if (cashBookType.Type == "Customer")
+                {
+                    GetCustomer();
+                    SupplierModel = new SupplierModel();
+                    IsCustomer = Visibility.Visible.ToString();
+                    IsSupplier = Visibility.Collapsed.ToString();
+                }
+                if (cashBookType.Type == "Supplier")
+                {
+                    GetSupplier();
+                    CustomerModel = new CustomerModel();
+                    IsSupplier = Visibility.Visible.ToString();
+                    IsCustomer = Visibility.Collapsed.ToString();
+                }
+            }
+        }
+
 
         private void Init()
         {
@@ -313,35 +416,44 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
 
         private void GenerateLedgerReport()
         {
+            if (CashBookType.Type == "Select Type")
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please select one option.");
+                return;
+            }
+
             DataTable dt = new DataTable();
             string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
-            using (SqlConnection con = new SqlConnection(constr))
+            if (CashBookType.Type == "Customer")
             {
-                con.Open();
-                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetLedgerReport]", con))
+                using (SqlConnection con = new SqlConnection(constr))
                 {
-                    cmd.Parameters.AddWithValue("@FromDate", FromDate.Date.ToString("yyyy-MM-dd"));
-                    cmd.Parameters.AddWithValue("@ToDate", ToDate.Date.ToString("yyyy-MM-dd"));
-                    if (IsCustomerSelected)
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCurrentTransactionLedgerReport]", con))
+                    {
+                        cmd.Parameters.AddWithValue("@FromDate", FromDate.Date.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@ToDate", ToDate.Date.ToString("yyyy-MM-dd"));
                         cmd.Parameters.AddWithValue("@CustomerId", CustomerModel.Id);
-                    if (IsItemSelected)
-                        cmd.Parameters.AddWithValue("@SupplierId", StockModel.Id);
-                    if (IsCreditSelected)
-                        cmd.Parameters.AddWithValue("@PaymentType", "Credit");
-                    cmd.CommandType = CommandType.StoredProcedure;
-                    SqlDataAdapter da = new SqlDataAdapter();
-                    da.SelectCommand = cmd;
-                    da.Fill(dt);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = cmd;
+                        da.Fill(dt);
+                    }
                 }
-            }
-            if (dt.Rows.Count > 0)
-            {
-                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptDailySale", "dsDailySale", "DailySale");
+                if (dt.Rows.Count > 0)
+                {
+                    ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptLedgerReport", "dsLedgerReport", "CustomerLedgerReport");
+                }
             }
         }
 
         private void GenerateItemListReport()
         {
+            if (!IsAlertQuantitySelected && !IsAllCategorySelected && !IsCategorySelected)
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please select one option.");
+                return;
+            }
             DataTable dt = new DataTable();
             string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
             using (SqlConnection con = new SqlConnection(constr))
@@ -369,6 +481,11 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
 
         private void GenerateCustomerReport()
         {
+            if (!IsCustomerSelected && !IsAllCustomerSelected)
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please select one option.");
+                return;
+            }
             DataTable dt = new DataTable();
             string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
             using (SqlConnection con = new SqlConnection(constr))
