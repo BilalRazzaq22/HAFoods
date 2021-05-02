@@ -34,7 +34,7 @@
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Sales Orders" Command="{Binding MainViewCommand}" CommandParameter="Sales Order" Visibility="Collapsed"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 1" Visibility="Collapsed"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2" Visibility="Collapsed"/>
-                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="All Reports" Command="{Binding MainViewCommand}" CommandParameter="All Reports" />
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="All Reports" Command="{Binding MainViewCommand}" CommandParameter="Reports" />
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="User" Command="{Binding MainViewCommand}" CommandParameter="User"/>
                 </StackPanel>
             </Border>

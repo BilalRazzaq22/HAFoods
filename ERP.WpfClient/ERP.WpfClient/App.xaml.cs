@@ -64,7 +64,8 @@ namespace ERP.WpfClient
                     try
                     {
                         //CheckReset();
-                        string path = @"E:\Projects\ERP\HAFoods DB Backup";
+                        //string path = @"C:\Users\bilal\projects\HAFood DB Backup";
+                        string path = @"C:\Program Files (x86)\HA Foods Setup\HA Foods";
                         string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + path + @"\HAFoodDB.mdf; Integrated Security = True;";
                         HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
                         HaFoodDbContext.Init();
@@ -232,7 +233,8 @@ namespace ERP.WpfClient
             }
 
             string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
-            string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10);
+            //string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10);
+            string fullpath = @"C:\Program Files (x86)\HA Foods Setup\HA Foods";
             filePaths = Directory.GetFiles(System.IO.Path.Combine(fullpath, @"DatabaseScripts"));
             if (filePaths != null)
             {

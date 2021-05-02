@@ -406,12 +406,9 @@ namespace ERP.WpfClient.ViewModel
                 case ViewTypes.Reports:
                     _viewManagerService.Select("home").Transition<View.Reports.AllReports>(viewType);
                     break;
-<<<<<<< HEAD
-=======
                 case ViewTypes.PurchaseOrder:
-                    //_viewManagerService.Select("home").Transition<View.PurchaseOrders.PurchaseOrder>(viewType);
+                    _viewManagerService.Select("home").Transition<View.PurchaseOrders.PurchaseOrder>(viewType);
                     break;
->>>>>>> main
                 case ViewTypes.User:
                     _viewManagerService.Select("home").Transition<View.Users.User>(viewType);
                     break;
