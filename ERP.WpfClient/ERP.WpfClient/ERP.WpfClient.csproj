@@ -129,6 +129,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDailySale.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Reports\Dataset\LedgerReport\dsLedgerReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsLedgerReport.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -358,6 +363,7 @@
     <EmbeddedResource Include="Reports\rptCustomer.rdlc" />
     <EmbeddedResource Include="Reports\rptDailySale.rdlc" />
     <EmbeddedResource Include="Reports\rptItemList.rdlc" />
+    <EmbeddedResource Include="Reports\rptLedgerReport.rdlc" />
     <EmbeddedResource Include="Reports\rptPurchaseOrder.rdlc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -395,6 +401,17 @@
     </None>
     <None Include="Reports\Dataset\DailySale\dsDailySale.xss">
       <DependentUpon>dsDailySale.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\LedgerReport\dsLedgerReport.xsc">
+      <DependentUpon>dsLedgerReport.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\LedgerReport\dsLedgerReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsLedgerReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\LedgerReport\dsLedgerReport.xss">
+      <DependentUpon>dsLedgerReport.xsd</DependentUpon>
     </None>
     <None Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.xsc">
       <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
