@@ -31,7 +31,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource AcceptButton}" Content="New Order" HorizontalAlignment="Right" CommandParameter="New Order" Command="{Binding PurchaseOrderCommand}" />
+            <Button Grid.Column="0" Style="{StaticResource AcceptButton}" Content="New Order" Width="100" HorizontalAlignment="Right" CommandParameter="New Order" Command="{Binding PurchaseOrderCommand}" />
             <!--<Button Grid.Column="1" Content="Print" CommandParameter="Yes" Command="{Binding ActionCommand}"  Style="{StaticResource AcceptButton}"/>-->
         </Grid>
     </Grid>
