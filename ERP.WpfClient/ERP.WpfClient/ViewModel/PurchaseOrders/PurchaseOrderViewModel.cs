@@ -280,7 +280,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                     });
                 }
 
-                decimal price = PurchaseOrderItemList.Sum(x => x.BuyPrice * x.NewQuantity);
+                decimal price = PurchaseOrderItemList.Sum(x => x.TotalPrice);
 
                 PurchaseOrderModel.TotalPrice = price;
                 PurchaseOrderModel.TotalDiscount = PurchaseOrderItemList.Sum(x => x.NewDiscount);
@@ -432,9 +432,8 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
 
         private void SaveSupplierAmount()
         {
-            //SupplierOrder supplierOrder = _supplierOrderRepository.Get().FirstOrDefault(x => x.SupplierId == SupplierModel.Id);
-            //if (supplierOrder == null)
-            //{
+            SupplierOrder supplierOrder = _supplierOrderRepository.Get().FirstOrDefault(x => x.SupplierId == SupplierModel.Id);
+            
             SupplierOrder suppOrder = new SupplierOrder
             {
                 SupplierId = SupplierModel.Id,
