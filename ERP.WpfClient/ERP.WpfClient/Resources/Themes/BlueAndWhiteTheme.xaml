@@ -116,18 +116,6 @@
         <Setter Property="FontSize" Value="30"/>
     </Style>
 
-    <Style x:Key="ProductMatrixDropdown" TargetType="{x:Type ComboBox}">
-        <Setter Property="IsEditable" Value="False"/>
-        <Setter Property="Height" Value="30"/>
-        <Setter Property="Width" Value="265"/>
-        <Setter Property="VerticalAlignment" Value="Top"/>
-        <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Margin" Value="15,0,0,0"/>
-        <Setter Property="FontSize" Value="15"/>
-        <Setter Property="HorizontalContentAlignment" Value="Left"/>
-        <Setter Property="VerticalContentAlignment" Value="Center"/>
-        <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
-    </Style>
 
 
     <Style x:Key="PopUpConfirmatoryText" TargetType="{x:Type TextBlock}">
@@ -171,11 +159,11 @@
 
         <!--<Setter Property="BorderBrush" Value="{StaticResource PopUpButtonTextForegroundColor}"/>
         <Setter Property="BorderThickness" Value="3"/>-->
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Margin" Value="5"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
-        <Setter Property="Height" Value="45"/>
-        <Setter Property="Width" Value="120"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
         <Setter Property="Foreground" Value="{StaticResource CommonWhiteBackgroundColor}"/>
         <Setter Property="Template">
@@ -201,9 +189,9 @@
     <Style x:Key="NavButtonBorder" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="{StaticResource CommonBlueBackgroundColor}"/>
         <Setter Property="CornerRadius" Value="5"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="40"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="60"/>
     </Style>
 
 
@@ -211,9 +199,9 @@
     <Style x:Key="NavCancelButtonBorder" TargetType="{x:Type Border}">
         <Setter Property="Background" Value="#fa6b6b"/>
         <Setter Property="CornerRadius" Value="5"/>
-        <Setter Property="Margin" Value="5"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="40"/>
+        <Setter Property="Margin" Value="3"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="60"/>
     </Style>
 
 
@@ -278,12 +266,6 @@
         </Setter>
     </Style>
 
-
-    
-    
-    
-    
-
     <Style x:Key="DeclineButton" TargetType="{x:Type Button}">
         <!--<Setter Property="Height" Value="40"/>-->
         <Setter Property="OverridesDefaultStyle" Value="True" />
@@ -292,11 +274,11 @@
         <Setter Property="Foreground" Value="{StaticResource CommonBlueBackgroundColor}"/>
         <!--<Setter Property="BorderBrush" Value="{StaticResource CommonTextBlueColorForeground}"/>-->
         <!--<Setter Property="BorderThickness" Value="3"/>-->
-        <Setter Property="Margin" Value="10"/>
+        <Setter Property="Margin" Value="5"/>
         <Setter Property="HorizontalAlignment" Value="Right"/>
-        <Setter Property="Height" Value="45"/>
-        <Setter Property="Width" Value="120"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="Width" Value="70"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
         <Setter Property="Template">
             <Setter.Value>
@@ -313,10 +295,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
-    
-    
-
 
     <Style x:Key="LeftMenuButton" TargetType="{x:Type RadioButton}">
         <Setter Property="BorderBrush" Value="{StaticResource CommonGreyBackgrounColor}"/>
@@ -357,9 +335,9 @@
         <Setter Property="Background" Value="{StaticResource CommonWhiteBackgroundColor}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="230"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="210"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="15 0 0 0"/>
@@ -371,15 +349,27 @@
         <Setter Property="Background" Value="{StaticResource CommonWhiteBackgroundColor}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="230"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="210"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="15 0 0 0"/>
         <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
     </Style>
 
+    <Style x:Key="ProductMatrixDropdown" TargetType="{x:Type ComboBox}">
+        <Setter Property="IsEditable" Value="False"/>
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="210"/>
+        <Setter Property="VerticalAlignment" Value="Top"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Margin" Value="15,0,0,0"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
+    </Style>
 
 
 
@@ -388,17 +378,14 @@
         <Setter Property="Background" Value="{StaticResource CommonWhiteBackgroundColor}"/>
         <Setter Property="BorderBrush" Value="Transparent"/>
         <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
-        <Setter Property="FontSize" Value="16"/>
-        <Setter Property="Height" Value="40"/>
-        <Setter Property="Width" Value="230"/>
+        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="Height" Value="35"/>
+        <Setter Property="Width" Value="210"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Margin" Value="15 0 0 0"/>
         <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
     </Style>
-
-
-
 
 
     <Style x:Key="SimpleLabelText" TargetType="{x:Type Label}">
@@ -407,7 +394,7 @@
         <Setter Property="HorizontalAlignment" Value="Left"/>
         <Setter Property="Opacity" Value="0.8"/>
         <Setter Property="Margin" Value="10 0 0 0"/>
-        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontSize" Value="14"/>
         <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
     </Style>
 
@@ -415,13 +402,13 @@
     <Style x:Key="TopMainHeadings" TargetType="{x:Type TextBlock}">
 
         <Setter Property="Background" Value="Transparent"/>
-        <Setter Property="Height" Value="40"/>
+        <Setter Property="Height" Value="30"/>
         <Setter Property="Width" Value="auto"/>
         <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}"/>
-        <Setter Property="FontSize" Value="25"/>
+        <Setter Property="FontSize" Value="22"/>
         <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="Margin" Value="5 5 0 5"/>
+        <Setter Property="Margin" Value="5 0 0 5"/>
 
     </Style>
 
@@ -464,8 +451,8 @@
         <Setter Property="Margin" Value="10"/>
         <Setter Property="CanUserReorderColumns" Value="False"/>
         <Setter Property="CanUserSortColumns" Value="True"/>
-        <Setter Property="MinRowHeight" Value="50"/>
-        <Setter Property="RowHeight" Value="50"/>
+        <Setter Property="MinRowHeight" Value="40"/>
+        <Setter Property="RowHeight" Value="40"/>
         <Setter Property="CanUserAddRows" Value="False"/>
         <Setter Property="GridLinesVisibility" Value="None"/>
         <Setter Property="AutoGenerateColumns" Value="False"/>
@@ -492,7 +479,7 @@
                 <Setter Property="Foreground" Value="{StaticResource CommonGreyForegroundTextColor}" />
                 <Setter Property="Opacity" Value="0.8" />
                 <Setter Property="BorderBrush" Value="Transparent"/>
-                <Setter Property="Height" Value="50"/>
+                <Setter Property="Height" Value="40"/>
                 <Setter Property="FontSize" Value="{StaticResource DataGridHeaderColumnFontSize}"/>
                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                 <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
@@ -510,7 +497,7 @@
                 <Setter Property="VerticalAlignment" Value="Center"/>
 
 
-                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="FontSize" Value="14"/>
 
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
                 <Setter Property="FontFamily" Value="{StaticResource MainTextFontFamily}"/>
@@ -543,9 +530,7 @@
 
                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                 <!--<Setter Property="FontSize" Value="{StaticResource CommonBlueButtonTextFontSize}"/>-->
-                <Setter Property="Height" Value="50"/>
-                <Setter Property="Height" Value="50"/>
-
+                <Setter Property="Height" Value="40"/>
 
                 <Setter Property="OverridesDefaultStyle" Value="True"/>
 

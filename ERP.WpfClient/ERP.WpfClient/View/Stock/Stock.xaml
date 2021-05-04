@@ -22,7 +22,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -73,7 +73,7 @@
 
                 <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Remarks:"/>
-                    <TextBox Text="{Binding StockModel.Remarks,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="450" TextWrapping="Wrap" Height="100"/>
+                    <TextBox Text="{Binding StockModel.Remarks,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="400" TextWrapping="Wrap" Height="70"/>
                 </StackPanel>
 
                 <!--<StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3" Grid.RowSpan="4">
@@ -107,12 +107,11 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource TopMainHeadings}" Text="Stocks" Grid.Row="0" Grid.Column="0"/>
-
                     <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>
                 </Grid>
             </StackPanel>
 
-            <DataGrid x:Name="grdStock" ItemsSource="{Binding StockList}" Style="{StaticResource DataGridsForList}" Height="450">
+            <DataGrid x:Name="grdStock" ItemsSource="{Binding StockList}" Style="{StaticResource DataGridsForList}" Height="320">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Item Name" Width="*" Binding="{Binding ItemName}"/>
                     <DataGridTextColumn Header="Urdu Name" Width="*" Binding="{Binding UrduName}"/>
@@ -145,14 +144,14 @@
 
 
                                 <StackPanel Orientation="Horizontal">
-                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="auto" Margin="3 0">
+                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}">
                                         <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.StockCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
                                             </StackPanel>
                                         </Button>
                                     </Border>
-                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="auto" Margin="3 0">
+                                    <Border Style="{StaticResource NavCancelButtonBorder}"  >
                                         <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteStockCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />

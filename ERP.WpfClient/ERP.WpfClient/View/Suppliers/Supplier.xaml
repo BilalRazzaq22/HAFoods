@@ -20,7 +20,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -53,7 +53,7 @@
 
                     <Label Style="{StaticResource SimpleLabelText}" Content="Address:"/>
 
-                    <TextBox Text="{Binding SupplierModel.Address,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="450" TextWrapping="Wrap" Height="100"/>
+                    <TextBox Text="{Binding SupplierModel.Address,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="400" TextWrapping="Wrap" Height="80"/>
 
                 </StackPanel>
 
@@ -88,12 +88,11 @@
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <TextBlock Style="{StaticResource TopMainHeadings}" Text="Suppliers" Grid.Row="0" Grid.Column="0"/>
-
                     <my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>
                 </Grid>
             </StackPanel>
 
-            <DataGrid x:Name="grdSupplier" ItemsSource="{Binding SupplierList}" Style="{StaticResource DataGridsForList}" Height="450">
+            <DataGrid x:Name="grdSupplier" ItemsSource="{Binding SupplierList}" Style="{StaticResource DataGridsForList}" Height="320">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
                     <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>
@@ -119,39 +118,25 @@
                                     </Border>
 
                                 </StackPanel>-->
-
-
                                 <StackPanel Orientation="Horizontal">
-
-
-                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
+                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}">
                                         <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.SupplierCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
                                             </StackPanel>
                                         </Button>
                                     </Border>
-
-
-                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="100" Margin="5 0">
+                                    <Border Style="{StaticResource NavCancelButtonBorder}"  >
                                         <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteSupplierCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />
                                             </StackPanel>
                                         </Button>
                                     </Border>
-
-
-
-
                                 </StackPanel>
                             </DataTemplate>
-
-
-
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
-
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

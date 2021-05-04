@@ -30,7 +30,7 @@
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <Button Grid.Column="0" Style="{StaticResource AcceptButton}" Content="New Order" HorizontalAlignment="Right" CommandParameter="New Order" Command="{Binding CurrentOrderCommand}" />
+            <Button Grid.Column="0" Style="{StaticResource AcceptButton}" Width="100" Content="New Order" HorizontalAlignment="Right" CommandParameter="New Order" Command="{Binding CurrentOrderCommand}" />
             <!--<Button Grid.Column="1" Content="Print" CommandParameter="Yes" Command="{Binding ActionCommand}"  Style="{StaticResource AcceptButton}"/>-->
         </Grid>
     </Grid>

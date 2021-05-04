@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ERP.WpfClient.View.Transaction"
              mc:Ignorable="d" 
-             d:DesignHeight="780" d:DesignWidth="1024">
+             d:DesignHeight="660" d:DesignWidth="824">
     <Grid Background="{StaticResource MasterBackgroundColor}">
         <StackPanel>
             <Grid>
@@ -14,7 +14,7 @@
                     <!--<ColumnDefinition Width="250"/>-->
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -25,14 +25,14 @@
                         <ColumnDefinition Width="280"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="40"/>
+                        <RowDefinition Height="30"/>
                     </Grid.RowDefinitions>
                     <TextBlock Style="{StaticResource TopMainHeadings}" Text="Current Transaction" Grid.Row="0" />
                     <Grid Grid.Column="1" >
-                        <Border x:Name="_border" Background="White" BorderBrush="LightGray" BorderThickness="1 1 2 2" CornerRadius="8" Padding="6 0">
+                        <Border x:Name="_border" Background="White" BorderBrush="LightGray" Width="230" Height="30" BorderThickness="1 1 2 2" Margin="0 0 0 0" CornerRadius="8" Padding="1 0">
                             <StackPanel Orientation="Horizontal" >
                                 <Image x:Name="_imgSearch" Style="{StaticResource SearchTextIcon}" Stretch="None" />
-                                <TextBox x:Name="_txtSearch" Text="{Binding OrderNumber,Mode=TwoWay}" Width="200" BorderThickness="0" VerticalContentAlignment="Center" MouseEnter="_txtSearch_MouseEnter" MouseLeave="_txtSearch_MouseLeave" TextChanged="_txtSearch_TextChanged">
+                                <TextBox x:Name="_txtSearch" Text="{Binding OrderNumber,Mode=TwoWay}" Width="180" Height="30" BorderThickness="0" VerticalContentAlignment="Center" MouseEnter="_txtSearch_MouseEnter" MouseLeave="_txtSearch_MouseLeave" TextChanged="_txtSearch_TextChanged">
                                     <TextBox.InputBindings>
                                         <KeyBinding Key="Return" Command="{Binding CurrentOrderCommand}" CommandParameter="Search Order"/>
                                     </TextBox.InputBindings>
@@ -120,13 +120,13 @@
                         <TextBox  Text="{Binding Discount,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                     </StackPanel>
 
-                    <Button Style="{StaticResource AcceptButton}" Content="+ Add to Bill"  Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Add Item"/>
-                    <Button Style="{StaticResource AcceptButton}" Content="Clear"  Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Clear" HorizontalAlignment="Left" Margin="135 10"/>
+                    <Button Style="{StaticResource AcceptButton}" Content=" + Add to Bill " Width="auto" Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Add Item"/>
+                    <Button Style="{StaticResource AcceptButton}" Content="Clear"   Grid.Column="3" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Clear" HorizontalAlignment="Left" Margin="105 10"/>
                     <!--<Button Style="{StaticResource AcceptButton}" Content="Get"  Grid.Column="3" Grid.Row="1" Command="{Binding CurrentOrderCommand}" CommandParameter="Get Order"/>-->
 
                 </Grid>
                 <StackPanel Grid.Row="2">
-                    <DataGrid ItemsSource="{Binding CurrentTransactionDetailList}" Style="{StaticResource DataGridsForList}" Height="350">
+                    <DataGrid ItemsSource="{Binding CurrentTransactionDetailList}" Style="{StaticResource DataGridsForList}" Height="300">
                         <DataGrid.Columns>
                             <!--<DataGridTemplateColumn Width="*" Header="Action">
                                 <DataGridTemplateColumn.CellTemplate>
@@ -153,10 +153,10 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="50"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="55"/>
                         </Grid.RowDefinitions>
 
                         <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
@@ -195,7 +195,7 @@
                         </StackPanel>
 
                         <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
-                            <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Command="{Binding CurrentOrderCommand}" CommandParameter="Save Order"/>
+                            <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Height="50" Width="100" Command="{Binding CurrentOrderCommand}" CommandParameter="Save Order"/>
                         </StackPanel>
                     </Grid>
                 </StackPanel>

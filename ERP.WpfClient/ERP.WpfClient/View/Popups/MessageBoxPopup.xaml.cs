@@ -26,7 +26,7 @@ namespace ERP.WpfClient.View.Popups
             InitializeComponent();
         }
 
-        public MessageBoxPopup(String message, string okButtonText = "OKAY")
+        public MessageBoxPopup(String message, string okButtonText = "Okay")
         {
 
             InitializeComponent();

@@ -21,7 +21,7 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
                     <RowDefinition Height="*"/>
@@ -99,7 +99,7 @@
 
                     <Label Style="{StaticResource SimpleLabelText}" Content="Description of Amount:"/>
 
-                    <TextBox Text="{Binding CashBookOneModel.Description,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="450" TextWrapping="Wrap" Height="100"/>
+                    <TextBox Text="{Binding CashBookOneModel.Description,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="400" TextWrapping="Wrap" Height="70"/>
 
                 </StackPanel>
 
@@ -138,7 +138,7 @@
                 </Grid>
             </StackPanel>
 
-            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CashBookOneList}" Style="{StaticResource DataGridsForList}" Height="450">
+            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CashBookOneList}" Style="{StaticResource DataGridsForList}" Height="320">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Date" Width="*" Binding="{Binding CashBookOneDate}"/>
                     <DataGridTextColumn Header="Type" Width="*" Binding="{Binding Type}"/>
@@ -169,7 +169,7 @@
                                 <StackPanel Orientation="Horizontal">
 
 
-                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
+                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}">
                                         <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CashBookOneCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
@@ -178,7 +178,7 @@
                                     </Border>
 
 
-                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="100" Margin="5 0">
+                                    <Border Style="{StaticResource NavCancelButtonBorder}">
                                         <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteCashBookOneCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
                                             <StackPanel Orientation="Horizontal">
                                                 <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />
