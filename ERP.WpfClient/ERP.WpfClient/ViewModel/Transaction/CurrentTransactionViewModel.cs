@@ -19,6 +19,7 @@ using ERP.WpfClient.View.Popups.Payments;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Reporting.WebForms;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Diagnostics;
@@ -233,7 +234,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 if (CurrentTransactionDetailModel != null)
                 {
                     CurrentTransactionDetailModel.ItemName = StockModel.ItemName;
-                    CurrentTransactionDetailModel.Price = StockModel.SalePrice;
+                    CurrentTransactionDetailModel.Price = StockModel.SalePrice * StockModel.Packing;
                     //if (_isPreviousOrder)
                     //{
                     CurrentTransactionDetailModel.NewQuantity = CurrentTransactionDetailModel.NewQuantity + Quantity;
@@ -255,7 +256,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         NewQuantity = Quantity,
                         Discount = Discount,
                         NewDiscount = Discount,
-                        TotalPrice = (StockModel.SalePrice * Quantity) - Discount
+                        TotalPrice = ((StockModel.SalePrice * StockModel.Packing) * Quantity) - Discount
                     });
                 }
 
@@ -495,51 +496,51 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private void GetCustomerAmount(int customerId)
         {
             CustomerOrderModel = new CustomerOrderModel();
-            CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == customerId);
-            if (customerOrder != null)
+            List<CustomerOrder> customerOrder = _customerOrderRepository.Get().Where(x => x.CustomerId == customerId).ToList();
+            if (customerOrder != null && customerOrder.Count > 0)
             {
-                CustomerOrderModel.CustomerId = customerOrder.CustomerId;
-                CustomerOrderModel.AmountPaid = customerOrder.AmountPaid;
-                CustomerOrderModel.RemainingAmount = customerOrder.RemainingAmount;
-                CustomerOrderModel.TotalAmount = customerOrder.TotalAmount;
+                CustomerOrderModel.CustomerId = customerId;
+                CustomerOrderModel.AmountPaid = customerOrder.Sum(x => x.AmountPaid);
+                CustomerOrderModel.RemainingAmount = customerOrder.Sum(x => x.RemainingAmount);
+                CustomerOrderModel.TotalAmount = customerOrder.Sum(x => x.TotalAmount);
             }
         }
 
         private void SaveCustomerAmount()
         {
-            CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == CustomerModel.Id);
-            if (customerOrder == null)
+            //CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == CustomerModel.Id);
+            //if (customerOrder == null)
+            //{
+            CustomerOrder custOrder = new CustomerOrder
             {
-                CustomerOrder custOrder = new CustomerOrder
-                {
-                    CustomerId = CustomerModel.Id,
-                    AmountPaid = CurrentTransactionModel.AmountPaid,
-                    RemainingAmount = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid,
-                    TotalAmount = CurrentTransactionModel.TotalPrice
-                };
+                CustomerId = CustomerModel.Id,
+                AmountPaid = CurrentTransactionModel.AmountPaid,
+                RemainingAmount = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid,
+                TotalAmount = CurrentTransactionModel.TotalPrice
+            };
 
-                GrandTotal = custOrder.TotalAmount;
-                AmountPaid = custOrder.AmountPaid;
-                RemainingAmount = custOrder.RemainingAmount;
+            GrandTotal = custOrder.TotalAmount;
+            AmountPaid = custOrder.AmountPaid;
+            RemainingAmount = custOrder.RemainingAmount;
 
-                _customerOrderRepository.SaveCustomerOrderAmount(custOrder);
-            }
-            else
-            {
-                customerOrder.CustomerId = CustomerModel.Id;
-                customerOrder.AmountPaid = CurrentTransactionModel.AmountPaid + customerOrder.AmountPaid;
-                customerOrder.RemainingAmount = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid;
-                if (_isPreviousOrder)
-                    customerOrder.TotalAmount = NewItemPrice + customerOrder.TotalAmount;
-                else
-                    customerOrder.TotalAmount = (CurrentTransactionModel.TotalPrice - CurrentTransactionModel.TotalDiscount) + customerOrder.TotalAmount;
+            _customerOrderRepository.Add(custOrder);
+            //}
+            //else
+            //{
+            //    customerOrder.CustomerId = CustomerModel.Id;
+            //    customerOrder.AmountPaid = CurrentTransactionModel.AmountPaid + customerOrder.AmountPaid;
+            //    customerOrder.RemainingAmount = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid;
+            //    if (_isPreviousOrder)
+            //        customerOrder.TotalAmount = NewItemPrice + customerOrder.TotalAmount;
+            //    else
+            //        customerOrder.TotalAmount = (CurrentTransactionModel.TotalPrice - CurrentTransactionModel.TotalDiscount) + customerOrder.TotalAmount;
 
-                GrandTotal = customerOrder.TotalAmount;
-                AmountPaid = customerOrder.AmountPaid;
-                RemainingAmount = customerOrder.RemainingAmount;
+            //    GrandTotal = customerOrder.TotalAmount;
+            //    AmountPaid = customerOrder.AmountPaid;
+            //    RemainingAmount = customerOrder.RemainingAmount;
 
-                _customerOrderRepository.SaveCustomerOrderAmount(customerOrder);
-            }
+            //    _customerOrderRepository.SaveCustomerOrderAmount(customerOrder);
+            //}
         }
 
         private void LoadReport(CurrentTransaction t)

@@ -1,5 +1,4 @@
 ﻿using ERP.WpfClient.ViewModel.PurchaseOrders;
-using ERP.WpfClient.ViewModel.Transaction;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,19 +17,19 @@ using System.Windows.Shapes;
 namespace ERP.WpfClient.View.Popups.Payments
 {
     /// <summary>
-    /// Interaction logic for PaymentPopup.xaml
+    /// Interaction logic for PurchasePaymentPopup.xaml
     /// </summary>
-    public partial class PaymentPopup : UserControl
+    public partial class PurchasePaymentPopup : UserControl
     {
-        public PaymentPopup()
+        public PurchasePaymentPopup()
         {
             InitializeComponent();
         }
 
-        public PaymentPopup(CurrentTransactionViewModel currentTransactionViewModel)
+        public PurchasePaymentPopup(PurchaseOrderViewModel purchaseOrderViewModel)
         {
             InitializeComponent();
-            this.DataContext = currentTransactionViewModel;
+            this.DataContext = purchaseOrderViewModel;
         }
     }
 }

@@ -5,6 +5,7 @@ using ERP.Entities.DBModel;
 using ERP.Entities.DBModel.Customers;
 using ERP.Entities.DBModel.Payments;
 using ERP.Entities.DBModel.PurchaseOrders;
+using ERP.Entities.DBModel.Suppliers;
 using ERP.Entities.DBModel.Transactions;
 using ERP.Repository.Customer;
 using ERP.Repository.Generic;
@@ -23,6 +24,7 @@ using ERP.WpfClient.View.Popups.Payments;
 using GalaSoft.MvvmLight.Command;
 using Microsoft.Reporting.WebForms;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +44,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
         private readonly IGenericRepository<Entities.DBModel.Suppliers.Supplier> _supplierRepository;
         private IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
         private readonly IGenericRepository<Payment> _paymentRepository;
+        private readonly IGenericRepository<SupplierOrder> _supplierOrderRepository;
         private PurchaseOrderModel _purchaseOrderModel;
         private PurchaseOrderItemModel _purchaseOrderItemModel;
         private ObservableCollection<PurchaseOrderModel> _purchaseOrderList;
@@ -66,6 +69,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
         private decimal _newItemPrice;
         private decimal _totalQuantity;
         private decimal _totalAmount;
+        private SupplierOrderModel _supplierOrderModel;
 
         //CurrentTransactionRepository currentTransaction = new CurrentTransactionRepository();
 
@@ -80,6 +84,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             _supplierRepository = App.Resolve<IGenericRepository<Entities.DBModel.Suppliers.Supplier>>();
             _stockRepository = new GenericRepository<Entities.DBModel.Stocks.Stock>(new HAFoodDbContext());
             _paymentRepository = App.Resolve<IGenericRepository<Payment>>();
+            _supplierOrderRepository = App.Resolve<IGenericRepository<SupplierOrder>>();
             StockList = new ObservableCollection<StockModel>();
             SupplierList = new ObservableCollection<SupplierModel>();
         }
@@ -136,7 +141,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             get { return _purchaseOrderList; }
             set { _purchaseOrderList = value; RaisePropertyChanged("PurchaseOrderList"); }
         }
-        
+
         public PurchaseOrderItemModel PurchaseOrderItemModel
         {
             get { return _purchaseOrderItemModel; }
@@ -155,8 +160,8 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             set
             {
                 _supplierModel = value;
-                //if (_supplierModel != null)
-                //    GetCustomerAmount(_supplierModel.Id);
+                if (_supplierModel != null)
+                    GetSupplierAmount(_supplierModel.Id);
                 RaisePropertyChanged("SupplierModel");
             }
         }
@@ -212,14 +217,22 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
         public decimal TotalQuantity
         {
             get { return _totalQuantity; }
-            set { _totalQuantity = value; }
+            set { _totalQuantity = value; RaisePropertyChanged("TotalQuantity"); }
         }
 
         public decimal TotalAmount
         {
             get { return _totalAmount; }
-            set { _totalAmount = value; }
+            set { _totalAmount = value; RaisePropertyChanged("TotalAmount"); }
         }
+
+
+        public SupplierOrderModel SupplierOrderModel
+        {
+            get { return _supplierOrderModel; }
+            set { _supplierOrderModel = value; RaisePropertyChanged("SupplierOrderModel"); }
+        }
+
 
         #endregion
 
@@ -241,7 +254,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 if (PurchaseOrderItemModel != null)
                 {
                     PurchaseOrderItemModel.ItemName = StockModel.ItemName;
-                    PurchaseOrderItemModel.BuyPrice = StockModel.BuyPrice;
+                    PurchaseOrderItemModel.BuyPrice = StockModel.BuyPrice * StockModel.Packing;
                     //if (_isPreviousOrder)
                     //{
                     PurchaseOrderItemModel.NewQuantity = PurchaseOrderItemModel.NewQuantity + Quantity;
@@ -249,7 +262,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                     PurchaseOrderItemModel.PurchaseQuantity = Quantity;
                     PurchaseOrderItemModel.NewDiscount = PurchaseOrderItemModel.NewDiscount + Discount;
                     PurchaseOrderItemModel.Discount = Discount;
-                    decimal totalPrice = PurchaseOrderItemModel.BuyPrice * PurchaseOrderItemModel.NewQuantity;
+                    decimal totalPrice = PurchaseOrderItemModel.NewQuantity * PurchaseOrderItemModel.BuyPrice;
                     PurchaseOrderItemModel.TotalPrice = totalPrice - PurchaseOrderItemModel.NewDiscount;
                 }
                 else
@@ -258,12 +271,12 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                     {
                         StockId = StockModel.Id,
                         ItemName = StockModel.ItemName,
-                        BuyPrice = StockModel.SalePrice,
+                        BuyPrice = StockModel.BuyPrice,
                         PurchaseQuantity = Quantity,
                         NewQuantity = Quantity,
                         Discount = Discount,
                         NewDiscount = Discount,
-                        TotalPrice = (StockModel.SalePrice * Quantity) - Discount
+                        TotalPrice = ((StockModel.BuyPrice * StockModel.Packing) * Quantity) - Discount
                     });
                 }
 
@@ -271,16 +284,13 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
 
                 PurchaseOrderModel.TotalPrice = price;
                 PurchaseOrderModel.TotalDiscount = PurchaseOrderItemList.Sum(x => x.NewDiscount);
-                //if (_isPreviousOrder)
-                //{
-                //    //PurchaseOrderModel.GrandTotal = ((((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice : StockModel.SalePrice) * Quantity) + CustomerOrderModel.RemainingAmount) - Discount;
-                //    //NewItemPrice += ((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice : StockModel.SalePrice) * Quantity;
-                //}
-                //else
-                PurchaseOrderModel.GrandTotal = PurchaseOrderModel.TotalPrice - PurchaseOrderModel.TotalDiscount;
-
-                TotalAmount = PurchaseOrderItemModel.TotalPrice;
-                TotalQuantity = PurchaseOrderItemList.Sum(x => x.NewQuantity);
+                if (_isPreviousOrder)
+                {
+                    PurchaseOrderModel.GrandTotal = ((((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice : StockModel.BuyPrice) * Quantity) + SupplierOrderModel.RemainingAmount) - Discount;
+                    NewItemPrice += ((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice : StockModel.BuyPrice) * Quantity;
+                }
+                else
+                    PurchaseOrderModel.GrandTotal = (PurchaseOrderModel.TotalPrice + SupplierOrderModel.RemainingAmount) - PurchaseOrderModel.TotalDiscount;
             }
             else if (str == "Save Order")
             {
@@ -301,16 +311,16 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                         else
                         {
                             pOrder.CreatedDate = DateTime.Now;
-                            pOrder.PurchaseOrderDate = DateTime.Now;
                         }
                         pOrder.OrderNo = PurchaseOrderModel.OrderNo;
                         pOrder.SupplierId = SupplierModel.Id;
                         pOrder.PaymentId = PaymentType.Id;
-                        pOrder.TotalAmount = PurchaseOrderModel.TotalPrice;
+                        pOrder.TotalPrice = PurchaseOrderModel.TotalPrice;
                         pOrder.TotalDiscount = PurchaseOrderModel.TotalDiscount;
                         pOrder.GrandTotal = PurchaseOrderModel.GrandTotal;
-                        //pOrder.AmountPaid = PurchaseOrderModel.AmountPaid;
+                        pOrder.AmountPaid = PurchaseOrderModel.AmountPaid;
                         pOrder.CreatedDate = DateTime.Now;
+                        pOrder.PurchaseOrderDate = PurchaseOrderModel.PurchaseOrderDate;
 
                         foreach (var item in PurchaseOrderItemList)
                         {
@@ -335,14 +345,12 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                             pOrder.PurchaseOrderItems.Add(pOrderItem);
                         }
 
-                        //SaveCustomerAmount();
+                        SaveSupplierAmount();
 
                         PurchaseOrder t = _purchaseOrderRepository.SavePurchaseOrder(pOrder);
 
                         CalculateStock(PurchaseOrderItemList);
-
                         LoadReport(t.Id);
-                        //LoadReport(t);
                     }
                     catch (Exception ex)
                     {
@@ -354,7 +362,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 {
                     ApplicationManager.Instance.HideBusyInidicator();
 
-                    ApplicationManager.Instance.ShowDialog("Order Saved!", new PaymentPopup(this));
+                    ApplicationManager.Instance.ShowDialog("Order Saved!", new PurchasePaymentPopup(this));
                     Reset();
                 };
 
@@ -370,13 +378,13 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 {
                     _isPreviousOrder = true;
 
-                    //GetCustomerAmount(Convert.ToInt32(result.CustomerId));
+                    GetSupplierAmount(Convert.ToInt32(result.SupplierId));
 
                     _currentTransactionId = result.Id;
                     PurchaseOrderModel.OrderNo = result.OrderNo;
-                    PurchaseOrderModel.TotalPrice = result.TotalAmount;
+                    PurchaseOrderModel.TotalPrice = result.TotalPrice;
                     PurchaseOrderModel.TotalDiscount = result.TotalDiscount;
-                    PurchaseOrderModel.GrandTotal = result.GrandTotal;//result.GrandTotal;
+                    PurchaseOrderModel.GrandTotal = SupplierOrderModel.RemainingAmount;//result.GrandTotal;
 
                     foreach (var item in result.PurchaseOrderItems)
                     {
@@ -407,6 +415,56 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             {
                 Init();
             }
+        }
+
+        private void GetSupplierAmount(int supplierId)
+        {
+            SupplierOrderModel = new SupplierOrderModel();
+            List<SupplierOrder> supplierOrder = _supplierOrderRepository.Get().Where(x => x.SupplierId == supplierId).ToList();
+            if (supplierOrder != null && supplierOrder.Count > 0)
+            {
+                SupplierOrderModel.SupplierId = supplierId;
+                SupplierOrderModel.AmountPaid = supplierOrder.Sum(x => x.AmountPaid);
+                SupplierOrderModel.RemainingAmount = supplierOrder.Sum(x => x.RemainingAmount);
+                SupplierOrderModel.TotalAmount = supplierOrder.Sum(x => x.TotalAmount);
+            }
+        }
+
+        private void SaveSupplierAmount()
+        {
+            //SupplierOrder supplierOrder = _supplierOrderRepository.Get().FirstOrDefault(x => x.SupplierId == SupplierModel.Id);
+            //if (supplierOrder == null)
+            //{
+            SupplierOrder suppOrder = new SupplierOrder
+            {
+                SupplierId = SupplierModel.Id,
+                AmountPaid = PurchaseOrderModel.AmountPaid,
+                RemainingAmount = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid,
+                TotalAmount = PurchaseOrderModel.TotalPrice
+            };
+
+            GrandTotal = suppOrder.TotalAmount;
+            AmountPaid = suppOrder.AmountPaid;
+            RemainingAmount = suppOrder.RemainingAmount;
+
+            _supplierOrderRepository.Add(suppOrder);
+            //}
+            //else
+            //{
+            //    supplierOrder.SupplierId = SupplierModel.Id;
+            //    supplierOrder.AmountPaid = PurchaseOrderModel.AmountPaid + supplierOrder.AmountPaid;
+            //    supplierOrder.RemainingAmount = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid;
+            //    if (_isPreviousOrder)
+            //        supplierOrder.TotalAmount = NewItemPrice + supplierOrder.TotalAmount;
+            //    else
+            //        supplierOrder.TotalAmount = (PurchaseOrderModel.TotalPrice - PurchaseOrderModel.TotalDiscount) + supplierOrder.TotalAmount;
+
+            //    GrandTotal = supplierOrder.TotalAmount;
+            //    AmountPaid = supplierOrder.AmountPaid;
+            //    RemainingAmount = supplierOrder.RemainingAmount;
+
+            //    _supplierOrderRepository.Update(supplierOrder, supplierOrder.Id);
+            //}
         }
 
         private void Reset()
@@ -504,56 +562,6 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 }
             }
         }
-
-        //private void GetCustomerAmount(int customerId)
-        //{
-        //    CustomerOrderModel = new CustomerOrderModel();
-        //    CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == customerId);
-        //    if (customerOrder != null)
-        //    {
-        //        CustomerOrderModel.CustomerId = customerOrder.CustomerId;
-        //        CustomerOrderModel.AmountPaid = customerOrder.AmountPaid;
-        //        CustomerOrderModel.RemainingAmount = customerOrder.RemainingAmount;
-        //        CustomerOrderModel.TotalAmount = customerOrder.TotalAmount;
-        //    }
-        //}
-
-        //private void SaveCustomerAmount()
-        //{
-        //    CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == SupplierModel.Id);
-        //    if (customerOrder == null)
-        //    {
-        //        CustomerOrder custOrder = new CustomerOrder
-        //        {
-        //            CustomerId = SupplierModel.Id,
-        //            AmountPaid = PurchaseOrderModel.AmountPaid,
-        //            RemainingAmount = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid,
-        //            TotalAmount = PurchaseOrderModel.TotalPrice
-        //        };
-
-        //        GrandTotal = custOrder.TotalAmount;
-        //        AmountPaid = custOrder.AmountPaid;
-        //        RemainingAmount = custOrder.RemainingAmount;
-
-        //        _customerOrderRepository.SaveCustomerOrderAmount(custOrder);
-        //    }
-        //    else
-        //    {
-        //        customerOrder.CustomerId = SupplierModel.Id;
-        //        customerOrder.AmountPaid = PurchaseOrderModel.AmountPaid + customerOrder.AmountPaid;
-        //        customerOrder.RemainingAmount = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid;
-        //        if (_isPreviousOrder)
-        //            customerOrder.TotalAmount = NewItemPrice + customerOrder.TotalAmount;
-        //        else
-        //            customerOrder.TotalAmount = (PurchaseOrderModel.TotalPrice - PurchaseOrderModel.TotalDiscount) + customerOrder.TotalAmount;
-
-        //        GrandTotal = customerOrder.TotalAmount;
-        //        AmountPaid = customerOrder.AmountPaid;
-        //        RemainingAmount = customerOrder.RemainingAmount;
-
-        //        _customerOrderRepository.SaveCustomerOrderAmount(customerOrder);
-        //    }
-        //}
 
         private void LoadReport(int purchaseOrderId)
         {

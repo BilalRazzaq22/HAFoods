@@ -11,6 +11,7 @@
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
+                    <!--<ColumnDefinition Width="250"/>-->
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="40"/>
@@ -26,7 +27,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Purchase Order" Grid.Row="0" />
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Current Transaction" Grid.Row="0" />
                     <Grid Grid.Column="1" >
                         <Border x:Name="_border" Background="White" BorderBrush="LightGray" BorderThickness="1 1 2 2" CornerRadius="8" Padding="6 0">
                             <StackPanel Orientation="Horizontal" >
@@ -55,13 +56,13 @@
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
 
-                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
                         <Label Style="{StaticResource SimpleLabelText}" Content="Order Number:"/>
                         <Label Style="{StaticResource SimpleLabelText}" Content="{Binding PurchaseOrderModel.OrderNo}" FontWeight="Bold"/>
                     </StackPanel>
 
-                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
-                        <Label Style="{StaticResource SimpleLabelText}" Content="Supplier:" />
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                        <Label Style="{StaticResource SimpleLabelText}" Content="Customer:" />
                         <!--<TextBox  Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>-->
                         <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding SupplierList}" SelectedItem="{Binding SupplierModel}">
                             <ComboBox.ItemTemplate>
@@ -75,7 +76,7 @@
                         </ComboBox>
                     </StackPanel>
 
-                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="2">
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
                         <Label Style="{StaticResource SimpleLabelText}" Content="Payment Type:" />
                         <!--<TextBox  Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>-->
                         <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding PaymentList}" SelectedItem="{Binding PaymentType}">
@@ -90,9 +91,7 @@
                         </ComboBox>
                     </StackPanel>
 
-
-
-                    <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="3">
+                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="3">
                         <Label Style="{StaticResource SimpleLabelText}" Content="Dated:" />
                         <DatePicker Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}" SelectedDate="{Binding PurchaseOrderModel.PurchaseOrderDate}"/>
                     </StackPanel>
@@ -102,7 +101,7 @@
                         <TextBox  Text="{Binding CustomerModel.FullName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" IsEnabled="False"/>
                     </StackPanel>-->
 
-                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
                         <Label Style="{StaticResource SimpleLabelText}" Content="Item Name:" />
                         <!--<TextBox  Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>-->
                         <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding StockList}" SelectedItem="{Binding StockModel}">
@@ -116,30 +115,20 @@
                         </ComboBox>
                     </StackPanel>
 
-                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
                         <Label Style="{StaticResource SimpleLabelText}" Content="Purchase Quantity:"/>
                         <TextBox  Text="{Binding Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                     </StackPanel>
 
-                    <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
+                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="2">
                         <Label Style="{StaticResource SimpleLabelText}" Content="Discount Per Item:"/>
                         <TextBox  Text="{Binding Discount,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                     </StackPanel>
 
-                    <Button Style="{StaticResource AcceptButton}" Width="auto" Content=" + Add to Bill "  Grid.Column="3" Grid.Row="1" Command="{Binding PurchaseOrderCommand}" CommandParameter="Add Item"/>
-                    <Button Style="{StaticResource AcceptButton}" Width="auto" Content=" Clear "  Grid.Column="3" Grid.Row="1" Command="{Binding PurchaseOrderCommand}" CommandParameter="Clear" HorizontalAlignment="Left" Margin="110 10"/>
+                    <Button Style="{StaticResource AcceptButton}" Content="+ Add to Bill"  Grid.Column="3" Grid.Row="2" Command="{Binding PurchaseOrderCommand}" CommandParameter="Add Item"/>
+                    <Button Style="{StaticResource AcceptButton}" Content="Clear"  Grid.Column="3" Grid.Row="2" Command="{Binding PurchaseOrderCommand}" CommandParameter="Clear" HorizontalAlignment="Left" Margin="135 10"/>
                     <!--<Button Style="{StaticResource AcceptButton}" Content="Get"  Grid.Column="3" Grid.Row="1" Command="{Binding PurchaseOrderCommand}" CommandParameter="Get Order"/>-->
 
-
-                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
-                        <Label Style="{StaticResource SimpleLabelText}" Content="Buy Price:"/>
-                        <TextBox  Text="{Binding StockModel.BuyPrice,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
-                    </StackPanel>
-
-                    <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
-                        <Label Style="{StaticResource SimpleLabelText}" Content="Packing:"/>
-                        <TextBox  Text="{Binding StockModel.Packing,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
-                    </StackPanel>
                 </Grid>
                 <StackPanel Grid.Row="2">
                     <DataGrid ItemsSource="{Binding PurchaseOrderItemList}" Style="{StaticResource DataGridsForList}" Height="350">
@@ -170,22 +159,18 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="20"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="50"/>
                             <RowDefinition Height="*"/>
-                 
                         </Grid.RowDefinitions>
 
-                        <!--<StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
+                        <StackPanel Grid.Row="0" Grid.Column="0" Orientation="Horizontal">
                             <Label Content="Price:" Style="{StaticResource SimpleLabelText}" Width="120"/>
-                            <TextBox  Text="{Binding StockModel.SalePrice,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                            <TextBox  Text="{Binding StockModel.BuyPrice,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                         </StackPanel>
 
                         <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Horizontal">
-                            <Label Content="Avail Quantity:" Style="{StaticResource SimpleLabelText}" Width="120" VerticalContentAlignment="Bottom"/>
-                            <TextBox  Text="{Binding StockModel.Quantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
-                        </StackPanel>
-
-                        <StackPanel Grid.Row="2" Grid.Column="0" Orientation="Horizontal">
                             <Label Content="Packing:" Style="{StaticResource SimpleLabelText}" Width="120"/>
                             <TextBox  Text="{Binding StockModel.Packing,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                         </StackPanel>
@@ -198,19 +183,19 @@
                         <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal">
                             <Label Content="Total Discount:" Style="{StaticResource SimpleLabelText}" Width="120"/>
                             <Label Content="{Binding PurchaseOrderModel.TotalDiscount}" Style="{StaticResource SimpleLabelText}"/>
-                        </StackPanel>-->
-
-                        <StackPanel Grid.Row="1" Grid.Column="0">
-                            <Label Style="{StaticResource SimpleLabelText}" Content="Total Quantity:"/>
-                            <TextBox  Text="{Binding TotalQuantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                         </StackPanel>
 
-                        <StackPanel Grid.Row="1" Grid.Column="1">
-                            <Label Style="{StaticResource SimpleLabelText}" Content="Total Amount:"/>
-                            <TextBox  Text="{Binding TotalAmount,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                        <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Grand Total:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <Label Content="{Binding PurchaseOrderModel.GrandTotal}" Style="{StaticResource SimpleLabelText}"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="1" Grid.Column="2" Orientation="Horizontal">
+                        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                            <Label Content="Amount Paid:" Style="{StaticResource SimpleLabelText}" Width="120"/>
+                            <TextBox  Text="{Binding PurchaseOrderModel.AmountPaid,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
+                        </StackPanel>
+
+                        <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal">
                             <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Command="{Binding PurchaseOrderCommand}" CommandParameter="Save Order"/>
                         </StackPanel>
                     </Grid>
@@ -276,5 +261,85 @@
                 </StackPanel>-->
             </Grid>
         </StackPanel>
+        <!--<StackPanel Grid.Row="1" >
+
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customers" Grid.Row="0" Grid.Column="0"/>
+
+                    -->
+        <!--<my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>-->
+        <!--
+                </Grid>
+            </StackPanel>
+
+            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CustomerList}" Style="{StaticResource DataGridsForList}" Height="450">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding FirstName}"/>
+                    <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding LastName}"/>
+                    <DataGridTextColumn Header="Contact No" Width="*" Binding="{Binding ContactNo}"/>
+                    <DataGridTextColumn Header="Address" Width="*" Binding="{Binding Address}"/>
+                    <DataGridTemplateColumn Width="*" Header="Actions">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                -->
+        <!--<StackPanel Orientation="Horizontal">
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource AcceptButton}" Height="30" Width="100"  Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock  Margin="0" Text="Select" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+                                    <Border  Width="100" Margin="5 0">
+                                        <Button  Command="{Binding DataContext.DeleteCustomerCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock  Margin="0" Text="Delete" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+                                </StackPanel>-->
+        <!--
+
+
+                                <StackPanel Orientation="Horizontal">
+
+
+                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}" Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+
+                                    <Border Style="{StaticResource NavCancelButtonBorder}"  Width="100" Margin="5 0">
+                                        <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteCustomerCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">
+                                            <StackPanel Orientation="Horizontal">
+                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />
+                                            </StackPanel>
+                                        </Button>
+                                    </Border>
+
+
+
+
+                                </StackPanel>
+                            </DataTemplate>
+
+
+
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>-->
     </Grid>
 </UserControl>
