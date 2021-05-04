@@ -432,14 +432,14 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
 
         private void SaveSupplierAmount()
         {
-            SupplierOrder supplierOrder = _supplierOrderRepository.Get().FirstOrDefault(x => x.SupplierId == SupplierModel.Id);
-            
             SupplierOrder suppOrder = new SupplierOrder
             {
                 SupplierId = SupplierModel.Id,
                 AmountPaid = PurchaseOrderModel.AmountPaid,
-                RemainingAmount = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid,
-                TotalAmount = PurchaseOrderModel.TotalPrice
+                RemainingAmount = PurchaseOrderModel.TotalPrice - PurchaseOrderModel.AmountPaid,
+                TotalAmount = PurchaseOrderModel.TotalPrice,
+                Balance = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid,
+                CreatedDate = DateTime.Now
             };
 
             GrandTotal = suppOrder.TotalAmount;

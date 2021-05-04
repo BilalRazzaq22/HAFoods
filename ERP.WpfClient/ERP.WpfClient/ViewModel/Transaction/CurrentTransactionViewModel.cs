@@ -22,6 +22,8 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -329,7 +331,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         CurrentTransaction t = _currentTransactionRepository.SaveCustomerOrder(transaction);
 
                         CalculateStock(CurrentTransactionDetailList);
-                        LoadReport(t);
+                        LoadReport(t.Id);
                     }
                     catch (Exception ex)
                     {
@@ -515,8 +517,10 @@ namespace ERP.WpfClient.ViewModel.Transaction
             {
                 CustomerId = CustomerModel.Id,
                 AmountPaid = CurrentTransactionModel.AmountPaid,
-                RemainingAmount = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid,
-                TotalAmount = CurrentTransactionModel.TotalPrice
+                RemainingAmount = CurrentTransactionModel.TotalPrice - CurrentTransactionModel.AmountPaid,
+                TotalAmount = CurrentTransactionModel.TotalPrice,
+                Balance = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid,
+                CreatedDate = DateTime.Now
             };
 
             GrandTotal = custOrder.TotalAmount;
@@ -543,33 +547,25 @@ namespace ERP.WpfClient.ViewModel.Transaction
             //}
         }
 
-        private void LoadReport(CurrentTransaction t)
+        private void LoadReport(int currentTransactionId)
         {
-            var query = (from c in _currentTransactionRepository.Get().Where(x => x.Id == t.Id)
-                         join cd in _currentTransactionDetailRepository.Get() on c.Id equals cd.CurrentTransactionId
-                         join p in _paymentRepository.Get() on c.PaymentId equals p.Id
-                         join co in _customerOrderRepository.Get() on c.CustomerId equals co.CustomerId
-                         select new
-                         {
-                             ItemName = cd.ItemName,
-                             Quantity = cd.Quantity,
-                             Price = cd.Price,
-                             Discount = cd.Discount,
-                             TotalPrice = cd.TotalPrice,
-                             OrderNo = c.OrderNo,
-                             GrandTotalPrice = c.TotalPrice,
-                             GrandTotalDiscount = c.TotalDiscount,
-                             GrandTotal = c.GrandTotal,
-                             TotalAmount = co.TotalAmount,
-                             AmountPaid = co.AmountPaid,
-                             RemainingAmount = co.RemainingAmount,
-                             PaymentType = p.PaymentType,
-                             TotalCustomerOrders = _currentTransactionRepository.Get().Count(x => x.CustomerId == t.CustomerId),
-                             CreatedDate = c.CreatedDate
-                         }).ToList();
-            if (query.Count > 0)
+            DataTable dt = new DataTable();
+            string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+            using (SqlConnection con = new SqlConnection(constr))
             {
-                ApplicationManager.Instance.PrintReport(query, @"/Reports/rptCurrentTransaction", "dsCurrentTransaction", "CustomerBill");
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCurrentTransactionOrder]", con))
+                {
+                    cmd.Parameters.AddWithValue("@CurrentTransactionId", currentTransactionId);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                }
+            }
+            if (dt.Rows.Count > 0)
+            {
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCurrentTransaction", "dsCurrentTransaction", "CustomerBill");
             }
         }
 

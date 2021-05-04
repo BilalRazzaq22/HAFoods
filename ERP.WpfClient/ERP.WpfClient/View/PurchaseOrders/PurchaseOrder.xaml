@@ -27,7 +27,7 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="40"/>
                     </Grid.RowDefinitions>
-                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Current Transaction" Grid.Row="0" />
+                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Purchase Order" Grid.Row="0" />
                     <Grid Grid.Column="1" >
                         <Border x:Name="_border" Background="White" BorderBrush="LightGray" BorderThickness="1 1 2 2" CornerRadius="8" Padding="6 0">
                             <StackPanel Orientation="Horizontal" >
