@@ -59,7 +59,7 @@
                     </ComboBox>
                 </StackPanel>
 
-                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="2">
+                <StackPanel Grid.Row="3" Grid.Column="2"  HorizontalAlignment="Right" Margin="0 0 10 0" Orientation="Horizontal" Grid.ColumnSpan="2">
 
                     <Button Style="{StaticResource AcceptButton}" Content="{Binding UserButton}" Command="{Binding UserCommands}" CommandParameter="{Binding UserParameter}" />
                     <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding UserCommands}" CommandParameter="Clear" />

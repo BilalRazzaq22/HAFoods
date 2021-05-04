@@ -71,7 +71,7 @@
                     <TextBox  Text="{Binding StockModel.NewQuantity,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
                 </StackPanel>
 
-                <StackPanel Orientation="Vertical" Grid.Column="0" Grid.Row="3" Grid.ColumnSpan="2">
+                <StackPanel Orientation="Vertical" Grid.Column="0"  Grid.Row="3" Grid.ColumnSpan="2">
                     <Label Style="{StaticResource SimpleLabelText}" Content="Remarks:"/>
                     <TextBox Text="{Binding StockModel.Remarks,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" VerticalContentAlignment="Top" Width="400" TextWrapping="Wrap" Height="70"/>
                 </StackPanel>
@@ -91,7 +91,7 @@
 
                 </StackPanel>-->
 
-                <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" Grid.ColumnSpan="2">
+                <StackPanel Grid.Row="3" Grid.Column="2"  HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0 0 10 0" Orientation="Horizontal" Grid.ColumnSpan="2">
 
                     <Button Style="{StaticResource AcceptButton}" Content="{Binding StockButton}" Command="{Binding StockCommands}" CommandParameter="{Binding StockParameter}" />
                     <Button Style="{StaticResource DeclineButton}" Content="Clear" Command="{Binding StockCommands}" CommandParameter="Clear" />
