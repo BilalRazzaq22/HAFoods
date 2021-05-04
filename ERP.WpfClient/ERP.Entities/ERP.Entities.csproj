@@ -32,10 +32,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <HintPath>..\packages\EntityFramework.6.0.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -61,10 +61,20 @@
     <Compile Include="DBModel\PurchaseOrders\PurchaseOrderItem.cs" />
     <Compile Include="DBModel\Stocks\Stock.cs" />
     <Compile Include="DBModel\Suppliers\Supplier.cs" />
+    <Compile Include="DBModel\Suppliers\SupplierOrder.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransaction.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
     <Compile Include="DBModel\Users\User.cs" />
     <Compile Include="DBModel\Users\UserGroup.cs" />
+    <Compile Include="Migrations\202105041110480_init.cs" />
+    <Compile Include="Migrations\202105041110480_init.Designer.cs">
+      <DependentUpon>202105041110480_init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202105041112324_tbl.cs" />
+    <Compile Include="Migrations\202105041112324_tbl.Designer.cs">
+      <DependentUpon>202105041112324_tbl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -79,6 +89,14 @@
       <Project>{514de237-c960-4e62-ac30-00c3c1284d78}</Project>
       <Name>ERP.Common</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202105041110480_init.resx">
+      <DependentUpon>202105041110480_init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202105041112324_tbl.resx">
+      <DependentUpon>202105041112324_tbl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

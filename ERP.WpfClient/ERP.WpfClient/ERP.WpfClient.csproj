@@ -104,6 +104,7 @@
     <Compile Include="Model\PurchaseOrder\PurchaseOrderModel.cs" />
     <Compile Include="Model\Stock\StockModel.cs" />
     <Compile Include="Model\Supplier\SupplierModel.cs" />
+    <Compile Include="Model\Supplier\SupplierOrderModel.cs" />
     <Compile Include="Model\Transaction\CurrentTransactionDetailModel.cs" />
     <Compile Include="Model\Transaction\CurrentTransactionModel.cs" />
     <Compile Include="Model\User\UserGroupModel.cs" />
@@ -179,6 +180,9 @@
     </Compile>
     <Compile Include="View\Popups\Payments\PaymentPopup.xaml.cs">
       <DependentUpon>PaymentPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Payments\PurchasePaymentPopup.xaml.cs">
+      <DependentUpon>PurchasePaymentPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Popups\Reports\Customer\CustomerReportPopup.xaml.cs">
       <DependentUpon>CustomerReportPopup.xaml</DependentUpon>
@@ -283,6 +287,10 @@
     <Page Include="View\Popups\Payments\PaymentPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Payments\PurchasePaymentPopup.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\Popups\Reports\Customer\CustomerReportPopup.xaml">
       <SubType>Designer</SubType>
@@ -496,7 +504,7 @@
       <Version>10.1.1</Version>
     </PackageReference>
     <PackageReference Include="EntityFramework">
-      <Version>6.0.0</Version>
+      <Version>6.0.1</Version>
     </PackageReference>
     <PackageReference Include="Extended.Wpf.Toolkit">
       <Version>4.0.2</Version>

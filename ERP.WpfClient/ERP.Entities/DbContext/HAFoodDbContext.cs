@@ -40,6 +40,7 @@ namespace ERP.Entities.DbContext
         public DbSet<CustomerOrder> CustomerOrders { get; set; }
         public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public DbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
+        public DbSet<SupplierOrder> SupplierOrders { get; set; }
         //public DbSet<UserGroup> UserGroups { get; set; }
     }
 }
