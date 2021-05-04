@@ -13,5 +13,10 @@ namespace ERP.Entities.DBModel.Customers
         public decimal TotalAmount { get; set; }
         public decimal AmountPaid { get; set; }
         public decimal RemainingAmount { get; set; }
+        public decimal Balance { get; set; }
+        public DateTime? CreatedDate { get; set; }
+        public string CreatedBy { get; set; }
+        public DateTime? UpdatedDate { get; set; }
+        public string UpdatedBy { get; set; }
     }
 }
