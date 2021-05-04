@@ -18,6 +18,9 @@ namespace ERP.WpfClient.Model.PurchaseOrder
         private decimal _totalPrice;
         private decimal _totalDiscount;
         private decimal _grandTotal;
+        private decimal _amountPaid;
+        private decimal _remainingAmount;
+        private decimal _totalAmount;
         private DateTime? _createdDate;
         private string _createdBy;
         private DateTime? _updatedDate;
@@ -56,13 +59,13 @@ namespace ERP.WpfClient.Model.PurchaseOrder
         public int TotalQuantity
         {
             get { return _totalQuantity; }
-            set { _totalQuantity = value; }
+            set { _totalQuantity = value; RaisePropertyChanged("TotalQuantity"); }
         }
 
         public decimal TotalPrice
         {
             get { return _totalPrice; }
-            set { _totalPrice = value; }
+            set { _totalPrice = value; RaisePropertyChanged("TotalPrice"); }
         }
 
         public decimal TotalDiscount
@@ -74,8 +77,31 @@ namespace ERP.WpfClient.Model.PurchaseOrder
         public decimal GrandTotal
         {
             get { return _grandTotal; }
-            set { _grandTotal = value; }
+            set { _grandTotal = value; RaisePropertyChanged("GrandTotal"); }
         }
+
+
+        public decimal AmountPaid
+        {
+            get { return _amountPaid; }
+            set { _amountPaid = value; RaisePropertyChanged("AmountPaid"); }
+        }
+
+        
+
+        public decimal RemainingAmount
+        {
+            get { return _remainingAmount; }
+            set { _remainingAmount = value; RaisePropertyChanged("RemainingAmount"); }
+        }
+
+
+        public decimal TotalAmount
+        {
+            get { return _totalAmount; }
+            set { _totalAmount = value; RaisePropertyChanged("TotalAmount"); }
+        }
+
 
         public DateTime? CreatedDate
         {

@@ -221,7 +221,7 @@ namespace ERP.WpfClient.ViewModel
                     break;
 
                 case "Purchase Order":
-                    LoadViewAsync(ViewTypes.Customer.ToString());
+                    LoadViewAsync(ViewTypes.PurchaseOrder.ToString());
                     break;
 
                 case "Sales Order":

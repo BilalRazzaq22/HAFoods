@@ -291,15 +291,23 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             private global::System.Data.DataColumn columnOrderNo;
             
-            private global::System.Data.DataColumn columnPurchaseOrderDate;
+            private global::System.Data.DataColumn columnGrandTotalPrice;
             
-            private global::System.Data.DataColumn columnCurrentDate;
+            private global::System.Data.DataColumn columnTotalDiscount;
+            
+            private global::System.Data.DataColumn columnGrandTotal;
+            
+            private global::System.Data.DataColumn columnTotalAmount;
+            
+            private global::System.Data.DataColumn columnAmountPaid;
+            
+            private global::System.Data.DataColumn columnRemainingAmount;
             
             private global::System.Data.DataColumn columnPaymentType;
             
-            private global::System.Data.DataColumn columnTotalQuantity;
+            private global::System.Data.DataColumn columnCreatedDate;
             
-            private global::System.Data.DataColumn columnGrandTotal;
+            private global::System.Data.DataColumn columnTotalSuppliers;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -384,17 +392,49 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn PurchaseOrderDateColumn {
+            public global::System.Data.DataColumn GrandTotalPriceColumn {
                 get {
-                    return this.columnPurchaseOrderDate;
+                    return this.columnGrandTotalPrice;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CurrentDateColumn {
+            public global::System.Data.DataColumn TotalDiscountColumn {
                 get {
-                    return this.columnCurrentDate;
+                    return this.columnTotalDiscount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn GrandTotalColumn {
+                get {
+                    return this.columnGrandTotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TotalAmountColumn {
+                get {
+                    return this.columnTotalAmount;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AmountPaidColumn {
+                get {
+                    return this.columnAmountPaid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn RemainingAmountColumn {
+                get {
+                    return this.columnRemainingAmount;
                 }
             }
             
@@ -408,17 +448,17 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalQuantityColumn {
+            public global::System.Data.DataColumn CreatedDateColumn {
                 get {
-                    return this.columnTotalQuantity;
+                    return this.columnCreatedDate;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn GrandTotalColumn {
+            public global::System.Data.DataColumn TotalSuppliersColumn {
                 get {
-                    return this.columnGrandTotal;
+                    return this.columnTotalSuppliers;
                 }
             }
             
@@ -459,7 +499,7 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsPurchaseOrderRow AdddsPurchaseOrderRow(string ItemName, string PurchaseQuantity, string BuyPrice, string Discount, string TotalPrice, string OrderNo, string PurchaseOrderDate, string CurrentDate, string PaymentType, string TotalQuantity, string GrandTotal) {
+            public dsPurchaseOrderRow AdddsPurchaseOrderRow(string ItemName, string PurchaseQuantity, string BuyPrice, string Discount, string TotalPrice, string OrderNo, string GrandTotalPrice, string TotalDiscount, string GrandTotal, string TotalAmount, string AmountPaid, string RemainingAmount, string PaymentType, string CreatedDate, string TotalSuppliers) {
                 dsPurchaseOrderRow rowdsPurchaseOrderRow = ((dsPurchaseOrderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemName,
@@ -468,11 +508,15 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
                         Discount,
                         TotalPrice,
                         OrderNo,
-                        PurchaseOrderDate,
-                        CurrentDate,
+                        GrandTotalPrice,
+                        TotalDiscount,
+                        GrandTotal,
+                        TotalAmount,
+                        AmountPaid,
+                        RemainingAmount,
                         PaymentType,
-                        TotalQuantity,
-                        GrandTotal};
+                        CreatedDate,
+                        TotalSuppliers};
                 rowdsPurchaseOrderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsPurchaseOrderRow);
                 return rowdsPurchaseOrderRow;
@@ -501,11 +545,15 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
                 this.columnDiscount = base.Columns["Discount"];
                 this.columnTotalPrice = base.Columns["TotalPrice"];
                 this.columnOrderNo = base.Columns["OrderNo"];
-                this.columnPurchaseOrderDate = base.Columns["PurchaseOrderDate"];
-                this.columnCurrentDate = base.Columns["CurrentDate"];
-                this.columnPaymentType = base.Columns["PaymentType"];
-                this.columnTotalQuantity = base.Columns["TotalQuantity"];
+                this.columnGrandTotalPrice = base.Columns["GrandTotalPrice"];
+                this.columnTotalDiscount = base.Columns["TotalDiscount"];
                 this.columnGrandTotal = base.Columns["GrandTotal"];
+                this.columnTotalAmount = base.Columns["TotalAmount"];
+                this.columnAmountPaid = base.Columns["AmountPaid"];
+                this.columnRemainingAmount = base.Columns["RemainingAmount"];
+                this.columnPaymentType = base.Columns["PaymentType"];
+                this.columnCreatedDate = base.Columns["CreatedDate"];
+                this.columnTotalSuppliers = base.Columns["TotalSuppliers"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -523,16 +571,24 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
                 base.Columns.Add(this.columnTotalPrice);
                 this.columnOrderNo = new global::System.Data.DataColumn("OrderNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderNo);
-                this.columnPurchaseOrderDate = new global::System.Data.DataColumn("PurchaseOrderDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPurchaseOrderDate);
-                this.columnCurrentDate = new global::System.Data.DataColumn("CurrentDate", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCurrentDate);
-                this.columnPaymentType = new global::System.Data.DataColumn("PaymentType", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPaymentType);
-                this.columnTotalQuantity = new global::System.Data.DataColumn("TotalQuantity", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalQuantity);
+                this.columnGrandTotalPrice = new global::System.Data.DataColumn("GrandTotalPrice", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnGrandTotalPrice);
+                this.columnTotalDiscount = new global::System.Data.DataColumn("TotalDiscount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalDiscount);
                 this.columnGrandTotal = new global::System.Data.DataColumn("GrandTotal", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnGrandTotal);
+                this.columnTotalAmount = new global::System.Data.DataColumn("TotalAmount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalAmount);
+                this.columnAmountPaid = new global::System.Data.DataColumn("AmountPaid", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAmountPaid);
+                this.columnRemainingAmount = new global::System.Data.DataColumn("RemainingAmount", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRemainingAmount);
+                this.columnPaymentType = new global::System.Data.DataColumn("PaymentType", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPaymentType);
+                this.columnCreatedDate = new global::System.Data.DataColumn("CreatedDate", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCreatedDate);
+                this.columnTotalSuppliers = new global::System.Data.DataColumn("TotalSuppliers", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalSuppliers);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsPurchaseOrder");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsPurchaseOrder");
             }
@@ -773,33 +829,97 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string PurchaseOrderDate {
+            public string GrandTotalPrice {
                 get {
                     try {
-                        return ((string)(this[this.tabledsPurchaseOrder.PurchaseOrderDateColumn]));
+                        return ((string)(this[this.tabledsPurchaseOrder.GrandTotalPriceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'PurchaseOrderDate\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotalPrice\' in table \'dsPurchaseOrder\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsPurchaseOrder.PurchaseOrderDateColumn] = value;
+                    this[this.tabledsPurchaseOrder.GrandTotalPriceColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CurrentDate {
+            public string TotalDiscount {
                 get {
                     try {
-                        return ((string)(this[this.tabledsPurchaseOrder.CurrentDateColumn]));
+                        return ((string)(this[this.tabledsPurchaseOrder.TotalDiscountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CurrentDate\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalDiscount\' in table \'dsPurchaseOrder\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsPurchaseOrder.CurrentDateColumn] = value;
+                    this[this.tabledsPurchaseOrder.TotalDiscountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string GrandTotal {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsPurchaseOrder.GrandTotalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotal\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsPurchaseOrder.GrandTotalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TotalAmount {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsPurchaseOrder.TotalAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalAmount\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsPurchaseOrder.TotalAmountColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string AmountPaid {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsPurchaseOrder.AmountPaidColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'AmountPaid\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsPurchaseOrder.AmountPaidColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string RemainingAmount {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsPurchaseOrder.RemainingAmountColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'RemainingAmount\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsPurchaseOrder.RemainingAmountColumn] = value;
                 }
             }
             
@@ -821,33 +941,33 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TotalQuantity {
+            public string CreatedDate {
                 get {
                     try {
-                        return ((string)(this[this.tabledsPurchaseOrder.TotalQuantityColumn]));
+                        return ((string)(this[this.tabledsPurchaseOrder.CreatedDateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalQuantity\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'CreatedDate\' in table \'dsPurchaseOrder\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsPurchaseOrder.TotalQuantityColumn] = value;
+                    this[this.tabledsPurchaseOrder.CreatedDateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string GrandTotal {
+            public string TotalSuppliers {
                 get {
                     try {
-                        return ((string)(this[this.tabledsPurchaseOrder.GrandTotalColumn]));
+                        return ((string)(this[this.tabledsPurchaseOrder.TotalSuppliersColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'GrandTotal\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalSuppliers\' in table \'dsPurchaseOrder\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsPurchaseOrder.GrandTotalColumn] = value;
+                    this[this.tabledsPurchaseOrder.TotalSuppliersColumn] = value;
                 }
             }
             
@@ -925,26 +1045,74 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsPurchaseOrderDateNull() {
-                return this.IsNull(this.tabledsPurchaseOrder.PurchaseOrderDateColumn);
+            public bool IsGrandTotalPriceNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.GrandTotalPriceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetPurchaseOrderDateNull() {
-                this[this.tabledsPurchaseOrder.PurchaseOrderDateColumn] = global::System.Convert.DBNull;
+            public void SetGrandTotalPriceNull() {
+                this[this.tabledsPurchaseOrder.GrandTotalPriceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCurrentDateNull() {
-                return this.IsNull(this.tabledsPurchaseOrder.CurrentDateColumn);
+            public bool IsTotalDiscountNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.TotalDiscountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCurrentDateNull() {
-                this[this.tabledsPurchaseOrder.CurrentDateColumn] = global::System.Convert.DBNull;
+            public void SetTotalDiscountNull() {
+                this[this.tabledsPurchaseOrder.TotalDiscountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsGrandTotalNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.GrandTotalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetGrandTotalNull() {
+                this[this.tabledsPurchaseOrder.GrandTotalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotalAmountNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.TotalAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotalAmountNull() {
+                this[this.tabledsPurchaseOrder.TotalAmountColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAmountPaidNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.AmountPaidColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAmountPaidNull() {
+                this[this.tabledsPurchaseOrder.AmountPaidColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsRemainingAmountNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.RemainingAmountColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetRemainingAmountNull() {
+                this[this.tabledsPurchaseOrder.RemainingAmountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -961,26 +1129,26 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalQuantityNull() {
-                return this.IsNull(this.tabledsPurchaseOrder.TotalQuantityColumn);
+            public bool IsCreatedDateNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.CreatedDateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalQuantityNull() {
-                this[this.tabledsPurchaseOrder.TotalQuantityColumn] = global::System.Convert.DBNull;
+            public void SetCreatedDateNull() {
+                this[this.tabledsPurchaseOrder.CreatedDateColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsGrandTotalNull() {
-                return this.IsNull(this.tabledsPurchaseOrder.GrandTotalColumn);
+            public bool IsTotalSuppliersNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.TotalSuppliersColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetGrandTotalNull() {
-                this[this.tabledsPurchaseOrder.GrandTotalColumn] = global::System.Convert.DBNull;
+            public void SetTotalSuppliersNull() {
+                this[this.tabledsPurchaseOrder.TotalSuppliersColumn] = global::System.Convert.DBNull;
             }
         }
         

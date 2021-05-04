@@ -76,7 +76,7 @@ namespace ERP.Repository.PurchaseOrders
                 _context.SaveChanges();
                 return purchaseOrder;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw;
             }

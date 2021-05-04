@@ -20,8 +20,9 @@ namespace ERP.Entities.DBModel.PurchaseOrders
         public DateTime PurchaseOrderDate { get; set; }
         public decimal TotalQuantity { get; set; }
         public decimal TotalDiscount { get; set; }
-        public decimal TotalAmount { get; set; }
+        public decimal TotalPrice { get; set; }
         public decimal GrandTotal { get; set; }
+        public decimal AmountPaid { get; set; }
         public DateTime? CreatedDate { get; set; }
         public string CreatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
