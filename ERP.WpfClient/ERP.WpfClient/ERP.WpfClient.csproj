@@ -107,6 +107,7 @@
     <Compile Include="Model\Supplier\SupplierOrderModel.cs" />
     <Compile Include="Model\Transaction\CurrentTransactionDetailModel.cs" />
     <Compile Include="Model\Transaction\CurrentTransactionModel.cs" />
+    <Compile Include="Model\Transaction\RecentTransactionModel.cs" />
     <Compile Include="Model\User\UserGroupModel.cs" />
     <Compile Include="Model\User\UserModel.cs" />
     <Compile Include="Reports\Dataset\CurrentTransaction\dsCurrentTransaction.Designer.cs">
@@ -130,10 +131,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsDailySale.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Dataset\LedgerReport\dsLedgerReport.Designer.cs">
+    <Compile Include="Reports\Dataset\LedgerReport\dsCurrentTransactionLedgerReport.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsLedgerReport.xsd</DependentUpon>
+      <DependentUpon>dsCurrentTransactionLedgerReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\LedgerReport\dsPurchaseOrderLedgerReport.cs">
+      <DependentUpon>dsPurchaseOrderLedgerReport.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\LedgerReport\dsPurchaseOrderLedgerReport.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPurchaseOrderLedgerReport.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -144,6 +153,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsItemList.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\Supplier\dsSupplier.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSupplier.xsd</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\CashBooks\CashBookOneViewModel.cs" />
     <Compile Include="ViewModel\CashBooks\CashBookTwoViewModel.cs" />
@@ -368,11 +382,13 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptCurrentTransaction.rdlc" />
+    <EmbeddedResource Include="Reports\rptCurrentTransactionLedgerReport.rdlc" />
     <EmbeddedResource Include="Reports\rptCustomer.rdlc" />
     <EmbeddedResource Include="Reports\rptDailySale.rdlc" />
     <EmbeddedResource Include="Reports\rptItemList.rdlc" />
-    <EmbeddedResource Include="Reports\rptLedgerReport.rdlc" />
     <EmbeddedResource Include="Reports\rptPurchaseOrder.rdlc" />
+    <EmbeddedResource Include="Reports\rptPurchaseOrderLedgerReport.rdlc" />
+    <EmbeddedResource Include="Reports\rptSupplier.rdlc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -410,16 +426,27 @@
     <None Include="Reports\Dataset\DailySale\dsDailySale.xss">
       <DependentUpon>dsDailySale.xsd</DependentUpon>
     </None>
-    <None Include="Reports\Dataset\LedgerReport\dsLedgerReport.xsc">
-      <DependentUpon>dsLedgerReport.xsd</DependentUpon>
+    <None Include="Reports\Dataset\LedgerReport\dsCurrentTransactionLedgerReport.xsc">
+      <DependentUpon>dsCurrentTransactionLedgerReport.xsd</DependentUpon>
     </None>
-    <None Include="Reports\Dataset\LedgerReport\dsLedgerReport.xsd">
+    <None Include="Reports\Dataset\LedgerReport\dsCurrentTransactionLedgerReport.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsLedgerReport.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsCurrentTransactionLedgerReport.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Reports\Dataset\LedgerReport\dsLedgerReport.xss">
-      <DependentUpon>dsLedgerReport.xsd</DependentUpon>
+    <None Include="Reports\Dataset\LedgerReport\dsCurrentTransactionLedgerReport.xss">
+      <DependentUpon>dsCurrentTransactionLedgerReport.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\LedgerReport\dsPurchaseOrderLedgerReport.xsc">
+      <DependentUpon>dsPurchaseOrderLedgerReport.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\LedgerReport\dsPurchaseOrderLedgerReport.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPurchaseOrderLedgerReport.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\LedgerReport\dsPurchaseOrderLedgerReport.xss">
+      <DependentUpon>dsPurchaseOrderLedgerReport.xsd</DependentUpon>
     </None>
     <None Include="Reports\Dataset\PurchaseOrder\dsPurchaseOrder.xsc">
       <DependentUpon>dsPurchaseOrder.xsd</DependentUpon>
@@ -443,12 +470,26 @@
     <None Include="Reports\Dataset\Stock\dsItemList.xss">
       <DependentUpon>dsItemList.xsd</DependentUpon>
     </None>
+    <None Include="Reports\Dataset\Supplier\dsSupplier.xsc">
+      <DependentUpon>dsSupplier.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\Supplier\dsSupplier.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSupplier.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\Supplier\dsSupplier.xss">
+      <DependentUpon>dsSupplier.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="DatabaseScripts\SP_GetCurrentTransactionOrder.sql" />
     <Content Include="DatabaseScripts\SP_GetPurchaseOrderLedgerReport.sql" />
+    <Content Include="DatabaseScripts\SP_GetSupplierReport.sql" />
+    <Content Include="DatabaseScripts\SP_GetTopOrders.sql" />
     <Resource Include="Resources\Themes\Images\Icons\clear.png" />
     <Resource Include="Resources\Themes\Images\Icons\search.png" />
     <Resource Include="Resources\Images\HighEnd%404x.png" />
@@ -504,7 +545,7 @@
       <Version>10.1.1</Version>
     </PackageReference>
     <PackageReference Include="EntityFramework">
-      <Version>6.0.1</Version>
+      <Version>6.4.4</Version>
     </PackageReference>
     <PackageReference Include="Extended.Wpf.Toolkit">
       <Version>4.0.2</Version>

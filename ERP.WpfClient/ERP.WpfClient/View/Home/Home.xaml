@@ -1,68 +1,3 @@
-﻿<UserControl x:Class="ERP.WpfClient.View.Home.Home"
-             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:ERP.WpfClient.View.Home"
-             mc:Ignorable="d" 
-             d:DesignHeight="780" d:DesignWidth="1024">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="200"/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="150"/>
-            <RowDefinition Height="150"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="300"/>
-            <ColumnDefinition Width="300"/>
-        </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Text="Welcome" Style="{StaticResource DashboardParentText}"/>
-        
-        <Border Grid.Row="1" Grid.Column="0" Style="{StaticResource DashboardContentBorder}">
-            <StackPanel>
-                <Label Content="Total Orders" Style="{StaticResource DashboardContentLabel}"/>
-                <Label Content="{Binding TotalCustomers}" Style="{StaticResource DashboardContentLabelValue}"/>
-            </StackPanel>
-        </Border>
-
-
-        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource DashboardContentBorder}" >
-            <StackPanel>
-                <Label Content="Total Sales" Style="{StaticResource DashboardContentLabel}"/>
-                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
-            </StackPanel>
-        </Border>
-
-        <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource DashboardContentBorder}" >
-            <StackPanel>
-                <Label Content="Total Debit" Style="{StaticResource DashboardContentLabel}"/>
-                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
-            </StackPanel>
-        </Border>
-
-        <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource DashboardContentBorder}" >
-            <StackPanel>
-                <Label Content="Total Credit" Style="{StaticResource DashboardContentLabel}"/>
-                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
-            </StackPanel>
-        </Border>
-
-        <Border Grid.Row="2" Grid.Column="1" Style="{StaticResource DashboardContentBorder}">
-            <StackPanel>
-                <Label Content="Total Customers" Style="{StaticResource DashboardContentLabel}"/>
-                <Label Content="{Binding TotalCustomers}" Style="{StaticResource DashboardContentLabelValue}"/>
-            </StackPanel>
-        </Border>
-
-        <Border Grid.Row="2" Grid.Column="2" Style="{StaticResource DashboardContentBorder}" >
-            <StackPanel>
-                <Label Content="Total Suppliers" Style="{StaticResource DashboardContentLabel}"/>
-                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>
-            </StackPanel>
-        </Border>
-
-    </Grid>
-</UserControl>
+﻿<UserControl x:Class="ERP.WpfClient.View.Home.Home"             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"              xmlns:local="clr-namespace:ERP.WpfClient.View.Home"             mc:Ignorable="d"              d:DesignHeight="780" d:DesignWidth="1024">    <Grid>        <Grid.RowDefinitions>            <RowDefinition Height="100"/>            <RowDefinition Height="100"/>            <RowDefinition Height="100"/>            <RowDefinition Height="*"/>        </Grid.RowDefinitions>        <Grid.ColumnDefinitions>            <ColumnDefinition Width="70"/>            <ColumnDefinition Width="*"/>            <ColumnDefinition Width="*"/>            <ColumnDefinition Width="*"/>            <ColumnDefinition Width="*"/>            <ColumnDefinition Width="70"/>        </Grid.ColumnDefinitions>        <TextBlock Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="6" Text="Welcome" Style="{StaticResource DashboardParentText}"/>        <Border Grid.Row="1" Grid.Column="1" Style="{StaticResource DashboardContentBorder}">            <StackPanel>                <Label Content="Total Orders" Style="{StaticResource DashboardContentLabel}"/>                <Label Content="{Binding TotalOrders}" Style="{StaticResource DashboardContentLabelValue}"/>            </StackPanel>        </Border>        <Border Grid.Row="1" Grid.Column="2" Style="{StaticResource DashboardContentBorder}" >            <StackPanel>                <Label Content="Total Stock" Style="{StaticResource DashboardContentLabel}"/>                <Label Content="{Binding TotalStocks}" Style="{StaticResource DashboardContentLabelValue}"/>            </StackPanel>        </Border>        <!--<Border Grid.Row="2" Grid.Column="3" Style="{StaticResource DashboardContentBorder}" >            <StackPanel>                <Label Content="Total Debit" Style="{StaticResource DashboardContentLabel}"/>                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>            </StackPanel>        </Border>-->        <!--<Border Grid.Row="2" Grid.Column="2" Style="{StaticResource DashboardContentBorder}" >            <StackPanel>                <Label Content="Total Credit" Style="{StaticResource DashboardContentLabel}"/>                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>            </StackPanel>        </Border>-->        <Border Grid.Row="1" Grid.Column="3" Style="{StaticResource DashboardContentBorder}">            <StackPanel>                <Label Content="Total Customers" Style="{StaticResource DashboardContentLabel}"/>                <Label Content="{Binding TotalCustomers}" Style="{StaticResource DashboardContentLabelValue}"/>            </StackPanel>        </Border>        <Border Grid.Row="1" Grid.Column="4" Style="{StaticResource DashboardContentBorder}" >            <StackPanel>                <Label Content="Total Suppliers" Style="{StaticResource DashboardContentLabel}"/>                <Label Content="{Binding TotalSuppliers}" Style="{StaticResource DashboardContentLabelValue}"/>            </StackPanel>        </Border>        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" >            <StackPanel>                <Grid>                    <Grid.ColumnDefinitions>                        <ColumnDefinition/>                        <ColumnDefinition/>                    </Grid.ColumnDefinitions>                    <TextBlock Style="{StaticResource TopMainHeadings}" Text="Recent Orders" Grid.Row="0" Grid.Column="0"/>                    <!--<my:SearchBox HorizontalAlignment="Right" x:Name="Search" VerticalAlignment="Center" Grid.Row="0" Grid.Column="1" Margin="0 0 10 0"/>-->                </Grid>            </StackPanel>            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding RecentTransactionList}" Style="{StaticResource DataGridsForList}" Height="280">                <DataGrid.Columns>                    <DataGridTextColumn Header="Order #" Width="*" Binding="{Binding OrderNo}"/>                    <DataGridTextColumn Header="Customer Name" Width="*" Binding="{Binding CustomerName}"/>                    <DataGridTextColumn Header="Grand Total" Width="*" Binding="{Binding GrandTotal}"/>                    <DataGridTextColumn Header="Payment Type" Width="*" Binding="{Binding PaymentType}"/>                    <!--<DataGridTemplateColumn Width="*" Header="Actions">                        <DataGridTemplateColumn.CellTemplate>                            <DataTemplate>                                -->
+                    <!--<StackPanel Orientation="Horizontal">                                    <Border  Width="100" Margin="5 0">                                        <Button Style="{StaticResource AcceptButton}" Height="30" Width="100"  Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">                                            <StackPanel Orientation="Horizontal">                                                <TextBlock  Margin="0" Text="Select" />                                            </StackPanel>                                        </Button>                                    </Border>                                    <Border  Width="100" Margin="5 0">                                        <Button  Command="{Binding DataContext.DeleteCustomerCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">                                            <StackPanel Orientation="Horizontal">                                                <TextBlock  Margin="0" Text="Delete" />                                            </StackPanel>                                        </Button>                                    </Border>                                </StackPanel>-->
+                    <!--                                <StackPanel Orientation="Horizontal">                                    <Border Style="{StaticResource NavButtonBorder}" Background="{StaticResource CommonGreenBackgroundColor}">                                        <Button Style="{StaticResource NavBroadButton}" Command="{Binding DataContext.CustomerCommands ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">                                            <StackPanel Orientation="Horizontal">                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Select" />                                            </StackPanel>                                        </Button>                                    </Border>                                    <Border Style="{StaticResource NavCancelButtonBorder}"  >                                        <Button Style="{StaticResource NavBroadCancelButton}" Command="{Binding DataContext.DeleteCustomerCommand ,RelativeSource={RelativeSource AncestorType={x:Type UserControl}}}" CommandParameter="{Binding}">                                            <StackPanel Orientation="Horizontal">                                                <TextBlock Style="{StaticResource NavButtonText}" Margin="0" Text="Delete" />                                            </StackPanel>                                        </Button>                                    </Border>                                </StackPanel>                            </DataTemplate>                        </DataGridTemplateColumn.CellTemplate>                    </DataGridTemplateColumn>-->                </DataGrid.Columns>            </DataGrid>        </StackPanel>    </Grid></UserControl>

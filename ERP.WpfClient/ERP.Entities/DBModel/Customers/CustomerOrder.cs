@@ -9,6 +9,7 @@ namespace ERP.Entities.DBModel.Customers
     public class CustomerOrder
     {
         public int Id { get; set; }
+        public string OrderNo { get; set; }
         public int? CustomerId { get; set; }
         public decimal TotalAmount { get; set; }
         public decimal AmountPaid { get; set; }

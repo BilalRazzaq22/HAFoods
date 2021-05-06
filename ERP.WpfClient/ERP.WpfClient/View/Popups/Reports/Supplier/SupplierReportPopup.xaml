@@ -21,16 +21,16 @@
             </Grid.RowDefinitions>-->
             <StackPanel>
 
-                <RadioButton Margin="20,15,0,0" GroupName="suppliers" VerticalContentAlignment="Center">
+                <RadioButton Margin="20,15,0,0" GroupName="suppliers" VerticalContentAlignment="Center" IsChecked="{Binding IsAllSupplierSelected}">
                     <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="All Suppliers" />
                 </RadioButton>
 
                 <StackPanel>
-                    <RadioButton Margin="20,10,0,10" GroupName="suppliers" VerticalContentAlignment="Center">
+                    <RadioButton Margin="20,10,0,10" GroupName="suppliers" VerticalContentAlignment="Center" IsChecked="{Binding IsSupplierSelected}">
                         <Label Style="{StaticResource SimpleLabelText}"  Margin="0" Content="Selective Supplier" />
                     </RadioButton>
 
-                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding CustomerList}" SelectedItem="{Binding CustomerModel}">
+                    <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding SupplierList}" SelectedItem="{Binding SupplierModel}">
                         <ComboBox.ItemTemplate>
                             <DataTemplate>
                                 <StackPanel Orientation="Horizontal">

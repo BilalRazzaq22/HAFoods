@@ -9,6 +9,7 @@ namespace ERP.Entities.DBModel.Suppliers
     public class SupplierOrder
     {
         public int Id { get; set; }
+        public string OrderNo { get; set; }
         public int? SupplierId { get; set; }
         public decimal TotalAmount { get; set; }
         public decimal AmountPaid { get; set; }

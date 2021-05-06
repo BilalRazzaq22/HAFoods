@@ -44,6 +44,7 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
         private readonly CustomerOrderRepository _customerOrderRepository;
         private readonly IGenericRepository<Entities.DBModel.Suppliers.Supplier> _supplierRepository;
         private bool _isCustomerSelected;
+        private bool _isSupplierSelected;
         private bool _isItemSelected;
         private DateTime _fromDate;
         private DateTime _toDate;
@@ -57,6 +58,7 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
         private bool _isAllCategorySelected;
         private bool _isCategorySelected;
         private bool _isAllCustomerSelected;
+        private bool _isAllSupplierSelected;
         private ObservableCollection<CashBookTypeModel> _cashBookTypeList;
         private CashBookTypeModel _cashBookType;
         private ObservableCollection<SupplierModel> _supplierList;
@@ -100,6 +102,18 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
         {
             get { return _isAllCustomerSelected; }
             set { _isAllCustomerSelected = value; RaisePropertyChanged("IsAllCustomerSelected"); }
+        }
+
+        public bool IsSupplierSelected
+        {
+            get { return _isSupplierSelected; }
+            set { _isSupplierSelected = value; RaisePropertyChanged("IsSupplierSelected"); }
+        }
+
+        public bool IsAllSupplierSelected
+        {
+            get { return _isAllSupplierSelected; }
+            set { _isAllSupplierSelected = value; RaisePropertyChanged("IsAllSupplierSelected"); }
         }
 
         public bool IsItemSelected
@@ -226,23 +240,16 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             {
                 case "Proceed":
                     if (ReportName == "DailySaleReport")
-                    {
                         GenerateDailySaleReport();
-                    }
                     if (ReportName == "LedgerReport")
-                    {
                         GenerateLedgerReport();
-                    }
                     if (ReportName == "ItemReport")
-                    {
                         GenerateItemListReport();
-                    }
                     if (ReportName == "CustomerReport")
-                    {
                         GenerateCustomerReport();
-                    }
+                    if (ReportName == "SupplierReport")
+                        GenerateSupplierReport();
                     break;
-
                 case "Cancel":
                     ApplicationManager.Instance.HideDialog();
                     break;
@@ -442,7 +449,29 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
                 }
                 if (dt.Rows.Count > 0)
                 {
-                    ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptLedgerReport", "dsLedgerReport", "CustomerLedgerReport");
+                    ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCurrentTransactionLedgerReport", "dsCurrentTransactionLedgerReport", "CustomerLedgerReport");
+                }
+            }
+
+            if (CashBookType.Type == "Supplier")
+            {
+                using (SqlConnection con = new SqlConnection(constr))
+                {
+                    con.Open();
+                    using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetPurchaseOrderLedgerReport]", con))
+                    {
+                        cmd.Parameters.AddWithValue("@FromDate", FromDate.Date.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@ToDate", ToDate.Date.ToString("yyyy-MM-dd"));
+                        cmd.Parameters.AddWithValue("@SupplierId", SupplierModel.Id);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        SqlDataAdapter da = new SqlDataAdapter();
+                        da.SelectCommand = cmd;
+                        da.Fill(dt);
+                    }
+                }
+                if (dt.Rows.Count > 0)
+                {
+                    ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptPurchaseOrderLedgerReport", "dsPurchaseOrderLedgerReport", "SupplierLedgerReport");
                 }
             }
         }
@@ -506,6 +535,36 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             if (dt.Rows.Count > 0)
             {
                 ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCustomer", "dsCustomer", "Customer");
+            }
+        }
+
+        private void GenerateSupplierReport()
+        {
+            if (!IsSupplierSelected && !IsAllSupplierSelected)
+            {
+                ApplicationManager.Instance.ShowMessageBox("Please select one option.");
+                return;
+            }
+            DataTable dt = new DataTable();
+            string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
+            using (SqlConnection con = new SqlConnection(constr))
+            {
+                con.Open();
+                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetSupplierReport]", con))
+                {
+                    if (IsSupplierSelected)
+                        cmd.Parameters.AddWithValue("@SupplierId", SupplierModel.Id);
+                    if (IsAllSupplierSelected)
+                        cmd.Parameters.AddWithValue("@SupplierId", null);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    SqlDataAdapter da = new SqlDataAdapter();
+                    da.SelectCommand = cmd;
+                    da.Fill(dt);
+                }
+            }
+            if (dt.Rows.Count > 0)
+            {
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptSupplier", "dsSupplier", "Supplier");
             }
         }
 

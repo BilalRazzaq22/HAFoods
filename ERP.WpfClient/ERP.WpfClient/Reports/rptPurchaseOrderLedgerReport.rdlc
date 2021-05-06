@@ -6,63 +6,25 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1in</Width>
+              <Width>1.3625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.3625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.3625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.3625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.3625in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
               <Height>0.25in</Height>
               <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Order No</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
                 <TablixCell>
                   <CellContents>
                     <Textbox Name="Textbox1">
@@ -72,7 +34,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Customer Name</Value>
+                              <Value>Date</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -100,41 +62,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Contact No</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Textbox3">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -142,7 +69,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Debit</Value>
+                              <Value>Order No</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -170,7 +97,42 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox4">
+                    <Textbox Name="Textbox5">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Debit</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox7">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -189,7 +151,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -245,6 +207,41 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
+                    <Textbox Name="Date">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Date.Value</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <Format>MMM d, yyyy</Format>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Date</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
                     <Textbox Name="OrderNo">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -279,74 +276,6 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CustomerName">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!CustomerName.Value</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>CustomerName</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="ContactNo">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!ContactNo.Value</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>ContactNo</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
                     <Textbox Name="Debit">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
@@ -354,7 +283,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIF(String.IsNullOrEmpty(Fields!Debit.Value),"0.00",Fields!Debit.Value)</Value>
+                              <Value>=Fields!Debit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                               </Style>
@@ -388,7 +317,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIF(String.IsNullOrEmpty(Fields!Credit.Value),"0.00",Fields!Credit.Value)</Value>
+                              <Value>=Fields!Credit.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                               </Style>
@@ -422,7 +351,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=IIF(String.IsNullOrEmpty(Fields!Balance.Value),"0.00",Fields!Balance.Value)</Value>
+                              <Value>=Fields!Balance.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                               </Style>
@@ -458,7 +387,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -471,11 +399,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsCustomer</DataSetName>
-        <Top>0.13417in</Top>
-        <Left>0.125in</Left>
+        <DataSetName>dsPurchaseOrderLedgerReport</DataSetName>
+        <Top>0.16542in</Top>
+        <Left>0.10417in</Left>
         <Height>0.5in</Height>
-        <Width>8.52085in</Width>
+        <Width>6.8125in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -483,17 +411,17 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.77083in</Height>
+    <Height>0.82292in</Height>
     <Style />
   </Body>
-  <Width>8.7396in</Width>
+  <Width>7.03125in</Width>
   <Page>
     <PageHeader>
-      <Height>1.375in</Height>
+      <Height>1.30208in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox8">
+        <Textbox Name="Textbox11">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -513,8 +441,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.23438in</Top>
-          <Left>3.72917in</Left>
+          <Top>0.18229in</Top>
+          <Left>2.82917in</Left>
           <Height>0.90625in</Height>
           <Width>1in</Width>
           <Style>
@@ -531,8 +459,8 @@
           <Source>Embedded</Source>
           <Value>HighEnd4x</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.23438in</Top>
-          <Left>0.125in</Left>
+          <Top>0.18229in</Top>
+          <Left>0.10417in</Left>
           <Height>0.90625in</Height>
           <Width>1.41667in</Width>
           <ZIndex>1</ZIndex>
@@ -542,7 +470,7 @@
             </Border>
           </Style>
         </Image>
-        <Textbox Name="Textbox10">
+        <Textbox Name="Textbox12">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -562,10 +490,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>0.89063in</Top>
-          <Left>6.94793in</Left>
+          <Top>0.83854in</Top>
+          <Left>5.41667in</Left>
           <Height>0.25in</Height>
-          <Width>1.69792in</Width>
+          <Width>1.5in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -577,7 +505,7 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox12">
+        <Textbox Name="Textbox13">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -595,8 +523,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>0.89063in</Top>
-          <Left>6.4514in</Left>
+          <Top>0.83854in</Top>
+          <Left>4.9757in</Left>
           <Height>0.25in</Height>
           <Width>0.42708in</Width>
           <ZIndex>3</ZIndex>
@@ -627,7 +555,7 @@
           <Value>logomarcoF01</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.06944in</Top>
-          <Left>8.14585in</Left>
+          <Left>6.41667in</Left>
           <Height>0.5in</Height>
           <Width>0.5in</Width>
           <Style>
@@ -654,7 +582,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
           <Top>0.25917in</Top>
-          <Left>3.00349in</Left>
+          <Left>1.27431in</Left>
           <Height>0.25in</Height>
           <Width>3.875in</Width>
           <ZIndex>1</ZIndex>
@@ -683,27 +611,27 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="dsCustomer">
+    <DataSource Name="dsPurchaseOrderLedgerReport">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>95632bc4-79e3-40c0-a3f8-e631b9f1dbc5</rd:DataSourceID>
+      <rd:DataSourceID>1811092b-5cc6-4647-a1a0-2dc4e42d52c2</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsCustomer">
+    <DataSet Name="dsPurchaseOrderLedgerReport">
       <Query>
-        <DataSourceName>dsCustomer</DataSourceName>
+        <DataSourceName>dsPurchaseOrderLedgerReport</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
+        <Field Name="Date">
+          <DataField>Date</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="ContactNo">
-          <DataField>ContactNo</DataField>
+        <Field Name="OrderNo">
+          <DataField>OrderNo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Debit">
@@ -718,15 +646,11 @@
           <DataField>Balance</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="OrderNo">
-          <DataField>OrderNo</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dsCustomer</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Dataset\Customer\dsCustomer.xsd</rd:SchemaPath>
-        <rd:TableName>dsCustomer</rd:TableName>
+        <rd:DataSetName>dsPurchaseOrderLedgerReport</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Dataset\LedgerReport\dsPurchaseOrderLedgerReport.xsd</rd:SchemaPath>
+        <rd:TableName>dsPurchaseOrderLedgerReport</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -1391,5 +1315,5 @@ AQAAAABgINwBAAAAAGAg3AEAAAAAYCDcAQAAAABgINwBAAAAAGAg3AEAAAAAYCDcAQAAAABgINwBAAAA
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>14c31c22-7a9e-4dc4-91e6-eca27227195a</rd:ReportID>
+  <rd:ReportID>f08c299b-f6f6-48f7-9e2c-3338c042b40b</rd:ReportID>
 </Report>

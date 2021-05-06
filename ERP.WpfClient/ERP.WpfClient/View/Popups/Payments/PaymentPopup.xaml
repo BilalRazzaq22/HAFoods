@@ -23,7 +23,7 @@
         <TextBlock FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Height="auto" Width="auto" Text="Amount Paid" Grid.Column="0" Grid.Row="1" />
         <TextBlock Text="{Binding AmountPaid, StringFormat=N2}" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Height="auto" Width="auto"  Grid.Column="1" Grid.Row="1" />
 
-        <TextBlock FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Height="auto" Width="auto" Text="Remaining Amount" Grid.Column="0" Grid.Row="2" />
+        <TextBlock FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Height="auto" Width="auto" Text="Balance" Grid.Column="0" Grid.Row="2" />
         <TextBlock Text="{Binding RemainingAmount, StringFormat=N2}" FontSize="20" TextAlignment="Center" VerticalAlignment="Center" Height="auto" Width="auto"  Grid.Column="1" Grid.Row="2" />
 
         <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Background="{StaticResource CommonWhiteBackgroundColor}" HorizontalAlignment="Center">

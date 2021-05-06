@@ -1024,7 +1024,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Remaining Amount:</Value>
+                            <Value>Balance:</Value>
                             <Style>
                               <FontFamily>Segoe UI</FontFamily>
                               <FontWeight>Bold</FontWeight>

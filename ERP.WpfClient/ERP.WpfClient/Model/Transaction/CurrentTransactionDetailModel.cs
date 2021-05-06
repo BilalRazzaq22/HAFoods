@@ -9,6 +9,7 @@ namespace ERP.WpfClient.Model.Transaction
         private int _currentTransactionId;
         private int? _stockId;
         private string _itemName;
+        private int _packing;
         private int _newQuantity;
         private int _quantity;
         private decimal _price;
@@ -42,6 +43,12 @@ namespace ERP.WpfClient.Model.Transaction
         {
             get { return _itemName; }
             set { _itemName = value; RaisePropertyChanged("ItemName"); }
+        }
+
+        public int Packing
+        {
+            get { return _packing; }
+            set { _packing = value; RaisePropertyChanged("Packing"); }
         }
 
         public int NewQuantity

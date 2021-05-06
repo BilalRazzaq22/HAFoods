@@ -306,9 +306,11 @@ namespace ERP.WpfClient.Controls.Helpers
 
         public void PrintReport(object query, string reportName, string dataset, string file)
         {
-            string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            //string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-            string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + reportName + ".rdlc";
+            //string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + reportName + ".rdlc";
+
+            string fullpath = @"C:\Program Files (x86)\HA Foods Setup\HA Foods" + reportName + ".rdlc";
             //string fullpath = path + @"\Reports\" + reportName + ".rdlc";
 
             string deviceInfo =
@@ -331,7 +333,7 @@ namespace ERP.WpfClient.Controls.Helpers
             reportViewer.LocalReport.ReportPath = fullpath;
             reportViewer.LocalReport.DataSources.Add(new ReportDataSource(dataset, query));
             var bytes = reportViewer.LocalReport.Render("PDF", deviceInfo, out mimeType, out encoding, out extension, out streamIds, out warnings);
-            string fileName = @"D:\"+ file + ".pdf";
+            string fileName = @"D:\" + file + ".pdf";
             File.WriteAllBytes(fileName, bytes);
             Process.Start(fileName);
         }

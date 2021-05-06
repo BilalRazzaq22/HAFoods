@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace ERP.WpfClient.Reports.Dataset.Customer {
+namespace ERP.WpfClient.Reports.Dataset.Supplier {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsCustomer")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsSupplier")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsCustomer : global::System.Data.DataSet {
+    public partial class dsSupplier : global::System.Data.DataSet {
         
-        private dsCustomerDataTable tabledsCustomer;
+        private dsSupplierDataTable tabledsSupplier;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public dsCustomer() {
+        public dsSupplier() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected dsCustomer(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsSupplier(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["dsCustomer"] != null)) {
-                    base.Tables.Add(new dsCustomerDataTable(ds.Tables["dsCustomer"]));
+                if ((ds.Tables["dsSupplier"] != null)) {
+                    base.Tables.Add(new dsSupplierDataTable(ds.Tables["dsSupplier"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public dsCustomerDataTable _dsCustomer {
+        public dsSupplierDataTable _dsSupplier {
             get {
-                return this.tabledsCustomer;
+                return this.tabledsSupplier;
             }
         }
         
@@ -127,7 +127,7 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsCustomer cln = ((dsCustomer)(base.Clone()));
+            dsSupplier cln = ((dsSupplier)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["dsCustomer"] != null)) {
-                    base.Tables.Add(new dsCustomerDataTable(ds.Tables["dsCustomer"]));
+                if ((ds.Tables["dsSupplier"] != null)) {
+                    base.Tables.Add(new dsSupplierDataTable(ds.Tables["dsSupplier"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabledsCustomer = ((dsCustomerDataTable)(base.Tables["dsCustomer"]));
+            this.tabledsSupplier = ((dsSupplierDataTable)(base.Tables["dsSupplier"]));
             if ((initTable == true)) {
-                if ((this.tabledsCustomer != null)) {
-                    this.tabledsCustomer.InitVars();
+                if ((this.tabledsSupplier != null)) {
+                    this.tabledsSupplier.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsCustomer";
+            this.DataSetName = "dsSupplier";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsCustomer.xsd";
+            this.Namespace = "http://tempuri.org/dsSupplier.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabledsCustomer = new dsCustomerDataTable();
-            base.Tables.Add(this.tabledsCustomer);
+            this.tabledsSupplier = new dsSupplierDataTable();
+            base.Tables.Add(this.tabledsSupplier);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerialize_dsCustomer() {
+        private bool ShouldSerialize_dsSupplier() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsCustomer ds = new dsCustomer();
+            dsSupplier ds = new dsSupplier();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,16 +270,16 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void dsCustomerRowChangeEventHandler(object sender, dsCustomerRowChangeEvent e);
+        public delegate void dsSupplierRowChangeEventHandler(object sender, dsSupplierRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class dsCustomerDataTable : global::System.Data.TypedTableBase<dsCustomerRow> {
+        public partial class dsSupplierDataTable : global::System.Data.TypedTableBase<dsSupplierRow> {
             
-            private global::System.Data.DataColumn columnCustomerName;
+            private global::System.Data.DataColumn columnSupplierName;
             
             private global::System.Data.DataColumn columnContactNo;
             
@@ -293,8 +293,8 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCustomerDataTable() {
-                this.TableName = "dsCustomer";
+            public dsSupplierDataTable() {
+                this.TableName = "dsSupplier";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -302,7 +302,7 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal dsCustomerDataTable(global::System.Data.DataTable table) {
+            internal dsSupplierDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -319,16 +319,16 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected dsCustomerDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected dsSupplierDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CustomerNameColumn {
+            public global::System.Data.DataColumn SupplierNameColumn {
                 get {
-                    return this.columnCustomerName;
+                    return this.columnSupplierName;
                 }
             }
             
@@ -383,50 +383,50 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCustomerRow this[int index] {
+            public dsSupplierRow this[int index] {
                 get {
-                    return ((dsCustomerRow)(this.Rows[index]));
+                    return ((dsSupplierRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCustomerRowChangeEventHandler dsCustomerRowChanging;
+            public event dsSupplierRowChangeEventHandler dsSupplierRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCustomerRowChangeEventHandler dsCustomerRowChanged;
+            public event dsSupplierRowChangeEventHandler dsSupplierRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCustomerRowChangeEventHandler dsCustomerRowDeleting;
+            public event dsSupplierRowChangeEventHandler dsSupplierRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCustomerRowChangeEventHandler dsCustomerRowDeleted;
+            public event dsSupplierRowChangeEventHandler dsSupplierRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AdddsCustomerRow(dsCustomerRow row) {
+            public void AdddsSupplierRow(dsSupplierRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCustomerRow AdddsCustomerRow(string CustomerName, string ContactNo, string Debit, string Credit, string Balance, string OrderNo) {
-                dsCustomerRow rowdsCustomerRow = ((dsCustomerRow)(this.NewRow()));
+            public dsSupplierRow AdddsSupplierRow(string SupplierName, string ContactNo, string Debit, string Credit, string Balance, string OrderNo) {
+                dsSupplierRow rowdsSupplierRow = ((dsSupplierRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        CustomerName,
+                        SupplierName,
                         ContactNo,
                         Debit,
                         Credit,
                         Balance,
                         OrderNo};
-                rowdsCustomerRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowdsCustomerRow);
-                return rowdsCustomerRow;
+                rowdsSupplierRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdsSupplierRow);
+                return rowdsSupplierRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                dsCustomerDataTable cln = ((dsCustomerDataTable)(base.Clone()));
+                dsSupplierDataTable cln = ((dsSupplierDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -434,13 +434,13 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new dsCustomerDataTable();
+                return new dsSupplierDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnCustomerName = base.Columns["CustomerName"];
+                this.columnSupplierName = base.Columns["SupplierName"];
                 this.columnContactNo = base.Columns["ContactNo"];
                 this.columnDebit = base.Columns["Debit"];
                 this.columnCredit = base.Columns["Credit"];
@@ -451,8 +451,8 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerName);
+                this.columnSupplierName = new global::System.Data.DataColumn("SupplierName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplierName);
                 this.columnContactNo = new global::System.Data.DataColumn("ContactNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnContactNo);
                 this.columnDebit = new global::System.Data.DataColumn("Debit", typeof(string), null, global::System.Data.MappingType.Element);
@@ -463,34 +463,34 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
                 base.Columns.Add(this.columnBalance);
                 this.columnOrderNo = new global::System.Data.DataColumn("OrderNo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOrderNo);
-                this.ExtendedProperties.Add("Generator_TablePropName", "_dsCustomer");
-                this.ExtendedProperties.Add("Generator_UserTableName", "dsCustomer");
+                this.ExtendedProperties.Add("Generator_TablePropName", "_dsSupplier");
+                this.ExtendedProperties.Add("Generator_UserTableName", "dsSupplier");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCustomerRow NewdsCustomerRow() {
-                return ((dsCustomerRow)(this.NewRow()));
+            public dsSupplierRow NewdsSupplierRow() {
+                return ((dsSupplierRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new dsCustomerRow(builder);
+                return new dsSupplierRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(dsCustomerRow);
+                return typeof(dsSupplierRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.dsCustomerRowChanged != null)) {
-                    this.dsCustomerRowChanged(this, new dsCustomerRowChangeEvent(((dsCustomerRow)(e.Row)), e.Action));
+                if ((this.dsSupplierRowChanged != null)) {
+                    this.dsSupplierRowChanged(this, new dsSupplierRowChangeEvent(((dsSupplierRow)(e.Row)), e.Action));
                 }
             }
             
@@ -498,8 +498,8 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.dsCustomerRowChanging != null)) {
-                    this.dsCustomerRowChanging(this, new dsCustomerRowChangeEvent(((dsCustomerRow)(e.Row)), e.Action));
+                if ((this.dsSupplierRowChanging != null)) {
+                    this.dsSupplierRowChanging(this, new dsSupplierRowChangeEvent(((dsSupplierRow)(e.Row)), e.Action));
                 }
             }
             
@@ -507,8 +507,8 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.dsCustomerRowDeleted != null)) {
-                    this.dsCustomerRowDeleted(this, new dsCustomerRowChangeEvent(((dsCustomerRow)(e.Row)), e.Action));
+                if ((this.dsSupplierRowDeleted != null)) {
+                    this.dsSupplierRowDeleted(this, new dsSupplierRowChangeEvent(((dsSupplierRow)(e.Row)), e.Action));
                 }
             }
             
@@ -516,14 +516,14 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.dsCustomerRowDeleting != null)) {
-                    this.dsCustomerRowDeleting(this, new dsCustomerRowChangeEvent(((dsCustomerRow)(e.Row)), e.Action));
+                if ((this.dsSupplierRowDeleting != null)) {
+                    this.dsSupplierRowDeleting(this, new dsSupplierRowChangeEvent(((dsSupplierRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovedsCustomerRow(dsCustomerRow row) {
+            public void RemovedsSupplierRow(dsSupplierRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -532,7 +532,7 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsCustomer ds = new dsCustomer();
+                dsSupplier ds = new dsSupplier();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -550,7 +550,7 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "dsCustomerDataTable";
+                attribute2.FixedValue = "dsSupplierDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -594,30 +594,30 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class dsCustomerRow : global::System.Data.DataRow {
+        public partial class dsSupplierRow : global::System.Data.DataRow {
             
-            private dsCustomerDataTable tabledsCustomer;
+            private dsSupplierDataTable tabledsSupplier;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal dsCustomerRow(global::System.Data.DataRowBuilder rb) : 
+            internal dsSupplierRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabledsCustomer = ((dsCustomerDataTable)(this.Table));
+                this.tabledsSupplier = ((dsSupplierDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CustomerName {
+            public string SupplierName {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCustomer.CustomerNameColumn]));
+                        return ((string)(this[this.tabledsSupplier.SupplierNameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'dsCustomer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'SupplierName\' in table \'dsSupplier\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCustomer.CustomerNameColumn] = value;
+                    this[this.tabledsSupplier.SupplierNameColumn] = value;
                 }
             }
             
@@ -626,14 +626,14 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             public string ContactNo {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCustomer.ContactNoColumn]));
+                        return ((string)(this[this.tabledsSupplier.ContactNoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'ContactNo\' in table \'dsCustomer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'ContactNo\' in table \'dsSupplier\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCustomer.ContactNoColumn] = value;
+                    this[this.tabledsSupplier.ContactNoColumn] = value;
                 }
             }
             
@@ -642,14 +642,14 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             public string Debit {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCustomer.DebitColumn]));
+                        return ((string)(this[this.tabledsSupplier.DebitColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Debit\' in table \'dsCustomer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Debit\' in table \'dsSupplier\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCustomer.DebitColumn] = value;
+                    this[this.tabledsSupplier.DebitColumn] = value;
                 }
             }
             
@@ -658,14 +658,14 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             public string Credit {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCustomer.CreditColumn]));
+                        return ((string)(this[this.tabledsSupplier.CreditColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Credit\' in table \'dsCustomer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Credit\' in table \'dsSupplier\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCustomer.CreditColumn] = value;
+                    this[this.tabledsSupplier.CreditColumn] = value;
                 }
             }
             
@@ -674,14 +674,14 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             public string Balance {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCustomer.BalanceColumn]));
+                        return ((string)(this[this.tabledsSupplier.BalanceColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Balance\' in table \'dsCustomer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Balance\' in table \'dsSupplier\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCustomer.BalanceColumn] = value;
+                    this[this.tabledsSupplier.BalanceColumn] = value;
                 }
             }
             
@@ -690,87 +690,87 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
             public string OrderNo {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCustomer.OrderNoColumn]));
+                        return ((string)(this[this.tabledsSupplier.OrderNoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OrderNo\' in table \'dsCustomer\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'OrderNo\' in table \'dsSupplier\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCustomer.OrderNoColumn] = value;
+                    this[this.tabledsSupplier.OrderNoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCustomerNameNull() {
-                return this.IsNull(this.tabledsCustomer.CustomerNameColumn);
+            public bool IsSupplierNameNull() {
+                return this.IsNull(this.tabledsSupplier.SupplierNameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCustomerNameNull() {
-                this[this.tabledsCustomer.CustomerNameColumn] = global::System.Convert.DBNull;
+            public void SetSupplierNameNull() {
+                this[this.tabledsSupplier.SupplierNameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsContactNoNull() {
-                return this.IsNull(this.tabledsCustomer.ContactNoColumn);
+                return this.IsNull(this.tabledsSupplier.ContactNoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetContactNoNull() {
-                this[this.tabledsCustomer.ContactNoColumn] = global::System.Convert.DBNull;
+                this[this.tabledsSupplier.ContactNoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDebitNull() {
-                return this.IsNull(this.tabledsCustomer.DebitColumn);
+                return this.IsNull(this.tabledsSupplier.DebitColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetDebitNull() {
-                this[this.tabledsCustomer.DebitColumn] = global::System.Convert.DBNull;
+                this[this.tabledsSupplier.DebitColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsCreditNull() {
-                return this.IsNull(this.tabledsCustomer.CreditColumn);
+                return this.IsNull(this.tabledsSupplier.CreditColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetCreditNull() {
-                this[this.tabledsCustomer.CreditColumn] = global::System.Convert.DBNull;
+                this[this.tabledsSupplier.CreditColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsBalanceNull() {
-                return this.IsNull(this.tabledsCustomer.BalanceColumn);
+                return this.IsNull(this.tabledsSupplier.BalanceColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBalanceNull() {
-                this[this.tabledsCustomer.BalanceColumn] = global::System.Convert.DBNull;
+                this[this.tabledsSupplier.BalanceColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsOrderNoNull() {
-                return this.IsNull(this.tabledsCustomer.OrderNoColumn);
+                return this.IsNull(this.tabledsSupplier.OrderNoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetOrderNoNull() {
-                this[this.tabledsCustomer.OrderNoColumn] = global::System.Convert.DBNull;
+                this[this.tabledsSupplier.OrderNoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -778,22 +778,22 @@ namespace ERP.WpfClient.Reports.Dataset.Customer {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class dsCustomerRowChangeEvent : global::System.EventArgs {
+        public class dsSupplierRowChangeEvent : global::System.EventArgs {
             
-            private dsCustomerRow eventRow;
+            private dsSupplierRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCustomerRowChangeEvent(dsCustomerRow row, global::System.Data.DataRowAction action) {
+            public dsSupplierRowChangeEvent(dsSupplierRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCustomerRow Row {
+            public dsSupplierRow Row {
                 get {
                     return this.eventRow;
                 }

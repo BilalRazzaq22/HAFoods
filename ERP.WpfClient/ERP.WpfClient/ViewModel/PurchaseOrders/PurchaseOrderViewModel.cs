@@ -254,7 +254,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 if (PurchaseOrderItemModel != null)
                 {
                     PurchaseOrderItemModel.ItemName = StockModel.ItemName;
-                    PurchaseOrderItemModel.BuyPrice = StockModel.BuyPrice * StockModel.Packing;
+                    PurchaseOrderItemModel.BuyPrice = StockModel.BuyPrice;
                     //if (_isPreviousOrder)
                     //{
                     PurchaseOrderItemModel.NewQuantity = PurchaseOrderItemModel.NewQuantity + Quantity;
@@ -262,7 +262,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                     PurchaseOrderItemModel.PurchaseQuantity = Quantity;
                     PurchaseOrderItemModel.NewDiscount = PurchaseOrderItemModel.NewDiscount + Discount;
                     PurchaseOrderItemModel.Discount = Discount;
-                    decimal totalPrice = PurchaseOrderItemModel.NewQuantity * PurchaseOrderItemModel.BuyPrice;
+                    decimal totalPrice = (PurchaseOrderItemModel.BuyPrice * StockModel.Packing) * PurchaseOrderItemModel.NewQuantity;
                     PurchaseOrderItemModel.TotalPrice = totalPrice - PurchaseOrderItemModel.NewDiscount;
                 }
                 else
@@ -271,6 +271,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                     {
                         StockId = StockModel.Id,
                         ItemName = StockModel.ItemName,
+                        Packing = StockModel.Packing,
                         BuyPrice = StockModel.BuyPrice,
                         PurchaseQuantity = Quantity,
                         NewQuantity = Quantity,
@@ -286,8 +287,10 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 PurchaseOrderModel.TotalDiscount = PurchaseOrderItemList.Sum(x => x.NewDiscount);
                 if (_isPreviousOrder)
                 {
-                    PurchaseOrderModel.GrandTotal = ((((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice : StockModel.BuyPrice) * Quantity) + SupplierOrderModel.RemainingAmount) - Discount;
-                    NewItemPrice += ((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice : StockModel.BuyPrice) * Quantity;
+                    //PurchaseOrderModel.GrandTotal = ((((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice : StockModel.BuyPrice) * Quantity) + SupplierOrderModel.RemainingAmount) - Discount;
+                    var newItemTotalPrice = (StockModel.BuyPrice * StockModel.Packing) * Quantity;
+                    PurchaseOrderModel.GrandTotal += newItemTotalPrice;
+                    NewItemPrice += ((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice * StockModel.Packing : StockModel.BuyPrice * StockModel.Packing) * Quantity;
                 }
                 else
                     PurchaseOrderModel.GrandTotal = (PurchaseOrderModel.TotalPrice + SupplierOrderModel.RemainingAmount) - PurchaseOrderModel.TotalDiscount;
@@ -336,6 +339,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                             }
                             pOrderItem.StockId = item.StockId;
                             pOrderItem.ItemName = item.ItemName;
+                            pOrderItem.Packing = item.Packing;
                             //if (!_isPreviousOrder)
                             //    pOrderItem.PreviousQuantity = item.PreviousQuantity;
                             pOrderItem.PurchaseQuantity = item.NewQuantity;
@@ -350,7 +354,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                         PurchaseOrder t = _purchaseOrderRepository.SavePurchaseOrder(pOrder);
 
                         CalculateStock(PurchaseOrderItemList);
-                        LoadReport(t.Id);
+                        LoadReport(t);
                     }
                     catch (Exception ex)
                     {
@@ -393,11 +397,12 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                             Id = item.Id,
                             StockId = item.StockId,
                             ItemName = item.ItemName,
+                            Packing = item.Packing,
                             BuyPrice = item.BuyPrice,
                             //PreviousQuantity = item.PreviousQuantity,
                             NewQuantity = item.PurchaseQuantity,
                             NewDiscount = item.Discount,
-                            TotalPrice = (item.BuyPrice * item.PurchaseQuantity) - item.Discount
+                            TotalPrice = ((item.BuyPrice * item.Packing) * item.PurchaseQuantity) - item.Discount
                         });
                     }
                     SupplierModel = SupplierList.FirstOrDefault(x => x.Id == result.SupplierId);
@@ -432,21 +437,43 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
 
         private void SaveSupplierAmount()
         {
-            SupplierOrder suppOrder = new SupplierOrder
+            SupplierOrder supplierOrder = _supplierOrderRepository.Get().FirstOrDefault(x => x.OrderNo == PurchaseOrderModel.OrderNo);
+
+            if (supplierOrder == null)
             {
-                SupplierId = SupplierModel.Id,
-                AmountPaid = PurchaseOrderModel.AmountPaid,
-                RemainingAmount = PurchaseOrderModel.TotalPrice - PurchaseOrderModel.AmountPaid,
-                TotalAmount = PurchaseOrderModel.TotalPrice,
-                Balance = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid,
-                CreatedDate = DateTime.Now
-            };
+                SupplierOrder suppOrder = new SupplierOrder
+                {
+                    SupplierId = SupplierModel.Id,
+                    OrderNo = PurchaseOrderModel.OrderNo,
+                    AmountPaid = PurchaseOrderModel.AmountPaid,
+                    RemainingAmount = PurchaseOrderModel.TotalPrice - PurchaseOrderModel.AmountPaid,
+                    TotalAmount = PurchaseOrderModel.TotalPrice,
+                    Balance = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid,
+                    CreatedDate = DateTime.Now
+                };
 
-            GrandTotal = suppOrder.TotalAmount;
-            AmountPaid = suppOrder.AmountPaid;
-            RemainingAmount = suppOrder.RemainingAmount;
+                GrandTotal = suppOrder.TotalAmount;
+                AmountPaid = suppOrder.AmountPaid;
+                RemainingAmount = suppOrder.RemainingAmount;
 
-            _supplierOrderRepository.Add(suppOrder);
+                _supplierOrderRepository.Add(suppOrder);
+            }
+            else
+            {
+                supplierOrder.SupplierId = SupplierModel.Id;
+                supplierOrder.OrderNo = PurchaseOrderModel.OrderNo;
+                supplierOrder.AmountPaid = PurchaseOrderModel.AmountPaid + supplierOrder.AmountPaid;
+                supplierOrder.RemainingAmount = PurchaseOrderModel.TotalPrice - PurchaseOrderModel.AmountPaid;
+                supplierOrder.TotalAmount = NewItemPrice + supplierOrder.TotalAmount;
+                supplierOrder.Balance = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid;
+                supplierOrder.UpdatedDate = DateTime.Now;
+
+                GrandTotal = supplierOrder.TotalAmount;
+                AmountPaid = supplierOrder.AmountPaid;
+                RemainingAmount = supplierOrder.Balance;
+
+                _supplierOrderRepository.Update(supplierOrder, supplierOrder.Id);
+            }
             //}
             //else
             //{
@@ -471,6 +498,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             PurchaseOrderItemModel = new PurchaseOrderItemModel();
             PurchaseOrderItemList = new ObservableCollection<PurchaseOrderItemModel>();
             PurchaseOrderModel = new PurchaseOrderModel();
+            SupplierModel = new SupplierModel();
             GetPaymentType();
             GetSupplier();
             GetItems();
@@ -562,7 +590,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             }
         }
 
-        private void LoadReport(int purchaseOrderId)
+        private void LoadReport(PurchaseOrder purchaseOrder)
         {
             DataTable dt = new DataTable();
             string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
@@ -571,7 +599,8 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCurrentPurchaseOrder]", con))
                 {
-                    cmd.Parameters.AddWithValue("@PurchaseOrderId", purchaseOrderId);
+                    cmd.Parameters.AddWithValue("@PurchaseOrderId", purchaseOrder.Id);
+                    cmd.Parameters.AddWithValue("@SupplierId", purchaseOrder.SupplierId);
                     cmd.CommandType = CommandType.StoredProcedure;
                     SqlDataAdapter da = new SqlDataAdapter();
                     da.SelectCommand = cmd;

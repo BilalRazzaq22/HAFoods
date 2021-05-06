@@ -236,7 +236,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 if (CurrentTransactionDetailModel != null)
                 {
                     CurrentTransactionDetailModel.ItemName = StockModel.ItemName;
-                    CurrentTransactionDetailModel.Price = StockModel.SalePrice * StockModel.Packing;
+                    CurrentTransactionDetailModel.Price = StockModel.SalePrice;
                     //if (_isPreviousOrder)
                     //{
                     CurrentTransactionDetailModel.NewQuantity = CurrentTransactionDetailModel.NewQuantity + Quantity;
@@ -244,7 +244,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                     CurrentTransactionDetailModel.Quantity = Quantity;
                     CurrentTransactionDetailModel.NewDiscount = CurrentTransactionDetailModel.NewDiscount + Discount;
                     CurrentTransactionDetailModel.Discount = Discount;
-                    decimal totalPrice = CurrentTransactionDetailModel.Price * CurrentTransactionDetailModel.NewQuantity;
+                    decimal totalPrice = CurrentTransactionDetailModel.Price * StockModel.Packing * CurrentTransactionDetailModel.NewQuantity;
                     CurrentTransactionDetailModel.TotalPrice = totalPrice - CurrentTransactionDetailModel.NewDiscount;
                 }
                 else
@@ -253,6 +253,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                     {
                         StockId = StockModel.Id,
                         ItemName = StockModel.ItemName,
+                        Packing = StockModel.Packing,
                         Price = StockModel.SalePrice,
                         Quantity = Quantity,
                         NewQuantity = Quantity,
@@ -262,14 +263,22 @@ namespace ERP.WpfClient.ViewModel.Transaction
                     });
                 }
 
-                decimal price = CurrentTransactionDetailList.Sum(x => x.Price * x.NewQuantity);
+                decimal price = CurrentTransactionDetailList.Sum(x => x.TotalPrice);
 
                 CurrentTransactionModel.TotalPrice = price;
                 CurrentTransactionModel.TotalDiscount = CurrentTransactionDetailList.Sum(x => x.NewDiscount);
                 if (_isPreviousOrder)
                 {
-                    CurrentTransactionModel.GrandTotal = ((((CurrentTransactionDetailModel != null) ? CurrentTransactionDetailModel.Price : StockModel.SalePrice) * Quantity) + CustomerOrderModel.RemainingAmount) - Discount;
-                    NewItemPrice += ((CurrentTransactionDetailModel != null) ? CurrentTransactionDetailModel.Price : StockModel.SalePrice) * Quantity;
+                    //if (CurrentTransactionDetailModel != null)
+                    //{
+                    //    CurrentTransactionModel.GrandTotal = ((((CurrentTransactionDetailModel != null) ? (CurrentTransactionDetailModel.Price * StockModel.Packing) : (StockModel.SalePrice * StockModel.Packing)) * Quantity) + CustomerOrderModel.RemainingAmount) - Discount;
+                    //}
+                    //else
+                    //{
+                    var newItemTotalPrice = (StockModel.SalePrice * StockModel.Packing) * Quantity;
+                    CurrentTransactionModel.GrandTotal += newItemTotalPrice;
+                    //}
+                    NewItemPrice += ((CurrentTransactionDetailModel != null) ? CurrentTransactionDetailModel.Price * StockModel.Packing : StockModel.SalePrice * StockModel.Packing) * Quantity;
                 }
                 else
                     CurrentTransactionModel.GrandTotal = (CurrentTransactionModel.TotalPrice + CustomerOrderModel.RemainingAmount) - CurrentTransactionModel.TotalDiscount;
@@ -317,6 +326,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                             }
                             currentTransactionDetail.StockId = item.StockId;
                             currentTransactionDetail.ItemName = item.ItemName;
+                            currentTransactionDetail.Packing = item.Packing;
                             //if (!_isPreviousOrder)
                             //    currentTransactionDetail.PreviousQuantity = item.PreviousQuantity;
                             currentTransactionDetail.Quantity = item.NewQuantity;
@@ -331,7 +341,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         CurrentTransaction t = _currentTransactionRepository.SaveCustomerOrder(transaction);
 
                         CalculateStock(CurrentTransactionDetailList);
-                        LoadReport(t.Id);
+                        LoadReport(t);
                     }
                     catch (Exception ex)
                     {
@@ -374,11 +384,12 @@ namespace ERP.WpfClient.ViewModel.Transaction
                             Id = item.Id,
                             StockId = item.StockId,
                             ItemName = item.ItemName,
+                            Packing = item.Packing,
                             Price = item.Price,
                             //PreviousQuantity = item.PreviousQuantity,
                             NewQuantity = item.Quantity,
                             NewDiscount = item.Discount,
-                            TotalPrice = (item.Price * item.Quantity) - item.Discount
+                            TotalPrice = ((item.Price * item.Packing) * item.Quantity) - item.Discount
                         });
                     }
                     CustomerModel = CustomerList.FirstOrDefault(x => x.Id == result.CustomerId);
@@ -510,44 +521,45 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
         private void SaveCustomerAmount()
         {
-            //CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == CustomerModel.Id);
-            //if (customerOrder == null)
-            //{
-            CustomerOrder custOrder = new CustomerOrder
+            CustomerOrder customerOrder = _customerOrderRepository.Get().FirstOrDefault(x => x.CustomerId == CustomerModel.Id);
+            if (customerOrder == null)
             {
-                CustomerId = CustomerModel.Id,
-                AmountPaid = CurrentTransactionModel.AmountPaid,
-                RemainingAmount = CurrentTransactionModel.TotalPrice - CurrentTransactionModel.AmountPaid,
-                TotalAmount = CurrentTransactionModel.TotalPrice,
-                Balance = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid,
-                CreatedDate = DateTime.Now
-            };
+                CustomerOrder custOrder = new CustomerOrder
+                {
+                    CustomerId = CustomerModel.Id,
+                    OrderNo = CurrentTransactionModel.OrderNo,
+                    AmountPaid = CurrentTransactionModel.AmountPaid,
+                    RemainingAmount = CurrentTransactionModel.TotalPrice - CurrentTransactionModel.AmountPaid,
+                    TotalAmount = CurrentTransactionModel.TotalPrice,
+                    Balance = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid,
+                    CreatedDate = DateTime.Now
+                };
 
-            GrandTotal = custOrder.TotalAmount;
-            AmountPaid = custOrder.AmountPaid;
-            RemainingAmount = custOrder.RemainingAmount;
+                GrandTotal = custOrder.TotalAmount;
+                AmountPaid = custOrder.AmountPaid;
+                RemainingAmount = custOrder.RemainingAmount;
 
-            _customerOrderRepository.Add(custOrder);
-            //}
-            //else
-            //{
-            //    customerOrder.CustomerId = CustomerModel.Id;
-            //    customerOrder.AmountPaid = CurrentTransactionModel.AmountPaid + customerOrder.AmountPaid;
-            //    customerOrder.RemainingAmount = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid;
-            //    if (_isPreviousOrder)
-            //        customerOrder.TotalAmount = NewItemPrice + customerOrder.TotalAmount;
-            //    else
-            //        customerOrder.TotalAmount = (CurrentTransactionModel.TotalPrice - CurrentTransactionModel.TotalDiscount) + customerOrder.TotalAmount;
+                _customerOrderRepository.Add(custOrder);
+            }
+            else
+            {
+                customerOrder.CustomerId = CustomerModel.Id;
+                customerOrder.OrderNo = CurrentTransactionModel.OrderNo;
+                customerOrder.AmountPaid = CurrentTransactionModel.AmountPaid + customerOrder.AmountPaid;
+                customerOrder.RemainingAmount = CurrentTransactionModel.TotalPrice - CurrentTransactionModel.AmountPaid;
+                customerOrder.TotalAmount = NewItemPrice + customerOrder.TotalAmount;
+                customerOrder.Balance = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid;
+                customerOrder.UpdatedDate = DateTime.Now;
 
-            //    GrandTotal = customerOrder.TotalAmount;
-            //    AmountPaid = customerOrder.AmountPaid;
-            //    RemainingAmount = customerOrder.RemainingAmount;
+                GrandTotal = customerOrder.TotalAmount;
+                AmountPaid = customerOrder.AmountPaid;
+                RemainingAmount = customerOrder.Balance;
 
-            //    _customerOrderRepository.SaveCustomerOrderAmount(customerOrder);
-            //}
+                _customerOrderRepository.SaveCustomerOrderAmount(customerOrder);
+            }
         }
 
-        private void LoadReport(int currentTransactionId)
+        private void LoadReport(CurrentTransaction currentTransaction)
         {
             DataTable dt = new DataTable();
             string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
@@ -556,7 +568,8 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 con.Open();
                 using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCurrentTransactionOrder]", con))
                 {
-                    cmd.Parameters.AddWithValue("@CurrentTransactionId", currentTransactionId);
+                    cmd.Parameters.AddWithValue("@CurrentTransactionId", currentTransaction.Id);
+                    cmd.Parameters.AddWithValue("@CustomerId", currentTransaction.CustomerId);
                     cmd.CommandType = CommandType.StoredProcedure;
                     SqlDataAdapter da = new SqlDataAdapter();
                     da.SelectCommand = cmd;

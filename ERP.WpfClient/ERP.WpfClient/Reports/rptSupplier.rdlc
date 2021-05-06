@@ -9,19 +9,19 @@
               <Width>1in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.45833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.45833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.45833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.45833in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.50417in</Width>
+              <Width>1.45833in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -30,7 +30,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox20">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -49,7 +49,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -65,14 +65,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox1">
+                    <Textbox Name="Textbox10">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Customer Name</Value>
+                              <Value>Supplier Name</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -84,7 +84,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
+                      <rd:DefaultName>Textbox10</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -100,7 +100,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox2">
+                    <Textbox Name="Textbox12">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -119,7 +119,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox2</rd:DefaultName>
+                      <rd:DefaultName>Textbox12</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -135,7 +135,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox14">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -154,7 +154,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -170,7 +170,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox4">
+                    <Textbox Name="Textbox16">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -189,7 +189,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                      <rd:DefaultName>Textbox16</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -205,7 +205,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox9">
+                    <Textbox Name="Textbox18">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -224,7 +224,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <rd:DefaultName>Textbox18</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -279,14 +279,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="CustomerName">
+                    <Textbox Name="SupplierName">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!CustomerName.Value</Value>
+                              <Value>=Fields!SupplierName.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                               </Style>
@@ -297,7 +297,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>CustomerName</rd:DefaultName>
+                      <rd:DefaultName>SupplierName</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -471,11 +471,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsCustomer</DataSetName>
-        <Top>0.13417in</Top>
-        <Left>0.125in</Left>
+        <DataSetName>dsSupplier</DataSetName>
+        <Top>0.19444in</Top>
+        <Left>0.11458in</Left>
         <Height>0.5in</Height>
-        <Width>8.52085in</Width>
+        <Width>8.29167in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -483,17 +483,17 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>0.77083in</Height>
+    <Height>0.84375in</Height>
     <Style />
   </Body>
-  <Width>8.7396in</Width>
+  <Width>8.52083in</Width>
   <Page>
     <PageHeader>
-      <Height>1.375in</Height>
+      <Height>1.20312in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox8">
+        <Textbox Name="Textbox7">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -513,8 +513,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.23438in</Top>
-          <Left>3.72917in</Left>
+          <Top>0.17188in</Top>
+          <Left>3.59375in</Left>
           <Height>0.90625in</Height>
           <Width>1in</Width>
           <Style>
@@ -531,8 +531,8 @@
           <Source>Embedded</Source>
           <Value>HighEnd4x</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.23438in</Top>
-          <Left>0.125in</Left>
+          <Top>0.17188in</Top>
+          <Left>0.11458in</Left>
           <Height>0.90625in</Height>
           <Width>1.41667in</Width>
           <ZIndex>1</ZIndex>
@@ -542,7 +542,7 @@
             </Border>
           </Style>
         </Image>
-        <Textbox Name="Textbox10">
+        <Textbox Name="Textbox8">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -562,10 +562,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>0.89063in</Top>
-          <Left>6.94793in</Left>
+          <Top>0.82812in</Top>
+          <Left>6.90625in</Left>
           <Height>0.25in</Height>
-          <Width>1.69792in</Width>
+          <Width>1.5in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -577,7 +577,7 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
-        <Textbox Name="Textbox12">
+        <Textbox Name="Textbox9">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
@@ -595,8 +595,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>0.89063in</Top>
-          <Left>6.4514in</Left>
+          <Top>0.82812in</Top>
+          <Left>6.47917in</Left>
           <Height>0.25in</Height>
           <Width>0.42708in</Width>
           <ZIndex>3</ZIndex>
@@ -627,7 +627,7 @@
           <Value>logomarcoF01</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.06944in</Top>
-          <Left>8.14585in</Left>
+          <Left>7.90625in</Left>
           <Height>0.5in</Height>
           <Width>0.5in</Width>
           <Style>
@@ -654,7 +654,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
           <Top>0.25917in</Top>
-          <Left>3.00349in</Left>
+          <Left>2.76389in</Left>
           <Height>0.25in</Height>
           <Width>3.875in</Width>
           <ZIndex>1</ZIndex>
@@ -683,23 +683,23 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="dsCustomer">
+    <DataSource Name="dsSupplier">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>95632bc4-79e3-40c0-a3f8-e631b9f1dbc5</rd:DataSourceID>
+      <rd:DataSourceID>6e03e0e6-47c1-435e-ab80-535859d55270</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsCustomer">
+    <DataSet Name="dsSupplier">
       <Query>
-        <DataSourceName>dsCustomer</DataSourceName>
+        <DataSourceName>dsSupplier</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
+        <Field Name="SupplierName">
+          <DataField>SupplierName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="ContactNo">
@@ -724,9 +724,9 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dsCustomer</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Dataset\Customer\dsCustomer.xsd</rd:SchemaPath>
-        <rd:TableName>dsCustomer</rd:TableName>
+        <rd:DataSetName>dsSupplier</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Dataset\Supplier\dsSupplier.xsd</rd:SchemaPath>
+        <rd:TableName>dsSupplier</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -1391,5 +1391,5 @@ AQAAAABgINwBAAAAAGAg3AEAAAAAYCDcAQAAAABgINwBAAAAAGAg3AEAAAAAYCDcAQAAAABgINwBAAAA
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>14c31c22-7a9e-4dc4-91e6-eca27227195a</rd:ReportID>
+  <rd:ReportID>726bd388-29b9-4c40-95bc-f0fca20f6579</rd:ReportID>
 </Report>

@@ -510,7 +510,7 @@ namespace ERP.WpfClient.ViewModel
             //}
             //else
             //{
-            defaultScreen = "CurrentTransaction";
+            defaultScreen = "Home";
             //}
 
 

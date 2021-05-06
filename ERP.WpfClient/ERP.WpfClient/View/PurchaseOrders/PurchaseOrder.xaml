@@ -62,7 +62,7 @@
                     </StackPanel>
 
                     <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
-                        <Label Style="{StaticResource SimpleLabelText}" Content="Customer:" />
+                        <Label Style="{StaticResource SimpleLabelText}" Content="Supplier:" />
                         <!--<TextBox  Text="{Binding CustomerModel.FirstName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>-->
                         <ComboBox Style="{StaticResource ProductMatrixDropdown}" ItemsSource="{Binding SupplierList}" SelectedItem="{Binding SupplierModel}">
                             <ComboBox.ItemTemplate>
@@ -146,7 +146,7 @@
                             <DataGridTextColumn Header="Item Name" Width="*" Binding="{Binding ItemName}"/>
                             <DataGridTextColumn Header="Qunatity" Width="*" Binding="{Binding NewQuantity}"/>
                             <DataGridTextColumn Header="Unit Price" Width="*" Binding="{Binding BuyPrice}"/>
-                            <DataGridTextColumn Header="Item Packing" Width="*" Binding="{Binding NewDiscount}"/>
+                            <DataGridTextColumn Header="Item Packing" Width="*" Binding="{Binding Packing}"/>
                             <DataGridTextColumn Header="Total Price" Width="*" Binding="{Binding TotalPrice}"/>
                         </DataGrid.Columns>
                     </DataGrid>

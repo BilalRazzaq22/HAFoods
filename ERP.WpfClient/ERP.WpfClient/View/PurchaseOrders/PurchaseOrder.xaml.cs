@@ -21,10 +21,12 @@ namespace ERP.WpfClient.View.PurchaseOrders
     /// </summary>
     public partial class PurchaseOrder : UserControl
     {
+        public PurchaseOrderViewModel Model { get; set; }
         public PurchaseOrder()
         {
             InitializeComponent();
-            DataContext = new PurchaseOrderViewModel();
+            Model = new PurchaseOrderViewModel();
+            this.DataContext = Model;
         }
 
         private void _txtSearch_MouseEnter(object sender, MouseEventArgs e)
@@ -50,7 +52,7 @@ namespace ERP.WpfClient.View.PurchaseOrders
 
         private void _txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //Model.OrderNumber = _txtSearch.Text;
+            Model.OrderNumber = _txtSearch.Text;
         }
 
     }
