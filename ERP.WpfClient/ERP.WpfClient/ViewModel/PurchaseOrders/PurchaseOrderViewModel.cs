@@ -2,6 +2,7 @@
 using ERP.Common.NotifyProperty;
 using ERP.Entities.DbContext;
 using ERP.Entities.DBModel;
+using ERP.Entities.DBModel.CashBook;
 using ERP.Entities.DBModel.Customers;
 using ERP.Entities.DBModel.Payments;
 using ERP.Entities.DBModel.PurchaseOrders;
@@ -45,6 +46,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
         private IGenericRepository<Entities.DBModel.Stocks.Stock> _stockRepository;
         private readonly IGenericRepository<Payment> _paymentRepository;
         private readonly IGenericRepository<SupplierOrder> _supplierOrderRepository;
+        private readonly IGenericRepository<CashBookOne> _cashBookOneRepository;
         private PurchaseOrderModel _purchaseOrderModel;
         private PurchaseOrderItemModel _purchaseOrderItemModel;
         private ObservableCollection<PurchaseOrderModel> _purchaseOrderList;
@@ -70,7 +72,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
         private decimal _totalQuantity;
         private decimal _totalAmount;
         private SupplierOrderModel _supplierOrderModel;
-
+        private decimal _supplierCashBookAmount;
         //CurrentTransactionRepository currentTransaction = new CurrentTransactionRepository();
 
         #endregion
@@ -85,6 +87,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             _stockRepository = new GenericRepository<Entities.DBModel.Stocks.Stock>(new HAFoodDbContext());
             _paymentRepository = App.Resolve<IGenericRepository<Payment>>();
             _supplierOrderRepository = App.Resolve<IGenericRepository<SupplierOrder>>();
+            _cashBookOneRepository = App.Resolve<IGenericRepository<CashBookOne>>();
             StockList = new ObservableCollection<StockModel>();
             SupplierList = new ObservableCollection<SupplierModel>();
         }
@@ -233,6 +236,11 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             set { _supplierOrderModel = value; RaisePropertyChanged("SupplierOrderModel"); }
         }
 
+        public decimal SupplierCashBookAmount
+        {
+            get { return _supplierCashBookAmount; }
+            set { _supplierCashBookAmount = value; RaisePropertyChanged("SupplierCashBookAmount"); }
+        }
 
         #endregion
 
@@ -293,7 +301,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                     NewItemPrice += ((PurchaseOrderItemModel != null) ? PurchaseOrderItemModel.BuyPrice * StockModel.Packing : StockModel.BuyPrice * StockModel.Packing) * Quantity;
                 }
                 else
-                    PurchaseOrderModel.GrandTotal = (PurchaseOrderModel.TotalPrice + SupplierOrderModel.RemainingAmount) - PurchaseOrderModel.TotalDiscount;
+                    PurchaseOrderModel.GrandTotal = (PurchaseOrderModel.TotalPrice + SupplierOrderModel.RemainingAmount) - PurchaseOrderModel.TotalDiscount - SupplierCashBookAmount;
             }
             else if (str == "Save Order")
             {
@@ -432,6 +440,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 SupplierOrderModel.AmountPaid = supplierOrder.Sum(x => x.AmountPaid);
                 SupplierOrderModel.RemainingAmount = supplierOrder.Sum(x => x.RemainingAmount);
                 SupplierOrderModel.TotalAmount = supplierOrder.Sum(x => x.TotalAmount);
+                SupplierCashBookAmount = _cashBookOneRepository.Get().Where(x => x.SupplierId == supplierId).Sum(x => x.Amount);
             }
         }
 
@@ -507,6 +516,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             Quantity = 0;
             Discount = 0;
             NewItemPrice = 0;
+            //SupplierCashBookAmount = 0;
             GetOrderNumber();
             PurchaseOrderModel.PurchaseOrderDate = DateTime.Now;
         }

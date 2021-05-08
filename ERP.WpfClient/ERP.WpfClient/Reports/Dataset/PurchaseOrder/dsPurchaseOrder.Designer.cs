@@ -309,6 +309,10 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             private global::System.Data.DataColumn columnTotalSuppliers;
             
+            private global::System.Data.DataColumn columnSupplierName;
+            
+            private global::System.Data.DataColumn columnPreviousBalance;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dsPurchaseOrderDataTable() {
@@ -464,6 +468,22 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SupplierNameColumn {
+                get {
+                    return this.columnSupplierName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PreviousBalanceColumn {
+                get {
+                    return this.columnPreviousBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +519,24 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsPurchaseOrderRow AdddsPurchaseOrderRow(string ItemName, string PurchaseQuantity, string BuyPrice, string Discount, string TotalPrice, string OrderNo, string GrandTotalPrice, string TotalDiscount, string GrandTotal, string TotalAmount, string AmountPaid, string RemainingAmount, string PaymentType, string CreatedDate, string TotalSuppliers) {
+            public dsPurchaseOrderRow AdddsPurchaseOrderRow(
+                        string ItemName, 
+                        string PurchaseQuantity, 
+                        string BuyPrice, 
+                        string Discount, 
+                        string TotalPrice, 
+                        string OrderNo, 
+                        string GrandTotalPrice, 
+                        string TotalDiscount, 
+                        string GrandTotal, 
+                        string TotalAmount, 
+                        string AmountPaid, 
+                        string RemainingAmount, 
+                        string PaymentType, 
+                        string CreatedDate, 
+                        string TotalSuppliers, 
+                        string SupplierName, 
+                        string PreviousBalance) {
                 dsPurchaseOrderRow rowdsPurchaseOrderRow = ((dsPurchaseOrderRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemName,
@@ -516,7 +553,9 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
                         RemainingAmount,
                         PaymentType,
                         CreatedDate,
-                        TotalSuppliers};
+                        TotalSuppliers,
+                        SupplierName,
+                        PreviousBalance};
                 rowdsPurchaseOrderRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsPurchaseOrderRow);
                 return rowdsPurchaseOrderRow;
@@ -554,6 +593,8 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
                 this.columnPaymentType = base.Columns["PaymentType"];
                 this.columnCreatedDate = base.Columns["CreatedDate"];
                 this.columnTotalSuppliers = base.Columns["TotalSuppliers"];
+                this.columnSupplierName = base.Columns["SupplierName"];
+                this.columnPreviousBalance = base.Columns["PreviousBalance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,6 +630,10 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
                 base.Columns.Add(this.columnCreatedDate);
                 this.columnTotalSuppliers = new global::System.Data.DataColumn("TotalSuppliers", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalSuppliers);
+                this.columnSupplierName = new global::System.Data.DataColumn("SupplierName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplierName);
+                this.columnPreviousBalance = new global::System.Data.DataColumn("PreviousBalance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPreviousBalance);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsPurchaseOrder");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsPurchaseOrder");
             }
@@ -973,6 +1018,38 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SupplierName {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsPurchaseOrder.SupplierNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SupplierName\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsPurchaseOrder.SupplierNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PreviousBalance {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsPurchaseOrder.PreviousBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PreviousBalance\' in table \'dsPurchaseOrder\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsPurchaseOrder.PreviousBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsItemNameNull() {
                 return this.IsNull(this.tabledsPurchaseOrder.ItemNameColumn);
             }
@@ -1149,6 +1226,30 @@ namespace ERP.WpfClient.Reports.Dataset.PurchaseOrder {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTotalSuppliersNull() {
                 this[this.tabledsPurchaseOrder.TotalSuppliersColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSupplierNameNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.SupplierNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSupplierNameNull() {
+                this[this.tabledsPurchaseOrder.SupplierNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPreviousBalanceNull() {
+                return this.IsNull(this.tabledsPurchaseOrder.PreviousBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPreviousBalanceNull() {
+                this[this.tabledsPurchaseOrder.PreviousBalanceColumn] = global::System.Convert.DBNull;
             }
         }
         

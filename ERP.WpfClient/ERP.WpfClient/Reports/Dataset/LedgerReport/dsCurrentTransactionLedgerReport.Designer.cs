@@ -289,6 +289,12 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             private global::System.Data.DataColumn columnBalance;
             
+            private global::System.Data.DataColumn columnTotalDebit;
+            
+            private global::System.Data.DataColumn columnTotalCredit;
+            
+            private global::System.Data.DataColumn columnTotalBalance;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dsCurrentTransactionLedgerReportDataTable() {
@@ -364,6 +370,30 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TotalDebitColumn {
+                get {
+                    return this.columnTotalDebit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TotalCreditColumn {
+                get {
+                    return this.columnTotalCredit;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TotalBalanceColumn {
+                get {
+                    return this.columnTotalBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -399,14 +429,17 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionLedgerReportRow AdddsCurrentTransactionLedgerReportRow(string Date, string OrderNo, string Debit, string Credit, string Balance) {
+            public dsCurrentTransactionLedgerReportRow AdddsCurrentTransactionLedgerReportRow(string Date, string OrderNo, string Debit, string Credit, string Balance, string TotalDebit, string TotalCredit, string TotalBalance) {
                 dsCurrentTransactionLedgerReportRow rowdsCurrentTransactionLedgerReportRow = ((dsCurrentTransactionLedgerReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date,
                         OrderNo,
                         Debit,
                         Credit,
-                        Balance};
+                        Balance,
+                        TotalDebit,
+                        TotalCredit,
+                        TotalBalance};
                 rowdsCurrentTransactionLedgerReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsCurrentTransactionLedgerReportRow);
                 return rowdsCurrentTransactionLedgerReportRow;
@@ -434,6 +467,9 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
                 this.columnDebit = base.Columns["Debit"];
                 this.columnCredit = base.Columns["Credit"];
                 this.columnBalance = base.Columns["Balance"];
+                this.columnTotalDebit = base.Columns["TotalDebit"];
+                this.columnTotalCredit = base.Columns["TotalCredit"];
+                this.columnTotalBalance = base.Columns["TotalBalance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -449,6 +485,12 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
                 base.Columns.Add(this.columnCredit);
                 this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBalance);
+                this.columnTotalDebit = new global::System.Data.DataColumn("TotalDebit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalDebit);
+                this.columnTotalCredit = new global::System.Data.DataColumn("TotalCredit", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalCredit);
+                this.columnTotalBalance = new global::System.Data.DataColumn("TotalBalance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotalBalance);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsCurrentTransactionLedgerReport");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsCurrentTransactionLedgerReport");
             }
@@ -678,6 +720,57 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TotalDebit {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalDebit\' in table \'dsCurrentTransactionLedgerReport\' is " +
+                                "DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TotalCredit {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalCredit\' in table \'dsCurrentTransactionLedgerReport\' is" +
+                                " DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string TotalBalance {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'TotalBalance\' in table \'dsCurrentTransactionLedgerReport\' i" +
+                                "s DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDateNull() {
                 return this.IsNull(this.tabledsCurrentTransactionLedgerReport.DateColumn);
             }
@@ -734,6 +827,42 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetBalanceNull() {
                 this[this.tabledsCurrentTransactionLedgerReport.BalanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotalDebitNull() {
+                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotalDebitNull() {
+                this[this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotalCreditNull() {
+                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotalCreditNull() {
+                this[this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTotalBalanceNull() {
+                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTotalBalanceNull() {
+                this[this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn] = global::System.Convert.DBNull;
             }
         }
         
