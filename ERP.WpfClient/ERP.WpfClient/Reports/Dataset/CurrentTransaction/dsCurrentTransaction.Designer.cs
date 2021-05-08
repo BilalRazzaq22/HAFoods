@@ -309,6 +309,10 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             private global::System.Data.DataColumn columnTotalCustomerOrders;
             
+            private global::System.Data.DataColumn columnCustomerName;
+            
+            private global::System.Data.DataColumn columnPreviousBalance;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dsCurrentTransactionDataTable() {
@@ -464,6 +468,22 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CustomerNameColumn {
+                get {
+                    return this.columnCustomerName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PreviousBalanceColumn {
+                get {
+                    return this.columnPreviousBalance;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -499,7 +519,24 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionRow AdddsCurrentTransactionRow(string ItemName, string Quantity, string Price, string Discount, string TotalPrice, string OrderNo, string GrandTotalPrice, string GrandTotalDiscount, string PaymentType, string CreatedDate, string TotalAmount, string AmountPaid, string RemainingAmount, string GrandTotal, string TotalCustomerOrders) {
+            public dsCurrentTransactionRow AdddsCurrentTransactionRow(
+                        string ItemName, 
+                        string Quantity, 
+                        string Price, 
+                        string Discount, 
+                        string TotalPrice, 
+                        string OrderNo, 
+                        string GrandTotalPrice, 
+                        string GrandTotalDiscount, 
+                        string PaymentType, 
+                        string CreatedDate, 
+                        string TotalAmount, 
+                        string AmountPaid, 
+                        string RemainingAmount, 
+                        string GrandTotal, 
+                        string TotalCustomerOrders, 
+                        string CustomerName, 
+                        string PreviousBalance) {
                 dsCurrentTransactionRow rowdsCurrentTransactionRow = ((dsCurrentTransactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemName,
@@ -516,7 +553,9 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                         AmountPaid,
                         RemainingAmount,
                         GrandTotal,
-                        TotalCustomerOrders};
+                        TotalCustomerOrders,
+                        CustomerName,
+                        PreviousBalance};
                 rowdsCurrentTransactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsCurrentTransactionRow);
                 return rowdsCurrentTransactionRow;
@@ -554,6 +593,8 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                 this.columnRemainingAmount = base.Columns["RemainingAmount"];
                 this.columnGrandTotal = base.Columns["GrandTotal"];
                 this.columnTotalCustomerOrders = base.Columns["TotalCustomerOrders"];
+                this.columnCustomerName = base.Columns["CustomerName"];
+                this.columnPreviousBalance = base.Columns["PreviousBalance"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -589,6 +630,10 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                 base.Columns.Add(this.columnGrandTotal);
                 this.columnTotalCustomerOrders = new global::System.Data.DataColumn("TotalCustomerOrders", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalCustomerOrders);
+                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomerName);
+                this.columnPreviousBalance = new global::System.Data.DataColumn("PreviousBalance", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPreviousBalance);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsCurrentTransaction");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsCurrentTransaction");
             }
@@ -977,6 +1022,39 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string CustomerName {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.CustomerNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'dsCurrentTransaction\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.CustomerNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PreviousBalance {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.PreviousBalanceColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PreviousBalance\' in table \'dsCurrentTransaction\' is DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.PreviousBalanceColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsItemNameNull() {
                 return this.IsNull(this.tabledsCurrentTransaction.ItemNameColumn);
             }
@@ -1153,6 +1231,30 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTotalCustomerOrdersNull() {
                 this[this.tabledsCurrentTransaction.TotalCustomerOrdersColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCustomerNameNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.CustomerNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCustomerNameNull() {
+                this[this.tabledsCurrentTransaction.CustomerNameColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPreviousBalanceNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.PreviousBalanceColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPreviousBalanceNull() {
+                this[this.tabledsCurrentTransaction.PreviousBalanceColumn] = global::System.Convert.DBNull;
             }
         }
         

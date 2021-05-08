@@ -402,7 +402,7 @@
         <Top>0.17583in</Top>
         <Left>0.16523in</Left>
         <Height>0.5in</Height>
-        <Width>6.64236in</Width>
+        <Width>6.64235in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -545,7 +545,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.65625in</Height>
+      <Height>0.71875in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -566,8 +566,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
-          <Top>0.25917in</Top>
-          <Left>1.16523in</Left>
+          <Top>0.38889in</Top>
+          <Left>1.4937in</Left>
           <Height>0.25in</Height>
           <Width>3.875in</Width>
           <Style>
@@ -584,8 +584,8 @@
           <Source>Embedded</Source>
           <Value>logomarcoF01</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.06944in</Top>
-          <Left>6.30759in</Left>
+          <Top>0.13889in</Top>
+          <Left>6.3076in</Left>
           <Height>0.5in</Height>
           <Width>0.5in</Width>
           <ZIndex>1</ZIndex>
@@ -595,6 +595,17 @@
             </Border>
           </Style>
         </Image>
+        <Line Name="Line1">
+          <Top>0.06944in</Top>
+          <Height>0in</Height>
+          <Width>6.9624in</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
