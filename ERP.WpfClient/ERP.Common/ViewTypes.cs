@@ -19,7 +19,7 @@ namespace ERP.Common
         Reports,
         AllReports,
         PurchaseOrder,
-        User
-
+        User,
+        Database
     }
 }

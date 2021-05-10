@@ -1,9 +1,13 @@
 ﻿using ERP.Common;
 using ERP.Common.NotifyProperty;
+using ERP.Entities.DbContext;
+using ERP.WpfClient.Controls.Helpers;
 using ERP.WpfClient.View.Home;
+using ERP.WpfClient.View.Popups.Database;
 using GalaSoft.MvvmLight.Command;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -34,11 +38,13 @@ namespace ERP.WpfClient.ViewModel
         private bool _isReserveItemsEnable;
         private bool _isReleaseItemsEnable;
         private bool _isCustomerEnable;
+        private string _filePath;
         //public MainViewCommand MainViewCommand { get; set; }
         #endregion
 
         public MainViewModel()
         {
+            DatabaseActionCommand = new RelayCommand<string>(ExecuteDatabaseActionCommand);
             MainViewCommand = new RelayCommand<string>(ExecuteMainViewCommand);
             //MainViewCommand = new MainViewCommand(this);
             _viewManagerService = ViewManagerService.CreateInstance();
@@ -75,8 +81,15 @@ namespace ERP.WpfClient.ViewModel
         //}
 
         #region Properties
+        public RelayCommand<string> DatabaseActionCommand { get; set; }
 
         public RelayCommand<string> MainViewCommand { get; set; }
+
+        public string FilePath
+        {
+            get { return _filePath; }
+            set { _filePath = value; RaisePropertyChanged("FilePath"); }
+        }
 
         //public bool IsCustomerEnable
         //{
@@ -243,7 +256,80 @@ namespace ERP.WpfClient.ViewModel
                 case "User":
                     LoadViewAsync(ViewTypes.User.ToString());
                     break;
+
+                case "Database":
+                    LoadViewAsync(ViewTypes.Database.ToString());
+                    break;
+                case "RestoreDatabase":
+                    ApplicationManager.Instance.ShowDialog("Restore Database", new RestoreDatabasePopup(this));
+                    break;
             }
+        }
+
+        public void ExecuteDatabaseActionCommand(string str)
+        {
+            switch (str)
+            {
+                case "Browse":
+                    DatabaseFilePath();
+                    break;
+                case "Proceed":
+                    RestoreDatabase();
+                    break;
+                case "Cancel":
+                    ApplicationManager.Instance.HideDialog();
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void DatabaseFilePath()
+        {
+            // Create OpenFileDialog
+            Microsoft.Win32.OpenFileDialog openFileDlg = new Microsoft.Win32.OpenFileDialog();
+
+            // Launch OpenFileDialog by calling ShowDialog method
+            Nullable<bool> result = openFileDlg.ShowDialog();
+            // Get the selected file name and display in a TextBox.
+            // Load content of file in a TextBlock
+            if (result == true)
+            {
+                FilePath = openFileDlg.FileName;
+                //TextBlock1.Text = System.IO.File.ReadAllText(openFileDlg.FileName);
+            }
+        }
+
+        public void RestoreDatabase()
+        {
+            var bw = new BackgroundWorker();
+            bw.DoWork += (sender, args) =>
+            {
+                try
+                {
+                    ApplicationManager.Instance.ShowBusyInidicator("Restoring Database ...!");
+                    using (var db = new HAFoodDbContext())
+                    {
+                        string restoreQuery = @"USE [Master]; 
+                                                ALTER DATABASE ""{0}"" SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+                                                RESTORE DATABASE ""{0}"" FROM DISK='{1}' WITH REPLACE;
+                                                ALTER DATABASE ""{0}"" SET MULTI_USER;";
+                        restoreQuery = string.Format(restoreQuery, "HAFoodDB", FilePath);
+                        var list = db.Database.SqlQuery<object>(restoreQuery).ToList();
+                        var resut = list.FirstOrDefault();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "HA Foods");
+                }
+            };
+
+            bw.RunWorkerCompleted += async (sender, args) =>
+            {
+                ApplicationManager.Instance.HideBusyInidicator();
+            };
+            bw.RunWorkerAsync();
         }
 
         public void ClosePopup()
@@ -411,6 +497,9 @@ namespace ERP.WpfClient.ViewModel
                     break;
                 case ViewTypes.User:
                     _viewManagerService.Select("home").Transition<View.Users.User>(viewType);
+                    break;
+                case ViewTypes.Database:
+                    _viewManagerService.Select("home").Transition<View.Database.Database>(viewType);
                     break;
                 default:
                     break;

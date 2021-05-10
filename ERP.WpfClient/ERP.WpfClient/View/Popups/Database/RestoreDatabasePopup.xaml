@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Popups.Database.RestoreDatabasePopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Popups.Database"
+             mc:Ignorable="d" 
+             d:DesignHeight="250" d:DesignWidth="400">
+    <Grid Background="{StaticResource CommonWhiteBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0">
+            <StackPanel>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="80"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Style="{StaticResource SimpleLabelText}" Margin="20,10,0,10" Content="Database Path:" Grid.Row="0" Grid.Column="0"/>
+                    <TextBox Grid.Row="1" Grid.Column="0" Text="{Binding FilePath,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" Background="{StaticResource MasterBackgroundColor}" Width="300"/>
+                    <Button Grid.Row="1" Grid.Column="1" Style="{StaticResource AcceptButton}" Content="Browse" CommandParameter="Browse" Command="{Binding DatabaseActionCommand}" />
+                </Grid>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Background="{StaticResource CommonWhiteBackgroundColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource DeclineButton}" Content="Cancel" CommandParameter="Cancel" Command="{Binding DatabaseActionCommand}" />
+            <Button Grid.Column="1"  Style="{StaticResource AcceptButton}" Content="Proceed" CommandParameter="Proceed" Command="{Binding DatabaseActionCommand}" />
+        </Grid>
+    </Grid>
+</UserControl>

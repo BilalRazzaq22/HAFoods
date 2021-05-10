@@ -55,24 +55,30 @@
     <Compile Include="DBModel\CashBook\CashBookOne.cs" />
     <Compile Include="DBModel\CashBook\CashBookTwo.cs" />
     <Compile Include="DBModel\Customers\Customer.cs" />
+    <Compile Include="DBModel\Customers\CustomerMarketingOrder.cs" />
+    <Compile Include="DBModel\Customers\CustomerMarketingOrderAmount.cs" />
+    <Compile Include="DBModel\Customers\CustomerMarketingOrderItem.cs" />
     <Compile Include="DBModel\Customers\CustomerOrder.cs" />
     <Compile Include="DBModel\Payments\Payment.cs" />
     <Compile Include="DBModel\PurchaseOrders\PurchaseOrder.cs" />
     <Compile Include="DBModel\PurchaseOrders\PurchaseOrderItem.cs" />
     <Compile Include="DBModel\Stocks\Stock.cs" />
+    <Compile Include="DBModel\Suppliers\SupplierMarketingOrder.cs" />
+    <Compile Include="DBModel\Suppliers\SupplierMarketingOrderAmount.cs" />
+    <Compile Include="DBModel\Suppliers\SupplierMarketingOrderItem.cs" />
     <Compile Include="DBModel\Suppliers\Supplier.cs" />
     <Compile Include="DBModel\Suppliers\SupplierOrder.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransaction.cs" />
     <Compile Include="DBModel\Transactions\CurrentTransactionDetail.cs" />
     <Compile Include="DBModel\Users\User.cs" />
     <Compile Include="DBModel\Users\UserGroup.cs" />
-    <Compile Include="Migrations\202105041110480_init.cs" />
-    <Compile Include="Migrations\202105041110480_init.Designer.cs">
-      <DependentUpon>202105041110480_init.cs</DependentUpon>
+    <Compile Include="Migrations\202105101109512_Init.cs" />
+    <Compile Include="Migrations\202105101109512_Init.designer.cs">
+      <DependentUpon>202105101109512_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202105041112324_tbl.cs" />
-    <Compile Include="Migrations\202105041112324_tbl.Designer.cs">
-      <DependentUpon>202105041112324_tbl.cs</DependentUpon>
+    <Compile Include="Migrations\202105101312440_new-tbl.cs" />
+    <Compile Include="Migrations\202105101312440_new-tbl.designer.cs">
+      <DependentUpon>202105101312440_new-tbl.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -91,11 +97,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202105041110480_init.resx">
-      <DependentUpon>202105041110480_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105101109512_Init.resx">
+      <DependentUpon>202105101109512_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202105041112324_tbl.resx">
-      <DependentUpon>202105041112324_tbl.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202105101312440_new-tbl.resx">
+      <DependentUpon>202105101312440_new-tbl.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

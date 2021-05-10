@@ -34,10 +34,10 @@
                 <TextBlock TextWrapping="Wrap" Text="Customer Report" TextAlignment="Center"/>
             </Button>-->
             <!--</Border>-->
-            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="DatabaseBackup" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding DatabaseCommand}" CommandParameter="DatabaseBackup" Grid.Row="0" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Database Backup" TextAlignment="Center"/>
             </Button>
-            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="RestoreDatabase" Grid.Row="0" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding DatabaseCommand}" CommandParameter="RestoreDatabase" Grid.Row="0" Grid.Column="2" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Restore Database" TextAlignment="Center"/>
             </Button>
             <!--<Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="ItemReport" Grid.Row="0" Grid.Column="3" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">

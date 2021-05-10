@@ -17,7 +17,7 @@ namespace ERP.Entities.DbContext
         // Commented Code is intentionally placed
         //string  connectionString = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = |DataDirectory|\FridayRetail\FridayRetail.mdf; Integrated Security = True;";
         //(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=C:\Users\Avais-pc\AppData\Local\FridayRetail\FridayRetail.mdf;Integrated Security = True;")
-        public HAFoodDbContext() : base(@"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;")
+        public HAFoodDbContext() : base(@"Data Source = (LocalDB)\MSSQLLocalDB; Initial Catalog=HAFoodDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;")
         {
             //@"Server=175.10.21.13,1433; Database=FridayRetailDb;  Database=FridayRetailPOS; User=sa; Password=techverx@123;MultipleActiveResultSets=true"
         }
@@ -42,6 +42,10 @@ namespace ERP.Entities.DbContext
         public DbSet<PurchaseOrder> PurchaseOrders { get; set; }
         public DbSet<PurchaseOrderItem> PurchaseOrderItems { get; set; }
         public DbSet<SupplierOrder> SupplierOrders { get; set; }
+        public DbSet<CustomerMarketingOrder> CustomerMarketingOrders { get; set; }
+        public DbSet<CustomerMarketingOrderItem> CustomerMarketingOrderItems { get; set; }
+        public DbSet<CustomerMarketingOrderAmount> CustomerMarketingOrderAmounts { get; set; }
+        public DbSet<SupplierMarketingOrderAmount> SupplierMarketingOrderAmounts { get; set; }
         //public DbSet<UserGroup> UserGroups { get; set; }
     }
 }

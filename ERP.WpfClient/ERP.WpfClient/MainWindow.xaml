@@ -37,7 +37,7 @@
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="Cash Book 2" Command="{Binding MainViewCommand}" CommandParameter="Cash Book 2"/>
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="All Reports" Command="{Binding MainViewCommand}" CommandParameter="Reports" />
                     <RadioButton Style="{StaticResource LeftMenuButton}" Content="User" Command="{Binding MainViewCommand}" CommandParameter="User"/>
-                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Database" Command="{Binding MainViewCommand}" CommandParameter="Database"/>
+                    <RadioButton Style="{StaticResource LeftMenuButton}" Content="Database" Command="{Binding MainViewCommand}" CommandParameter="Database" Visibility="Collapsed"/>
                 </StackPanel>
             </Border>
         </Grid>
@@ -57,8 +57,10 @@
                                     <!--<Button Content="Settings"/>
                                 <Button Content="Account"/>
                                 <Button Content="Help"/>
-                                <Separator/>-->
+                                -->
                                     <Button x:Name="logout" Content="Logout" Click="logout_Click"/>
+                                    <Separator/>
+                                    <Button Content="RestoreDatabase" Command="{Binding MainViewCommand}" CommandParameter="RestoreDatabase"/>
                                 </StackPanel>
                             </Border>
                         </materialDesign:PopupBox>
