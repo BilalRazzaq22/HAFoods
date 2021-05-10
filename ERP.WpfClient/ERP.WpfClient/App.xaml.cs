@@ -11,6 +11,7 @@ using System.Data.SqlClient;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Timers;
 using System.Windows;
 
 namespace ERP.WpfClient
@@ -25,10 +26,14 @@ namespace ERP.WpfClient
         private IGenericRepository<AppSetting> _appSettingRepository;
         private IGenericRepository<User> _userRepository;
         private IGenericRepository<Payment> _paymentRepository;
+        Timer _timer = new Timer();
 
         protected override void OnStartup(StartupEventArgs e)
         {
             //IsCreateSetup = true;
+            _timer.Interval = 60 * 60 * 1000; // One Hour
+            //_timer.Tick += _timer_Tick;
+            _timer.Elapsed += _timer_Elapsed;
             base.OnStartup(e);
             MapperProfile.InitializeMappers();
             InitializeServices();
@@ -53,6 +58,11 @@ namespace ERP.WpfClient
 
                 //if (appSetting == null)
                 //{
+                if (!Directory.Exists(Path.Combine(@"C:", "HAFood Database Backup")))
+                {
+                    Directory.CreateDirectory(Path.Combine(@"C:", "HAFood Database Backup"));
+                }
+
                 if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood")))
                 {
                     Directory.CreateDirectory(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood"));
@@ -66,7 +76,7 @@ namespace ERP.WpfClient
                         //CheckReset();
                         //string path = @"C:\Users\bilal\projects\HAFood DB Backup";
                         string path = @"C:\Program Files (x86)\HA Foods Setup\HA Foods\Database";
-                        string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + path + @"\HAFoodDB.mdf; Integrated Security = True;";
+                        string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; Initial Catalog=HAFoodDB; AttachDbFilename = " + path + @"\HAFoodDB.mdf; Integrated Security = True;";
                         HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
                         HaFoodDbContext.Init();
                         RunSP();
@@ -250,6 +260,41 @@ namespace ERP.WpfClient
                     }
                 }
             }
+        }
+
+        public void BackupDatabase()
+        {
+            var bw = new System.ComponentModel.BackgroundWorker();
+            bw.DoWork += (sender, args) =>
+            {
+                try
+                {
+                    //ApplicationManager.Instance.ShowBusyInidicator("Backup Database ...!");
+                    var destination = @"C:\HAFood Database Backup";
+                    using (var db = new HAFoodDbContext())
+                    {
+                        string backupQuery = @"BACKUP DATABASE ""{0}"" TO DISK = N'{1}' WITH FORMAT, MEDIANAME = 'SQLServerBackups', NAME = 'Full Backup of SQLTestDB'";
+                        backupQuery = string.Format(backupQuery, "HAFoodDB", destination + @"\HAFOODDB_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh-mm-ss") + ".bak");
+                        db.Database.SqlQuery<object>(backupQuery).ToList().FirstOrDefault();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "HA Foods");
+                }
+            };
+
+            bw.RunWorkerCompleted += async (sender, args) =>
+            {
+                //ApplicationManager.Instance.HideBusyInidicator();
+            };
+            bw.RunWorkerAsync();
+        }
+
+        private void _timer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            _timer.Stop();
+            BackupDatabase();
         }
 
         public static T Resolve<T>()

@@ -98,11 +98,15 @@
     <Compile Include="Model\CashBooks\CashBookTwoModel.cs" />
     <Compile Include="Model\CashBooks\CashBookTypeModel.cs" />
     <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="Model\Customer\CustomerMarketingOrderItemModel.cs" />
+    <Compile Include="Model\Customer\CustomerMarketingOrderModel.cs" />
     <Compile Include="Model\Customer\CustomerOrderModel.cs" />
     <Compile Include="Model\Payment\PaymentModel.cs" />
     <Compile Include="Model\PurchaseOrder\PurchaseOrderItemModel.cs" />
     <Compile Include="Model\PurchaseOrder\PurchaseOrderModel.cs" />
     <Compile Include="Model\Stock\StockModel.cs" />
+    <Compile Include="Model\Supplier\SupplierMarketingOrderItemModel.cs" />
+    <Compile Include="Model\Supplier\SupplierMarketingOrderModel.cs" />
     <Compile Include="Model\Supplier\SupplierModel.cs" />
     <Compile Include="Model\Supplier\SupplierOrderModel.cs" />
     <Compile Include="Model\Transaction\CurrentTransactionDetailModel.cs" />
@@ -161,6 +165,7 @@
     </Compile>
     <Compile Include="ViewModel\CashBooks\CashBookOneViewModel.cs" />
     <Compile Include="ViewModel\CashBooks\CashBookTwoViewModel.cs" />
+    <Compile Include="ViewModel\Customer\CustomerMarketingViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Database\DatabaseViewModel.cs" />
     <Compile Include="ViewModel\Data\DataViewModelBase.cs" />
@@ -170,6 +175,7 @@
     <Compile Include="ViewModel\Popup\Report\AllReportsViewModel.cs" />
     <Compile Include="ViewModel\PurchaseOrders\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />
+    <Compile Include="ViewModel\Supplier\SupplierMarketingViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierViewModel.cs" />
     <Compile Include="ViewModel\Transaction\CurrentTransactionViewModel.cs" />
     <Compile Include="ViewModel\User\UserLoginViewModel.cs" />
@@ -184,6 +190,9 @@
     <Compile Include="View\Customers\Customer.xaml.cs">
       <DependentUpon>Customer.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Customers\CustomerMarketingBill.xaml.cs">
+      <DependentUpon>CustomerMarketingBill.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Database\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
     </Compile>
@@ -192,6 +201,9 @@
     </Compile>
     <Compile Include="View\Popups\ConfirmationPopup.xaml.cs">
       <DependentUpon>ConfirmationPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Database\RestoreDatabasePopup.xaml.cs">
+      <DependentUpon>RestoreDatabasePopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Popups\MessageBoxPopup.xaml.cs">
       <DependentUpon>MessageBoxPopup.xaml</DependentUpon>
@@ -234,6 +246,9 @@
     </Compile>
     <Compile Include="View\Suppliers\Supplier.xaml.cs">
       <DependentUpon>Supplier.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Suppliers\SupplierMarketingBill.xaml.cs">
+      <DependentUpon>SupplierMarketingBill.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Transaction\CurrentTransaction.xaml.cs">
       <DependentUpon>CurrentTransaction.xaml</DependentUpon>
@@ -290,6 +305,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Customers\CustomerMarketingBill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Database\Database.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -299,6 +318,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Popups\ConfirmationPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Popups\Database\RestoreDatabasePopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -355,6 +378,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Suppliers\Supplier.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Suppliers\SupplierMarketingBill.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
