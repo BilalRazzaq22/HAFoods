@@ -32,7 +32,8 @@ namespace ERP.WpfClient.Controls.Helpers
         private bool _isBusy;
         private static List<Stream> m_streams;
         private static int m_currentPageIndex = 0;
-
+        public static bool IsCustomerBillOpen = false;
+        public static bool IsSupplierBillOpen = false;
         public Stack<ViewTypes> NavigationHistory { get; set; }
         #endregion
 

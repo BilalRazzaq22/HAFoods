@@ -434,9 +434,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
 
             else if (str == "Marketing Bill")
             {
-                bool createdNew;
-                Mutex m_Mutex = new Mutex(true, "SupplierMarketingBill", out createdNew);
-                if (!(createdNew))
+                if (ApplicationManager.IsSupplierBillOpen)
                 {
                     if (MessageBoxResult.OK == MessageBox.Show("Supplier Marketing Bill is already open on your computer.", "Supplier Marketing Bill"))
                     {
@@ -447,6 +445,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 {
                     SupplierMarketingBill supplierMarketingBill = new SupplierMarketingBill();
                     supplierMarketingBill.Show();
+                    ApplicationManager.IsSupplierBillOpen = false;
                 }
             }
         }
@@ -540,6 +539,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
             //SupplierCashBookAmount = 0;
             GetOrderNumber();
             PurchaseOrderModel.PurchaseOrderDate = DateTime.Now;
+            ApplicationManager.IsSupplierBillOpen = false;
         }
 
         private void Init()

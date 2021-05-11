@@ -70,7 +70,6 @@ namespace ERP.WpfClient.ViewModel.Transaction
         private decimal _remainingAmount;
         private decimal _newItemPrice;
         private decimal _customerCashBookAmount;
-
         //CurrentTransactionRepository currentTransaction = new CurrentTransactionRepository();
 
         #endregion
@@ -419,11 +418,9 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 Init();
             }
 
-            else if(str == "MarketingBill")
+            else if (str == "MarketingBill")
             {
-                bool createdNew;
-                Mutex m_Mutex = new Mutex(true, "CustomerMarketingBill", out createdNew);
-                if (!(createdNew))
+                if (ApplicationManager.IsCustomerBillOpen)
                 {
                     if (MessageBoxResult.OK == MessageBox.Show("Customer Marketing Bill is already open on your computer.", "Customer Marketing Bill"))
                     {
@@ -434,6 +431,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                 {
                     CustomerMarketingBill customerMarketingBill = new CustomerMarketingBill();
                     customerMarketingBill.Show();
+                    ApplicationManager.IsCustomerBillOpen = true;
                 }
             }
         }
@@ -454,6 +452,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
             Discount = 0;
             NewItemPrice = 0;
             GetOrderNumber();
+            ApplicationManager.IsCustomerBillOpen = false;
         }
 
         private void Init()

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ERP.WpfClient.View.Suppliers"
         mc:Ignorable="d"
-        Title="Supplier Marketing Bill" Height="780" Width="1024">
+        Title="Supplier Marketing Bill" Height="780" Width="1024" Icon="/ERP.WpfClient;component/Resources/Images/mainlogo.ico">
     <Grid Background="{StaticResource MasterBackgroundColor}">
         <StackPanel>
             <Grid>

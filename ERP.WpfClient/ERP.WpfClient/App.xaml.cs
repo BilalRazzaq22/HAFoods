@@ -31,12 +31,12 @@ namespace ERP.WpfClient
         protected override void OnStartup(StartupEventArgs e)
         {
             bool createdNew;
-            System.Threading.Mutex m_Mutex = new System.Threading.Mutex(true, "CustomerMarketingBill", out createdNew);
+            System.Threading.Mutex m_Mutex = new System.Threading.Mutex(true, "ERP.WpfClient", out createdNew);
             if (!(createdNew))
             {
-                if (MessageBoxResult.OK == MessageBox.Show("Customer Marketing Bill is already open on your computer.", "Customer Marketing Bill"))
+                if (MessageBoxResult.OK == MessageBox.Show("HA Foods is already open on your computer.", "HA Foods"))
                 {
-                    Application.Current.Shutdown();
+                    //Application.Current.Shutdown();
                 }
             }
 

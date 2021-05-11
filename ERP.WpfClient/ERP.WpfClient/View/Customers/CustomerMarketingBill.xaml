@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ERP.WpfClient.View.Customers"
         mc:Ignorable="d"
-        Title="Customer Marketing Bill" Height="660" Width="824" WindowStartupLocation="CenterScreen" WindowState="Maximized" ResizeMode="CanMinimize">
+        Title="Customer Marketing Bill" Height="660" Width="824" WindowStartupLocation="CenterScreen" WindowState="Maximized" 
+        ResizeMode="CanMinimize" Icon="/ERP.WpfClient;component/Resources/Images/mainlogo.ico" Closing="Window_Closing">
     <Grid Background="{StaticResource MasterBackgroundColor}">
         <StackPanel>
             <Grid>

@@ -1,4 +1,5 @@
-﻿using ERP.WpfClient.ViewModel.Customer;
+﻿using ERP.WpfClient.Controls.Helpers;
+using ERP.WpfClient.ViewModel.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,6 +53,11 @@ namespace ERP.WpfClient.View.Customers
         private void _txtSearch_TextChanged(object sender, TextChangedEventArgs e)
         {
             Model.OrderNumber = _txtSearch.Text;
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ApplicationManager.IsCustomerBillOpen = false;
         }
     }
 }
