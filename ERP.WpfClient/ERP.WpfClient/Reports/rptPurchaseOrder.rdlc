@@ -9,16 +9,16 @@
               <Width>0.80208in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.39375in</Width>
+              <Width>1.59167in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.39375in</Width>
+              <Width>0.96458in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.39375in</Width>
+              <Width>1.20625in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.39375in</Width>
+              <Width>1.24792in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.39375in</Width>
@@ -44,7 +44,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox2</rd:DefaultName>
@@ -77,7 +79,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox1</rd:DefaultName>
@@ -103,14 +107,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Purchase Quantity</Value>
+                              <Value>Quantity</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -136,14 +142,16 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Buy Price</Value>
+                              <Value>Price</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -176,7 +184,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox7</rd:DefaultName>
@@ -209,7 +219,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox9</rd:DefaultName>
@@ -246,7 +258,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox4</rd:DefaultName>
@@ -278,7 +292,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>ItemName</rd:DefaultName>
@@ -310,7 +326,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>PurchaseQuantity</rd:DefaultName>
@@ -342,7 +360,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>BuyPrice</rd:DefaultName>
@@ -374,7 +394,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Discount</rd:DefaultName>
@@ -406,7 +428,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>TotalPrice</rd:DefaultName>
@@ -451,7 +475,7 @@
         <Top>0.06944in</Top>
         <Left>0.10006in</Left>
         <Height>0.5in</Height>
-        <Width>7.77083in</Width>
+        <Width>7.20625in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -477,9 +501,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox22</rd:DefaultName>
         <Top>2.24305in</Top>
-        <Left>5.08339in</Left>
+        <Left>4.66464in</Left>
         <Height>0.25in</Height>
-        <Width>2.7875in</Width>
+        <Width>2.64167in</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -666,7 +690,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox36">
                     <CanGrow>true</CanGrow>
@@ -704,7 +728,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox38">
                     <CanGrow>true</CanGrow>
@@ -742,7 +766,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox40">
                     <CanGrow>true</CanGrow>
@@ -780,7 +804,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox43">
                     <CanGrow>true</CanGrow>
@@ -820,9 +844,9 @@
         </TablixRowHierarchy>
         <DataSetName>dsPurchaseOrder</DataSetName>
         <Top>0.99875in</Top>
-        <Left>5.08339in</Left>
+        <Left>4.66464in</Left>
         <Height>1in</Height>
-        <Width>2.7875in</Width>
+        <Width>2.64167in</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1005,7 +1029,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox46">
                     <CanGrow>true</CanGrow>
@@ -1043,7 +1067,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox47">
                     <CanGrow>true</CanGrow>
@@ -1081,7 +1105,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox48">
                     <CanGrow>true</CanGrow>
@@ -1119,7 +1143,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.39375in</Size>
+                <Size>1.24792in</Size>
                 <CellContents>
                   <Textbox Name="Textbox49">
                     <CanGrow>true</CanGrow>
@@ -1159,9 +1183,9 @@
         </TablixRowHierarchy>
         <DataSetName>dsPurchaseOrder</DataSetName>
         <Top>2.5625in</Top>
-        <Left>5.08339in</Left>
+        <Left>4.66464in</Left>
         <Height>1in</Height>
-        <Width>2.7875in</Width>
+        <Width>2.64167in</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -1190,9 +1214,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
         <Top>0.63888in</Top>
-        <Left>2.29589in</Left>
+        <Left>2.49381in</Left>
         <Height>0.25in</Height>
-        <Width>1.39375in</Width>
+        <Width>0.96458in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1208,7 +1232,7 @@
     <Height>3.67708in</Height>
     <Style />
   </Body>
-  <Width>8.06881in</Width>
+  <Width>7.38131in</Width>
   <Page>
     <PageHeader>
       <Height>1.67708in</Height>
@@ -1283,7 +1307,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
           <Top>0.51215in</Top>
-          <Left>5.53756in</Left>
+          <Left>4.97298in</Left>
           <Height>0.25in</Height>
           <Width>0.70833in</Width>
           <ZIndex>2</ZIndex>
@@ -1315,7 +1339,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
           <Top>0.51215in</Top>
-          <Left>6.24589in</Left>
+          <Left>5.68131in</Left>
           <Height>0.25in</Height>
           <Width>1.625in</Width>
           <ZIndex>3</ZIndex>
@@ -1348,7 +1372,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
           <Top>0.81771in</Top>
-          <Left>5.53756in</Left>
+          <Left>4.97298in</Left>
           <Height>0.25in</Height>
           <Width>0.70833in</Width>
           <ZIndex>4</ZIndex>
@@ -1380,7 +1404,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox19</rd:DefaultName>
           <Top>0.81771in</Top>
-          <Left>6.24589in</Left>
+          <Left>5.68131in</Left>
           <Height>0.25in</Height>
           <Width>1.625in</Width>
           <ZIndex>5</ZIndex>
@@ -1415,7 +1439,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
           <Top>1.33208in</Top>
-          <Left>2.39458in</Left>
+          <Left>2.17583in</Left>
           <Height>0.25in</Height>
           <Width>3.27083in</Width>
           <ZIndex>6</ZIndex>
@@ -1459,7 +1483,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
           <Top>0.38889in</Top>
-          <Left>2.29589in</Left>
+          <Left>1.79041in</Left>
           <Height>0.25in</Height>
           <Width>3.875in</Width>
           <Style>
@@ -1477,7 +1501,7 @@
           <Value>logomarcoF01</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.13889in</Top>
-          <Left>7.37089in</Left>
+          <Left>6.80631in</Left>
           <Height>0.5in</Height>
           <Width>0.5in</Width>
           <ZIndex>1</ZIndex>
@@ -1490,7 +1514,7 @@
         <Line Name="Line1">
           <Top>0.06944in</Top>
           <Height>0in</Height>
-          <Width>8.06881in</Width>
+          <Width>7.38131in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>

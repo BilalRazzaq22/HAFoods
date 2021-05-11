@@ -45,6 +45,8 @@ namespace ERP.Entities.DbContext
         public DbSet<CustomerMarketingOrder> CustomerMarketingOrders { get; set; }
         public DbSet<CustomerMarketingOrderItem> CustomerMarketingOrderItems { get; set; }
         public DbSet<CustomerMarketingOrderAmount> CustomerMarketingOrderAmounts { get; set; }
+        public DbSet<SupplierMarketingOrder> SupplierMarketingOrders { get; set; }
+        public DbSet<SupplierMarketingOrderItem> SupplierMarketingOrderItems { get; set; }
         public DbSet<SupplierMarketingOrderAmount> SupplierMarketingOrderAmounts { get; set; }
         //public DbSet<UserGroup> UserGroups { get; set; }
     }

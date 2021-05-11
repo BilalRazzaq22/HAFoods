@@ -6,22 +6,22 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.63542in</Width>
+              <Width>0.72277in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.88404in</Width>
+              <Width>1.67251in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.02014in</Width>
+              <Width>0.89368in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.24165in</Width>
+              <Width>1.23777in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.3625in</Width>
+              <Width>1.32076in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.38125in</Width>
+              <Width>1.39368in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -30,7 +30,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox6">
+                    <Textbox Name="Textbox13">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -49,147 +49,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox6</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Item Name</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox3">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Quantity</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox5">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Price</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox14">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>Discount</Value>
-                              <Style>
-                                <FontFamily>Segoe UI</FontFamily>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox14</rd:DefaultName>
+                      <rd:DefaultName>Textbox13</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -212,7 +72,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total Price</Value>
+                              <Value>Item Name</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontWeight>Bold</FontWeight>
@@ -238,6 +98,146 @@
                     </Textbox>
                   </CellContents>
                 </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox18">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Quantity</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox18</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox22">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Price</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox22</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox20">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Discount</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox20</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox24">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Total Price</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox24</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
@@ -245,7 +245,7 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox13">
+                    <Textbox Name="Textbox14">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -263,7 +263,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -313,14 +313,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Quantity">
+                    <Textbox Name="PurchaseQuantity">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Quantity.Value</Value>
+                              <Value>=Fields!PurchaseQuantity.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                               </Style>
@@ -331,7 +331,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Quantity</rd:DefaultName>
+                      <rd:DefaultName>PurchaseQuantity</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -347,14 +347,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Price">
+                    <Textbox Name="BuyPrice">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Price.Value</Value>
+                              <Value>=Fields!BuyPrice.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                               </Style>
@@ -365,7 +365,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Price</rd:DefaultName>
+                      <rd:DefaultName>BuyPrice</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -471,22 +471,55 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsCurrentTransaction</DataSetName>
-        <Top>0.06944in</Top>
-        <Left>0.10292in</Left>
+        <DataSetName>dsPurchaseOrder</DataSetName>
+        <Top>0.19667in</Top>
+        <Left>0.13417in</Left>
         <Height>0.5in</Height>
-        <Width>7.525in</Width>
+        <Width>7.24118in</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Tablix Name="Tablix2">
+      <Textbox Name="Textbox25">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Supplier Order Amount Details</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox22</rd:DefaultName>
+        <Top>2.4618in</Top>
+        <Left>4.6609in</Left>
+        <Height>0.25in</Height>
+        <Width>2.70985in</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix5">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.78438in</Width>
+              <Width>1.6616in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -657,9 +690,9 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>0.95938in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox30">
+                  <Textbox Name="Textbox36">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -673,10 +706,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox30</rd:DefaultName>
+                    <rd:DefaultName>Textbox36</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -693,9 +728,9 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.95938in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox2">
+                  <Textbox Name="Textbox38">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -709,10 +744,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox2</rd:DefaultName>
+                    <rd:DefaultName>Textbox38</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -729,9 +766,9 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.95938in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox44">
+                  <Textbox Name="Textbox40">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -745,10 +782,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox44</rd:DefaultName>
+                    <rd:DefaultName>Textbox40</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -765,9 +804,9 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.95938in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox4">
+                  <Textbox Name="Textbox43">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -781,10 +820,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox4</rd:DefaultName>
+                    <rd:DefaultName>Textbox43</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -801,23 +842,23 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsCurrentTransaction</DataSetName>
-        <Top>1.17709in</Top>
-        <Left>4.88416in</Left>
+        <DataSetName>dsPurchaseOrder</DataSetName>
+        <Top>1.2175in</Top>
+        <Left>4.6609in</Left>
         <Height>1in</Height>
-        <Width>2.74376in</Width>
-        <ZIndex>1</ZIndex>
+        <Width>2.71444in</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Tablix Name="Tablix3">
+      <Tablix Name="Tablix6">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.52882in</Width>
+              <Width>1.65701in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -826,23 +867,25 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TotalCustomerOrders">
+                    <Textbox Name="TotalSuppliers">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TotalCustomerOrders.Value</Value>
+                              <Value>=Fields!TotalSuppliers.Value</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TotalCustomerOrders</rd:DefaultName>
+                      <rd:DefaultName>TotalSuppliers</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -876,7 +919,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>TotalAmount</rd:DefaultName>
@@ -913,7 +958,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>AmountPaid</rd:DefaultName>
@@ -950,7 +997,9 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>RemainingAmount</rd:DefaultName>
@@ -980,9 +1029,9 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>1.21494in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox23">
+                  <Textbox Name="Textbox46">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -996,10 +1045,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox23</rd:DefaultName>
+                    <rd:DefaultName>Textbox36</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -1016,9 +1067,9 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.21494in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox12">
+                  <Textbox Name="Textbox47">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -1032,10 +1083,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox12</rd:DefaultName>
+                    <rd:DefaultName>Textbox38</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -1052,9 +1105,9 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.21494in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox18">
+                  <Textbox Name="Textbox48">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -1068,10 +1121,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox18</rd:DefaultName>
+                    <rd:DefaultName>Textbox40</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -1088,9 +1143,9 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>1.21494in</Size>
+                <Size>1.05284in</Size>
                 <CellContents>
-                  <Textbox Name="Textbox20">
+                  <Textbox Name="Textbox49">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -1104,10 +1159,12 @@
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Left</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox20</rd:DefaultName>
+                    <rd:DefaultName>Textbox43</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -1124,26 +1181,26 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>dsCurrentTransaction</DataSetName>
-        <Top>2.94445in</Top>
-        <Left>4.88417in</Left>
+        <DataSetName>dsPurchaseOrder</DataSetName>
+        <Top>2.78125in</Top>
+        <Left>4.6609in</Left>
         <Height>1in</Height>
-        <Width>2.74376in</Width>
-        <ZIndex>2</ZIndex>
+        <Width>2.70985in</Width>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox22">
+      <Textbox Name="Textbox54">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Customer Order Amount Details</Value>
+                <Value>=Sum(Fields!PurchaseQuantity.Value)</Value>
                 <Style>
                   <FontFamily>Segoe UI</FontFamily>
                   <FontWeight>Bold</FontWeight>
@@ -1153,44 +1210,11 @@
             <Style />
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox22</rd:DefaultName>
-        <Top>2.62501in</Top>
-        <Left>4.88417in</Left>
+        <rd:DefaultName>Textbox54</rd:DefaultName>
+        <Top>0.76611in</Top>
+        <Left>2.52946in</Left>
         <Height>0.25in</Height>
-        <Width>2.74375in</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox17">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Sum(Fields!Quantity.Value)</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>0.63889in</Top>
-        <Left>2.61333in</Left>
-        <Height>0.25in</Height>
-        <Width>1.02918in</Width>
+        <Width>0.89368in</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -1203,13 +1227,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>4.08333in</Height>
+    <Height>3.9375in</Height>
     <Style />
   </Body>
-  <Width>7.71752in</Width>
+  <Width>7.49418in</Width>
   <Page>
     <PageHeader>
-      <Height>1.53in</Height>
+      <Height>1.53125in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1233,8 +1257,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.16542in</Top>
-          <Left>3.49875in</Left>
+          <Top>0.11631in</Top>
+          <Left>2.90042in</Left>
           <Height>0.90625in</Height>
           <Width>1in</Width>
           <Style>
@@ -1251,8 +1275,8 @@
           <Source>Embedded</Source>
           <Value>HighEnd4x</Value>
           <Sizing>FitProportional</Sizing>
-          <Top>0.16542in</Top>
-          <Left>0.10292in</Left>
+          <Top>0.11631in</Top>
+          <Left>0.13417in</Left>
           <Height>0.90625in</Height>
           <Width>1.41667in</Width>
           <ZIndex>1</ZIndex>
@@ -1269,14 +1293,14 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!CreatedDate.Value</Value>
+                  <Value xml:space="preserve"> </Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <Format>MMMM d, yyyy</Format>
                   </Style>
                 </TextRun>
                 <TextRun>
-                  <Value xml:space="preserve"> </Value>
+                  <Value>=Fields!CreatedDate.Value</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <Format>MMMM d, yyyy</Format>
@@ -1289,8 +1313,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox8</rd:DefaultName>
-          <Top>0.47097in</Top>
-          <Left>6.05848in</Left>
+          <Top>0.42186in</Top>
+          <Left>5.80591in</Left>
           <Height>0.25in</Height>
           <Width>1.56944in</Width>
           <ZIndex>2</ZIndex>
@@ -1322,8 +1346,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>0.47097in</Top>
-          <Left>5.43348in</Left>
+          <Top>0.42186in</Top>
+          <Left>5.18091in</Left>
           <Height>0.25in</Height>
           <Width>0.625in</Width>
           <ZIndex>3</ZIndex>
@@ -1355,8 +1379,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox9</rd:DefaultName>
-          <Top>0.82167in</Top>
-          <Left>5.43348in</Left>
+          <Top>0.77256in</Top>
+          <Left>5.18091in</Left>
           <Height>0.25in</Height>
           <Width>0.625in</Width>
           <ZIndex>4</ZIndex>
@@ -1389,8 +1413,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox7</rd:DefaultName>
-          <Top>0.82167in</Top>
-          <Left>6.05848in</Left>
+          <Top>0.77256in</Top>
+          <Left>5.80591in</Left>
           <Height>0.25in</Height>
           <Width>1.56944in</Width>
           <ZIndex>5</ZIndex>
@@ -1411,7 +1435,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!CustomerName.Value</Value>
+                  <Value>=Fields!SupplierName.Value</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontWeight>Bold</FontWeight>
@@ -1424,8 +1448,8 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox15</rd:DefaultName>
-          <Top>1.19667in</Top>
-          <Left>2.43625in</Left>
+          <Top>1.16494in</Top>
+          <Left>2.10667in</Left>
           <Height>0.25in</Height>
           <Width>3.24792in</Width>
           <ZIndex>6</ZIndex>
@@ -1447,7 +1471,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>0.75in</Height>
+      <Height>0.72917in</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1456,7 +1480,7 @@
           <Value>logomarcoF01</Value>
           <Sizing>FitProportional</Sizing>
           <Top>0.13889in</Top>
-          <Left>7.12793in</Left>
+          <Left>6.87535in</Left>
           <Height>0.5in</Height>
           <Width>0.5in</Width>
           <Style>
@@ -1483,7 +1507,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox42</rd:DefaultName>
           <Top>0.38889in</Top>
-          <Left>1.98625in</Left>
+          <Left>2.10667in</Left>
           <Height>0.25in</Height>
           <Width>3.875in</Width>
           <ZIndex>1</ZIndex>
@@ -1499,8 +1523,9 @@
         </Textbox>
         <Line Name="Line1">
           <Top>0.06944in</Top>
+          <Left>0.01625in</Left>
           <Height>0in</Height>
-          <Width>7.71752in</Width>
+          <Width>7.47793in</Width>
           <ZIndex>2</ZIndex>
           <Style>
             <Border>
@@ -1523,18 +1548,18 @@
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="dsCurrentTransaction">
+    <DataSource Name="dsPurchaseOrder">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>1dbf9ad9-e0d7-48aa-bef1-688c8ed49d99</rd:DataSourceID>
+      <rd:DataSourceID>8463af8b-2419-49e5-89b2-db6b87e4e69f</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsCurrentTransaction">
+    <DataSet Name="dsPurchaseOrder">
       <Query>
-        <DataSourceName>dsCurrentTransaction</DataSourceName>
+        <DataSourceName>dsPurchaseOrder</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1542,12 +1567,12 @@
           <DataField>ItemName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Quantity">
-          <DataField>Quantity</DataField>
+        <Field Name="PurchaseQuantity">
+          <DataField>PurchaseQuantity</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Price">
-          <DataField>Price</DataField>
+        <Field Name="BuyPrice">
+          <DataField>BuyPrice</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Discount">
@@ -1566,16 +1591,12 @@
           <DataField>GrandTotalPrice</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="GrandTotalDiscount">
-          <DataField>GrandTotalDiscount</DataField>
+        <Field Name="TotalDiscount">
+          <DataField>TotalDiscount</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="PaymentType">
-          <DataField>PaymentType</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="CreatedDate">
-          <DataField>CreatedDate</DataField>
+        <Field Name="GrandTotal">
+          <DataField>GrandTotal</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="TotalAmount">
@@ -1590,16 +1611,20 @@
           <DataField>RemainingAmount</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="GrandTotal">
-          <DataField>GrandTotal</DataField>
+        <Field Name="PaymentType">
+          <DataField>PaymentType</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TotalCustomerOrders">
-          <DataField>TotalCustomerOrders</DataField>
+        <Field Name="CreatedDate">
+          <DataField>CreatedDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="CustomerName">
-          <DataField>CustomerName</DataField>
+        <Field Name="TotalSuppliers">
+          <DataField>TotalSuppliers</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SupplierName">
+          <DataField>SupplierName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="PreviousBalance">
@@ -1608,9 +1633,9 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dsCurrentTransaction</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Dataset\CurrentTransaction\dsCurrentTransaction.xsd</rd:SchemaPath>
-        <rd:TableName>dsCurrentTransaction</rd:TableName>
+        <rd:DataSetName>dsPurchaseOrder</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\bilal\projects\HAFoods\ERP.WpfClient\ERP.WpfClient\Reports\Dataset\PurchaseOrder\dsPurchaseOrder.xsd</rd:SchemaPath>
+        <rd:TableName>dsPurchaseOrder</rd:TableName>
         <rd:TableAdapterFillMethod />
         <rd:TableAdapterGetDataMethod />
         <rd:TableAdapterName />
@@ -2275,5 +2300,5 @@ AQAAAABgINwBAAAAAGAg3AEAAAAAYCDcAQAAAABgINwBAAAAAGAg3AEAAAAAYCDcAQAAAABgINwBAAAA
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
-  <rd:ReportID>c528b492-ae28-4c46-a2ef-6660c2fca972</rd:ReportID>
+  <rd:ReportID>de2c8504-1a3e-4f40-9fbf-d3db5a2321cd</rd:ReportID>
 </Report>

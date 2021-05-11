@@ -30,6 +30,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Windows;
 
 namespace ERP.WpfClient.ViewModel.Transaction
@@ -420,8 +421,20 @@ namespace ERP.WpfClient.ViewModel.Transaction
 
             else if(str == "MarketingBill")
             {
-                CustomerMarketingBill customerMarketingBill = new CustomerMarketingBill();
-                customerMarketingBill.Show();
+                bool createdNew;
+                Mutex m_Mutex = new Mutex(true, "CustomerMarketingBill", out createdNew);
+                if (!(createdNew))
+                {
+                    if (MessageBoxResult.OK == MessageBox.Show("Customer Marketing Bill is already open on your computer.", "Customer Marketing Bill"))
+                    {
+                        //Application.Current.Shutdown();
+                    }
+                }
+                else
+                {
+                    CustomerMarketingBill customerMarketingBill = new CustomerMarketingBill();
+                    customerMarketingBill.Show();
+                }
             }
         }
 

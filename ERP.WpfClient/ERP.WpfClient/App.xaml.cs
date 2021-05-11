@@ -30,6 +30,16 @@ namespace ERP.WpfClient
 
         protected override void OnStartup(StartupEventArgs e)
         {
+            bool createdNew;
+            System.Threading.Mutex m_Mutex = new System.Threading.Mutex(true, "CustomerMarketingBill", out createdNew);
+            if (!(createdNew))
+            {
+                if (MessageBoxResult.OK == MessageBox.Show("Customer Marketing Bill is already open on your computer.", "Customer Marketing Bill"))
+                {
+                    Application.Current.Shutdown();
+                }
+            }
+
             //IsCreateSetup = true;
             _timer.Interval = 60 * 60 * 1000; // One Hour
             //_timer.Tick += _timer_Tick;

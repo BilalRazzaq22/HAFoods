@@ -416,6 +416,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptCustomerMarketingBill.rdlc" />
     <EmbeddedResource Include="Reports\rptCurrentTransaction.rdlc" />
     <EmbeddedResource Include="Reports\rptCurrentTransactionLedgerReport.rdlc" />
     <EmbeddedResource Include="Reports\rptCustomer.rdlc" />
@@ -424,6 +425,7 @@
     <EmbeddedResource Include="Reports\rptPurchaseOrder.rdlc" />
     <EmbeddedResource Include="Reports\rptPurchaseOrderLedgerReport.rdlc" />
     <EmbeddedResource Include="Reports\rptSupplier.rdlc" />
+    <EmbeddedResource Include="Reports\rptSupplierMarketingBill.rdlc" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -522,7 +524,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DatabaseScripts\SP_GetCurrentTransactionOrder.sql" />
+    <Content Include="DatabaseScripts\SP_GetCustomerMarketingBill.sql" />
     <Content Include="DatabaseScripts\SP_GetPurchaseOrderLedgerReport.sql" />
+    <Content Include="DatabaseScripts\SP_GetSupplierMarketingBill.sql" />
     <Content Include="DatabaseScripts\SP_GetSupplierReport.sql" />
     <Content Include="DatabaseScripts\SP_GetTopOrders.sql" />
     <Resource Include="Resources\Themes\Images\Icons\clear.png" />

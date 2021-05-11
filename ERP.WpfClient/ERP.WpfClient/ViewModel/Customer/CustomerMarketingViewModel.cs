@@ -564,17 +564,17 @@ namespace ERP.WpfClient.ViewModel.Customer
             }
         }
 
-        private void LoadReport(CustomerMarketingOrder currentTransaction)
+        private void LoadReport(CustomerMarketingOrder customerMarketingOrder)
         {
             DataTable dt = new DataTable();
             string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCurrentTransactionOrder]", con))
+                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCustomerMarketingBill]", con))
                 {
-                    cmd.Parameters.AddWithValue("@CurrentTransactionId", currentTransaction.Id);
-                    cmd.Parameters.AddWithValue("@CustomerId", currentTransaction.CustomerId);
+                    cmd.Parameters.AddWithValue("@CustomerMarketingBillId", customerMarketingOrder.Id);
+                    cmd.Parameters.AddWithValue("@CustomerId", customerMarketingOrder.CustomerId);
                     cmd.CommandType = CommandType.StoredProcedure;
                     SqlDataAdapter da = new SqlDataAdapter();
                     da.SelectCommand = cmd;
@@ -583,7 +583,7 @@ namespace ERP.WpfClient.ViewModel.Customer
             }
             if (dt.Rows.Count > 0)
             {
-                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCurrentTransaction", "dsCurrentTransaction", "CustomerBill");
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCustomerMarketingBill", "dsCurrentTransaction", "CustomerMarketingBill");
             }
         }
 

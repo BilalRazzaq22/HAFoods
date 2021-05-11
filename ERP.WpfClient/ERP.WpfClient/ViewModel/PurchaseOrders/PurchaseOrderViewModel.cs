@@ -448,7 +448,6 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                     SupplierMarketingBill supplierMarketingBill = new SupplierMarketingBill();
                     supplierMarketingBill.Show();
                 }
-
             }
         }
 

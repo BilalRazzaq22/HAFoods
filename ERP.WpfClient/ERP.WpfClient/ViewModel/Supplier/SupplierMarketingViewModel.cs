@@ -593,17 +593,17 @@ namespace ERP.WpfClient.ViewModel.Supplier
             }
         }
 
-        private void LoadReport(SupplierMarketingOrder purchaseOrder)
+        private void LoadReport(SupplierMarketingOrder supplierMarketingOrder)
         {
             DataTable dt = new DataTable();
             string constr = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
             using (SqlConnection con = new SqlConnection(constr))
             {
                 con.Open();
-                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetCurrentPurchaseOrder]", con))
+                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_GetSupplierMarketingBill]", con))
                 {
-                    cmd.Parameters.AddWithValue("@PurchaseOrderId", purchaseOrder.Id);
-                    cmd.Parameters.AddWithValue("@SupplierId", purchaseOrder.SupplierId);
+                    cmd.Parameters.AddWithValue("@SupplierMarketingBillId", supplierMarketingOrder.Id);
+                    cmd.Parameters.AddWithValue("@SupplierId", supplierMarketingOrder.SupplierId);
                     cmd.CommandType = CommandType.StoredProcedure;
                     SqlDataAdapter da = new SqlDataAdapter();
                     da.SelectCommand = cmd;
@@ -612,7 +612,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
             }
             if (dt.Rows.Count > 0)
             {
-                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptPurchaseOrder", "dsPurchaseOrder", "SupplierMarketingOrder");
+                ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptSupplierMarketingBill", "dsPurchaseOrder", "SupplierMarketingOrder");
             }
         }
 
