@@ -331,7 +331,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                         pOrder.PaymentId = PaymentType.Id;
                         pOrder.TotalPrice = PurchaseOrderModel.TotalPrice;
                         pOrder.TotalDiscount = PurchaseOrderModel.TotalDiscount;
-                        pOrder.GrandTotal = PurchaseOrderModel.GrandTotal;
+                        pOrder.GrandTotal = PurchaseOrderModel.GrandTotal - PurchaseOrderModel.AmountPaid;
                         pOrder.AmountPaid = PurchaseOrderModel.AmountPaid;
                         pOrder.CreatedDate = DateTime.Now;
                         pOrder.PurchaseOrderDate = PurchaseOrderModel.PurchaseOrderDate;
@@ -445,7 +445,7 @@ namespace ERP.WpfClient.ViewModel.PurchaseOrders
                 {
                     SupplierMarketingBill supplierMarketingBill = new SupplierMarketingBill();
                     supplierMarketingBill.Show();
-                    ApplicationManager.IsSupplierBillOpen = false;
+                    ApplicationManager.IsSupplierBillOpen = true;
                 }
             }
         }

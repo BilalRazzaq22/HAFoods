@@ -419,6 +419,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             {
                 ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptDailySale", "dsDailySale", "DailySale");
             }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("No Record Found.");
+            }
         }
 
         private void GenerateLedgerReport()
@@ -451,6 +455,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
                 {
                     ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCurrentTransactionLedgerReport", "dsCurrentTransactionLedgerReport", "CustomerLedgerReport");
                 }
+                else
+                {
+                    ApplicationManager.Instance.ShowMessageBox("No Record Found.");
+                }
             }
 
             if (CashBookType.Type == "Supplier")
@@ -472,6 +480,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
                 if (dt.Rows.Count > 0)
                 {
                     ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptPurchaseOrderLedgerReport", "dsPurchaseOrderLedgerReport", "SupplierLedgerReport");
+                }
+                else
+                {
+                    ApplicationManager.Instance.ShowMessageBox("No Record Found.");
                 }
             }
         }
@@ -506,6 +518,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             {
                 ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptItemList", "dsItemList", "ItemList");
             }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("No Record Found.");
+            }
         }
 
         private void GenerateCustomerReport()
@@ -536,6 +552,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             {
                 ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptCustomer", "dsCustomer", "Customer");
             }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("No Record Found.");
+            }
         }
 
         private void GenerateSupplierReport()
@@ -565,6 +585,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
             if (dt.Rows.Count > 0)
             {
                 ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptSupplier", "dsSupplier", "Supplier");
+            }
+            else
+            {
+                ApplicationManager.Instance.ShowMessageBox("No Record Found.");
             }
         }
 

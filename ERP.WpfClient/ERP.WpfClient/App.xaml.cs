@@ -30,34 +30,48 @@ namespace ERP.WpfClient
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            bool createdNew;
-            System.Threading.Mutex m_Mutex = new System.Threading.Mutex(true, "ERP.WpfClient", out createdNew);
-            if (!(createdNew))
-            {
-                if (MessageBoxResult.OK == MessageBox.Show("HA Foods is already open on your computer.", "HA Foods"))
-                {
-                    //Application.Current.Shutdown();
-                }
-            }
+            //bool createdNew;
+            //System.Threading.Mutex m_Mutex = new System.Threading.Mutex(true, "ERP.WpfClient", out createdNew);
+            //if (!(createdNew))
+            //{
+            //    if (MessageBoxResult.OK == MessageBox.Show("HA Foods is already open on your computer.", "HA Foods"))
+            //    {
+            //        //Application.Current.Shutdown();
+            //    }
+            //}
 
             //IsCreateSetup = true;
-            _timer.Interval = 60 * 60 * 1000; // One Hour
-            //_timer.Tick += _timer_Tick;
-            _timer.Elapsed += _timer_Elapsed;
-            base.OnStartup(e);
-            MapperProfile.InitializeMappers();
-            InitializeServices();
+            try
+            {
+                _timer.Interval = 60 * 60 * 1000; // One Hour
+                                                  //_timer.Tick += _timer_Tick;
+                _timer.Elapsed += _timer_Elapsed;
+                base.OnStartup(e);
+                MapperProfile.InitializeMappers();
+                InitializeServices();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("On StartUp" + ex.Message);
+            }
         }
 
         private void InitializeServices()
         {
-            var builder = new ContainerBuilder();
-            builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
-            Container = builder.Build();
-            _appSettingRepository = Resolve<IGenericRepository<AppSetting>>();
-            _userRepository = Resolve<IGenericRepository<User>>();
-            _paymentRepository = Resolve<IGenericRepository<Payment>>();
-            InitializeDB();
+            try
+            {
+                var builder = new ContainerBuilder();
+                builder.RegisterGeneric(typeof(GenericRepository<>)).As(typeof(IGenericRepository<>));
+                Container = builder.Build();
+                _appSettingRepository = Resolve<IGenericRepository<AppSetting>>();
+                _userRepository = Resolve<IGenericRepository<User>>();
+                _paymentRepository = Resolve<IGenericRepository<Payment>>();
+                InitializeDB();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("InitializeServices" + ex.Message);
+            }
         }
 
         private void InitializeDB()
@@ -68,9 +82,9 @@ namespace ERP.WpfClient
 
                 //if (appSetting == null)
                 //{
-                if (!Directory.Exists(Path.Combine(@"C:", "HAFood Database Backup")))
+                if (!Directory.Exists(Path.Combine(@"C:\", "HAFood Database Backup")))
                 {
-                    Directory.CreateDirectory(Path.Combine(@"C:", "HAFood Database Backup"));
+                    Directory.CreateDirectory(Path.Combine(@"C:\", "HAFood Database Backup"));
                 }
 
                 if (!Directory.Exists(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "HAFood")))
@@ -85,7 +99,7 @@ namespace ERP.WpfClient
                     {
                         //CheckReset();
                         //string path = @"C:\Users\bilal\projects\HAFood DB Backup";
-                        string path = @"C:\Program Files (x86)\HA Foods Setup\HA Foods\Database";
+                        string path = @"C:\Program Files (x86)\HAFoods Setup\HA Foods";
                         string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; Initial Catalog=HAFoodDB; AttachDbFilename = " + path + @"\HAFoodDB.mdf; Integrated Security = True;";
                         HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
                         HaFoodDbContext.Init();
@@ -148,19 +162,7 @@ namespace ERP.WpfClient
             }
             catch (Exception ex)
             {
-
-                //if (ex.HResult == -2146233079)
-                //{
-                //    CheckReset();
-                //    //string filePath = @"Data Source = (LocalDB)\MSSQLLocalDB; AttachDbFilename = " + Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\HAFood\HAFoodDB.mdf; Integrated Security = True;";
-                //    HAFoodDbContext HaFoodDbContext = new HAFoodDbContext();
-                //    HaFoodDbContext.Init();
-
-                //    //AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault(x => x.IsDBCreated == false);
-
-                //    //appSetting.IsDBCreated = true;
-                //    //_appSettingRepository.Update(appSetting, appSetting.Id);
-                //}
+                MessageBox.Show(ex.Message);
             }
         }
 
@@ -254,7 +256,7 @@ namespace ERP.WpfClient
 
             string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
             //string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10);
-            string fullpath = @"C:\Program Files (x86)\HA Foods Setup\HA Foods";
+            string fullpath = @"C:\Program Files (x86)\HAFoods Setup\HA Foods";
             filePaths = Directory.GetFiles(System.IO.Path.Combine(fullpath, @"DatabaseScripts"));
             if (filePaths != null)
             {

@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ERP.WpfClient.View.Suppliers"
         mc:Ignorable="d"
-        Title="Supplier Marketing Bill" Height="780" Width="1024" Icon="/ERP.WpfClient;component/Resources/Images/mainlogo.ico">
+        Title="Supplier Marketing Bill" Height="780" Width="1024" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize" WindowState="Maximized" 
+        Icon="/ERP.WpfClient;component/Resources/Images/mainlogo.ico" Closing="Window_Closing">
     <Grid Background="{StaticResource MasterBackgroundColor}">
         <StackPanel>
             <Grid>
@@ -190,10 +191,10 @@
                             <Label Content="{Binding SupplierMarketingOrderModel.GrandTotal}" Style="{StaticResource SimpleLabelText}"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                        <!--<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
                             <Label Content="Amount Paid:" Style="{StaticResource SimpleLabelText}" Width="120"/>
                             <TextBox  Text="{Binding SupplierMarketingOrderModel.AmountPaid,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
-                        </StackPanel>
+                        </StackPanel>-->
 
                         <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 10 0" >
                             <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Height="50" Width="100" Command="{Binding PurchaseOrderCommand}" CommandParameter="Save Order"/>

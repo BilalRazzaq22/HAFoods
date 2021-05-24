@@ -190,10 +190,10 @@
                             <Label Content="{Binding CustomerMarketingOrderModel.GrandTotal}" Style="{StaticResource SimpleLabelText}"/>
                         </StackPanel>
 
-                        <StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
+                        <!--<StackPanel Grid.Row="3" Grid.Column="1" Orientation="Horizontal">
                             <Label Content="Amount Paid:" Style="{StaticResource SimpleLabelText}" Width="120"/>
                             <TextBox  Text="{Binding CustomerMarketingOrderModel.AmountPaid,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}" />
-                        </StackPanel>
+                        </StackPanel>-->
 
                         <StackPanel Grid.Row="3" Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0 0 10 0">
                             <Button Style="{StaticResource AcceptButton}" Content="Save &amp; Print" Grid.Column="1" Grid.Row="2" Height="50" Width="100" Command="{Binding CurrentOrderCommand}" CommandParameter="Save Order"/>

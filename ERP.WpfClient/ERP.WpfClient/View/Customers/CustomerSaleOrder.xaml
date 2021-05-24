@@ -1,0 +1,81 @@
+﻿<Window x:Class="ERP.WpfClient.View.Customers.CustomerSaleOrder"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ERP.WpfClient.View.Customers" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        mc:Ignorable="d"
+        Title="CustomerSaleOrder" Height="500" Width="1024">
+    <Grid Background="{StaticResource MasterBackgroundColor}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+            <RowDefinition Height="4.5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Style="{StaticResource TopMainHeadings}" Text="Customer Sale Order" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Order Date:" />
+                    <DatePicker x:Name="dpEventDate" Style="{StaticResource SimpleFormDatePicker}" Background="{StaticResource MasterBackgroundColor}" SelectedDate="{Binding SelectedDate}"/>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Order #:"/>
+                    <TextBox Text="{Binding OrderNos,Mode=TwoWay,Delay=100}" Style="{StaticResource SimpleFormTextBox}">
+                        <!--<i:Interaction.Triggers>
+                            <i:EventTrigger EventName="KeyUp">
+                                <i:InvokeCommandAction Command="{Binding SelectedDateChangedCommand}"
+                                   CommandParameter="OrderNumber" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>-->
+                    </TextBox>
+                </StackPanel>
+
+                <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="2">
+                    <Label Style="{StaticResource SimpleLabelText}" Content="Customer Name:"/>
+                    <TextBox  Text="{Binding CustomerName,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+                </StackPanel>
+            </Grid>
+        </StackPanel>
+        <StackPanel Grid.Row="1" >
+            <StackPanel>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <!--<TextBlock Style="{StaticResource TopMainHeadings}" Text="Customers" Grid.Row="0" Grid.Column="0"/>-->
+
+                </Grid>
+            </StackPanel>
+
+            <DataGrid x:Name="grdCustomer" ItemsSource="{Binding CustomerSaleOrderList}" Style="{StaticResource DataGridsForList}" Height="290">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Order #" Width="*" Binding="{Binding OrderNo}"/>
+                    <DataGridTextColumn Header="Transaction Date" Width="*" Binding="{Binding TransactionDate}"/>
+                    <DataGridTextColumn Header="Item Name" Width="*" Binding="{Binding ItemName}"/>
+                    <DataGridTextColumn Header="Quantity" Width="*" Binding="{Binding Quantity}"/>
+                    <DataGridTextColumn Header="Price" Width="*" Binding="{Binding Price}"/>
+                    <DataGridTextColumn Header="Total Price" Width="*" Binding="{Binding TotalPrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+        <StackPanel Grid.Row="2" HorizontalAlignment="Right">
+            <Button Style="{StaticResource AcceptButton}" Content="Print" Command="{Binding SaleOrderCommand}" CommandParameter="Print Sale Report" />
+        </StackPanel>
+    </Grid>
+</Window>

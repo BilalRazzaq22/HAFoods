@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ERP.WpfClient" xmlns:wpfx="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="HAFoods" Height="780" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Resources/Images/mainLogo.ico">
+        Title="HAFoods" Height="780" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized" Icon="Resources/Images/mainLogo.ico" KeyDown="Window_KeyDown">
     <Grid Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
@@ -60,7 +60,8 @@
                                 -->
                                     <Button x:Name="logout" Content="Logout" Click="logout_Click"/>
                                     <Separator/>
-                                    <Button Content="RestoreDatabase" Command="{Binding MainViewCommand}" CommandParameter="RestoreDatabase"/>
+                                    <Button Content="Database Restore" Command="{Binding MainViewCommand}" CommandParameter="DatabaseRestore"/>
+                                    <Button Content="Database Backup" Command="{Binding MainViewCommand}" CommandParameter="DatabaseBackup"/>
                                 </StackPanel>
                             </Border>
                         </materialDesign:PopupBox>

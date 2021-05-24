@@ -260,8 +260,11 @@ namespace ERP.WpfClient.ViewModel
                 case "Database":
                     LoadViewAsync(ViewTypes.Database.ToString());
                     break;
-                case "RestoreDatabase":
+                case "DatabaseRestore":
                     ApplicationManager.Instance.ShowDialog("Restore Database", new RestoreDatabasePopup(this));
+                    break;
+                case "DatabaseBackup":
+                    BackupDatabase();
                     break;
             }
         }
@@ -328,6 +331,37 @@ namespace ERP.WpfClient.ViewModel
             bw.RunWorkerCompleted += async (sender, args) =>
             {
                 ApplicationManager.Instance.HideBusyInidicator();
+                ApplicationManager.Instance.ShowMessageBox("Backup Restore Successfully.");
+            };
+            bw.RunWorkerAsync();
+        }
+
+        public void BackupDatabase()
+        {
+            var bw = new BackgroundWorker();
+            bw.DoWork += (sender, args) =>
+            {
+                try
+                {
+                    ApplicationManager.Instance.ShowBusyInidicator("Backup Database ...!");
+                    var destination = @"C:\HAFood Database Backup";
+                    using (var db = new HAFoodDbContext())
+                    {
+                        string backupQuery = @"BACKUP DATABASE ""{0}"" TO DISK = N'{1}' WITH FORMAT, MEDIANAME = 'SQLServerBackups', NAME = 'Full Backup of SQLTestDB'";
+                        backupQuery = string.Format(backupQuery, "HAFoodDB", destination + @"\HAFOODDB_" + DateTime.Now.ToString("dd-MM-yyyy") + "_" + DateTime.Now.ToString("hh-mm-ss") + ".bak");
+                        db.Database.SqlQuery<object>(backupQuery).ToList().FirstOrDefault();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "HA Foods");
+                }
+            };
+
+            bw.RunWorkerCompleted += async (sender, args) =>
+            {
+                ApplicationManager.Instance.HideBusyInidicator();
+                ApplicationManager.Instance.ShowMessageBox("Backup Database Successfully.");
             };
             bw.RunWorkerAsync();
         }

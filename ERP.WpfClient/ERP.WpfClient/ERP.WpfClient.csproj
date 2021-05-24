@@ -101,6 +101,7 @@
     <Compile Include="Model\Customer\CustomerMarketingOrderItemModel.cs" />
     <Compile Include="Model\Customer\CustomerMarketingOrderModel.cs" />
     <Compile Include="Model\Customer\CustomerOrderModel.cs" />
+    <Compile Include="Model\Customer\CustomerSaleOrderModel.cs" />
     <Compile Include="Model\Payment\PaymentModel.cs" />
     <Compile Include="Model\PurchaseOrder\PurchaseOrderItemModel.cs" />
     <Compile Include="Model\PurchaseOrder\PurchaseOrderModel.cs" />
@@ -126,6 +127,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCustomer.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Dataset\Customer\dsCustomerSaleOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCustomerSaleOrder.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\Dataset\DailySale\dsDailySale.cs">
       <DependentUpon>dsDailySale.xsd</DependentUpon>
@@ -166,6 +172,7 @@
     <Compile Include="ViewModel\CashBooks\CashBookOneViewModel.cs" />
     <Compile Include="ViewModel\CashBooks\CashBookTwoViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerMarketingViewModel.cs" />
+    <Compile Include="ViewModel\Customer\CustomerSaleOrderViewModel.cs" />
     <Compile Include="ViewModel\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModel\Database\DatabaseViewModel.cs" />
     <Compile Include="ViewModel\Data\DataViewModelBase.cs" />
@@ -192,6 +199,9 @@
     </Compile>
     <Compile Include="View\Customers\CustomerMarketingBill.xaml.cs">
       <DependentUpon>CustomerMarketingBill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Customers\CustomerSaleOrder.xaml.cs">
+      <DependentUpon>CustomerSaleOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Database\Database.xaml.cs">
       <DependentUpon>Database.xaml</DependentUpon>
@@ -309,6 +319,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\Customers\CustomerSaleOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Database\Database.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -420,6 +434,7 @@
     <EmbeddedResource Include="Reports\rptCurrentTransaction.rdlc" />
     <EmbeddedResource Include="Reports\rptCurrentTransactionLedgerReport.rdlc" />
     <EmbeddedResource Include="Reports\rptCustomer.rdlc" />
+    <EmbeddedResource Include="Reports\rptCustomerSaleOrder.rdlc" />
     <EmbeddedResource Include="Reports\rptDailySale.rdlc" />
     <EmbeddedResource Include="Reports\rptItemList.rdlc" />
     <EmbeddedResource Include="Reports\rptPurchaseOrder.rdlc" />
@@ -451,6 +466,17 @@
     </None>
     <None Include="Reports\Dataset\Customer\dsCustomer.xss">
       <DependentUpon>dsCustomer.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\Customer\dsCustomerSaleOrder.xsc">
+      <DependentUpon>dsCustomerSaleOrder.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\Customer\dsCustomerSaleOrder.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCustomerSaleOrder.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\Customer\dsCustomerSaleOrder.xss">
+      <DependentUpon>dsCustomerSaleOrder.xsd</DependentUpon>
     </None>
     <None Include="Reports\Dataset\DailySale\dsDailySale.xsc">
       <DependentUpon>dsDailySale.xsd</DependentUpon>

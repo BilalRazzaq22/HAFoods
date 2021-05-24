@@ -30,7 +30,7 @@ using System.Windows;
 
 namespace ERP.WpfClient.ViewModel.Supplier
 {
-    public class SupplierMarketingViewModel : ViewModelBase, INotifyOnBringIntoView
+    public class SupplierMarketingViewModel : ViewModelBase
     {
         #region Fields
 
@@ -83,6 +83,7 @@ namespace ERP.WpfClient.ViewModel.Supplier
             _cashBookOneRepository = App.Resolve<IGenericRepository<CashBookOne>>();
             StockList = new ObservableCollection<StockModel>();
             SupplierList = new ObservableCollection<SupplierModel>();
+            Init();
         }
 
         #endregion
@@ -614,11 +615,6 @@ namespace ERP.WpfClient.ViewModel.Supplier
             {
                 ApplicationManager.Instance.PrintReport(dt, @"/Reports/rptSupplierMarketingBill", "dsPurchaseOrder", "SupplierMarketingOrder");
             }
-        }
-
-        public void OnBringIntoView()
-        {
-            Init();
         }
 
         #endregion

@@ -295,6 +295,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             private global::System.Data.DataColumn columnTotalBalance;
             
+            private global::System.Data.DataColumn columnSupplierName;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dsPurchaseOrderLedgerReportDataTable() {
@@ -394,6 +396,14 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SupplierNameColumn {
+                get {
+                    return this.columnSupplierName;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +439,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsPurchaseOrderLedgerReportRow AdddsPurchaseOrderLedgerReportRow(string Date, string OrderNo, string Debit, string Credit, string Balance, string TotalDebit, string TotalCredit, string TotalBalance) {
+            public dsPurchaseOrderLedgerReportRow AdddsPurchaseOrderLedgerReportRow(string Date, string OrderNo, string Debit, string Credit, string Balance, string TotalDebit, string TotalCredit, string TotalBalance, string SupplierName) {
                 dsPurchaseOrderLedgerReportRow rowdsPurchaseOrderLedgerReportRow = ((dsPurchaseOrderLedgerReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date,
@@ -439,7 +449,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
                         Balance,
                         TotalDebit,
                         TotalCredit,
-                        TotalBalance};
+                        TotalBalance,
+                        SupplierName};
                 rowdsPurchaseOrderLedgerReportRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsPurchaseOrderLedgerReportRow);
                 return rowdsPurchaseOrderLedgerReportRow;
@@ -470,6 +481,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
                 this.columnTotalDebit = base.Columns["TotalDebit"];
                 this.columnTotalCredit = base.Columns["TotalCredit"];
                 this.columnTotalBalance = base.Columns["TotalBalance"];
+                this.columnSupplierName = base.Columns["SupplierName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -491,6 +503,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
                 base.Columns.Add(this.columnTotalCredit);
                 this.columnTotalBalance = new global::System.Data.DataColumn("TotalBalance", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotalBalance);
+                this.columnSupplierName = new global::System.Data.DataColumn("SupplierName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSupplierName);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsPurchaseOrderLedgerReport");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsPurchaseOrderLedgerReport");
             }
@@ -766,6 +780,23 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string SupplierName {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsPurchaseOrderLedgerReport.SupplierNameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'SupplierName\' in table \'dsPurchaseOrderLedgerReport\' is DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsPurchaseOrderLedgerReport.SupplierNameColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsDateNull() {
                 return this.IsNull(this.tabledsPurchaseOrderLedgerReport.DateColumn);
             }
@@ -858,6 +889,18 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetTotalBalanceNull() {
                 this[this.tabledsPurchaseOrderLedgerReport.TotalBalanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSupplierNameNull() {
+                return this.IsNull(this.tabledsPurchaseOrderLedgerReport.SupplierNameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSupplierNameNull() {
+                this[this.tabledsPurchaseOrderLedgerReport.SupplierNameColumn] = global::System.Convert.DBNull;
             }
         }
         

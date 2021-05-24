@@ -318,7 +318,7 @@ namespace ERP.WpfClient.ViewModel.Transaction
                         transaction.PaymentId = PaymentType.Id;
                         transaction.TotalPrice = CurrentTransactionModel.TotalPrice;
                         transaction.TotalDiscount = CurrentTransactionModel.TotalDiscount;
-                        transaction.GrandTotal = CurrentTransactionModel.GrandTotal;
+                        transaction.GrandTotal = CurrentTransactionModel.GrandTotal - CurrentTransactionModel.AmountPaid;
                         transaction.AmountPaid = CurrentTransactionModel.AmountPaid;
                         transaction.CreatedDate = DateTime.Now;
 

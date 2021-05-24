@@ -4,11 +4,13 @@ using ERP.WpfClient.LoadControls;
 using ERP.WpfClient.Messages.BusyIndicator;
 using ERP.WpfClient.Messages.Popup;
 using ERP.WpfClient.Messages.User;
+using ERP.WpfClient.View.Customers;
 using ERP.WpfClient.ViewModel;
 using GalaSoft.MvvmLight.Messaging;
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Input;
 
 namespace ERP.WpfClient
 {
@@ -227,6 +229,15 @@ namespace ERP.WpfClient
                 Environment.Exit(0);
                 ApplicationManager.Instance.HideDialog();
             }, () => ApplicationManager.Instance.HideMessageBox(), useYesNo: true);
+        }
+
+        private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key == Key.F7)
+            {
+                CustomerSaleOrder customerSaleOrder = new CustomerSaleOrder();
+                customerSaleOrder.ShowDialog();
+            }
         }
 
         //private void Current_Exit(object sender, ExitEventArgs e)

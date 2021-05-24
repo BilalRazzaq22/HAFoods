@@ -313,6 +313,10 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             private global::System.Data.DataColumn columnPreviousBalance;
             
+            private global::System.Data.DataColumn columnPacking;
+            
+            private global::System.Data.DataColumn columnPerCotton;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public dsCurrentTransactionDataTable() {
@@ -484,6 +488,22 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PackingColumn {
+                get {
+                    return this.columnPacking;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn PerCottonColumn {
+                get {
+                    return this.columnPerCotton;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -536,7 +556,9 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                         string GrandTotal, 
                         string TotalCustomerOrders, 
                         string CustomerName, 
-                        string PreviousBalance) {
+                        string PreviousBalance, 
+                        string Packing, 
+                        string PerCotton) {
                 dsCurrentTransactionRow rowdsCurrentTransactionRow = ((dsCurrentTransactionRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ItemName,
@@ -555,7 +577,9 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                         GrandTotal,
                         TotalCustomerOrders,
                         CustomerName,
-                        PreviousBalance};
+                        PreviousBalance,
+                        Packing,
+                        PerCotton};
                 rowdsCurrentTransactionRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowdsCurrentTransactionRow);
                 return rowdsCurrentTransactionRow;
@@ -595,6 +619,8 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                 this.columnTotalCustomerOrders = base.Columns["TotalCustomerOrders"];
                 this.columnCustomerName = base.Columns["CustomerName"];
                 this.columnPreviousBalance = base.Columns["PreviousBalance"];
+                this.columnPacking = base.Columns["Packing"];
+                this.columnPerCotton = base.Columns["PerCotton"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -634,6 +660,10 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
                 base.Columns.Add(this.columnCustomerName);
                 this.columnPreviousBalance = new global::System.Data.DataColumn("PreviousBalance", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnPreviousBalance);
+                this.columnPacking = new global::System.Data.DataColumn("Packing", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPacking);
+                this.columnPerCotton = new global::System.Data.DataColumn("PerCotton", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPerCotton);
                 this.ExtendedProperties.Add("Generator_TablePropName", "_dsCurrentTransaction");
                 this.ExtendedProperties.Add("Generator_UserTableName", "dsCurrentTransaction");
             }
@@ -1055,6 +1085,38 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Packing {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.PackingColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Packing\' in table \'dsCurrentTransaction\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.PackingColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string PerCotton {
+                get {
+                    try {
+                        return ((string)(this[this.tabledsCurrentTransaction.PerCottonColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'PerCotton\' in table \'dsCurrentTransaction\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tabledsCurrentTransaction.PerCottonColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsItemNameNull() {
                 return this.IsNull(this.tabledsCurrentTransaction.ItemNameColumn);
             }
@@ -1255,6 +1317,30 @@ namespace ERP.WpfClient.Reports.Dataset.CurrentTransaction {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetPreviousBalanceNull() {
                 this[this.tabledsCurrentTransaction.PreviousBalanceColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPackingNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.PackingColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPackingNull() {
+                this[this.tabledsCurrentTransaction.PackingColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsPerCottonNull() {
+                return this.IsNull(this.tabledsCurrentTransaction.PerCottonColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetPerCottonNull() {
+                this[this.tabledsCurrentTransaction.PerCottonColumn] = global::System.Convert.DBNull;
             }
         }
         
