@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsBalanceSheet" targetNamespace="http://tempuri.org/dsBalanceSheet.xsd" xmlns:mstns="http://tempuri.org/dsBalanceSheet.xsd" xmlns="http://tempuri.org/dsBalanceSheet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsBalanceSheet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsBalanceSheet" msprop:Generator_UserDSName="dsBalanceSheet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsBalanceSheet" msprop:Generator_TableClassName="dsBalanceSheetDataTable" msprop:Generator_TableVarName="tabledsBalanceSheet" msprop:Generator_TablePropName="_dsBalanceSheet" msprop:Generator_RowDeletingName="dsBalanceSheetRowDeleting" msprop:Generator_RowChangingName="dsBalanceSheetRowChanging" msprop:Generator_RowEvHandlerName="dsBalanceSheetRowChangeEventHandler" msprop:Generator_RowDeletedName="dsBalanceSheetRowDeleted" msprop:Generator_UserTableName="dsBalanceSheet" msprop:Generator_RowChangedName="dsBalanceSheetRowChanged" msprop:Generator_RowEvArgName="dsBalanceSheetRowChangeEvent" msprop:Generator_RowClassName="dsBalanceSheetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="AccountPayable" msprop:Generator_ColumnVarNameInTable="columnAccountPayable" msprop:Generator_ColumnPropNameInRow="AccountPayable" msprop:Generator_ColumnPropNameInTable="AccountPayableColumn" msprop:Generator_UserColumnName="AccountPayable" type="xs:string" minOccurs="0" />
+              <xs:element name="AccountReceivable" msprop:Generator_ColumnVarNameInTable="columnAccountReceivable" msprop:Generator_ColumnPropNameInRow="AccountReceivable" msprop:Generator_ColumnPropNameInTable="AccountReceivableColumn" msprop:Generator_UserColumnName="AccountReceivable" type="xs:string" minOccurs="0" />
+              <xs:element name="Cash" msprop:Generator_ColumnVarNameInTable="columnCash" msprop:Generator_ColumnPropNameInRow="Cash" msprop:Generator_ColumnPropNameInTable="CashColumn" msprop:Generator_UserColumnName="Cash" type="xs:string" minOccurs="0" />
+              <xs:element name="NetWorth" msprop:Generator_ColumnVarNameInTable="columnNetWorth" msprop:Generator_ColumnPropNameInRow="NetWorth" msprop:Generator_ColumnPropNameInTable="NetWorthColumn" msprop:Generator_UserColumnName="NetWorth" type="xs:string" minOccurs="0" />
+              <xs:element name="OtherExpense" msprop:Generator_ColumnVarNameInTable="columnOtherExpense" msprop:Generator_ColumnPropNameInRow="OtherExpense" msprop:Generator_ColumnPropNameInTable="OtherExpenseColumn" msprop:Generator_UserColumnName="OtherExpense" type="xs:string" minOccurs="0" />
+              <xs:element name="StaffSalaries" msprop:Generator_ColumnVarNameInTable="columnStaffSalaries" msprop:Generator_ColumnPropNameInRow="StaffSalaries" msprop:Generator_ColumnPropNameInTable="StaffSalariesColumn" msprop:Generator_UserColumnName="StaffSalaries" type="xs:string" minOccurs="0" />
+              <xs:element name="Stocks" msprop:Generator_ColumnVarNameInTable="columnStocks" msprop:Generator_ColumnPropNameInRow="Stocks" msprop:Generator_ColumnPropNameInTable="StocksColumn" msprop:Generator_UserColumnName="Stocks" type="xs:string" minOccurs="0" />
+              <xs:element name="UtilityBills" msprop:Generator_ColumnVarNameInTable="columnUtilityBills" msprop:Generator_ColumnPropNameInRow="UtilityBills" msprop:Generator_ColumnPropNameInTable="UtilityBillsColumn" msprop:Generator_UserColumnName="UtilityBills" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

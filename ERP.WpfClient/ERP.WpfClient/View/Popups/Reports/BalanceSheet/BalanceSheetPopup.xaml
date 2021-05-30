@@ -1,0 +1,66 @@
+﻿<UserControl x:Class="ERP.WpfClient.View.Popups.Reports.BalanceSheet.BalanceSheetPopup"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ERP.WpfClient.View.Popups.Reports.BalanceSheet"
+             mc:Ignorable="d" 
+             d:DesignHeight="350" d:DesignWidth="500">
+    <Grid Background="{StaticResource MasterBackgroundColor}">
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="0">
+                <Label Style="{StaticResource SimpleLabelText}" Content="Account Receivable:"/>
+                <TextBox Text="{Binding AccountReceivable,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="0">
+                <Label Style="{StaticResource SimpleLabelText}" Content="Cash:"/>
+                <TextBox Text="{Binding Cash,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="0">
+                <Label Style="{StaticResource SimpleLabelText}" Content="Stocks:"/>
+                <TextBox Text="{Binding Stocks,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="0" Grid.Column="1">
+                <Label Style="{StaticResource SimpleLabelText}" Content="Account Payables:"/>
+                <TextBox Text="{Binding AccountPayable,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1">
+                <Label Style="{StaticResource SimpleLabelText}" Content="Staff Salaries:"/>
+                <TextBox Text="{Binding StaffSalaries,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="2" Grid.Column="1">
+                <Label Style="{StaticResource SimpleLabelText}" Content="Utitlity Bills:"/>
+                <TextBox Text="{Binding UtilityBills,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Grid.Row="3" Grid.Column="1">
+                <Label Style="{StaticResource SimpleLabelText}" Content="Other Expense:"/>
+                <TextBox Text="{Binding OtherExpense,Mode=TwoWay}" Style="{StaticResource SimpleFormTextBox}"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="1" Background="{StaticResource CommonWhiteBackgroundColor}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="0" Style="{StaticResource DeclineButton}" Content="Cancel" CommandParameter="Cancel" Command="{Binding ReportActionCommand}" />
+            <Button Grid.Column="1"  Style="{StaticResource AcceptButton}" Content="Proceed" CommandParameter="Proceed" Command="{Binding ReportActionCommand}" />
+        </Grid>
+
+    </Grid>
+</UserControl>

@@ -94,6 +94,7 @@
     <Compile Include="Messages\Popup\PopupDialogMessage.cs" />
     <Compile Include="Messages\User\UserLoginMessage.cs" />
     <Compile Include="Messages\View\ShowViewMessage.cs" />
+    <Compile Include="Model\BalanceSheet\BalanceSheetModel.cs" />
     <Compile Include="Model\CashBooks\CashBookOneModel.cs" />
     <Compile Include="Model\CashBooks\CashBookTwoModel.cs" />
     <Compile Include="Model\CashBooks\CashBookTypeModel.cs" />
@@ -115,6 +116,11 @@
     <Compile Include="Model\Transaction\RecentTransactionModel.cs" />
     <Compile Include="Model\User\UserGroupModel.cs" />
     <Compile Include="Model\User\UserModel.cs" />
+    <Compile Include="Reports\Dataset\BalanceSheet\dsBalanceSheet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsBalanceSheet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Reports\Dataset\CurrentTransaction\dsCurrentTransaction.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -180,6 +186,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\Popup\ConfirmPopupViewModel.cs" />
     <Compile Include="ViewModel\Popup\Report\AllReportsViewModel.cs" />
+    <Compile Include="ViewModel\Popup\Report\BalanceSheetViewModel.cs" />
     <Compile Include="ViewModel\PurchaseOrders\PurchaseOrderViewModel.cs" />
     <Compile Include="ViewModel\Stock\StockViewModel.cs" />
     <Compile Include="ViewModel\Supplier\SupplierMarketingViewModel.cs" />
@@ -223,6 +230,9 @@
     </Compile>
     <Compile Include="View\Popups\Payments\PurchasePaymentPopup.xaml.cs">
       <DependentUpon>PurchasePaymentPopup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Popups\Reports\BalanceSheet\BalanceSheetPopup.xaml.cs">
+      <DependentUpon>BalanceSheetPopup.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\Popups\Reports\Customer\CustomerReportPopup.xaml.cs">
       <DependentUpon>CustomerReportPopup.xaml</DependentUpon>
@@ -351,6 +361,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\Popups\Reports\BalanceSheet\BalanceSheetPopup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\Popups\Reports\Customer\CustomerReportPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>XamlIntelliSenseFileGenerator</Generator>
@@ -430,6 +444,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reports\rptBalanceSheet.rdlc" />
     <EmbeddedResource Include="Reports\rptCustomerMarketingBill.rdlc" />
     <EmbeddedResource Include="Reports\rptCurrentTransaction.rdlc" />
     <EmbeddedResource Include="Reports\rptCurrentTransactionLedgerReport.rdlc" />
@@ -444,6 +459,17 @@
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\BalanceSheet\dsBalanceSheet.xsc">
+      <DependentUpon>dsBalanceSheet.xsd</DependentUpon>
+    </None>
+    <None Include="Reports\Dataset\BalanceSheet\dsBalanceSheet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsBalanceSheet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Reports\Dataset\BalanceSheet\dsBalanceSheet.xss">
+      <DependentUpon>dsBalanceSheet.xsd</DependentUpon>
     </None>
     <None Include="Reports\Dataset\CurrentTransaction\dsCurrentTransaction.xsc">
       <DependentUpon>dsCurrentTransaction.xsd</DependentUpon>
@@ -551,6 +577,7 @@
   <ItemGroup>
     <Content Include="DatabaseScripts\SP_GetCurrentTransactionOrder.sql" />
     <Content Include="DatabaseScripts\SP_GetCustomerMarketingBill.sql" />
+    <Content Include="DatabaseScripts\SP_GetCustomerSaleOrder.sql" />
     <Content Include="DatabaseScripts\SP_GetPurchaseOrderLedgerReport.sql" />
     <Content Include="DatabaseScripts\SP_GetSupplierMarketingBill.sql" />
     <Content Include="DatabaseScripts\SP_GetSupplierReport.sql" />

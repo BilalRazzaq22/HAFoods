@@ -46,6 +46,9 @@
             <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="LedgerReport" Grid.Row="1" Grid.Column="0" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Ledger Report" TextAlignment="Center"/>
             </Button>
+            <Button Style="{StaticResource ReportsButton}" Command="{Binding ReportsCommand}" CommandParameter="BalanceSheet" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
+                <TextBlock TextWrapping="Wrap" Text="Balance Sheet" TextAlignment="Center"/>
+            </Button>
             <!--<Button Style="{StaticResource ReportsButton}" Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center">
                 <TextBlock TextWrapping="Wrap" Text="Debit Report" TextAlignment="Center"/>
             </Button>

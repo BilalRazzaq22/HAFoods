@@ -307,11 +307,11 @@ namespace ERP.WpfClient.Controls.Helpers
 
         public void PrintReport(object query, string reportName, string dataset, string file)
         {
-            string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
+            //string path = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
 
-            string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + reportName + ".rdlc";
+            //string fullpath = System.IO.Path.GetDirectoryName(Assembly.GetEntryAssembly().Location).Remove(path.Length - 10) + reportName + ".rdlc";
 
-            //string fullpath = @"C:\Program Files (x86)\HAFoods Setup\HA Foods" + reportName + ".rdlc";
+            string fullpath = @"C:\Program Files (x86)\HAFoods Setup\HA Foods" + reportName + ".rdlc";
             //string fullpath = path + @"\Reports\" + reportName + ".rdlc";
 
             string deviceInfo =

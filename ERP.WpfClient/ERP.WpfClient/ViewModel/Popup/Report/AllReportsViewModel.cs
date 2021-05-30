@@ -13,6 +13,7 @@ using ERP.WpfClient.Model.CashBooks;
 using ERP.WpfClient.Model.Stock;
 using ERP.WpfClient.Model.Supplier;
 using ERP.WpfClient.View.Popups.Reports;
+using ERP.WpfClient.View.Popups.Reports.BalanceSheet;
 using ERP.WpfClient.View.Popups.Reports.Customer;
 using ERP.WpfClient.View.Popups.Reports.DailySale;
 using ERP.WpfClient.View.Popups.Reports.Item;
@@ -285,6 +286,10 @@ namespace ERP.WpfClient.ViewModel.Popup.Report
                 case "LedgerReport":
                     ApplicationManager.Instance.ShowDialog("Ledger Report", new LedgerReportPopup(this));
                     ReportName = "LedgerReport";
+                    break; 
+                case "BalanceSheet":
+                    ApplicationManager.Instance.ShowDialog("Balance Sheet", new BalanceSheetPopup());
+                    ReportName = "BalanceSheet";
                     break;
             }
         }

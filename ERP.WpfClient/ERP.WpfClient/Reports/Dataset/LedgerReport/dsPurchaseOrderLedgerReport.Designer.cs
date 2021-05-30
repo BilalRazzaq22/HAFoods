@@ -281,7 +281,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             private global::System.Data.DataColumn columnDate;
             
-            private global::System.Data.DataColumn columnOrderNo;
+            private global::System.Data.DataColumn columnDescription;
             
             private global::System.Data.DataColumn columnDebit;
             
@@ -340,9 +340,9 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn OrderNoColumn {
+            public global::System.Data.DataColumn DescriptionColumn {
                 get {
-                    return this.columnOrderNo;
+                    return this.columnDescription;
                 }
             }
             
@@ -439,11 +439,11 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsPurchaseOrderLedgerReportRow AdddsPurchaseOrderLedgerReportRow(string Date, string OrderNo, string Debit, string Credit, string Balance, string TotalDebit, string TotalCredit, string TotalBalance, string SupplierName) {
+            public dsPurchaseOrderLedgerReportRow AdddsPurchaseOrderLedgerReportRow(string Date, string Description, string Debit, string Credit, string Balance, string TotalDebit, string TotalCredit, string TotalBalance, string SupplierName) {
                 dsPurchaseOrderLedgerReportRow rowdsPurchaseOrderLedgerReportRow = ((dsPurchaseOrderLedgerReportRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         Date,
-                        OrderNo,
+                        Description,
                         Debit,
                         Credit,
                         Balance,
@@ -474,7 +474,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
                 this.columnDate = base.Columns["Date"];
-                this.columnOrderNo = base.Columns["OrderNo"];
+                this.columnDescription = base.Columns["Description"];
                 this.columnDebit = base.Columns["Debit"];
                 this.columnCredit = base.Columns["Credit"];
                 this.columnBalance = base.Columns["Balance"];
@@ -489,8 +489,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             private void InitClass() {
                 this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDate);
-                this.columnOrderNo = new global::System.Data.DataColumn("OrderNo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOrderNo);
+                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDescription);
                 this.columnDebit = new global::System.Data.DataColumn("Debit", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDebit);
                 this.columnCredit = new global::System.Data.DataColumn("Credit", typeof(string), null, global::System.Data.MappingType.Element);
@@ -665,17 +665,18 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string OrderNo {
+            public string Description {
                 get {
                     try {
-                        return ((string)(this[this.tabledsPurchaseOrderLedgerReport.OrderNoColumn]));
+                        return ((string)(this[this.tabledsPurchaseOrderLedgerReport.DescriptionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'OrderNo\' in table \'dsPurchaseOrderLedgerReport\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'dsPurchaseOrderLedgerReport\' is DBNu" +
+                                "ll.", e);
                     }
                 }
                 set {
-                    this[this.tabledsPurchaseOrderLedgerReport.OrderNoColumn] = value;
+                    this[this.tabledsPurchaseOrderLedgerReport.DescriptionColumn] = value;
                 }
             }
             
@@ -809,14 +810,14 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsOrderNoNull() {
-                return this.IsNull(this.tabledsPurchaseOrderLedgerReport.OrderNoColumn);
+            public bool IsDescriptionNull() {
+                return this.IsNull(this.tabledsPurchaseOrderLedgerReport.DescriptionColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetOrderNoNull() {
-                this[this.tabledsPurchaseOrderLedgerReport.OrderNoColumn] = global::System.Convert.DBNull;
+            public void SetDescriptionNull() {
+                this[this.tabledsPurchaseOrderLedgerReport.DescriptionColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

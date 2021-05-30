@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
+namespace ERP.WpfClient.Reports.Dataset.BalanceSheet {
     
     
     /// <summary>
@@ -20,17 +20,17 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsCurrentTransactionLedgerReport")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsBalanceSheet")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsCurrentTransactionLedgerReport : global::System.Data.DataSet {
+    public partial class dsBalanceSheet : global::System.Data.DataSet {
         
-        private dsCurrentTransactionLedgerReportDataTable tabledsCurrentTransactionLedgerReport;
+        private dsBalanceSheetDataTable tabledsBalanceSheet;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public dsCurrentTransactionLedgerReport() {
+        public dsBalanceSheet() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        protected dsCurrentTransactionLedgerReport(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsBalanceSheet(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["dsCurrentTransactionLedgerReport"] != null)) {
-                    base.Tables.Add(new dsCurrentTransactionLedgerReportDataTable(ds.Tables["dsCurrentTransactionLedgerReport"]));
+                if ((ds.Tables["dsBalanceSheet"] != null)) {
+                    base.Tables.Add(new dsBalanceSheetDataTable(ds.Tables["dsBalanceSheet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public dsCurrentTransactionLedgerReportDataTable _dsCurrentTransactionLedgerReport {
+        public dsBalanceSheetDataTable _dsBalanceSheet {
             get {
-                return this.tabledsCurrentTransactionLedgerReport;
+                return this.tabledsBalanceSheet;
             }
         }
         
@@ -127,7 +127,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsCurrentTransactionLedgerReport cln = ((dsCurrentTransactionLedgerReport)(base.Clone()));
+            dsBalanceSheet cln = ((dsBalanceSheet)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["dsCurrentTransactionLedgerReport"] != null)) {
-                    base.Tables.Add(new dsCurrentTransactionLedgerReportDataTable(ds.Tables["dsCurrentTransactionLedgerReport"]));
+                if ((ds.Tables["dsBalanceSheet"] != null)) {
+                    base.Tables.Add(new dsBalanceSheetDataTable(ds.Tables["dsBalanceSheet"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tabledsCurrentTransactionLedgerReport = ((dsCurrentTransactionLedgerReportDataTable)(base.Tables["dsCurrentTransactionLedgerReport"]));
+            this.tabledsBalanceSheet = ((dsBalanceSheetDataTable)(base.Tables["dsBalanceSheet"]));
             if ((initTable == true)) {
-                if ((this.tabledsCurrentTransactionLedgerReport != null)) {
-                    this.tabledsCurrentTransactionLedgerReport.InitVars();
+                if ((this.tabledsBalanceSheet != null)) {
+                    this.tabledsBalanceSheet.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsCurrentTransactionLedgerReport";
+            this.DataSetName = "dsBalanceSheet";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsCurrentTransactionLedgerReport.xsd";
+            this.Namespace = "http://tempuri.org/dsBalanceSheet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tabledsCurrentTransactionLedgerReport = new dsCurrentTransactionLedgerReportDataTable();
-            base.Tables.Add(this.tabledsCurrentTransactionLedgerReport);
+            this.tabledsBalanceSheet = new dsBalanceSheetDataTable();
+            base.Tables.Add(this.tabledsBalanceSheet);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        private bool ShouldSerialize_dsCurrentTransactionLedgerReport() {
+        private bool ShouldSerialize_dsBalanceSheet() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsCurrentTransactionLedgerReport ds = new dsCurrentTransactionLedgerReport();
+            dsBalanceSheet ds = new dsBalanceSheet();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,37 +270,35 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public delegate void dsCurrentTransactionLedgerReportRowChangeEventHandler(object sender, dsCurrentTransactionLedgerReportRowChangeEvent e);
+        public delegate void dsBalanceSheetRowChangeEventHandler(object sender, dsBalanceSheetRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class dsCurrentTransactionLedgerReportDataTable : global::System.Data.TypedTableBase<dsCurrentTransactionLedgerReportRow> {
+        public partial class dsBalanceSheetDataTable : global::System.Data.TypedTableBase<dsBalanceSheetRow> {
             
-            private global::System.Data.DataColumn columnDate;
+            private global::System.Data.DataColumn columnAccountPayable;
             
-            private global::System.Data.DataColumn columnDescription;
+            private global::System.Data.DataColumn columnAccountReceivable;
             
-            private global::System.Data.DataColumn columnDebit;
+            private global::System.Data.DataColumn columnCash;
             
-            private global::System.Data.DataColumn columnCredit;
+            private global::System.Data.DataColumn columnNetWorth;
             
-            private global::System.Data.DataColumn columnBalance;
+            private global::System.Data.DataColumn columnOtherExpense;
             
-            private global::System.Data.DataColumn columnTotalDebit;
+            private global::System.Data.DataColumn columnStaffSalaries;
             
-            private global::System.Data.DataColumn columnTotalCredit;
+            private global::System.Data.DataColumn columnStocks;
             
-            private global::System.Data.DataColumn columnTotalBalance;
-            
-            private global::System.Data.DataColumn columnCustomerName;
+            private global::System.Data.DataColumn columnUtilityBills;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionLedgerReportDataTable() {
-                this.TableName = "dsCurrentTransactionLedgerReport";
+            public dsBalanceSheetDataTable() {
+                this.TableName = "dsBalanceSheet";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +306,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal dsCurrentTransactionLedgerReportDataTable(global::System.Data.DataTable table) {
+            internal dsBalanceSheetDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,80 +323,72 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            protected dsCurrentTransactionLedgerReportDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected dsBalanceSheetDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DateColumn {
+            public global::System.Data.DataColumn AccountPayableColumn {
                 get {
-                    return this.columnDate;
+                    return this.columnAccountPayable;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DescriptionColumn {
+            public global::System.Data.DataColumn AccountReceivableColumn {
                 get {
-                    return this.columnDescription;
+                    return this.columnAccountReceivable;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn DebitColumn {
+            public global::System.Data.DataColumn CashColumn {
                 get {
-                    return this.columnDebit;
+                    return this.columnCash;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CreditColumn {
+            public global::System.Data.DataColumn NetWorthColumn {
                 get {
-                    return this.columnCredit;
+                    return this.columnNetWorth;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn BalanceColumn {
+            public global::System.Data.DataColumn OtherExpenseColumn {
                 get {
-                    return this.columnBalance;
+                    return this.columnOtherExpense;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalDebitColumn {
+            public global::System.Data.DataColumn StaffSalariesColumn {
                 get {
-                    return this.columnTotalDebit;
+                    return this.columnStaffSalaries;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalCreditColumn {
+            public global::System.Data.DataColumn StocksColumn {
                 get {
-                    return this.columnTotalCredit;
+                    return this.columnStocks;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn TotalBalanceColumn {
+            public global::System.Data.DataColumn UtilityBillsColumn {
                 get {
-                    return this.columnTotalBalance;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public global::System.Data.DataColumn CustomerNameColumn {
-                get {
-                    return this.columnCustomerName;
+                    return this.columnUtilityBills;
                 }
             }
             
@@ -413,53 +403,52 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionLedgerReportRow this[int index] {
+            public dsBalanceSheetRow this[int index] {
                 get {
-                    return ((dsCurrentTransactionLedgerReportRow)(this.Rows[index]));
+                    return ((dsBalanceSheetRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCurrentTransactionLedgerReportRowChangeEventHandler dsCurrentTransactionLedgerReportRowChanging;
+            public event dsBalanceSheetRowChangeEventHandler dsBalanceSheetRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCurrentTransactionLedgerReportRowChangeEventHandler dsCurrentTransactionLedgerReportRowChanged;
+            public event dsBalanceSheetRowChangeEventHandler dsBalanceSheetRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCurrentTransactionLedgerReportRowChangeEventHandler dsCurrentTransactionLedgerReportRowDeleting;
+            public event dsBalanceSheetRowChangeEventHandler dsBalanceSheetRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public event dsCurrentTransactionLedgerReportRowChangeEventHandler dsCurrentTransactionLedgerReportRowDeleted;
+            public event dsBalanceSheetRowChangeEventHandler dsBalanceSheetRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void AdddsCurrentTransactionLedgerReportRow(dsCurrentTransactionLedgerReportRow row) {
+            public void AdddsBalanceSheetRow(dsBalanceSheetRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionLedgerReportRow AdddsCurrentTransactionLedgerReportRow(string Date, string Description, string Debit, string Credit, string Balance, string TotalDebit, string TotalCredit, string TotalBalance, string CustomerName) {
-                dsCurrentTransactionLedgerReportRow rowdsCurrentTransactionLedgerReportRow = ((dsCurrentTransactionLedgerReportRow)(this.NewRow()));
+            public dsBalanceSheetRow AdddsBalanceSheetRow(string AccountPayable, string AccountReceivable, string Cash, string NetWorth, string OtherExpense, string StaffSalaries, string Stocks, string UtilityBills) {
+                dsBalanceSheetRow rowdsBalanceSheetRow = ((dsBalanceSheetRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        Date,
-                        Description,
-                        Debit,
-                        Credit,
-                        Balance,
-                        TotalDebit,
-                        TotalCredit,
-                        TotalBalance,
-                        CustomerName};
-                rowdsCurrentTransactionLedgerReportRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowdsCurrentTransactionLedgerReportRow);
-                return rowdsCurrentTransactionLedgerReportRow;
+                        AccountPayable,
+                        AccountReceivable,
+                        Cash,
+                        NetWorth,
+                        OtherExpense,
+                        StaffSalaries,
+                        Stocks,
+                        UtilityBills};
+                rowdsBalanceSheetRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdsBalanceSheetRow);
+                return rowdsBalanceSheetRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                dsCurrentTransactionLedgerReportDataTable cln = ((dsCurrentTransactionLedgerReportDataTable)(base.Clone()));
+                dsBalanceSheetDataTable cln = ((dsBalanceSheetDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -467,72 +456,69 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new dsCurrentTransactionLedgerReportDataTable();
+                return new dsBalanceSheetDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
-                this.columnDate = base.Columns["Date"];
-                this.columnDescription = base.Columns["Description"];
-                this.columnDebit = base.Columns["Debit"];
-                this.columnCredit = base.Columns["Credit"];
-                this.columnBalance = base.Columns["Balance"];
-                this.columnTotalDebit = base.Columns["TotalDebit"];
-                this.columnTotalCredit = base.Columns["TotalCredit"];
-                this.columnTotalBalance = base.Columns["TotalBalance"];
-                this.columnCustomerName = base.Columns["CustomerName"];
+                this.columnAccountPayable = base.Columns["AccountPayable"];
+                this.columnAccountReceivable = base.Columns["AccountReceivable"];
+                this.columnCash = base.Columns["Cash"];
+                this.columnNetWorth = base.Columns["NetWorth"];
+                this.columnOtherExpense = base.Columns["OtherExpense"];
+                this.columnStaffSalaries = base.Columns["StaffSalaries"];
+                this.columnStocks = base.Columns["Stocks"];
+                this.columnUtilityBills = base.Columns["UtilityBills"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate);
-                this.columnDescription = new global::System.Data.DataColumn("Description", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDescription);
-                this.columnDebit = new global::System.Data.DataColumn("Debit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDebit);
-                this.columnCredit = new global::System.Data.DataColumn("Credit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCredit);
-                this.columnBalance = new global::System.Data.DataColumn("Balance", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBalance);
-                this.columnTotalDebit = new global::System.Data.DataColumn("TotalDebit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalDebit);
-                this.columnTotalCredit = new global::System.Data.DataColumn("TotalCredit", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalCredit);
-                this.columnTotalBalance = new global::System.Data.DataColumn("TotalBalance", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTotalBalance);
-                this.columnCustomerName = new global::System.Data.DataColumn("CustomerName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomerName);
-                this.ExtendedProperties.Add("Generator_TablePropName", "_dsCurrentTransactionLedgerReport");
-                this.ExtendedProperties.Add("Generator_UserTableName", "dsCurrentTransactionLedgerReport");
+                this.columnAccountPayable = new global::System.Data.DataColumn("AccountPayable", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountPayable);
+                this.columnAccountReceivable = new global::System.Data.DataColumn("AccountReceivable", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAccountReceivable);
+                this.columnCash = new global::System.Data.DataColumn("Cash", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCash);
+                this.columnNetWorth = new global::System.Data.DataColumn("NetWorth", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNetWorth);
+                this.columnOtherExpense = new global::System.Data.DataColumn("OtherExpense", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOtherExpense);
+                this.columnStaffSalaries = new global::System.Data.DataColumn("StaffSalaries", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStaffSalaries);
+                this.columnStocks = new global::System.Data.DataColumn("Stocks", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnStocks);
+                this.columnUtilityBills = new global::System.Data.DataColumn("UtilityBills", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUtilityBills);
+                this.ExtendedProperties.Add("Generator_TablePropName", "_dsBalanceSheet");
+                this.ExtendedProperties.Add("Generator_UserTableName", "dsBalanceSheet");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionLedgerReportRow NewdsCurrentTransactionLedgerReportRow() {
-                return ((dsCurrentTransactionLedgerReportRow)(this.NewRow()));
+            public dsBalanceSheetRow NewdsBalanceSheetRow() {
+                return ((dsBalanceSheetRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new dsCurrentTransactionLedgerReportRow(builder);
+                return new dsBalanceSheetRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(dsCurrentTransactionLedgerReportRow);
+                return typeof(dsBalanceSheetRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.dsCurrentTransactionLedgerReportRowChanged != null)) {
-                    this.dsCurrentTransactionLedgerReportRowChanged(this, new dsCurrentTransactionLedgerReportRowChangeEvent(((dsCurrentTransactionLedgerReportRow)(e.Row)), e.Action));
+                if ((this.dsBalanceSheetRowChanged != null)) {
+                    this.dsBalanceSheetRowChanged(this, new dsBalanceSheetRowChangeEvent(((dsBalanceSheetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -540,8 +526,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.dsCurrentTransactionLedgerReportRowChanging != null)) {
-                    this.dsCurrentTransactionLedgerReportRowChanging(this, new dsCurrentTransactionLedgerReportRowChangeEvent(((dsCurrentTransactionLedgerReportRow)(e.Row)), e.Action));
+                if ((this.dsBalanceSheetRowChanging != null)) {
+                    this.dsBalanceSheetRowChanging(this, new dsBalanceSheetRowChangeEvent(((dsBalanceSheetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -549,8 +535,8 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.dsCurrentTransactionLedgerReportRowDeleted != null)) {
-                    this.dsCurrentTransactionLedgerReportRowDeleted(this, new dsCurrentTransactionLedgerReportRowChangeEvent(((dsCurrentTransactionLedgerReportRow)(e.Row)), e.Action));
+                if ((this.dsBalanceSheetRowDeleted != null)) {
+                    this.dsBalanceSheetRowDeleted(this, new dsBalanceSheetRowChangeEvent(((dsBalanceSheetRow)(e.Row)), e.Action));
                 }
             }
             
@@ -558,14 +544,14 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.dsCurrentTransactionLedgerReportRowDeleting != null)) {
-                    this.dsCurrentTransactionLedgerReportRowDeleting(this, new dsCurrentTransactionLedgerReportRowChangeEvent(((dsCurrentTransactionLedgerReportRow)(e.Row)), e.Action));
+                if ((this.dsBalanceSheetRowDeleting != null)) {
+                    this.dsBalanceSheetRowDeleting(this, new dsBalanceSheetRowChangeEvent(((dsBalanceSheetRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void RemovedsCurrentTransactionLedgerReportRow(dsCurrentTransactionLedgerReportRow row) {
+            public void RemovedsBalanceSheetRow(dsBalanceSheetRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -574,7 +560,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsCurrentTransactionLedgerReport ds = new dsCurrentTransactionLedgerReport();
+                dsBalanceSheet ds = new dsBalanceSheet();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -592,7 +578,7 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "dsCurrentTransactionLedgerReportDataTable";
+                attribute2.FixedValue = "dsBalanceSheetDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -636,276 +622,239 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class dsCurrentTransactionLedgerReportRow : global::System.Data.DataRow {
+        public partial class dsBalanceSheetRow : global::System.Data.DataRow {
             
-            private dsCurrentTransactionLedgerReportDataTable tabledsCurrentTransactionLedgerReport;
+            private dsBalanceSheetDataTable tabledsBalanceSheet;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            internal dsCurrentTransactionLedgerReportRow(global::System.Data.DataRowBuilder rb) : 
+            internal dsBalanceSheetRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tabledsCurrentTransactionLedgerReport = ((dsCurrentTransactionLedgerReportDataTable)(this.Table));
+                this.tabledsBalanceSheet = ((dsBalanceSheetDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Date {
+            public string AccountPayable {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.DateColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.AccountPayableColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'dsCurrentTransactionLedgerReport\' is DBNull" +
-                                ".", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountPayable\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.DateColumn] = value;
+                    this[this.tabledsBalanceSheet.AccountPayableColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Description {
+            public string AccountReceivable {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.DescriptionColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.AccountReceivableColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Description\' in table \'dsCurrentTransactionLedgerReport\' is" +
-                                " DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'AccountReceivable\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.DescriptionColumn] = value;
+                    this[this.tabledsBalanceSheet.AccountReceivableColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Debit {
+            public string Cash {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.DebitColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.CashColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Debit\' in table \'dsCurrentTransactionLedgerReport\' is DBNul" +
-                                "l.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Cash\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.DebitColumn] = value;
+                    this[this.tabledsBalanceSheet.CashColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Credit {
+            public string NetWorth {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.CreditColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.NetWorthColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Credit\' in table \'dsCurrentTransactionLedgerReport\' is DBNu" +
-                                "ll.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'NetWorth\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.CreditColumn] = value;
+                    this[this.tabledsBalanceSheet.NetWorthColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string Balance {
+            public string OtherExpense {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.BalanceColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.OtherExpenseColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Balance\' in table \'dsCurrentTransactionLedgerReport\' is DBN" +
-                                "ull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'OtherExpense\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.BalanceColumn] = value;
+                    this[this.tabledsBalanceSheet.OtherExpenseColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TotalDebit {
+            public string StaffSalaries {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.StaffSalariesColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalDebit\' in table \'dsCurrentTransactionLedgerReport\' is " +
-                                "DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'StaffSalaries\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn] = value;
+                    this[this.tabledsBalanceSheet.StaffSalariesColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TotalCredit {
+            public string Stocks {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.StocksColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalCredit\' in table \'dsCurrentTransactionLedgerReport\' is" +
-                                " DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Stocks\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn] = value;
+                    this[this.tabledsBalanceSheet.StocksColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string TotalBalance {
+            public string UtilityBills {
                 get {
                     try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn]));
+                        return ((string)(this[this.tabledsBalanceSheet.UtilityBillsColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TotalBalance\' in table \'dsCurrentTransactionLedgerReport\' i" +
-                                "s DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'UtilityBills\' in table \'dsBalanceSheet\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn] = value;
+                    this[this.tabledsBalanceSheet.UtilityBillsColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string CustomerName {
-                get {
-                    try {
-                        return ((string)(this[this.tabledsCurrentTransactionLedgerReport.CustomerNameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'CustomerName\' in table \'dsCurrentTransactionLedgerReport\' i" +
-                                "s DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tabledsCurrentTransactionLedgerReport.CustomerNameColumn] = value;
-                }
+            public bool IsAccountPayableNull() {
+                return this.IsNull(this.tabledsBalanceSheet.AccountPayableColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDateNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.DateColumn);
+            public void SetAccountPayableNull() {
+                this[this.tabledsBalanceSheet.AccountPayableColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDateNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.DateColumn] = global::System.Convert.DBNull;
+            public bool IsAccountReceivableNull() {
+                return this.IsNull(this.tabledsBalanceSheet.AccountReceivableColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDescriptionNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.DescriptionColumn);
+            public void SetAccountReceivableNull() {
+                this[this.tabledsBalanceSheet.AccountReceivableColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDescriptionNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.DescriptionColumn] = global::System.Convert.DBNull;
+            public bool IsCashNull() {
+                return this.IsNull(this.tabledsBalanceSheet.CashColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsDebitNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.DebitColumn);
+            public void SetCashNull() {
+                this[this.tabledsBalanceSheet.CashColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetDebitNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.DebitColumn] = global::System.Convert.DBNull;
+            public bool IsNetWorthNull() {
+                return this.IsNull(this.tabledsBalanceSheet.NetWorthColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCreditNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.CreditColumn);
+            public void SetNetWorthNull() {
+                this[this.tabledsBalanceSheet.NetWorthColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCreditNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.CreditColumn] = global::System.Convert.DBNull;
+            public bool IsOtherExpenseNull() {
+                return this.IsNull(this.tabledsBalanceSheet.OtherExpenseColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsBalanceNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.BalanceColumn);
+            public void SetOtherExpenseNull() {
+                this[this.tabledsBalanceSheet.OtherExpenseColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetBalanceNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.BalanceColumn] = global::System.Convert.DBNull;
+            public bool IsStaffSalariesNull() {
+                return this.IsNull(this.tabledsBalanceSheet.StaffSalariesColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalDebitNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn);
+            public void SetStaffSalariesNull() {
+                this[this.tabledsBalanceSheet.StaffSalariesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalDebitNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.TotalDebitColumn] = global::System.Convert.DBNull;
+            public bool IsStocksNull() {
+                return this.IsNull(this.tabledsBalanceSheet.StocksColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalCreditNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn);
+            public void SetStocksNull() {
+                this[this.tabledsBalanceSheet.StocksColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalCreditNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.TotalCreditColumn] = global::System.Convert.DBNull;
+            public bool IsUtilityBillsNull() {
+                return this.IsNull(this.tabledsBalanceSheet.UtilityBillsColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsTotalBalanceNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetTotalBalanceNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.TotalBalanceColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public bool IsCustomerNameNull() {
-                return this.IsNull(this.tabledsCurrentTransactionLedgerReport.CustomerNameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public void SetCustomerNameNull() {
-                this[this.tabledsCurrentTransactionLedgerReport.CustomerNameColumn] = global::System.Convert.DBNull;
+            public void SetUtilityBillsNull() {
+                this[this.tabledsBalanceSheet.UtilityBillsColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -913,22 +862,22 @@ namespace ERP.WpfClient.Reports.Dataset.LedgerReport {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-        public class dsCurrentTransactionLedgerReportRowChangeEvent : global::System.EventArgs {
+        public class dsBalanceSheetRowChangeEvent : global::System.EventArgs {
             
-            private dsCurrentTransactionLedgerReportRow eventRow;
+            private dsBalanceSheetRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionLedgerReportRowChangeEvent(dsCurrentTransactionLedgerReportRow row, global::System.Data.DataRowAction action) {
+            public dsBalanceSheetRowChangeEvent(dsBalanceSheetRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public dsCurrentTransactionLedgerReportRow Row {
+            public dsBalanceSheetRow Row {
                 get {
                     return this.eventRow;
                 }

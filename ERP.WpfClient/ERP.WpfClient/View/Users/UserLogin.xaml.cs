@@ -61,19 +61,19 @@ namespace ERP.WpfClient.View.Users
                         //BusyBar.IsBusy = true;
                         this.Dispatcher.Invoke(new Action(() => { BusyBar.IsBusy = true; }));
 
-                        AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault();
-                        if (appSetting != null)
-                        {
-                            if (appSetting.AppEndDate == DateTime.Now)
-                            {
-                                this.Dispatcher.BeginInvoke(new Action(() =>
-                                {
-                                    lblValidate.Text = "Application Expired ! Contact your administrator.";
-                                    lblValidate.Visibility = Visibility.Visible;
-                                }));
-                                return;
-                            }
-                        }
+                        //AppSetting appSetting = _appSettingRepository.Get().FirstOrDefault();
+                        //if (appSetting != null)
+                        //{
+                        //    if (appSetting.AppEndDate == DateTime.Now)
+                        //    {
+                        //        this.Dispatcher.BeginInvoke(new Action(() =>
+                        //        {
+                        //            lblValidate.Text = "Application Expired ! Contact your administrator.";
+                        //            lblValidate.Visibility = Visibility.Visible;
+                        //        }));
+                        //        return;
+                        //    }
+                        //}
 
                         if (Username == "admin@superadmin.com" && Password == "superadmin123")
                         {
